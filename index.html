@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikh Professional Network — Coming Soon</title>
+    <meta name="description" content="Sikh Professional Network — Connecting Sikh professionals worldwide. Website coming soon.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a2744;
+            --saffron: #f4a623;
+            --white: #ffffff;
+            --light-gray: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(244, 166, 35, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(244, 166, 35, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .khanda {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(244, 166, 35, 0.3));
+        }
+
+        .khanda img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            color: var(--saffron);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(244, 166, 35, 0.12);
+            border: 1px solid rgba(244, 166, 35, 0.25);
+            color: var(--saffron);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--saffron);
+            margin: 0 auto 2rem;
+            opacity: 0.5;
+        }
+
+        .contact {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact a {
+            color: var(--saffron);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .contact a:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container > * {
+            animation: fadeIn 0.8s ease-out both;
+        }
+        .container > *:nth-child(1) { animation-delay: 0.1s; }
+        .container > *:nth-child(2) { animation-delay: 0.2s; }
+        .container > *:nth-child(3) { animation-delay: 0.3s; }
+        .container > *:nth-child(4) { animation-delay: 0.4s; }
+        .container > *:nth-child(5) { animation-delay: 0.5s; }
+        .container > *:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="khanda">☬</div>
+        <h1>Sikh <span>Professional</span> Network</h1>
+        <p class="tagline">Connecting Sikh professionals worldwide</p>
+        <div class="badge">Website Coming Soon</div>
+        <div class="divider"></div>
+        <p class="contact">Get in touch — <a href="mailto:Admin@sikhpn.org">Admin@sikhpn.org</a></p>
+    </div>
+</body>
+</html>
