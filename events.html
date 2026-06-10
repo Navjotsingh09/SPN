@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Sikh Professionals Network</title>
+  <meta name="description" content="SPN hosts impactful events across the United Kingdom, bringing professionals together to connect, learn, share expertise, and serve society.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/footer.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:.85}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px;
+      font-variation-settings:'wdth' 100
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── HERO ── */
+    .hero{background:#fff;padding:32px var(--px)}
+    .hero-card{
+      background:var(--dark);border-radius:20px;
+      min-height:560px;display:flex;align-items:center;justify-content:center;
+      padding:32px 121px;max-width:calc(var(--max) - 2*var(--px));margin:0 auto
+    }
+    .hero-inner{
+      display:flex;flex-direction:column;align-items:center;gap:32px;
+      max-width:948px;width:100%;text-align:center
+    }
+    .hero-label{
+      font-family:'Instrument Sans',sans-serif;font-size:20px;font-weight:700;
+      color:#fff;line-height:42px;letter-spacing:-1px;width:100%;
+      font-variation-settings:'wdth' 100
+    }
+    .hero-h1{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:64px;letter-spacing:-3.2px;width:100%
+    }
+    .hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:#fff;line-height:28px;width:100%;
+      font-variation-settings:'wdth' 100
+    }
+    .hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center}
+
+    /* ── LOGO BAR ── */
+    .logo-bar{
+      background:var(--dark2);padding:32px 0;
+      overflow:hidden;position:relative
+    }
+    .logo-bar::before,
+    .logo-bar::after{
+      content:'';
+      position:absolute;top:0;width:200px;height:100%;z-index:2;
+      background:linear-gradient(to right,#172e49 0%,rgba(23,46,73,0) 100%)
+    }
+    .logo-bar::before{left:0}
+    .logo-bar::after{right:0;transform:rotateZ(180deg)}
+    .logo-track{
+      display:flex;
+      width:calc(220px * 10);
+      animation:logo-scroll 30s linear infinite
+    }
+    .logo-track:hover{animation-play-state:paused}
+    @keyframes logo-scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(calc(-220px * 5))}
+    }
+    .logo-slide{
+      height:80px;width:220px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center
+    }
+    .logo-slide img{height:40px;width:auto;max-width:160px;display:block;object-fit:contain}
+
+    /* ── SECTION HEADER ── */
+    .section-header{
+      display:flex;gap:69px;align-items:center;justify-content:center;width:100%
+    }
+    .section-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px;flex-shrink:0
+    }
+    .section-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;max-width:581px;flex:1;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── EVENT CARDS ── */
+    .events-section{background:#fff;padding:100px var(--px) 124px}
+    .events-inner{display:flex;flex-direction:column;gap:88px;width:100%}
+    .events-grid{display:flex;flex-direction:column;gap:44px;width:100%}
+    .events-row{display:flex;gap:44px;width:100%}
+
+    .event-card{
+      flex:1;min-width:0;
+      position:relative;background:#fff;
+      border:1px solid #cdd0d3;border-radius:20px;
+      overflow:hidden;height:516px;
+      display:flex;flex-direction:column;justify-content:flex-end;
+      padding:0 24px 24px
+    }
+    .event-card-bg{
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      overflow:hidden
+    }
+    .event-card-bg img{
+      width:100%;height:100%;object-fit:cover;object-position:center top
+    }
+    /* gradient overlay so content box reads well */
+    .event-card-bg::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,0) 30%,rgba(0,0,0,.12) 60%,rgba(255,255,255,.85) 80%,#fff 100%)
+    }
+    .event-card-content{
+      position:relative;z-index:1;
+      background:#fff;border-radius:12px;padding:20px;
+      display:flex;flex-direction:column;gap:20px;width:100%
+    }
+    .event-tags{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .event-tag{
+      background:#c7dbf2;border-radius:4px;padding:4px 8px;
+      font-family:'Inter',sans-serif;font-size:12px;font-weight:400;
+      color:var(--text);line-height:1.5;white-space:nowrap
+    }
+    .event-title{
+      font-family:'Inter',sans-serif;font-size:24px;font-weight:500;
+      color:var(--text);line-height:28px;letter-spacing:-1.44px;width:100%
+    }
+    .event-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-grey);line-height:18px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── PHOTO BANNER ── */
+    .photo-banner{
+      width:100%;overflow:hidden;
+      height:481px;position:relative
+    }
+    .photo-banner img{
+      width:100%;height:100%;object-fit:cover;object-position:center
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works{background:#fff;padding:100px var(--px)}
+    .hiw-inner{display:flex;flex-direction:column;gap:64px;width:100%}
+    .hiw-header{display:flex;gap:32px;align-items:flex-end;width:100%}
+    .hiw-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px;flex:1
+    }
+    .hiw-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;flex:1;
+      font-variation-settings:'wdth' 100
+    }
+    .hiw-grid{display:flex;flex-direction:column;gap:24px;width:100%}
+    .hiw-row{display:flex;gap:24px;width:100%}
+    .hiw-card{
+      flex:1;min-width:0;
+      border-radius:20px;padding:32px;
+      display:flex;flex-direction:column;gap:20px
+    }
+    .hiw-card.dark{background:var(--dark)}
+    .hiw-card.light{background:#dee2e8}
+    .hiw-step{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      line-height:32px;letter-spacing:-0.72px
+    }
+    .hiw-card.dark .hiw-step{color:#fff}
+    .hiw-card.light .hiw-step{color:var(--dark)}
+    .hiw-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      line-height:24px;font-variation-settings:'wdth' 100
+    }
+    .hiw-card.dark .hiw-text{color:#949494}
+    .hiw-card.light .hiw-text{color:var(--text)}
+    .hiw-link{
+      display:inline-flex;align-items:center;gap:4px;
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      line-height:24px;letter-spacing:-0.16px;cursor:pointer;
+      font-variation-settings:'wdth' 100
+    }
+    .hiw-card.dark .hiw-link{color:#fff}
+    .hiw-card.light .hiw-link{color:var(--dark)}
+    .hiw-link svg{flex-shrink:0}
+
+    /* ── ATTEND / SPEAK / SUPPORT ── */
+    .attend{
+      position:relative;overflow:hidden;
+      background:var(--dark);
+      padding:80px var(--px);min-height:708px;
+      display:flex;align-items:center
+    }
+    .attend-bg{
+      position:absolute;inset:0;overflow:hidden
+    }
+    .attend-bg img{
+      width:100%;height:100%;object-fit:cover;object-position:center;
+      opacity:.89
+    }
+    .attend-card{
+      position:relative;z-index:1;
+      background:#fff;border-radius:12px;padding:40px;
+      max-width:597px;width:100%
+    }
+    .attend-card-inner{display:flex;flex-direction:column;gap:32px}
+    .attend-text{display:flex;flex-direction:column;gap:24px}
+    .attend-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .attend-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .attend-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+
+    /* ── FAQ ── */
+    .faq{background:#fff;padding:80px var(--px)}
+    .faq-inner{
+      max-width:1128px;margin:0 auto;
+      display:flex;flex-direction:column;gap:35px
+    }
+    .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .faq-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text);line-height:42px;letter-spacing:-0.8px;
+      font-variation-settings:'wdth' 100
+    }
+    .faq-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .faq-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-grey);line-height:18px;letter-spacing:-0.8px;
+      font-variation-settings:'wdth' 100
+    }
+    .faq-list{
+      display:flex;flex-direction:column;
+      max-width:1038px;margin:0 auto;width:100%;
+      border-top:1px solid rgba(184,108,64,.3)
+    }
+    .faq-item{border-bottom:1px solid rgba(184,108,64,.3)}
+    .faq-question{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 0;cursor:pointer;list-style:none;gap:16px
+    }
+    .faq-question::-webkit-details-marker{display:none}
+    .faq-q-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px;letter-spacing:-0.16px;
+      font-variation-settings:'wdth' 100
+    }
+    .faq-icon{
+      flex-shrink:0;transition:transform .3s ease;display:flex;align-items:center
+    }
+    .faq-item[open] .faq-icon{transform:rotate(90deg)}
+    .faq-body{overflow:hidden;height:0;transition:height .45s cubic-bezier(.4,0,.2,1)}
+    .faq-answer{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;padding-bottom:24px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1280px){
+      :root{--px:80px}
+    }
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .nav-logo-text{font-size:30px}
+      .hero-card{padding:32px 48px;min-height:480px}
+      .hero-h1{font-size:48px;line-height:52px}
+      .hero-label{font-size:18px}
+      .section-header{flex-direction:column;gap:24px;align-items:flex-start}
+      .section-heading{font-size:48px;line-height:52px}
+      .events-row{flex-direction:column}
+      .event-card{height:480px}
+      .hiw-header{flex-direction:column;gap:16px;align-items:flex-start}
+      .hiw-heading{font-size:40px;line-height:48px}
+      .hiw-row{flex-direction:column}
+      .attend{padding:60px var(--px)}
+      .attend-heading{font-size:40px;line-height:48px}
+    }
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .nav-logo-text{font-size:26px}
+      .hero-card{padding:32px 24px;min-height:400px}
+      .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
+      .hero-label{font-size:16px}
+      .section-heading{font-size:36px;line-height:40px}
+      .logo-slide{width:160px}
+      .logo-track{width:calc(160px * 10)}
+      .logo-slide img{height:30px}
+      .events-section{padding:60px var(--px) 80px}
+      .events-inner{gap:60px}
+      .event-card{height:auto;min-height:440px}
+      .event-card-bg{height:260px}
+      .photo-banner{height:300px}
+      .how-it-works{padding:60px var(--px)}
+      .hiw-heading{font-size:32px;line-height:40px}
+      .attend{min-height:auto;padding:40px var(--px)}
+      .attend-card{padding:28px 24px}
+      .attend-heading{font-size:32px;line-height:40px}
+      .faq{padding:60px var(--px)}
+      .faq-heading{font-size:36px;line-height:44px}
+      .faq-list{max-width:100%}
+    }
+    @media(max-width:480px){
+      .hero-card{padding:24px 20px;min-height:360px}
+      .hero-h1{font-size:28px;line-height:34px;letter-spacing:-1.5px}
+      .hero-label{font-size:14px}
+      .hero-desc{font-size:16px}
+      .btn{padding:8px 18px;font-size:14px}
+      .logo-slide{width:120px}
+      .logo-track{width:calc(120px * 10)}
+      .logo-slide img{height:24px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .logo-track{animation:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/8437fe40-dfaa-4d42-89ff-663a8d37a962" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="advisors.html">Advisors</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="#join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-inner">
+      <div style="display:flex;flex-direction:column;gap:24px;align-items:center;width:100%">
+        <p class="hero-label">Sikh Professionals Network</p>
+        <h1 class="hero-h1">SPN Events</h1>
+      </div>
+      <p class="hero-desc">SPN hosts impactful events across the United Kingdom, bringing professionals together to connect, learn, share expertise, and serve society, while fostering collaboration, innovation, and meaningful impact.</p>
+      <div class="hero-actions">
+        <a href="#upcoming-events" class="btn btn-primary">View Events</a>
+        <a href="#join" class="btn btn-outline-white">Join SPN for Invitations</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOGO BAR ===== -->
+<section class="logo-bar" aria-label="Partners and affiliates">
+  <div class="logo-track">
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt="Partner"></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt=""></div>
+  </div>
+</section>
+
+<!-- ===== UPCOMING EVENTS ===== -->
+<section class="events-section" id="upcoming-events">
+  <div class="events-inner">
+
+    <!-- Section header -->
+    <div class="section-header">
+      <h2 class="section-heading">Upcoming Events</h2>
+      <p class="section-desc">Explore our upcoming events — expert advice, industry insight and opportunities to connect, grow, and serve.</p>
+    </div>
+
+    <!-- Event cards grid -->
+    <div class="events-grid">
+      <!-- Row 1 -->
+      <div class="events-row">
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="https://www.figma.com/api/mcp/asset/e0a9ec30-96c5-43da-a282-12f5860e811d" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">SPN Professional Networking Evening</h3>
+            <p class="event-desc">An opportunity for Sikh professionals to meet, build connections and learn more about the SPN mission.</p>
+            <a href="#join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="https://www.figma.com/api/mcp/asset/ea0fc7b1-8b0b-4253-b914-34e0242c35c8" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">Careers and Identity Webinar</h3>
+            <p class="event-desc">A practical session exploring how Sikh professionals can build confidence, progress in their careers, and remain grounded in Sikh values.</p>
+            <a href="#join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="events-row">
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="https://www.figma.com/api/mcp/asset/e0a9ec30-96c5-43da-a282-12f5860e811d" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">SPN Panel Discussion</h3>
+            <p class="event-desc">A cross-sector panel featuring Sikh professionals discussing leadership, integrity, workplace confidence and seva.</p>
+            <a href="#join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="https://www.figma.com/api/mcp/asset/ea0fc7b1-8b0b-4253-b914-34e0242c35c8" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">Professional Insight Day</h3>
+            <p class="event-desc">An immersive learning opportunity for students and emerging professionals to understand different sectors and career pathways.</p>
+            <a href="#join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED EVENTS ===== -->
+<section class="events-section" style="padding-top:0" id="featured-events">
+  <div class="events-inner">
+
+    <!-- Section header -->
+    <div class="section-header">
+      <h2 class="section-heading">Featured Events</h2>
+      <p class="section-desc">SPN's UK events bring professionals together to connect, learn, share expertise, and serve society while fostering impact.</p>
+    </div>
+
+    <!-- Event cards grid -->
+    <div class="events-grid">
+      <div class="events-row">
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="https://www.figma.com/api/mcp/asset/e0a9ec30-96c5-43da-a282-12f5860e811d" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">Parliament Day</h3>
+            <p class="event-desc">A flagship SPN event designed to give Sikh professionals and emerging leaders deep insights into public life, leadership, representation, and civic responsibility.</p>
+            <a href="#join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="https://www.figma.com/api/mcp/asset/ea0fc7b1-8b0b-4253-b914-34e0242c35c8" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">SPN Awards</h3>
+            <p class="event-desc">The SPN Awards recognise exceptional Sikh professionals who demonstrate excellence, integrity, leadership, and spirit of service in their careers and wider communities.</p>
+            <a href="#join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO BANNER ===== -->
+<div class="photo-banner" aria-hidden="true">
+  <img src="https://www.figma.com/api/mcp/asset/121e6939-f102-4841-9dc9-69c12e63dbe8" alt="">
+</div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works">
+  <div class="hiw-inner">
+    <header class="hiw-header">
+      <h2 class="hiw-heading">How It Works</h2>
+      <p class="hiw-desc">Getting started is simple. Join SPN and stay connected through events and opportunities.</p>
+    </header>
+    <div class="hiw-grid">
+      <!-- Row 1 -->
+      <div class="hiw-row">
+        <div class="hiw-card dark">
+          <div>
+            <h3 class="hiw-step">1. Join SPN</h3>
+          </div>
+          <p class="hiw-text">Getting started is simple. Register your details so we understand your profession, interests, and experience.</p>
+          <a href="#join" class="hiw-link">
+            Join SPN
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M13 6l6 6-6 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="hiw-card light">
+          <div>
+            <h3 class="hiw-step">2. Receive Invitations</h3>
+          </div>
+          <p class="hiw-text">Stay in the loop. Receive updates about upcoming events, webinars, and opportunities.</p>
+          <a href="#join" class="hiw-link">
+            Receive Invitations
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="#132030" stroke-width="1.5" stroke-linecap="round"/><path d="M13 6l6 6-6 6" stroke="#132030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="hiw-row">
+        <div class="hiw-card light">
+          <div>
+            <h3 class="hiw-step">3. Attend and Connect</h3>
+          </div>
+          <p class="hiw-text">Participate in events, learn from experts, and build meaningful connections.</p>
+          <a href="#upcoming-events" class="hiw-link">
+            Connect
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="#132030" stroke-width="1.5" stroke-linecap="round"/><path d="M13 6l6 6-6 6" stroke="#132030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="hiw-card light">
+          <div>
+            <h3 class="hiw-step">4. Contribute</h3>
+          </div>
+          <p class="hiw-text">Members can support the community by stepping up as speakers, mentors, advisors, or volunteers.</p>
+          <a href="#attend" class="hiw-link">
+            Contribute
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="#132030" stroke-width="1.5" stroke-linecap="round"/><path d="M13 6l6 6-6 6" stroke="#132030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ATTEND, SPEAK OR SUPPORT ===== -->
+<section class="attend" id="attend">
+  <div class="attend-bg">
+    <img src="https://www.figma.com/api/mcp/asset/e048c9b1-66ef-4710-b6dd-08222ef2bfc4" alt="">
+  </div>
+  <div class="attend-card">
+    <div class="attend-card-inner">
+      <div class="attend-text">
+        <h2 class="attend-heading">Attend, Speak or Support</h2>
+        <p class="attend-desc">SPN events are built around connection, empowerment and service. Join the network to receive invitations, contribute as a speaker or support future events.</p>
+      </div>
+      <div class="attend-actions">
+        <a href="#join" class="btn btn-outline">Join SPN</a>
+        <a href="#join" class="btn btn-primary">Express Interest as a Speaker</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="faq-sub">Common questions</p>
+      <h2 class="faq-heading">FAQ</h2>
+      <p class="faq-desc">Everything you need to know about SPN events.</p>
+    </header>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Are SPN events online or in person?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">SPN runs a mix of in-person events across the UK as well as online webinars and panel discussions, ensuring members from all parts of the country can participate and benefit.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Do I need to be a member to attend events?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Some events are open to the public, while others are exclusive to SPN members. Joining SPN ensures you receive invitations to all upcoming events and have priority access to exclusive sessions.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Can I speak at an SPN event?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Yes. SPN welcomes professionals who want to share their knowledge and experience. If you are interested in speaking or moderating at an event, please register your interest using the form above.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">What types of events will SPN run?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">SPN hosts a wide range of events including networking evenings, career webinars, panel discussions, Parliament Day, professional insight days, and the annual SPN Awards — all designed to connect, empower, and inspire.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+</script>
+
+<script>
+  // FAQ accordion with animated height
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var summary = item.querySelector('.faq-question');
+    var body = item.querySelector('.faq-body');
+    var inner = body ? body.querySelector('.faq-answer') : null;
+    if (!summary || !body || !inner) return;
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = item.hasAttribute('open');
+      document.querySelectorAll('.faq-item[open]').forEach(function(o) {
+        var b = o.querySelector('.faq-body');
+        if (b) b.style.height = '0';
+        o.removeAttribute('open');
+      });
+      if (!isOpen) {
+        item.setAttribute('open', '');
+        body.style.height = inner.offsetHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
