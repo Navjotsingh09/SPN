@@ -101,19 +101,33 @@
     .hero-actions{display:flex;gap:16px;align-items:center}
 
     /* ── LOGO BAR ── */
-    .logo-bar{background:var(--dark2);padding:32px 0;overflow:hidden}
-    .logo-reel{
-      display:flex;align-items:center;gap:72px;
-      width:max-content;
-      animation:logo-scroll 32s linear infinite
+    .logo-bar{
+      background:var(--dark2);padding:32px 0;
+      overflow:hidden;position:relative
     }
-    .logo-reel:hover{animation-play-state:paused}
+    .logo-bar::before,
+    .logo-bar::after{
+      content:'';
+      position:absolute;top:0;width:200px;height:100%;z-index:2;
+      background:linear-gradient(to right,#172e49 0%,rgba(23,46,73,0) 100%)
+    }
+    .logo-bar::before{left:0}
+    .logo-bar::after{right:0;transform:rotateZ(180deg)}
+    .logo-track{
+      display:flex;
+      width:calc(220px * 10);
+      animation:logo-scroll 30s linear infinite
+    }
+    .logo-track:hover{animation-play-state:paused}
     @keyframes logo-scroll{
       0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
+      100%{transform:translateX(calc(-220px * 5))}
     }
-    .logo-item{flex-shrink:0;display:flex;align-items:center}
-    .logo-item img{height:40px;width:auto;max-width:160px;display:block;object-fit:contain}
+    .logo-slide{
+      height:80px;width:220px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center
+    }
+    .logo-slide img{height:40px;width:auto;max-width:160px;display:block;object-fit:contain}
 
     /* ── FEATURES ── */
     .features{background:#fff;padding:50px var(--px)}
@@ -602,8 +616,9 @@
       .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
       .hero-desc{font-size:15px;line-height:24px}
       /* logo bar */
-      .logo-reel{gap:40px}
-      .logo-item img{height:30px}
+      .logo-slide{width:160px}
+      .logo-track{width:calc(160px * 10)}
+      .logo-slide img{height:30px}
       /* features */
       .section-heading{font-size:36px;line-height:40px}
       .feature-cards{grid-template-columns:1fr}
@@ -646,8 +661,9 @@
       .hero-desc{font-size:14px;line-height:20px}
       .hero-actions{flex-wrap:wrap;justify-content:center;gap:10px}
       /* logo bar */
-      .logo-reel{gap:28px}
-      .logo-item img{height:24px}
+      .logo-slide{width:120px}
+      .logo-track{width:calc(120px * 10)}
+      .logo-slide img{height:24px}
       /* buttons */
       .btn{padding:8px 18px;font-size:14px}
       /* stats */
@@ -680,8 +696,8 @@
       <span class="nav-logo-text">SPN</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="#advisors">Advisors</a></li>
       <li><a href="#network">Network</a></li>
       <li><a href="#events">Events</a></li>
@@ -717,18 +733,18 @@
 
 <!-- ===== LOGO BAR ===== -->
 <section class="logo-bar" aria-label="Partners and affiliates">
-  <div class="logo-reel">
-    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt="Partner"></div>
-    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt="Partner"></div>
-    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt="Partner"></div>
-    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt="Partner"></div>
-    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt="Partner"></div>
+  <div class="logo-track">
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt="Partner"></div>
     <!-- duplicates for seamless loop -->
-    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt=""></div>
-    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt=""></div>
-    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt=""></div>
-    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt=""></div>
-    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt=""></div>
   </div>
 </section>
 
