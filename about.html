@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/footer.css">
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
@@ -346,98 +347,6 @@
       color:var(--text-mid);line-height:24px;padding-bottom:24px
     }
 
-    /* ── FOOTER ── */
-    .footer{background:var(--dark);padding:80px var(--px);overflow:hidden}
-    .footer-inner{
-      max-width:1169px;margin:0 auto;
-      display:flex;flex-direction:column;gap:64px
-    }
-    .footer-top{display:flex;gap:200px;align-items:flex-start}
-    .footer-left{display:flex;flex-direction:column;gap:32px;width:499px;flex-shrink:0}
-    .footer-logo-block{display:flex;flex-direction:column;gap:40px}
-    .footer-logo{display:flex;align-items:center}
-    .footer-logo-mark{
-      width:41px;height:48px;background:#fff;
-      display:flex;align-items:center;justify-content:center;flex-shrink:0
-    }
-    .footer-logo-mark img{width:26px;height:26px;object-fit:contain}
-    .footer-logo-text{
-      font-family:'Lora',serif;font-size:39px;font-weight:400;color:#fff;
-      letter-spacing:-0.32px;line-height:1;padding-left:14px
-    }
-    .footer-tagline{
-      font-family:'Lora',serif;font-size:36px;font-weight:400;
-      color:#fff;line-height:40px;letter-spacing:-1.08px;width:493px
-    }
-    .footer-desc{
-      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
-      color:#fff;line-height:28px;width:493px
-    }
-    .footer-follow{display:flex;flex-direction:column;gap:16px}
-    .footer-follow-label{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
-      color:#fff;line-height:1.5
-    }
-    .footer-social{display:flex;gap:8px;align-items:center;width:416px;flex-wrap:wrap}
-    .footer-social-link{
-      display:flex;flex:1;align-items:center;gap:8px;color:#fff;
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;line-height:1.5
-    }
-    .footer-social-link img{width:24px;height:24px;flex-shrink:0}
-    .footer-right{flex:1;display:flex;flex-direction:column;gap:16px;justify-content:flex-start}
-    .footer-hours{
-      display:flex;justify-content:flex-end;gap:40px;
-      font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;line-height:1.5
-    }
-    .footer-divider{height:1px;background:var(--accent)}
-    .footer-email-form{display:flex;gap:24px;align-items:flex-end;margin-top:4px}
-    .footer-email-field{flex:1;display:flex;flex-direction:column;gap:8px}
-    .footer-email-label{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#fff;line-height:24px;letter-spacing:-0.128px
-    }
-    .footer-email-input{
-      border:none;border-bottom:1px solid #fff;background:transparent;
-      padding:4px 0;font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;outline:none
-    }
-    .footer-email-input::placeholder{color:rgba(255,255,255,.4)}
-    .footer-privacy{
-      font-family:'Instrument Sans',sans-serif;font-size:10px;color:#fff;line-height:1.5
-    }
-    .footer-privacy a{color:#fff;text-decoration:underline}
-    .footer-bottom{display:flex;flex-direction:column;gap:40px}
-    .footer-nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-    .footer-nav-links,.footer-legal-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
-    .footer-nav-links a,.footer-legal-links a{
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
-      color:#fff;text-decoration:none;line-height:1.5
-    }
-    .footer-nav-links a:hover,.footer-legal-links a:hover{text-decoration:underline}
-    .footer-copyright-bar{
-      display:flex;align-items:center;justify-content:space-between;gap:16px
-    }
-    .footer-copyright-logo{display:flex;align-items:center;gap:8px}
-    .footer-copyright-logo-mark{
-      width:28px;height:28px;background:#fff;
-      display:flex;align-items:center;justify-content:center;flex-shrink:0
-    }
-    .footer-copyright-logo-mark img{width:18px;height:18px;object-fit:contain}
-    .footer-copyright-logo-name{
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:700;
-      color:#fff;letter-spacing:0.5px
-    }
-    .footer-copyright{
-      font-family:'Instrument Sans',sans-serif;
-      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
-      text-align:center
-    }
-    .footer-siteby{
-      font-family:'Instrument Sans',sans-serif;
-      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
-      white-space:nowrap
-    }
-    .footer-siteby a{color:#fff;text-decoration:none}
-    .footer-siteby a:hover{text-decoration:underline}
 
     /* ── RESPONSIVE ── */
     @media(max-width:1280px){
@@ -468,11 +377,6 @@
       .join-cta{min-height:auto;padding:60px var(--px)}
       .join-cta-card{width:100%;max-width:100%}
       .join-cta-heading{font-size:40px;line-height:48px}
-      .footer-top{flex-direction:column;gap:48px}
-      .footer-left{width:100%}
-      .footer-tagline,.footer-desc{width:100%}
-      .footer-hours{justify-content:flex-start;flex-wrap:wrap;gap:16px}
-      .footer-social{width:100%}
     }
 
     @media(max-width:700px){
@@ -491,12 +395,6 @@
       .join-cta-heading{font-size:32px;line-height:40px}
       .faq-heading{font-size:36px;line-height:44px}
       .faq-list{max-width:100%}
-      .footer-top{gap:32px}
-      .footer-logo-text{font-size:28px}
-      .footer-tagline{font-size:28px;line-height:34px;width:100%}
-      .footer-desc{font-size:16px;width:100%}
-      .footer-nav{flex-direction:column;align-items:flex-start}
-      .footer-nav-links,.footer-legal-links{flex-wrap:wrap;gap:12px}
       .about-section-heading{font-size:28px;line-height:34px}
     }
 
@@ -510,10 +408,6 @@
       .hero-label{font-size:14px;line-height:22px}
       .hero-desc{font-size:14px;line-height:20px}
       .btn{padding:8px 18px;font-size:14px}
-      .footer{padding:48px var(--px)}
-      .footer-tagline{font-size:24px;line-height:30px}
-      .footer-logo-text{font-size:24px}
-      .footer-email-form{flex-direction:column;gap:16px}
     }
 
     @media(prefers-reduced-motion:reduce){
