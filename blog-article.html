@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Sikh Professional Networks Matter — Sikh Professionals Network</title>
+  <meta name="description" content="Why Sikh professional networks matter — how SPN supports professional excellence, Sikh identity, mentorship, and service across the UK.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/footer.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:1;background:var(--dark);color:#fff;border-color:var(--dark)}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── ARTICLE ── */
+    .article{
+      max-width:var(--max);margin:0 auto;
+      padding:36px var(--px)
+    }
+    .article-hero{
+      border-radius:20px;overflow:hidden;height:540px;width:100%
+    }
+    .article-hero img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .article-body{
+      max-width:1128px;margin:0 auto;
+      padding:64px 70px;
+      display:flex;flex-direction:column;gap:64px;align-items:flex-start
+    }
+    .article-head{display:flex;flex-direction:column;gap:24px;width:100%}
+    .article-meta{
+      font-family:'Instrument Sans',sans-serif;font-size:20px;font-weight:400;
+      color:var(--dark);line-height:42px;letter-spacing:-1px;
+      font-variation-settings:'wdth' 100
+    }
+    .article-title{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px
+    }
+    .article-intro{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:var(--text);line-height:28px;width:100%;
+      font-variation-settings:'wdth' 100
+    }
+    .article-section{display:flex;flex-direction:column;gap:24px;width:100%}
+    .article-section h2{
+      font-family:'Lora',serif;font-size:36px;font-weight:400;
+      color:var(--text);line-height:40px;letter-spacing:-1.08px
+    }
+    .article-section p{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .article-section p + p{margin-top:24px}
+
+    /* ── STAY UPDATED ── */
+    .subscribe{
+      position:relative;overflow:hidden;
+      min-height:708px;width:100%;
+      display:flex;align-items:center;
+      padding:80px var(--px)
+    }
+    .subscribe-bg{position:absolute;inset:0;z-index:0}
+    .subscribe-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .subscribe-card{
+      position:relative;z-index:1;background:#fff;border-radius:12px;
+      padding:40px;width:532px;max-width:100%;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .subscribe-text{display:flex;flex-direction:column;gap:24px}
+    .subscribe-card h2{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .subscribe-card p{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){
+      :root{--px:60px}
+      .article-body{padding:48px 0}
+      .article-title{font-size:48px;line-height:52px;letter-spacing:-2.4px}
+      .article-hero{height:440px}
+    }
+
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .nav-logo-text{font-size:26px}
+      .article{padding:24px var(--px)}
+      .article-hero{height:300px;border-radius:14px}
+      .article-body{padding:40px 0;gap:48px}
+      .article-meta{font-size:16px;line-height:28px}
+      .article-title{font-size:36px;line-height:40px;letter-spacing:-2px}
+      .article-section h2{font-size:28px;line-height:34px;letter-spacing:-1px}
+      .subscribe{min-height:0;padding:60px var(--px)}
+      .subscribe-card{padding:28px}
+      .subscribe-card h2{font-size:36px;line-height:42px;letter-spacing:-1.5px}
+    }
+
+    @media(max-width:480px){
+      .article-hero{height:240px}
+      .article-title{font-size:28px;line-height:34px;letter-spacing:-1.5px}
+      .btn{padding:8px 18px;font-size:14px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="/" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/8437fe40-dfaa-4d42-89ff-663a8d37a962" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/advisors">Advisors</a></li>
+      <li><a href="/network">Network</a></li>
+      <li><a href="/#events">Events</a></li>
+      <li><a href="/join">Join</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+    </ul>
+    <a href="/join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== ARTICLE ===== -->
+<article class="article">
+  <div class="article-hero">
+    <img src="https://www.figma.com/api/mcp/asset/a5e2f4df-df2d-4310-8927-9ad38201004e" alt="Sikh professionals in conversation">
+  </div>
+
+  <div class="article-body">
+    <header class="article-head">
+      <p class="article-meta">Sikh Professionals Network</p>
+      <h1 class="article-title">Why Sikh Professional Networks Matter</h1>
+    </header>
+
+    <p class="article-intro">Sikh professionals rock every area of society, from healthcare and teaching to law, business, tech, public service, and starting their own ventures. Still, lots of folks search for spots to blend talk about career drive, Sikh identity, and community duty. That's where the Sikh Professionals Network jumps in, offering exactly that space.</p>
+
+    <section class="article-section">
+      <h2>Professional Excellence and Sikh Identity</h2>
+      <p>Professional success shouldn't force folks to ditch their values. SPN supports Sikh pros by pushing them to stay true to discipline, integrity, and confidence, all while connecting with their roots and serving the community.</p>
+    </section>
+
+    <section class="article-section">
+      <h2>The Power of Mentorship</h2>
+      <p>Mentorship can completely change your career path. Talking to the right person can help you figure out an industry, prep for interviews, gain confidence, or make key decisions.</p>
+      <p>SPN connects seasoned pros with folks looking for advice, encouragement, and real support.</p>
+    </section>
+
+    <section class="article-section">
+      <h2>Service Through Professional Knowledge</h2>
+      <p>Seva isn't confined to one place. Professionals can serve by giving advice, mentoring, sharing resources, offering representation, providing policy guidance, hosting insight days, or leading in the community. SPN helps members use their expertise and clout to lift others up, too.</p>
+    </section>
+
+    <section class="article-section">
+      <h2>Building the Future</h2>
+      <p>SPN aims to grow a confident group of Sikh pros with integrity and discipline. They want these folks to lead with service and help society, too. By connecting and sharing responsibilities, SPN builds a supportive network for both personal wins and group growth.</p>
+    </section>
+  </div>
+</article>
+
+<!-- ===== STAY UPDATED ===== -->
+<section class="subscribe" aria-label="Stay updated">
+  <div class="subscribe-bg">
+    <img src="https://www.figma.com/api/mcp/asset/7895d591-7c57-4d84-a803-3bf19f8e6fb9" alt="">
+  </div>
+  <div class="subscribe-card">
+    <div class="subscribe-text">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to receive SPN articles, event updates, mentoring opportunities and professional resources.</p>
+    </div>
+    <a href="/#join" class="btn btn-primary">Subscribe for Updates</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join — Sikh Professionals Network</title>
+  <meta name="description" content="Join the Sikh Professionals Network (SPN). Complete the form to connect with Sikh professionals across the UK for mentoring, networking, and leadership development.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/footer.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:1;background:var(--dark);color:#fff;border-color:var(--dark)}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── HERO (solid) ── */
+    .hero{background:#fff;padding:0 50px 50px}
+    .hero-card{
+      position:relative;background:var(--dark);border-radius:20px;overflow:hidden;
+      min-height:520px;display:flex;align-items:center;justify-content:center;
+      max-width:calc(var(--max) - 100px);margin:0 auto
+    }
+    .hero-inner{
+      position:relative;z-index:1;width:100%;
+      display:flex;flex-direction:column;align-items:center;gap:40px;
+      padding:80px 40px
+    }
+    .hero-content{
+      display:flex;flex-direction:column;align-items:center;
+      text-align:center;gap:24px;width:100%
+    }
+    .hero-label{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;
+      font-weight:700;color:#fff;line-height:28px;letter-spacing:-0.16px;
+      font-variation-settings:'wdth' 100
+    }
+    .hero-tagline{display:flex;flex-direction:column;gap:20px;align-items:center;width:100%}
+    .hero-h1{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:64px;letter-spacing:-3.2px
+    }
+    .hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;
+      color:#bfb5b5;line-height:28px;max-width:920px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── WHY JOIN ── */
+    .why-join{background:#fff;padding:100px var(--px) 80px}
+    .why-join-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;gap:64px;align-items:flex-start
+    }
+    .why-join-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#191615;line-height:56px;letter-spacing:-2.4px;flex:0 0 380px;max-width:380px
+    }
+    .why-join-text{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:var(--text-mid);line-height:28px;flex:1;min-width:0;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── CONTACT / JOIN FORM ── */
+    .contact{
+      position:relative;padding:80px var(--px) 100px;overflow:hidden
+    }
+    .contact-bg{position:absolute;inset:0}
+    .contact-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .contact-overlay{position:absolute;inset:0;background:var(--dark);opacity:.78}
+    .contact-inner{
+      position:relative;z-index:1;
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto
+    }
+    .contact-head{display:flex;gap:40px;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap}
+    .contact-title{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:1;letter-spacing:-2.4px
+    }
+    .contact-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#e4e4e4;line-height:24px;max-width:520px;
+      font-variation-settings:'wdth' 100
+    }
+    .contact-sub strong{font-weight:700;color:#fff;display:block;margin-bottom:4px}
+    .form-card{
+      background:var(--off-white);border-radius:20px;
+      padding:48px 56px;display:flex;flex-direction:column;gap:0
+    }
+    .form-legend{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;
+      color:var(--text-dark);line-height:24px;margin-bottom:8px
+    }
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+    .field{display:flex;flex-direction:column;gap:8px;padding:24px 0 0}
+    .field.full{grid-column:1 / -1}
+    .field label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-dark);line-height:24px
+    }
+    .field input,.field select,.field textarea{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-dark);line-height:24px;
+      border:none;border-bottom:1px solid var(--accent);
+      background:transparent;padding:8px 0;outline:none;width:100%
+    }
+    .field textarea{resize:vertical;min-height:48px}
+    .field select{appearance:none;cursor:pointer;color:var(--text-grey)}
+    .field select:valid{color:var(--text-dark)}
+    .field input::placeholder,.field textarea::placeholder{color:var(--text-grey)}
+    .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--dark)}
+    .form-submit{
+      width:100%;margin-top:36px;height:52px;border-radius:6px;
+      background:var(--accent);color:#fff;border:1px solid var(--accent);
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      cursor:pointer;transition:background .2s
+    }
+    .form-submit:hover{background:var(--dark);border-color:var(--dark)}
+    .form-note{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;color:var(--text-grey);
+      line-height:20px;margin-top:16px
+    }
+    .form-status{
+      font-family:'Instrument Sans',sans-serif;font-size:15px;line-height:22px;
+      margin-top:16px;display:none
+    }
+    .form-status.show{display:block}
+    .form-status.ok{color:#1e7d4f}
+    .form-status.err{color:#b8403f}
+
+    /* ── NEWSLETTER ── */
+    .newsletter{background:#fff;padding:0 var(--px) 100px}
+    .newsletter-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      background:var(--dark);border-radius:20px;overflow:hidden;
+      display:flex;align-items:stretch
+    }
+    .newsletter-img{flex:1;min-width:0;position:relative;background:#0e1925}
+    .newsletter-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .newsletter-content{
+      flex:1;min-width:0;padding:56px;display:flex;flex-direction:column;gap:24px;justify-content:center
+    }
+    .newsletter-h2{
+      font-family:'Lora',serif;font-size:36px;font-weight:400;
+      color:#fff;line-height:44px;letter-spacing:-1.4px
+    }
+    .newsletter-p{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#bfc6cf;line-height:24px;font-variation-settings:'wdth' 100
+    }
+    .newsletter-form{display:flex;flex-direction:column;gap:14px;max-width:360px}
+    .newsletter-form input{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      padding:12px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.06);color:#fff;outline:none
+    }
+    .newsletter-form input::placeholder{color:#8b97a3}
+    .newsletter-form input:focus{border-color:var(--accent)}
+
+    /* ── FAQ ── */
+    .faq{background:#fff;padding:0 var(--px) 100px}
+    .faq-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:35px
+    }
+    .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .faq-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text);line-height:24px;letter-spacing:-0.8px
+    }
+    .faq-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .faq-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text-grey);line-height:18px;letter-spacing:-0.8px
+    }
+    .faq-list{
+      display:flex;flex-direction:column;
+      max-width:1038px;margin:0 auto;width:100%;
+      border-top:1px solid rgba(184,108,64,.3)
+    }
+    .faq-item{border-bottom:1px solid rgba(184,108,64,.3)}
+    .faq-question{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:24px 0;cursor:pointer;gap:16px;list-style:none
+    }
+    .faq-question::-webkit-details-marker{display:none}
+    .faq-q-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px;letter-spacing:-0.16px
+    }
+    .faq-icon{
+      width:24px;height:24px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;transition:transform .3s
+    }
+    .faq-item[open] .faq-icon{transform:rotate(90deg)}
+    .faq-body{overflow:hidden;height:0;transition:height .45s cubic-bezier(.4,0,.2,1)}
+    .faq-answer{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;padding-bottom:24px
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1280px){:root{--px:80px}}
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .nav-logo-text{font-size:30px}
+      .hero{padding:0 32px 32px}
+      .hero-h1{font-size:48px;line-height:52px;letter-spacing:-2.4px}
+      .hero-desc{font-size:16px;max-width:100%}
+      .why-join-inner{flex-direction:column;gap:24px}
+      .why-join-heading{flex:none;max-width:100%;font-size:40px;line-height:48px}
+      .contact-title{font-size:48px}
+      .form-card{padding:32px}
+      .form-grid{grid-template-columns:1fr;gap:0}
+      .newsletter-inner{flex-direction:column}
+      .newsletter-img{min-height:220px}
+      .faq-heading{font-size:40px;line-height:48px}
+    }
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .nav-logo-text{font-size:26px}
+      .hero{padding:0 16px 16px}
+      .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
+      .contact{padding:60px var(--px) 60px}
+      .contact-title{font-size:40px}
+      .form-card{padding:24px}
+      .newsletter-content{padding:32px}
+      .faq-heading{font-size:36px;line-height:44px}
+      .faq-list{max-width:100%}
+    }
+    @media(max-width:480px){
+      .hero-h1{font-size:28px;line-height:34px;letter-spacing:-1.5px}
+      .hero-label{font-size:14px;line-height:22px}
+      .hero-desc{font-size:14px;line-height:20px}
+      .btn{padding:8px 18px;font-size:14px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="/" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/8437fe40-dfaa-4d42-89ff-663a8d37a962" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/advisors">Advisors</a></li>
+      <li><a href="/network">Network</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="/join" class="active">Join</a></li>
+      <li><a href="/#blog">Blog</a></li>
+    </ul>
+    <a href="/join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-label">Become a Member</p>
+        <div class="hero-tagline">
+          <h1 class="hero-h1">Join SPN</h1>
+          <p class="hero-desc">Join a community of Sikh professionals who care about their identity, lead with integrity, and strive to excel. SPN is open to anyone aged 18 and over across the UK — professionals, graduates, and emerging leaders looking to make an impact together.</p>
+        </div>
+      </div>
+      <a href="#join-form" class="btn btn-primary">Complete the Join Form</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY JOIN ===== -->
+<section class="why-join">
+  <div class="why-join-inner">
+    <h2 class="why-join-heading">Why Join?</h2>
+    <p class="why-join-text">Joining SPN connects you with a community of Sikh professionals across the UK who share your ambitions and values. Members gain access to mentoring, networking opportunities, and leadership development, alongside chances to give back through seva. You'll find practical resources, meaningful events, and a supportive network committed to helping you grow in your career while staying grounded in your identity.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT / JOIN FORM ===== -->
+<section class="contact" id="join-form">
+  <div class="contact-bg">
+    <img src="https://www.figma.com/api/mcp/asset/37fa89b6-17c4-4d92-832c-d726fcb5dcc9" alt="">
+    <div class="contact-overlay"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-head">
+      <h2 class="contact-title">Contact</h2>
+      <p class="contact-sub"><strong>Join the Sikh Professionals Network</strong>Please complete the form below so we can understand your background, profession and interests.</p>
+    </div>
+
+    <!--
+      NOTE: To receive submissions, set the form `action` below to your form endpoint
+      (e.g. a Formspree form URL like https://formspree.io/f/your-id, or a Vercel/Netlify
+      form handler). Until then, submissions are handled client-side and not delivered.
+    -->
+    <form class="form-card" id="joinForm" action="" method="POST" novalidate>
+      <p class="form-legend">Name (required)</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
+        </div>
+
+        <div class="field">
+          <label for="ageRange">Age Range</label>
+          <select id="ageRange" name="ageRange" required>
+            <option value="" selected disabled hidden></option>
+            <option>18–24</option>
+            <option>25–34</option>
+            <option>35–44</option>
+            <option>45–54</option>
+            <option>55+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" autocomplete="address-level2">
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="profession">Profession / Current Role</label>
+          <input id="profession" name="profession" type="text">
+        </div>
+        <div class="field">
+          <label for="industry">Industry / Sector</label>
+          <input id="industry" name="industry" type="text">
+        </div>
+
+        <div class="field full">
+          <label for="linkedin">LinkedIn Profile</label>
+          <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/...">
+        </div>
+
+        <div class="field full">
+          <label for="careerStage">Current Career Stage</label>
+          <select id="careerStage" name="careerStage">
+            <option value="" selected disabled hidden></option>
+            <option>Student</option>
+            <option>Recent graduate</option>
+            <option>Early career</option>
+            <option>Mid career</option>
+            <option>Senior / Leadership</option>
+            <option>Executive</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="interests">Areas of Interest</label>
+          <input id="interests" name="interests" type="text" placeholder="e.g. mentoring, events, networking, seva">
+        </div>
+
+        <div class="field full">
+          <label for="mentoring">Would you like to be contacted about mentoring?</label>
+          <select id="mentoring" name="mentoring">
+            <option value="" selected disabled hidden></option>
+            <option>Yes — I'd like a mentor</option>
+            <option>Yes — I'd like to mentor others</option>
+            <option>No, not at this time</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="support">Would you like to support SPN as an advisor, speaker or volunteer?</label>
+          <select id="support" name="support">
+            <option value="" selected disabled hidden></option>
+            <option>Yes — as an advisor</option>
+            <option>Yes — as a speaker</option>
+            <option>Yes — as a volunteer</option>
+            <option>No, not at this time</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="message">Message / Additional Information</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="form-submit">Join SPN</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-img">
+      <img src="https://www.figma.com/api/mcp/asset/70c6210c-1012-46fc-8337-2a66643c1cb3" alt="Sikh professionals connecting">
+    </div>
+    <div class="newsletter-content">
+      <h2 class="newsletter-h2">Stay in the loop</h2>
+      <p class="newsletter-p">Get updates on upcoming events, mentoring opportunities, and ways to get involved with the Sikh Professionals Network.</p>
+      <form class="newsletter-form" id="newsletterForm" action="" method="POST" novalidate>
+        <input type="email" name="newsletterEmail" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="faq-sub">Joining SPN</p>
+      <h2 class="faq-heading">FAQ</h2>
+      <p class="faq-desc">Answers to common questions about becoming a member.</p>
+    </header>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">What happens after I submit the form?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Once you submit the form, a member of the SPN team will review your details and be in touch by email. We'll share next steps, upcoming events, and ways to get involved based on the interests you've shared.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Is there a membership fee?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">SPN is committed to remaining accessible to the community. There is no cost to register your interest and join the network. We'll confirm any details about specific events or programmes when we contact you.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Will my details be shared publicly?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">No. The information you provide is kept private and used only by the SPN team to understand your background and how best to support you. We never share your details publicly or with third parties without your consent.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Can I join if I'm a student?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Yes. SPN welcomes students aged 18 and over, alongside graduates, early-career professionals, and experienced leaders. Whatever stage you're at, there's a place for you in the network.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Can I join as a mentor or advisor?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Absolutely. If you'd like to support others by mentoring, speaking, or volunteering, simply indicate this on the form. We're always looking for experienced professionals to help guide and inspire the community.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+</script>
+
+<script>
+  // FAQ accordion with animated height
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var summary = item.querySelector('.faq-question');
+    var body = item.querySelector('.faq-body');
+    var inner = body ? body.querySelector('.faq-answer') : null;
+    if (!summary || !body || !inner) return;
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = item.hasAttribute('open');
+      document.querySelectorAll('.faq-item[open]').forEach(function(o) {
+        var b = o.querySelector('.faq-body');
+        if (b) b.style.height = '0';
+        o.removeAttribute('open');
+      });
+      if (!isOpen) {
+        item.setAttribute('open', '');
+        body.style.height = inner.offsetHeight + 'px';
+      }
+    });
+  });
+
+  // Join form handling. If an action endpoint is configured, the form posts normally.
+  // Otherwise we validate client-side and show a message (no submission is delivered).
+  (function () {
+    var form = document.getElementById('joinForm');
+    var statusEl = document.getElementById('formStatus');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+        return;
+      }
+      if (!form.getAttribute('action')) {
+        e.preventDefault();
+        statusEl.textContent = 'Thanks! This form isn\u2019t connected to a mailbox yet \u2014 add a form endpoint to start receiving submissions.';
+        statusEl.className = 'form-status show err';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

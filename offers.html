@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPN Offers — Sikh Professionals Network</title>
+  <meta name="description" content="Discover what SPN advisors offer — talks, resources, mentorships, advice, and real-world experience for Sikh professionals across the UK.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/components.css">
+  <link rel="stylesheet" href="files/footer.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:1;background:var(--dark);color:#fff;border-color:var(--dark)}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── HERO ── */
+    .off-hero{background:#fff;padding:0 50px 50px}
+    .off-hero-card{
+      position:relative;border-radius:20px;overflow:hidden;
+      min-height:560px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;
+      max-width:calc(var(--max) - 100px);margin:0 auto;
+      padding:60px 121px
+    }
+    .off-hero-inner{
+      display:flex;flex-direction:column;align-items:center;gap:24px;
+      text-align:center;max-width:830px;width:100%
+    }
+    .off-hero-label{
+      font-family:'Instrument Sans',sans-serif;font-size:20px;font-weight:400;
+      color:rgba(255,255,255,.7);line-height:42px;letter-spacing:-1px;
+      font-variation-settings:'wdth' 100
+    }
+    .off-hero-h1{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:64px;letter-spacing:-3.2px
+    }
+    .off-hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:rgba(255,255,255,.85);line-height:28px;
+      font-variation-settings:'wdth' 100;max-width:760px
+    }
+    .off-hero-btns{
+      display:flex;gap:16px;align-items:center;justify-content:center;
+      flex-wrap:wrap;margin-top:8px
+    }
+
+    /* ── WHAT ADVISORS OFFER ── */
+    .off-offer{background:#fff;padding:32px var(--px) 100px}
+    .off-offer-row{display:flex;gap:64px;align-items:flex-start}
+    .off-offer-left{width:466px;flex-shrink:0;display:flex;align-items:center}
+    .off-offer-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px
+    }
+    .off-offer-list{flex:1;min-width:0;display:flex;flex-direction:column;gap:24px}
+    .off-offer-card{
+      background:var(--light);border-radius:20px;padding:20px 24px;
+      display:flex;gap:32px;align-items:flex-start;
+      transition:background .35s ease
+    }
+    .off-offer-card:hover{background:var(--dark)}
+    .off-offer-num{
+      font-family:'Lora',serif;font-weight:500;font-size:48px;
+      color:var(--accent);line-height:48px;letter-spacing:-1.48px;
+      width:48px;flex-shrink:0;text-align:center
+    }
+    .off-offer-content{flex:1;min-width:0;display:flex;flex-direction:column;gap:16px}
+    .off-offer-title{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      color:var(--dark);line-height:32px;letter-spacing:-0.72px;
+      transition:color .35s ease
+    }
+    .off-offer-card:hover .off-offer-title{color:#fff}
+    .off-offer-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100;transition:color .35s ease
+    }
+    .off-offer-card:hover .off-offer-text{color:#c7c7c7}
+
+    /* ── STAY UPDATED ── */
+    .off-stay{
+      position:relative;min-height:708px;
+      display:flex;align-items:center;
+      padding:80px var(--px);overflow:hidden
+    }
+    .off-stay-bg{position:absolute;inset:0;z-index:0}
+    .off-stay-bg img{width:100%;height:100%;object-fit:cover;transform:scaleY(-1);opacity:.89}
+    .off-stay-card{
+      position:relative;z-index:1;
+      background:#fff;border-radius:12px;padding:40px;
+      width:532px;max-width:100%;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .off-stay-content{display:flex;flex-direction:column;gap:24px}
+    .off-stay-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .off-stay-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── FAQ ── */
+    .faq{background:#fff;padding:80px var(--px)}
+    .faq-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:35px
+    }
+    .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .faq-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text);line-height:24px;letter-spacing:-0.8px
+    }
+    .faq-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .faq-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text-grey);line-height:18px;letter-spacing:-0.8px
+    }
+    .faq-list{
+      display:flex;flex-direction:column;
+      max-width:1038px;margin:0 auto;width:100%;
+      border-top:1px solid rgba(184,108,64,.3)
+    }
+    .faq-item{border-bottom:1px solid rgba(184,108,64,.3)}
+    .faq-question{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:24px 0;cursor:pointer;gap:16px;list-style:none
+    }
+    .faq-question::-webkit-details-marker{display:none}
+    .faq-q-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px;letter-spacing:-0.16px
+    }
+    .faq-icon{
+      width:24px;height:24px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;transition:transform .3s
+    }
+    .faq-item[open] .faq-icon{transform:rotate(90deg)}
+    .faq-body{overflow:hidden;height:0;transition:height .45s cubic-bezier(.4,0,.2,1)}
+    .faq-answer{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;padding-bottom:24px
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1280px){
+      :root{--px:80px}
+    }
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .off-hero-card{min-height:auto;padding:60px 40px}
+      .off-hero-h1{font-size:48px;line-height:52px}
+      .off-offer-row{flex-direction:column;gap:32px}
+      .off-offer-left{width:100%}
+      .off-offer-heading{font-size:48px;line-height:52px}
+    }
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .off-hero-card{padding:48px 24px}
+      .off-hero-h1{font-size:36px;line-height:40px}
+      .off-hero-desc{font-size:16px}
+      .off-offer-heading{font-size:36px;line-height:40px}
+      .off-offer-card{padding:20px;gap:20px}
+      .off-offer-num{font-size:40px;line-height:40px;width:36px}
+      .off-stay-card{padding:32px 20px}
+      .off-stay-heading{font-size:36px;line-height:44px}
+      .faq-heading{font-size:36px;line-height:44px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="/" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/a1a3fd99-8a84-47b1-b5ec-aed6c7d8e895" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/advisors" class="active">Advisors</a></li>
+      <li><a href="/network">Network</a></li>
+      <li><a href="/#events">Events</a></li>
+      <li><a href="/join">Join</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <a href="/join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="off-hero">
+  <div class="off-hero-card">
+    <div class="off-hero-inner">
+      <p class="off-hero-label">Sikh Professionals Network</p>
+      <h1 class="off-hero-h1">SPN Offers</h1>
+      <p class="off-hero-desc">From talks and mentorship to resources, advice, and hands-on experience, SPN gives Sikh professionals across the UK the support they need to grow with confidence while staying true to their identity and values.</p>
+      <div class="off-hero-btns">
+        <a href="/join" class="btn btn-primary">Become a Member</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT ADVISORS OFFER ===== -->
+<section class="off-offer">
+  <div class="off-offer-row">
+    <div class="off-offer-left">
+      <h2 class="off-offer-heading">What Advisors Offer</h2>
+    </div>
+    <div class="off-offer-list">
+
+      <div class="off-offer-card">
+        <span class="off-offer-num">1</span>
+        <div class="off-offer-content">
+          <h3 class="off-offer-title">Talks</h3>
+          <p class="off-offer-text">SPN organises talks, webinars, seminars, panel discussions, and speaker sessions for Sikh professionals. These help them explore leadership, career growth, and confidence in public service. Members get to learn from pros, chat about hurdles, and boost their confidence in various fields.</p>
+        </div>
+      </div>
+
+      <div class="off-offer-card">
+        <span class="off-offer-num">2</span>
+        <div class="off-offer-content">
+          <h3 class="off-offer-title">Resources</h3>
+          <p class="off-offer-text">SPN makes useful stuff like slide decks, email templates, leaflets, and guidance docs. They help members talk well, know what's expected at work, get ready for chances that come their way, and find support based on Sikh values.</p>
+        </div>
+      </div>
+
+      <div class="off-offer-card">
+        <span class="off-offer-num">3</span>
+        <div class="off-offer-content">
+          <h3 class="off-offer-title">Mentorships</h3>
+          <p class="off-offer-text">SPN offers mentorship to its members looking for job support, career guidance, and professional development. Mentors assist with applications and interviews, provide sector insight, and boost confidence. They guide development and navigating spaces while staying true to Sikh identity.</p>
+        </div>
+      </div>
+
+      <div class="off-offer-card">
+        <span class="off-offer-num">4</span>
+        <div class="off-offer-content">
+          <h3 class="off-offer-title">Advice</h3>
+          <p class="off-offer-text">SPN provides guidance on faith matters, professional conduct, workplace policy, religious accommodation, communication, and community representation. This support helps members approach sensitive or complex situations with clarity, confidence, integrity, and respect.</p>
+        </div>
+      </div>
+
+      <div class="off-offer-card">
+        <span class="off-offer-num">5</span>
+        <div class="off-offer-content">
+          <h3 class="off-offer-title">Experience</h3>
+          <p class="off-offer-text">SPN sets up chances like insight days, work visits, pro shadowing, and cool edu sessions. These help students, grads, and new pros get to know various fields, gain confidence, and pick smart career paths.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAY UPDATED ===== -->
+<section class="off-stay">
+  <div class="off-stay-bg">
+    <img src="https://www.figma.com/api/mcp/asset/d7bde25e-a497-44c6-b92b-2f940f6cf63f" alt="SPN members and professionals">
+  </div>
+  <div class="off-stay-card">
+    <div class="off-stay-content">
+      <h2 class="off-stay-heading">Stay Updated</h2>
+      <p class="off-stay-text">Subscribe to receive SPN articles, event updates, mentoring opportunities and professional resources.</p>
+    </div>
+    <a href="/#join" class="btn btn-primary" style="align-self:flex-start">Subscribe for Updates</a>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="faq-sub">Common questions</p>
+      <h2 class="faq-heading">FAQ</h2>
+      <p class="faq-desc">Everything you need to know about what SPN offers.</p>
+    </header>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">What kinds of talks and sessions does SPN run?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">SPN hosts talks, webinars, seminars, panel discussions, and speaker sessions covering leadership, career growth, and confidence in public and professional life. They give members the chance to learn from experienced professionals and discuss the challenges they face.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Are SPN resources free for members?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Yes. SPN shares slide decks, email templates, leaflets, and guidance documents with members to help them communicate well, understand workplace expectations, and prepare for opportunities, all grounded in Sikh values.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">How do I request a mentor through SPN?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Once you join SPN, you can request mentorship for job support, career guidance, and professional development. Mentors help with applications and interviews, share sector insight, and support your growth while staying true to your Sikh identity.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Who can access SPN experience and insight opportunities?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Insight days, work visits, job shadowing, and educational sessions are open to students, graduates, and new professionals. These experiences help members explore different fields, build confidence, and choose a career path that suits them.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+</script>
+
+<script>
+  // FAQ accordion with animated height
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var summary = item.querySelector('.faq-question');
+    var body = item.querySelector('.faq-body');
+    var inner = body ? body.querySelector('.faq-answer') : null;
+    if (!summary || !body || !inner) return;
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = item.hasAttribute('open');
+      document.querySelectorAll('.faq-item[open]').forEach(function(o) {
+        var b = o.querySelector('.faq-body');
+        if (b) b.style.height = '0';
+        o.removeAttribute('open');
+      });
+      if (!isOpen) {
+        item.setAttribute('open', '');
+        body.style.height = inner.offsetHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Sikh Professionals Network</title>
+  <meta name="description" content="Articles, insights and guidance from the Sikh Professionals Network on leadership, career growth and professional excellence.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/components.css">
+  <link rel="stylesheet" href="files/footer.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:1;background:var(--dark);color:#fff;border-color:var(--dark)}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── BLOG LISTING ── */
+    .blog-listing{background:#fff;padding:88px var(--px) 120px}
+    .blog-inner{
+      max-width:calc(var(--max) - var(--px) * 2);margin:0 auto;
+      display:flex;flex-direction:column;gap:48px
+    }
+    .blog-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px
+    }
+    .blog-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:44px
+    }
+    .blog-card{
+      background:#fff;border:1px solid #cdd0d3;border-radius:20px;
+      overflow:hidden;display:flex;flex-direction:column;
+      transition:box-shadow .3s ease,transform .3s ease
+    }
+    .blog-card:hover{box-shadow:0 12px 32px rgba(19,32,48,.1);transform:translateY(-4px)}
+    .blog-card-media{
+      width:100%;height:240px;overflow:hidden;background:#eaeaea
+    }
+    .blog-card-media img{width:100%;height:100%;object-fit:cover}
+    .blog-card-body{
+      display:flex;flex-direction:column;gap:20px;
+      padding:24px 32px 32px
+    }
+    .blog-card-title{
+      font-family:'Inter',sans-serif;font-size:24px;font-weight:500;
+      color:#191615;line-height:28px;letter-spacing:-1.44px
+    }
+    .blog-card-link{
+      display:inline-flex;align-items:center;gap:4px;
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:#191615;letter-spacing:-0.16px;line-height:24px;
+      transition:gap .2s ease,color .2s ease
+    }
+    .blog-card-link svg{width:24px;height:24px;display:block}
+    .blog-card-link:hover{color:var(--accent);gap:10px}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1280px){
+      :root{--px:80px}
+    }
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .blog-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+      .blog-heading{font-size:48px;line-height:52px;letter-spacing:-2.4px}
+    }
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .blog-listing{padding:56px var(--px) 80px}
+      .blog-grid{grid-template-columns:1fr}
+      .blog-heading{font-size:36px;line-height:40px}
+      .blog-card-body{padding:20px 24px 28px}
+      .blog-card-title{font-size:22px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .blog-card,.blog-card-link{transition:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="/" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/a1a3fd99-8a84-47b1-b5ec-aed6c7d8e895" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/advisors">Advisors</a></li>
+      <li><a href="/network">Network</a></li>
+      <li><a href="/#events">Events</a></li>
+      <li><a href="/join">Join</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+    </ul>
+    <a href="/join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== BLOG LISTING ===== -->
+<main class="blog-listing">
+  <div class="blog-inner">
+    <h1 class="blog-heading">Articles for you</h1>
+    <div class="blog-grid">
+
+      <article class="blog-card">
+        <a href="/blog-article" class="blog-card-media" aria-label="Read article">
+          <img src="https://www.figma.com/api/mcp/asset/d7e9a55c-8615-47c4-a305-7ae9fa52e9be" alt="">
+        </a>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Navigating the Complexities of Business Disputes: A Guide for Entrepreneurs</h2>
+          <a href="/blog-article" class="blog-card-link">
+            Learn more
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="/blog-article" class="blog-card-media" aria-label="Read article">
+          <img src="https://www.figma.com/api/mcp/asset/3abc45e3-ba8c-41c5-ac51-e8a744f96eca" alt="">
+        </a>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Navigating the Complexities of Business Disputes: A Guide for Entrepreneurs</h2>
+          <a href="/blog-article" class="blog-card-link">
+            Learn more
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="/blog-article" class="blog-card-media" aria-label="Read article">
+          <img src="https://www.figma.com/api/mcp/asset/cc9f99ed-2960-45ef-b717-294ae6d0c32c" alt="">
+        </a>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Navigating the Complexities of Business Disputes: A Guide for Entrepreneurs</h2>
+          <a href="/blog-article" class="blog-card-link">
+            Learn more
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="/blog-article" class="blog-card-media" aria-label="Read article">
+          <img src="https://www.figma.com/api/mcp/asset/d7e9a55c-8615-47c4-a305-7ae9fa52e9be" alt="">
+        </a>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Navigating the Complexities of Business Disputes: A Guide for Entrepreneurs</h2>
+          <a href="/blog-article" class="blog-card-link">
+            Learn more
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="/blog-article" class="blog-card-media" aria-label="Read article">
+          <img src="https://www.figma.com/api/mcp/asset/3abc45e3-ba8c-41c5-ac51-e8a744f96eca" alt="">
+        </a>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Navigating the Complexities of Business Disputes: A Guide for Entrepreneurs</h2>
+          <a href="/blog-article" class="blog-card-link">
+            Learn more
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="/blog-article" class="blog-card-media" aria-label="Read article">
+          <img src="https://www.figma.com/api/mcp/asset/cc9f99ed-2960-45ef-b717-294ae6d0c32c" alt="">
+        </a>
+        <div class="blog-card-body">
+          <h2 class="blog-card-title">Navigating the Complexities of Business Disputes: A Guide for Entrepreneurs</h2>
+          <a href="/blog-article" class="blog-card-link">
+            Learn more
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+</script>
+
+</body>
+</html>
