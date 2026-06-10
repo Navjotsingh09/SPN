@@ -17,8 +17,8 @@
   height:820px;
   overflow:hidden;
   position:relative;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
-  mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 92%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0,#000 92%,transparent 100%);
 }
 .benefits-reel{
   display:flex;flex-direction:column;gap:24px;
