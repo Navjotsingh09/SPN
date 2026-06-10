@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Sikh Professionals Network</title>
+  <meta name="description" content="Learn about the Sikh Professionals Network (SPN) — our story, mission, and core values empowering Sikh professionals across the UK.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:.85}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── HERO ── */
+    .hero{background:#fff;padding:0 50px 50px}
+    .hero-card{
+      position:relative;border-radius:20px;overflow:hidden;
+      height:575px;display:flex;align-items:center;justify-content:center;
+      max-width:calc(var(--max) - 100px);margin:0 auto
+    }
+    .hero-bg{position:absolute;inset:0;overflow:hidden}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+    .hero-inner{
+      position:relative;z-index:1;width:100%;
+      display:flex;flex-direction:column;align-items:center;gap:50px;
+      padding:0 40px
+    }
+    .hero-content{
+      display:flex;flex-direction:column;align-items:center;
+      text-align:center;gap:24px;width:100%
+    }
+    .hero-label{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;
+      font-weight:400;color:#fff;line-height:28px;
+      font-variation-settings:'wdth' 100
+    }
+    .hero-tagline{display:flex;flex-direction:column;gap:20px;align-items:center;width:100%}
+    .hero-h1{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:64px;letter-spacing:-3.2px
+    }
+    .hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;
+      color:#bfb5b5;line-height:28px;max-width:1038px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── LOGO BAR ── */
+    .logo-bar{
+      background:var(--dark2);padding:32px 0;
+      overflow:hidden;position:relative
+    }
+    .logo-bar::before,
+    .logo-bar::after{
+      content:'';
+      position:absolute;top:0;width:200px;height:100%;z-index:2;
+      background:linear-gradient(to right,#172e49 0%,rgba(23,46,73,0) 100%)
+    }
+    .logo-bar::before{left:0}
+    .logo-bar::after{right:0;transform:rotateZ(180deg)}
+    .logo-track{
+      display:flex;
+      width:calc(220px * 10);
+      animation:logo-scroll 30s linear infinite
+    }
+    .logo-track:hover{animation-play-state:paused}
+    @keyframes logo-scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(calc(-220px * 5))}
+    }
+    .logo-slide{
+      height:80px;width:220px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center
+    }
+    .logo-slide img{height:40px;width:auto;max-width:160px;display:block;object-fit:contain}
+
+    /* ── WHO WE ARE ── */
+    .about-wwa{background:#fff;padding:120px var(--px) 36px}
+    .about-wwa-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;gap:64px;align-items:flex-start
+    }
+    .about-text-block{flex:1;display:flex;flex-direction:column;gap:20px;min-width:0}
+    .about-section-heading{
+      font-family:'Lora',serif;font-size:36px;font-weight:400;
+      color:#191615;line-height:40px;letter-spacing:-1.08px;max-width:430px
+    }
+    .about-body-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#888;line-height:24px;max-width:555px;
+      font-variation-settings:'wdth' 100
+    }
+    .about-photo{
+      width:500px;height:450px;border-radius:20px;overflow:hidden;
+      flex-shrink:0;position:relative;background:#f0ede8
+    }
+    .about-photo img{
+      position:absolute;
+      width:136.47%;height:108.04%;
+      left:-19.98%;top:0.26%;
+      object-fit:cover
+    }
+
+    /* ── OUR STORY ── */
+    .about-story{background:#fff;padding:5px var(--px) 120px}
+    .about-story-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;gap:41px;align-items:flex-start
+    }
+
+    /* ── CORE VALUES ── */
+    .about-cv{background:var(--accent);padding:60px var(--px) 80px}
+    .about-cv-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:40px
+    }
+    .about-cv-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#fff;line-height:56px;letter-spacing:-2.4px
+    }
+    .about-cv-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+    }
+    .about-cv-card{
+      background:var(--off-white);border-radius:12px;padding:30px;
+      display:flex;flex-direction:column;justify-content:space-between;gap:28px;
+      opacity:.89;transition:opacity .2s
+    }
+    .about-cv-card:hover{opacity:1}
+    .about-cv-body{display:flex;flex-direction:column;gap:20px}
+    .about-cv-icon{
+      width:64px;height:64px;background:var(--accent);border-radius:100px;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .about-cv-icon img{width:36px;height:36px;object-fit:contain}
+    .about-cv-text-block{display:flex;flex-direction:column;gap:12px}
+    .about-cv-title{
+      font-family:'Instrument Sans',sans-serif;font-size:27px;font-weight:400;
+      color:#282422;line-height:1;font-variation-settings:'wdth' 100
+    }
+    .about-cv-subtitle{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:#474747;line-height:28px;font-variation-settings:'wdth' 100;
+      margin-bottom:4px
+    }
+    .about-cv-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#474747;line-height:24px;font-variation-settings:'wdth' 100
+    }
+    .about-cv-arrow{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+
+    /* ── TRUSTED COMMUNITY ── */
+    .about-trusted{background:#fff;padding:100px var(--px)}
+    .about-trusted-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .about-trusted-top{display:flex;gap:32px;align-items:flex-end}
+    .about-trusted-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#191615;line-height:56px;letter-spacing:-2.4px;flex:1;min-width:0
+    }
+    .about-trusted-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#474747;line-height:24px;flex:1;min-width:0;
+      font-variation-settings:'wdth' 100
+    }
+    .about-tc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .about-tc-card{border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px}
+    .about-tc-card.dark{background:#132030}
+    .about-tc-card.light{background:#f9f9f9}
+    .about-tc-top{display:flex;align-items:center;justify-content:space-between}
+    .about-tc-icon{width:48px;height:48px;object-fit:contain;flex-shrink:0}
+    .about-tc-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      line-height:24px;letter-spacing:-0.16px;
+      font-variation-settings:'wdth' 100
+    }
+    .about-tc-card.dark .about-tc-label{color:#fff}
+    .about-tc-card.light .about-tc-label{color:var(--dark)}
+    .about-tc-num{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      line-height:32px;letter-spacing:-0.72px;margin-bottom:16px
+    }
+    .about-tc-card.dark .about-tc-num{color:#fff}
+    .about-tc-card.light .about-tc-num{color:#132030}
+    .about-tc-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      line-height:24px;font-variation-settings:'wdth' 100
+    }
+    .about-tc-card.dark .about-tc-text{color:#949494}
+    .about-tc-card.light .about-tc-text{color:#474747}
+
+    /* ── STATS ── */
+    .stats{
+      position:relative;padding:89px var(--px);
+      min-height:839px;display:flex;align-items:flex-start;overflow:hidden
+    }
+    .stats-bg{position:absolute;inset:0;overflow:hidden}
+    .stats-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .stats-overlay{position:absolute;inset:0;background:var(--dark);opacity:.7}
+    .stats-inner{
+      position:relative;z-index:1;
+      max-width:1128px;width:100%;margin:0 auto;
+      display:flex;flex-direction:column;gap:40px
+    }
+    .stats-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#fff;line-height:56px;letter-spacing:-2.4px
+    }
+    .stats-grid{display:flex;flex-wrap:wrap;gap:20px}
+    .stat-card{
+      background:var(--light2);border-radius:12px;padding:30px;
+      width:554px;opacity:.89;display:flex;flex-direction:column;gap:29px;
+      transition:transform .3s ease,box-shadow .3s ease,opacity .3s ease;cursor:default
+    }
+    .stat-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 32px rgba(19,32,48,.15);opacity:1
+    }
+    .stat-card:hover .stat-arrow{transform:translateX(3px)}
+    .stat-content{display:flex;flex-direction:column;gap:12px}
+    .stat-title{
+      font-family:'Lora',serif;font-size:40px;font-weight:400;
+      color:var(--text-dark);line-height:52px;letter-spacing:-2px
+    }
+    .stat-text{
+      font-family:'Lora',serif;font-size:20px;font-weight:400;
+      color:var(--text-mid);line-height:28px;letter-spacing:-0.6px
+    }
+    .stat-arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease}
+
+    /* ── BE PART OF SPN / JOIN CTA ── */
+    .join-cta{
+      position:relative;min-height:708px;
+      display:flex;align-items:center;padding:80px var(--px);overflow:hidden
+    }
+    .join-cta-bg{position:absolute;inset:0}
+    .join-cta-bg img{width:100%;height:100%;object-fit:cover}
+    .join-cta-card{
+      position:relative;z-index:1;background:#fff;
+      border-radius:12px;padding:40px;width:532px;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .join-cta-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .join-cta-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px
+    }
+    .join-cta-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+    /* ── FAQ ── */
+    .faq{background:#fff;padding:80px var(--px)}
+    .faq-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:35px
+    }
+    .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .faq-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text);line-height:24px;letter-spacing:-0.8px
+    }
+    .faq-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .faq-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text-grey);line-height:18px;letter-spacing:-0.8px
+    }
+    .faq-list{
+      display:flex;flex-direction:column;
+      max-width:1038px;margin:0 auto;width:100%;
+      border-top:1px solid rgba(184,108,64,.3)
+    }
+    .faq-item{border-bottom:1px solid rgba(184,108,64,.3)}
+    .faq-question{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:24px 0;cursor:pointer;gap:16px;list-style:none
+    }
+    .faq-question::-webkit-details-marker{display:none}
+    .faq-q-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px;letter-spacing:-0.16px
+    }
+    .faq-icon{
+      width:24px;height:24px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;transition:transform .3s
+    }
+    .faq-item[open] .faq-icon{transform:rotate(90deg)}
+    .faq-body{overflow:hidden;height:0;transition:height .45s cubic-bezier(.4,0,.2,1)}
+    .faq-answer{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;padding-bottom:24px
+    }
+
+    /* ── FOOTER ── */
+    .footer{background:var(--dark);padding:80px var(--px);overflow:hidden}
+    .footer-inner{
+      max-width:1169px;margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .footer-top{display:flex;gap:200px;align-items:flex-start}
+    .footer-left{display:flex;flex-direction:column;gap:32px;width:499px;flex-shrink:0}
+    .footer-logo-block{display:flex;flex-direction:column;gap:40px}
+    .footer-logo{display:flex;align-items:center}
+    .footer-logo-mark{
+      width:41px;height:48px;background:#fff;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .footer-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .footer-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;color:#fff;
+      letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .footer-tagline{
+      font-family:'Lora',serif;font-size:36px;font-weight:400;
+      color:#fff;line-height:40px;letter-spacing:-1.08px;width:493px
+    }
+    .footer-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:#fff;line-height:28px;width:493px
+    }
+    .footer-follow{display:flex;flex-direction:column;gap:16px}
+    .footer-follow-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:#fff;line-height:1.5
+    }
+    .footer-social{display:flex;gap:8px;align-items:center;width:416px;flex-wrap:wrap}
+    .footer-social-link{
+      display:flex;flex:1;align-items:center;gap:8px;color:#fff;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;line-height:1.5
+    }
+    .footer-social-link img{width:24px;height:24px;flex-shrink:0}
+    .footer-right{flex:1;display:flex;flex-direction:column;gap:16px;justify-content:flex-start}
+    .footer-hours{
+      display:flex;justify-content:flex-end;gap:40px;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;line-height:1.5
+    }
+    .footer-divider{height:1px;background:var(--accent)}
+    .footer-email-form{display:flex;gap:24px;align-items:flex-end;margin-top:4px}
+    .footer-email-field{flex:1;display:flex;flex-direction:column;gap:8px}
+    .footer-email-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#fff;line-height:24px;letter-spacing:-0.128px
+    }
+    .footer-email-input{
+      border:none;border-bottom:1px solid #fff;background:transparent;
+      padding:4px 0;font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;outline:none
+    }
+    .footer-email-input::placeholder{color:rgba(255,255,255,.4)}
+    .footer-privacy{
+      font-family:'Instrument Sans',sans-serif;font-size:10px;color:#fff;line-height:1.5
+    }
+    .footer-privacy a{color:#fff;text-decoration:underline}
+    .footer-bottom{display:flex;flex-direction:column;gap:40px}
+    .footer-nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-nav-links,.footer-legal-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+    .footer-nav-links a,.footer-legal-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:#fff;text-decoration:none;line-height:1.5
+    }
+    .footer-nav-links a:hover,.footer-legal-links a:hover{text-decoration:underline}
+    .footer-copyright-bar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px
+    }
+    .footer-copyright-logo{display:flex;align-items:center;gap:8px}
+    .footer-copyright-logo-mark{
+      width:28px;height:28px;background:#fff;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .footer-copyright-logo-mark img{width:18px;height:18px;object-fit:contain}
+    .footer-copyright-logo-name{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:700;
+      color:#fff;letter-spacing:0.5px
+    }
+    .footer-copyright{
+      font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
+      text-align:center
+    }
+    .footer-siteby{
+      font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
+      white-space:nowrap
+    }
+    .footer-siteby a{color:#fff;text-decoration:none}
+    .footer-siteby a:hover{text-decoration:underline}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1280px){
+      :root{--px:80px}
+    }
+
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .nav-logo-text{font-size:30px}
+      .hero{padding:0 32px 32px}
+      .hero-card{height:480px}
+      .hero-h1{font-size:48px;line-height:52px;letter-spacing:-2.4px}
+      .hero-desc{font-size:16px;max-width:100%}
+      .logo-slide{width:160px}
+      .logo-track{width:calc(160px * 10)}
+      .logo-slide img{height:30px}
+      .about-wwa-inner,.about-story-inner{flex-direction:column}
+      .about-photo{width:100%;height:360px}
+      .about-photo img{width:100%;height:120%;left:0;top:-10%}
+      .about-cv-grid{grid-template-columns:repeat(2,1fr)}
+      .about-cv-heading{font-size:40px;line-height:48px}
+      .about-trusted-top{flex-direction:column;align-items:flex-start;gap:20px}
+      .about-trusted-heading{font-size:40px;line-height:48px}
+      .about-tc-cards{grid-template-columns:repeat(2,1fr)}
+      .stats{padding:60px 32px;min-height:auto}
+      .stats-heading{font-size:40px;line-height:48px}
+      .stat-card{width:100%}
+      .join-cta{min-height:auto;padding:60px var(--px)}
+      .join-cta-card{width:100%;max-width:100%}
+      .join-cta-heading{font-size:40px;line-height:48px}
+      .footer-top{flex-direction:column;gap:48px}
+      .footer-left{width:100%}
+      .footer-tagline,.footer-desc{width:100%}
+      .footer-hours{justify-content:flex-start;flex-wrap:wrap;gap:16px}
+      .footer-social{width:100%}
+    }
+
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .nav-logo-text{font-size:26px}
+      .hero{padding:0 16px 16px}
+      .hero-card{height:440px}
+      .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
+      .about-cv-grid{grid-template-columns:1fr}
+      .about-tc-cards{grid-template-columns:1fr}
+      .stats-grid{flex-direction:column}
+      .stats-heading{font-size:32px;line-height:40px}
+      .stat-title{font-size:32px;line-height:40px}
+      .join-cta{padding:40px var(--px)}
+      .join-cta-heading{font-size:32px;line-height:40px}
+      .faq-heading{font-size:36px;line-height:44px}
+      .faq-list{max-width:100%}
+      .footer-top{gap:32px}
+      .footer-logo-text{font-size:28px}
+      .footer-tagline{font-size:28px;line-height:34px;width:100%}
+      .footer-desc{font-size:16px;width:100%}
+      .footer-nav{flex-direction:column;align-items:flex-start}
+      .footer-nav-links,.footer-legal-links{flex-wrap:wrap;gap:12px}
+      .about-section-heading{font-size:28px;line-height:34px}
+    }
+
+    @media(max-width:480px){
+      .logo-slide{width:120px}
+      .logo-track{width:calc(120px * 10)}
+      .logo-slide img{height:24px}
+      .hero{padding:0 12px 12px}
+      .hero-card{height:400px}
+      .hero-h1{font-size:28px;line-height:34px;letter-spacing:-1.5px}
+      .hero-label{font-size:14px;line-height:22px}
+      .hero-desc{font-size:14px;line-height:20px}
+      .btn{padding:8px 18px;font-size:14px}
+      .footer{padding:48px var(--px)}
+      .footer-tagline{font-size:24px;line-height:30px}
+      .footer-logo-text{font-size:24px}
+      .footer-email-form{flex-direction:column;gap:16px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/8437fe40-dfaa-4d42-89ff-663a8d37a962" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="#advisors">Advisors</a></li>
+      <li><a href="#network">Network</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="#join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-bg">
+      <img src="https://www.figma.com/api/mcp/asset/70c6210c-1012-46fc-8337-2a66643c1cb3" alt="">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-label">Sikh Professionals Network</p>
+        <div class="hero-tagline">
+          <h1 class="hero-h1">About SPN</h1>
+          <p class="hero-desc">The network empowers individuals across the UK to develop leadership and professional achievement. Built on integrity, heritage, and seva, SPN helps professionals grow their careers while remaining grounded in their identity.</p>
+        </div>
+      </div>
+      <a href="#join" class="btn btn-primary">Join the Network</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOGO BAR ===== -->
+<section class="logo-bar" aria-label="Partners and affiliates">
+  <div class="logo-track">
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt="Partner"></div>
+    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt="Partner"></div>
+    <!-- duplicates for seamless loop -->
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt=""></div>
+    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt=""></div>
+  </div>
+</section>
+
+<!-- ===== WHO WE ARE ===== -->
+<section class="about-wwa">
+  <div class="about-wwa-inner">
+    <div class="about-text-block">
+      <h2 class="about-section-heading">Who We Are?</h2>
+      <p class="about-body-text">The Sikh Professionals Network (SPN) brings together Sikh students, graduates, professionals, advisors, and leaders aged 18 and over across the UK.<br><br>Through networking, mentoring, educational talks, resources, and guidance, SPN helps members build connections and advance their careers. The network encourages individuals to strengthen their Sikh identity and uphold the values of service, leadership, and community engagement.<br><br>Our mission is to empower Sikh professionals to grow in confidence and excellence while making a positive impact on society through Sikhi values. We aim to inspire a generation of confident professionals who lead with integrity, purpose, and service, contributing meaningfully to wider society.</p>
+    </div>
+    <div class="about-photo">
+      <img src="https://www.figma.com/api/mcp/asset/9a42716f-0f4c-4cd4-81d8-97e728347862" alt="Sikh professional">
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR STORY ===== -->
+<section class="about-story">
+  <div class="about-story-inner">
+    <div class="about-photo">
+      <img src="https://www.figma.com/api/mcp/asset/9a42716f-0f4c-4cd4-81d8-97e728347862" alt="Sikh professionals networking">
+    </div>
+    <div class="about-text-block">
+      <h2 class="about-section-heading">Our Story</h2>
+      <p class="about-body-text">SPN was established to address a critical need within the Sikh community: a trusted space where professional development, personal identity, values, and service can be explored together.<br><br>Many professionals have access to career guidance but lack support reflecting their faith and culture. Others receive community encouragement but have limited access to structured professional development and networking. SPN bridges this gap by bringing both aspects together across the UK in a supportive environment.<br><br>Through events, mentoring, guidance, resources, and expert connections, SPN helps members build confidence, navigate career journeys, develop leadership, and use their knowledge to uplift others.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE VALUES ===== -->
+<section class="about-cv">
+  <div class="about-cv-inner">
+    <h2 class="about-cv-heading">Core Values</h2>
+    <div class="about-cv-grid">
+
+      <article class="about-cv-card">
+        <div class="about-cv-body">
+          <div class="about-cv-icon">
+            <img src="https://www.figma.com/api/mcp/asset/8763365b-61d4-460c-8344-0bb9841036b1" alt="">
+          </div>
+          <div class="about-cv-text-block">
+            <h3 class="about-cv-title">Discipline</h3>
+            <div>
+              <p class="about-cv-subtitle">Rehat &amp; Excellence</p>
+              <p class="about-cv-desc">We believe in striving for personal and professional excellence through discipline, responsibility and growth.</p>
+            </div>
+          </div>
+        </div>
+        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="about-cv-card">
+        <div class="about-cv-body">
+          <div class="about-cv-icon">
+            <img src="https://www.figma.com/api/mcp/asset/2aefecf2-7c7b-46a8-8d47-0f051efea701" alt="">
+          </div>
+          <div class="about-cv-text-block">
+            <h3 class="about-cv-title">Integrity</h3>
+            <div>
+              <p class="about-cv-subtitle">Sach &amp; Naitikta</p>
+              <p class="about-cv-desc">We believe Sikh professionals should lead with honesty, ethics and accountability in professional and community life.</p>
+            </div>
+          </div>
+        </div>
+        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="about-cv-card">
+        <div class="about-cv-body">
+          <div class="about-cv-icon">
+            <img src="https://www.figma.com/api/mcp/asset/69d170ae-2470-4337-9a50-bcec3bca1f21" alt="">
+          </div>
+          <div class="about-cv-text-block">
+            <h3 class="about-cv-title">Sovereignty</h3>
+            <div>
+              <p class="about-cv-subtitle">Miri-Piri Leadership</p>
+              <p class="about-cv-desc">We encourage confidence, independent thought, and leadership rooted in Sikh principles.</p>
+            </div>
+          </div>
+        </div>
+        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="about-cv-card">
+        <div class="about-cv-body">
+          <div class="about-cv-icon">
+            <img src="https://www.figma.com/api/mcp/asset/51de87d0-1273-4b65-9f88-abec4a6356f9" alt="">
+          </div>
+          <div class="about-cv-text-block">
+            <h3 class="about-cv-title">Seva</h3>
+            <div>
+              <p class="about-cv-subtitle">Service</p>
+              <p class="about-cv-desc">We use professional knowledge, influence and resources to uplift others and contribute positively to society.</p>
+            </div>
+          </div>
+        </div>
+        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="about-cv-card">
+        <div class="about-cv-body">
+          <div class="about-cv-icon">
+            <img src="https://www.figma.com/api/mcp/asset/e092cff0-65e6-468e-b22e-ab02c26b64e1" alt="">
+          </div>
+          <div class="about-cv-text-block">
+            <h3 class="about-cv-title">Heritage</h3>
+            <div>
+              <p class="about-cv-subtitle">Virsa</p>
+              <p class="about-cv-desc">We honour the Sikh legacy by strengthening identity, historical knowledge, and pride in our roots.</p>
+            </div>
+          </div>
+        </div>
+        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUSTED COMMUNITY ===== -->
+<section class="about-trusted">
+  <div class="about-trusted-inner">
+    <div class="about-trusted-top">
+      <h2 class="about-trusted-heading">A Trusted Sikh Professional Community</h2>
+      <p class="about-trusted-desc">At SPN, we connect you with a credible, grounded network of Sikh professionals who truly understand the unique balance between career ambition, cultural identity, and Seva (service).</p>
+    </div>
+    <div class="about-tc-cards">
+
+      <article class="about-tc-card dark">
+        <div class="about-tc-top">
+          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/96628493-cd3b-44b8-9332-aff1895f607e" alt="">
+          <span class="about-tc-label">Mentoring &amp; Guidance</span>
+        </div>
+        <div>
+          <p class="about-tc-num">01.</p>
+          <p class="about-tc-text">Connect with mentors across the UK to make big career decisions, build confidence, nail interviews, and fast-track your professional growth.</p>
+        </div>
+      </article>
+
+      <article class="about-tc-card light">
+        <div class="about-tc-top">
+          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/87fd0050-64ae-4a88-9bb9-4e2007cc52a4" alt="">
+        </div>
+        <div>
+          <p class="about-tc-num">02.</p>
+          <p class="about-tc-text">Cross-Sector Connections: Break out of your bubble. Connect with diverse professionals across the UK for authentic collaboration, learning, and trusted business referrals.</p>
+        </div>
+      </article>
+
+      <article class="about-tc-card light">
+        <div class="about-tc-top">
+          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/224bc219-86db-4610-ae71-47fe82d2549c" alt="">
+        </div>
+        <div>
+          <p class="about-tc-num">03.</p>
+          <p class="about-tc-text">Values-Led Leadership: Leadership is more than climbing the ladder — we encourage members across the UK to lead with discipline, integrity, confidence, and service.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="stats-bg">
+    <img src="https://www.figma.com/api/mcp/asset/45bb54ea-059e-417f-8d6a-f5b481d05e01" alt="">
+    <div class="stats-overlay"></div>
+  </div>
+  <div class="stats-inner">
+    <h2 class="stats-heading">Stats</h2>
+    <div class="stats-grid">
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Founded for UK Sikhs</h3>
+          <p class="stat-text">Built from the ground up specifically for Sikh professionals, ambitious graduates, and emerging leaders right here across the UK.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Built around 5 Core Values</h3>
+          <p class="stat-text">We aren't just about networking. Our entire community is anchored in five foundational values: discipline, integrity, sovereignty, heritage, and seva.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Supporting Ages 18+</h3>
+          <p class="stat-text">Growth doesn't stop. We actively support Sikh adults at every single stage of their professional journey, from fresh grads to seasoned executives.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Career &amp; Community Impact</h3>
+          <p class="stat-text">We bridge the gap between success and purpose, seamlessly connecting your career development with meaningful service to society.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== BE PART OF SPN ===== -->
+<section class="join-cta" id="join">
+  <div class="join-cta-bg">
+    <img src="https://www.figma.com/api/mcp/asset/37fa89b6-17c4-4d92-832c-d726fcb5dcc9" alt="">
+  </div>
+  <div class="join-cta-card">
+    <div>
+      <h2 class="join-cta-heading">Be Part of SPN</h2>
+    </div>
+    <p class="join-cta-text">Join a growing network of Sikh professionals committed to excellence, identity and service.</p>
+    <div class="join-cta-actions">
+      <a href="index.html#stay-connected" class="btn btn-outline">Join SPN</a>
+      <a href="index.html#stay-connected" class="btn btn-primary">Subscribe for Updates</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="faq-sub">Common questions</p>
+      <h2 class="faq-heading">FAQ</h2>
+      <p class="faq-desc">Everything you need to know about SPN and getting involved.</p>
+    </header>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">What is the purpose of SPN?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">SPN exists to connect and empower Sikh professionals across the UK. We provide a trusted space where career development, Sikh identity, and the value of seva (service) come together — helping members grow professionally while remaining rooted in their heritage.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Is SPN a religious organisation or a professional organisation?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">SPN is a professional network rooted in Sikh values. It is not a religious organisation, but it acknowledges that for many Sikh professionals, faith and identity are integral to who they are and how they work. SPN provides a space where both dimensions coexist and strengthen one another.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Can non-senior professionals join?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Absolutely. SPN is open to anyone aged 18 and over — students, graduates, early-career professionals, and experienced leaders alike. Whether you are just starting out or have decades of experience, there is a place for you in the network.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Will SPN run in-person and online activities?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Yes. SPN plans to run a mix of in-person events across the UK as well as online webinars, panel discussions, and virtual mentoring sessions — ensuring members from different parts of the country can all participate and benefit.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+</script>
+
+<script>
+  // FAQ accordion with animated height
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var summary = item.querySelector('.faq-question');
+    var body = item.querySelector('.faq-body');
+    var inner = body ? body.querySelector('.faq-answer') : null;
+    if (!summary || !body || !inner) return;
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = item.hasAttribute('open');
+      document.querySelectorAll('.faq-item[open]').forEach(function(o) {
+        var b = o.querySelector('.faq-body');
+        if (b) b.style.height = '0';
+        o.removeAttribute('open');
+      });
+      if (!isOpen) {
+        item.setAttribute('open', '');
+        body.style.height = inner.offsetHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
