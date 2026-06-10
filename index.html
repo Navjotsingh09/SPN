@@ -1,180 +1,1172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/jpeg" href="sikhprofessionalsnetwork_logo.jpeg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sikh Professional Network — Coming Soon</title>
-    <meta name="description" content="Sikh Professional Network — Connecting Sikh professionals worldwide. Website coming soon.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sikh Professionals Network — Connect | Empower | Succeed</title>
+  <meta name="description" content="The Sikh Professionals Network connects UK-based professionals, students and community leaders to foster career excellence, leadership, and pride in their heritage.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-            background: #f8f8fa;
-        }
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:.85}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
 
-        .bg-blur {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .bg-blur .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-        }
-        .blob-1 {
-            width: 900px; height: 900px;
-            top: -20%; left: -10%;
-            background: radial-gradient(circle, rgba(251, 207, 232, 0.5) 0%, transparent 70%);
-        }
-        .blob-2 {
-            width: 800px; height: 800px;
-            top: 10%; right: -15%;
-            background: radial-gradient(circle, rgba(186, 230, 253, 0.5) 0%, transparent 70%);
-        }
-        .blob-3 {
-            width: 700px; height: 700px;
-            bottom: -10%; left: 30%;
-            background: radial-gradient(circle, rgba(253, 220, 236, 0.35) 0%, transparent 70%);
-        }
-        .blob-4 {
-            width: 600px; height: 600px;
-            top: 40%; right: 10%;
-            background: radial-gradient(circle, rgba(207, 250, 254, 0.3) 0%, transparent 70%);
-        }
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
 
-        .content {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 3rem 4rem;
-        }
+    /* ── HERO ── */
+    .hero{
+      background:#fff;
+      padding:0 50px 50px;
+    }
+    .hero-card{
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      height:800px;
+      display:flex;align-items:center;justify-content:center;
+      max-width:calc(var(--max) - 100px);
+      margin:0 auto;
+    }
+    .hero-bg{position:absolute;inset:0;overflow:hidden}
+    .hero-bg img{
+      width:100%;height:100%;object-fit:cover;
+      transform:scaleX(-1)
+    }
+    .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+    .hero-inner{
+      position:relative;z-index:1;width:100%;
+      max-width:calc(var(--max) - 100px);
+      display:flex;flex-direction:column;align-items:center;gap:48px
+    }
+    .hero-content{
+      display:flex;flex-direction:column;align-items:center;
+      text-align:center;gap:24px;width:100%
+    }
+    .hero-label{font-family:'Instrument Sans',sans-serif;font-size:18px;color:#fff;line-height:28px}
+    .hero-tagline{display:flex;flex-direction:column;gap:20px;align-items:center;width:100%}
+    .hero-h1{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:64px;letter-spacing:-3.2px
+    }
+    .hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;
+      color:var(--off-white);line-height:28px;max-width:1038px
+    }
+    .hero-actions{display:flex;gap:16px;align-items:center}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: auto;
-        }
-        .logo img {
-            width: 72px;
-            height: 72px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        .logo .wordmark {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #1e293b;
-            letter-spacing: -0.01em;
-        }
+    /* ── LOGO BAR ── */
+    .logo-bar{background:var(--dark2);padding:40px var(--px)}
+    .logo-bar-inner{
+      max-width:1128px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;gap:20px
+    }
+    .logo-item{height:40px;display:flex;align-items:center;flex-shrink:0}
+    .logo-item img{width:100%;height:100%;display:block;object-fit:contain}
+    .logo-item.logo-1{width:172px}
+    .logo-item.logo-2{width:163.9px}
+    .logo-item.logo-3{width:162.93px}
+    .logo-item.logo-4{width:165.85px}
+    .logo-item.logo-5{width:165.85px}
 
-        .main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1;
-            max-width: 900px;
-        }
+    /* ── FEATURES ── */
+    .features{background:#fff;padding:50px var(--px)}
+    .features-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:45px
+    }
+    .section-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px
+    }
+    .feature-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature-card{
+      background:#d9d9d9;border-radius:12px;padding:30px;
+      min-height:448px;
+      display:flex;flex-direction:column;justify-content:space-between;
+      transition:background .3s ease, transform .3s ease, box-shadow .3s ease;
+      cursor:pointer
+    }
+    .feature-card:hover{
+      background:var(--dark);
+      transform:translateY(-6px);
+      box-shadow:0 20px 48px rgba(0,0,0,.18)
+    }
+    .feature-card:hover .feature-title{color:#fff;transition:color .3s}
+    .feature-card:hover .feature-text{color:rgba(255,255,255,.75);transition:color .3s}
+    .feature-card:hover .feature-icon-wrap{background:var(--accent);transition:background .3s}
+    .feature-card:hover .feature-icon-wrap img{filter:brightness(0) invert(1);transition:filter .3s ease}
+    .feature-card:hover .feature-arrow{
+      transform:translate(4px,-4px);
+      filter:brightness(0) invert(1);
+      transition:transform .3s ease, filter .3s ease
+    }
+    .feature-card-top{display:flex;flex-direction:column;gap:20px}
+    .feature-icon-wrap{
+      width:64px;height:64px;background:#fff;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      transition:background .3s ease
+    }
+    .feature-icon-wrap img{width:36px;height:36px;object-fit:contain}
+    .feature-card-body{display:flex;flex-direction:column;gap:12px}
+    .feature-title{
+      font-family:'Instrument Sans',sans-serif;font-size:24px;font-weight:500;
+      color:var(--text-dark);line-height:32px;letter-spacing:-0.48px;
+      transition:color .3s ease
+    }
+    .feature-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      transition:color .3s ease
+    }
+    .feature-arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease, filter .3s ease}
 
-        .label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #0ea5e9;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 1rem;
-        }
+    /* ── BENEFITS ── */
+    .benefits{background:#fff;padding:100px var(--px)}
+    .benefits-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;gap:64px;align-items:flex-start
+    }
+    .benefits-left{flex-shrink:0;width:466px;position:sticky;top:120px;display:flex;flex-direction:column;gap:30px}
+    .benefits-photo{
+      width:466px;height:450px;border-radius:20px;
+      overflow:hidden;position:relative;background:#fff;flex-shrink:0
+    }
+    .benefits-photo img{
+      position:absolute;
+      width:136.47%;height:150.94%;
+      left:-19.98%;top:0.42%;
+      object-fit:cover
+    }
+    .benefits-right{
+      flex:1;
+      height:820px;
+      overflow:hidden;
+      position:relative;
+      -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
+      mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
+    }
+    .benefits-reel{
+      display:flex;flex-direction:column;gap:24px;
+      animation:benefits-scroll 22s linear infinite;
+    }
+    .benefits-reel:hover{animation-play-state:paused}
+    @keyframes benefits-scroll{
+      0%{transform:translateY(0)}
+      100%{transform:translateY(-50%)}
+    }
+    .benefit-item{
+      background:var(--light);border-radius:20px;padding:20px 24px;
+      display:flex;gap:32px;align-items:flex-start
+    }
+    .benefit-icon{width:48px;height:48px;flex-shrink:0;object-fit:contain}
+    .benefit-body{flex:1;display:flex;flex-direction:column;gap:16px}
+    .benefit-title{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      color:var(--dark);line-height:32px;letter-spacing:-0.72px
+    }
+    .benefit-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px
+    }
 
-        h1 {
-            font-size: clamp(3.5rem, 8vw, 7rem);
-            font-weight: 900;
-            color: #0f172a;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            margin-bottom: 1.5rem;
-        }
+    /* ── STATS ── */
+    .stats{
+      position:relative;padding:89px 106px;
+      min-height:786px;display:flex;align-items:flex-start;
+      overflow:hidden
+    }
+    .stats-bg{position:absolute;inset:0;border-radius:0}
+    .stats-bg img{width:100%;height:100%;object-fit:cover;object-position:bottom}
+    .stats-overlay{position:absolute;inset:0;background:var(--dark);opacity:.7}
+    .stats-inner{
+      position:relative;z-index:1;
+      max-width:1128px;width:100%;
+      display:flex;flex-direction:column;gap:40px
+    }
+    .stats-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#fff;line-height:56px;letter-spacing:-2.4px
+    }
+    .stats-grid{display:flex;flex-wrap:wrap;gap:20px}
+    .stat-card{
+      background:var(--light2);border-radius:12px;padding:30px;
+      width:554px;opacity:.89;display:flex;flex-direction:column;gap:29px
+    }
+    .stat-content{display:flex;flex-direction:column;gap:12px}
+    .stat-title{
+      font-family:'Lora',serif;font-size:40px;font-weight:400;
+      color:var(--text-dark);line-height:52px;letter-spacing:-2px
+    }
+    .stat-text{
+      font-family:'Lora',serif;font-size:20px;font-weight:400;
+      color:var(--text-mid);line-height:28px;letter-spacing:-0.6px
+    }
+    .stat-arrow{width:24px;height:24px;object-fit:contain}
 
-        .subtitle {
-            font-size: 1.15rem;
-            color: #64748b;
-            line-height: 1.6;
-            max-width: 480px;
-            margin-bottom: 2rem;
-        }
+    /* ── TESTIMONIALS ── */
+    .testimonials{background:#fff;padding:100px var(--px);overflow:hidden}
+    .testimonials-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:48px
+    }
+    .testimonials-header{max-width:538px}
+    .testimonials-quote{
+      font-family:'Lora',serif;font-size:96px;font-weight:700;
+      color:var(--text-dark);line-height:96px;letter-spacing:-5.28px
+    }
+    .testimonials-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .testimonials-track-wrap{overflow:hidden}
+    .testimonials-track{
+      display:flex;gap:20px;
+      transition:transform .4s ease
+    }
+    .testimonial-card{
+      border-radius:12px;padding:40px;
+      min-width:500px;width:500px;flex-shrink:0;
+      display:flex;flex-direction:column;justify-content:space-between;gap:24px
+    }
+    .testimonial-card.featured{background:var(--accent)}
+    .testimonial-card.light{background:var(--light)}
+    .testimonial-text{
+      font-family:'Instrument Sans',sans-serif;font-size:36px;font-weight:400;
+      line-height:40px;letter-spacing:-1.26px
+    }
+    .testimonial-card.featured .testimonial-text{color:#fff}
+    .testimonial-card.light .testimonial-text{color:#000}
+    .testimonial-author{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:600;
+      letter-spacing:-0.14px;line-height:20px
+    }
+    .testimonial-card.featured .testimonial-author{color:#fff}
+    .testimonial-card.light .testimonial-author{color:#000}
+    .testimonials-progress-wrap{background:var(--light);height:10px;border-radius:4px;overflow:hidden}
+    .testimonials-progress{background:var(--accent);height:10px;border-radius:4px;width:33%;transition:width .4s}
+    .testimonials-nav{display:flex;gap:20px;align-items:center}
+    .tn-btn{
+      width:48px;height:48px;background:var(--accent);border-radius:4px;border:none;
+      cursor:pointer;display:flex;align-items:center;justify-content:center;
+      transition:opacity .2s;color:#fff
+    }
+    .tn-btn:hover{opacity:.8}
+    .tn-btn svg{width:20px;height:20px;fill:#fff}
 
-        .subtitle a {
-            color: #0ea5e9;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .subtitle a:hover {
-            text-decoration: underline;
-        }
+    /* ── JOIN CTA ── */
+    .join-cta{
+      position:relative;min-height:708px;
+      display:flex;align-items:center;padding:80px var(--px);overflow:hidden
+    }
+    .join-cta-bg{position:absolute;inset:0}
+    .join-cta-bg img{width:100%;height:100%;object-fit:cover}
+    .join-cta-card{
+      position:relative;z-index:1;background:#fff;
+      border-radius:12px;padding:40px;width:532px;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .join-cta-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .join-cta-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px
+    }
+    .join-cta-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-        .linkedin-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #0a66c2;
-            color: #fff;
-            font-size: 0.925rem;
-            font-weight: 600;
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background 0.2s;
-            width: fit-content;
-        }
-        .linkedin-btn:hover {
-            background: #004182;
-        }
-        .linkedin-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
+    /* ── STAY CONNECTED ── */
+    .stay-connected{background:var(--dark);padding:96px var(--px)}
+    .stay-connected-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:40px
+    }
+    .sc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:40px}
+    .sc-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#ecece7;line-height:64px;letter-spacing:-3.2px;
+      min-width:506px;flex-shrink:0
+    }
+    .sc-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:500;
+      color:#dee2e8;line-height:20px;letter-spacing:-0.07px;max-width:545px;
+      align-self:center
+    }
+    .form-card{
+      background:#f8f8f8;border-radius:20px;padding:64px;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .form-section-label{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:600;
+      color:#121217;line-height:24px;letter-spacing:-0.18px
+    }
+    .form-row{display:flex;gap:16px}
+    .form-field{display:flex;flex-direction:column;gap:8px;flex:1}
+    .form-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#121217;line-height:24px;letter-spacing:-0.128px
+    }
+    .form-input{
+      border:none;border-bottom:1px solid var(--accent);background:transparent;
+      padding:8px 0;font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:#121217;outline:none;width:100%
+    }
+    .form-input:focus{border-bottom-color:var(--dark)}
+    .form-check-row{display:flex;align-items:center;gap:8px}
+    .form-check-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
+    .form-check-row label{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:#121217;line-height:20px;letter-spacing:-0.07px
+    }
+    .btn-full{width:100%;border-radius:4px}
 
-        @media (max-width: 768px) {
-            .content {
-                padding: 2rem 1.5rem;
-            }
-        }
-    </style>
+    /* ── FAQ ── */
+    .faq{background:#fff;padding:80px var(--px)}
+    .faq-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:35px
+    }
+    .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .faq-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text);line-height:42px;letter-spacing:-0.8px
+    }
+    .faq-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .faq-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text-grey);line-height:18px;letter-spacing:-0.8px;
+      max-width:466px
+    }
+    .faq-list{
+      display:flex;flex-direction:column;
+      max-width:1038px;margin:0 auto;width:100%
+    }
+    .faq-item{border-bottom:1px solid #e5e5e5}
+    .faq-question{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:24px 0;cursor:pointer;gap:16px;list-style:none
+    }
+    .faq-question::-webkit-details-marker{display:none}
+    .faq-q-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px;letter-spacing:-0.16px
+    }
+    .faq-icon{
+      width:24px;height:24px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;transition:transform .3s
+    }
+    .faq-item[open] .faq-icon{transform:rotate(45deg)}
+    .faq-answer{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;padding-bottom:24px
+    }
+
+    /* ── FOOTER ── */
+    .footer{background:var(--dark);padding:80px var(--px);overflow:hidden}
+    .footer-inner{
+      max-width:1169px;margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .footer-top{display:flex;gap:200px;align-items:flex-start}
+    .footer-left{display:flex;flex-direction:column;gap:32px;width:499px;flex-shrink:0}
+    .footer-logo-block{display:flex;flex-direction:column;gap:40px}
+    .footer-logo{display:flex;align-items:center}
+    .footer-logo-mark{
+      width:41px;height:48px;background:#fff;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .footer-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .footer-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;color:#fff;
+      letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .footer-tagline{
+      font-family:'Lora',serif;font-size:36px;font-weight:400;
+      color:#fff;line-height:40px;letter-spacing:-1.08px;width:493px
+    }
+    .footer-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:#fff;line-height:28px;width:493px
+    }
+    .footer-follow{display:flex;flex-direction:column;gap:16px}
+    .footer-follow-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:#fff;line-height:1.5
+    }
+    .footer-social{display:flex;gap:8px;align-items:center;width:416px;flex-wrap:wrap}
+    .footer-social-link{
+      display:flex;flex:1;align-items:center;gap:8px;color:#fff;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;line-height:1.5
+    }
+    .footer-social-link img{width:24px;height:24px;flex-shrink:0}
+    .footer-right{flex:1;display:flex;flex-direction:column;gap:16px;justify-content:flex-start}
+    .footer-hours{
+      display:flex;justify-content:flex-end;gap:40px;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;line-height:1.5
+    }
+    .footer-divider{height:1px;background:var(--accent)}
+    .footer-email-form{display:flex;gap:24px;align-items:flex-end;margin-top:4px}
+    .footer-email-field{flex:1;display:flex;flex-direction:column;gap:8px}
+    .footer-email-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#fff;line-height:24px;letter-spacing:-0.128px
+    }
+    .footer-email-input{
+      border:none;border-bottom:1px solid #fff;background:transparent;
+      padding:4px 0;font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;outline:none
+    }
+    .footer-email-input::placeholder{color:rgba(255,255,255,.4)}
+    .footer-privacy{
+      font-family:'Instrument Sans',sans-serif;font-size:10px;color:#fff;line-height:1.5
+    }
+    .footer-privacy a{color:#fff;text-decoration:underline}
+    .footer-bottom{display:flex;flex-direction:column;gap:40px}
+    .footer-nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-nav-links,.footer-legal-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+    .footer-nav-links a,.footer-legal-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:#fff;text-decoration:none;line-height:1.5
+    }
+    .footer-nav-links a:hover,.footer-legal-links a:hover{text-decoration:underline}
+    .footer-copyright{
+      text-align:center;font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:#fff;line-height:1.5
+    }
+
+    /* ── RESPONSIVE ── */
+
+    /* 1280px – reduce side gutters */
+    @media(max-width:1280px){
+      :root{--px:80px}
+    }
+
+    /* 1000px – tablet */
+    @media(max-width:1000px){
+      :root{--px:32px}
+      /* shared */
+      .features-inner,.benefits-inner,.testimonials-inner,.stay-connected-inner,
+      .stats-inner,.faq-inner{max-width:100%}
+      .section-heading{font-size:48px;line-height:52px}
+      /* navbar */
+      .nav-logo-text{font-size:30px}
+      /* hero */
+      .hero{padding:0 32px 32px}
+      .hero-card{height:600px}
+      .hero-h1{font-size:48px;line-height:52px;letter-spacing:-2.4px}
+      .hero-desc{font-size:16px;max-width:100%}
+      /* features */
+      .feature-cards{grid-template-columns:repeat(2,1fr)}
+      /* benefits */
+      .benefits-inner{flex-direction:column}
+      .benefits-left{width:100%;position:static}
+      .benefits-photo{width:100%;height:360px}
+      .benefits-right{
+        height:auto;
+        overflow:visible;
+        -webkit-mask-image:none;
+        mask-image:none;
+      }
+      .benefits-reel{animation:none}
+      /* stats */
+      .stats{padding:60px 32px;min-height:auto}
+      .stats-heading{font-size:40px;line-height:48px}
+      .stat-card{width:100%}
+      /* testimonials */
+      .testimonials-quote{font-size:72px;line-height:72px}
+      .testimonials-heading{font-size:40px;line-height:48px}
+      .testimonial-card{min-width:400px;width:400px}
+      /* join cta */
+      .join-cta{min-height:auto;padding:60px var(--px)}
+      .join-cta-card{width:100%;max-width:100%}
+      .join-cta-heading{font-size:40px;line-height:48px}
+      /* stay connected */
+      .sc-header{flex-direction:column}
+      .sc-heading{min-width:unset;width:100%;font-size:48px;line-height:52px}
+      .form-row{flex-direction:column}
+      /* footer */
+      .footer-top{flex-direction:column;gap:48px}
+      .footer-left{width:100%}
+      .footer-tagline,.footer-desc{width:100%}
+      .footer-hours{justify-content:flex-start;flex-wrap:wrap;gap:16px}
+      .footer-social{width:100%}
+    }
+
+    /* 700px – mobile */
+    @media(max-width:700px){
+      :root{--px:20px}
+      /* navbar */
+      .nav-links{display:none}
+      .nav-logo-text{font-size:26px}
+      /* hero */
+      .hero{padding:0 16px 16px}
+      .hero-card{height:500px}
+      .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
+      .hero-desc{font-size:15px;line-height:24px}
+      /* logo bar */
+      .logo-bar{padding:28px 20px}
+      .logo-bar-inner{flex-wrap:wrap;justify-content:center;gap:20px}
+      .logo-item{width:140px !important;height:32px}
+      .logo-item img{height:32px}
+      /* features */
+      .section-heading{font-size:36px;line-height:40px}
+      .feature-cards{grid-template-columns:1fr}
+      /* stats */
+      .stats{padding:50px 20px}
+      .stats-grid{flex-direction:column}
+      .stats-heading{font-size:32px;line-height:40px}
+      .stat-title{font-size:32px;line-height:40px}
+      /* testimonials */
+      .testimonials{padding:60px var(--px)}
+      .testimonials-quote{font-size:64px;line-height:64px}
+      .testimonials-heading{font-size:32px;line-height:40px}
+      .testimonial-card{min-width:280px;width:280px;padding:28px}
+      .testimonial-text{font-size:24px;line-height:30px}
+      /* join cta */
+      .join-cta{padding:40px var(--px)}
+      .join-cta-heading{font-size:32px;line-height:40px}
+      /* stay connected */
+      .sc-heading{font-size:36px;line-height:40px}
+      .form-card{padding:32px 24px}
+      /* faq */
+      .faq-heading{font-size:36px;line-height:44px}
+      .faq-list{max-width:100%}
+      /* footer */
+      .footer-top{gap:32px}
+      .footer-logo-text{font-size:28px}
+      .footer-tagline{font-size:28px;line-height:34px;width:100%}
+      .footer-desc{font-size:16px;width:100%}
+      .footer-nav{flex-direction:column;align-items:flex-start}
+      .footer-nav-links,.footer-legal-links{flex-wrap:wrap;gap:12px}
+    }
+
+    /* 480px – small mobile */
+    @media(max-width:480px){
+      /* hero */
+      .hero{padding:0 12px 12px}
+      .hero-card{height:440px}
+      .hero-h1{font-size:28px;line-height:34px;letter-spacing:-1.5px}
+      .hero-label{font-size:14px;line-height:22px}
+      .hero-desc{font-size:14px;line-height:20px}
+      .hero-actions{flex-wrap:wrap;justify-content:center;gap:10px}
+      /* logo bar */
+      .logo-bar-inner{gap:14px}
+      .logo-item{width:100px !important;height:26px}
+      /* buttons */
+      .btn{padding:8px 18px;font-size:14px}
+      /* stats */
+      .stat-title{font-size:26px;line-height:34px}
+      .stat-text{font-size:16px}
+      /* testimonials */
+      .testimonial-card{min-width:240px;width:240px;padding:20px}
+      .testimonial-text{font-size:20px;line-height:26px}
+      /* footer */
+      .footer{padding:48px var(--px)}
+      .footer-tagline{font-size:24px;line-height:30px}
+      .footer-logo-text{font-size:24px}
+      .footer-email-form{flex-direction:column;gap:16px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-blur">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
-    </div>
 
-    <div class="content">
-        <div class="logo">
-            <img src="sikhprofessionalsnetwork_logo.jpeg" alt="SPN Logo">
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="/" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/595aae72-6bd2-469c-8369-1fbfd8dba135" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#advisors">Advisors</a></li>
+      <li><a href="#network">Network</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="#join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-bg">
+      <img src="https://www.figma.com/api/mcp/asset/ad7b7173-65c1-42c8-8eb2-b29e48af0848" alt="">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-label">Sikh Professionals Network</p>
+        <div class="hero-tagline">
+          <h1 class="hero-h1">Connect | Empower | Succeed</h1>
+          <p class="hero-desc">The Sikh Professionals Network connects UK-based professionals, students, and community leaders to foster career excellence, leadership, and pride in their heritage. Rooted in integrity and seva, this trusted group empowers its members to succeed at work while actively serving those in need.</p>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#join" class="btn btn-primary">Join SPN</a>
+        <a href="#about" class="btn btn-outline-white">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOGO BAR ===== -->
+<section class="logo-bar" aria-label="Partners and affiliates">
+  <div class="logo-bar-inner">
+    <div class="logo-item logo-1"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt="Partner"></div>
+    <div class="logo-item logo-2"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt="Partner"></div>
+    <div class="logo-item logo-3"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt="Partner"></div>
+    <div class="logo-item logo-4"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt="Partner"></div>
+    <div class="logo-item logo-5"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt="Partner"></div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features" id="about">
+  <div class="features-inner">
+    <h2 class="section-heading">Features List</h2>
+    <div class="feature-cards">
+
+      <article class="feature-card">
+        <div class="feature-card-top">
+          <div class="feature-icon-wrap">
+            <img src="https://www.figma.com/api/mcp/asset/f2c75c53-3cb4-4c88-80d1-efecb378b1ad" alt="">
+          </div>
+          <div class="feature-card-body">
+            <h3 class="feature-title">Connect</h3>
+            <p class="feature-text">Build connections with Sikh professionals from different industries, cities and career levels. SPN creates opportunities for members to meet, share job opportunities, learn from each other and help the generation.</p>
+          </div>
+        </div>
+        <img class="feature-arrow" src="https://www.figma.com/api/mcp/asset/d71bd3b9-a973-4c9c-8de0-c1196f4374be" alt="">
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-card-top">
+          <div class="feature-icon-wrap">
+            <img src="https://www.figma.com/api/mcp/asset/f4ea5e67-5d84-43dc-8efd-4ba887b90e02" alt="">
+          </div>
+          <div class="feature-card-body">
+            <h3 class="feature-title">Empower</h3>
+            <p class="feature-text">As a member, you get access to talks, resources, mentorship, career advice, and support that take your faith into account. This helps you grow spiritually, professionally and personally.</p>
+          </div>
+        </div>
+        <img class="feature-arrow" src="https://www.figma.com/api/mcp/asset/d71bd3b9-a973-4c9c-8de0-c1196f4374be" alt="">
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-card-top">
+          <div class="feature-icon-wrap">
+            <img src="https://www.figma.com/api/mcp/asset/38f8773f-46d3-449b-9a18-f747d893d045" alt="">
+          </div>
+          <div class="feature-card-body">
+            <h3 class="feature-title">Succeed</h3>
+            <p class="feature-text">Develop the skills, network and mindset to advance your career and make a difference in society. In SPN, success means being excellent at your job, being proud of who you are serving, and serving others with purpose.</p>
+          </div>
+        </div>
+        <img class="feature-arrow" src="https://www.figma.com/api/mcp/asset/d71bd3b9-a973-4c9c-8de0-c1196f4374be" alt="">
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-left">
+      <h2 class="section-heading">Benefits Section</h2>
+      <div class="benefits-photo">
+        <img src="https://www.figma.com/api/mcp/asset/7a7109f7-7a14-4652-9505-da8b2aa56b3b" alt="Professional smiling in an office setting">
+      </div>
+    </div>
+    <div class="benefits-right">
+      <div class="benefits-reel">
+
+        <!-- original set -->
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/a691891d-e435-46ad-bc4c-f9824bca210f" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Professional Networking</h3>
+            <p class="benefit-text">You can meet professionals from a wide range of fields, including law, finance, medicine, technology, education, business, public service, engineering, and the charity sector.</p>
+          </div>
         </div>
 
-        <div class="main">
-            <p class="label">Coming Soon</p>
-            <h1>Sikh<br>Professional<br>Network</h1>
-            <p class="subtitle">Connecting Sikh professionals worldwide.<br>Get in touch &mdash; <a href="mailto:Admin@sikhpn.org">Admin@sikhpn.org</a></p>
-            <a href="https://www.linkedin.com/company/sikhprofessionalsnetwork/about/" target="_blank" rel="noopener noreferrer" class="linkedin-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                Follow us on LinkedIn
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/875d4024-ce72-40ec-980c-2571883de1bd" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Mentorship and Career Support</h3>
+            <p class="benefit-text">Experienced professionals offer advice on career choices, job applications, and interviews in the United Kingdom to boost your confidence and skills.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/84d9ff37-0df1-4f09-bba8-9229e9cecead" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Faith and Identity Support</h3>
+            <p class="benefit-text">Gain practical guidance and support to help you stay confident in your Sikh identity while successfully navigating workplace expectations, professional challenges, and leadership opportunities.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/bd441594-2012-47c6-8d41-848053a464f2" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Events and Talks</h3>
+            <p class="benefit-text">Connect with like-minded Sikh professionals through engaging webinars, insightful panel discussions, seminars, and speaker events that encourage learning, growth, and collaboration.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/41d5cc2f-c00d-45cb-953f-8a571782e092" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Resources and Toolkits</h3>
+            <p class="benefit-text">Explore resources and practical tools that support personal and professional development, including guides, templates, educational materials, workplace advice, and policy-related information.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/8f86a30d-8984-4245-bc4b-804a8c0bbf2d" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Opportunities to Serve</h3>
+            <p class="benefit-text">Give back to the community by sharing your skills and experience. Whether through mentoring, volunteering, or contributing to projects, there are many ways to support others.</p>
+          </div>
+        </div>
+
+        <!-- duplicate set for seamless loop -->
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/a691891d-e435-46ad-bc4c-f9824bca210f" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Professional Networking</h3>
+            <p class="benefit-text">You can meet professionals from a wide range of fields, including law, finance, medicine, technology, education, business, public service, engineering, and the charity sector.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/875d4024-ce72-40ec-980c-2571883de1bd" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Mentorship and Career Support</h3>
+            <p class="benefit-text">Experienced professionals offer advice on career choices, job applications, and interviews in the United Kingdom to boost your confidence and skills.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/84d9ff37-0df1-4f09-bba8-9229e9cecead" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Faith and Identity Support</h3>
+            <p class="benefit-text">Gain practical guidance and support to help you stay confident in your Sikh identity while successfully navigating workplace expectations, professional challenges, and leadership opportunities.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/bd441594-2012-47c6-8d41-848053a464f2" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Events and Talks</h3>
+            <p class="benefit-text">Connect with like-minded Sikh professionals through engaging webinars, insightful panel discussions, seminars, and speaker events that encourage learning, growth, and collaboration.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/41d5cc2f-c00d-45cb-953f-8a571782e092" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Resources and Toolkits</h3>
+            <p class="benefit-text">Explore resources and practical tools that support personal and professional development, including guides, templates, educational materials, workplace advice, and policy-related information.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/8f86a30d-8984-4245-bc4b-804a8c0bbf2d" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Opportunities to Serve</h3>
+            <p class="benefit-text">Give back to the community by sharing your skills and experience. Whether through mentoring, volunteering, or contributing to projects, there are many ways to support others.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="stats-bg">
+    <img src="https://www.figma.com/api/mcp/asset/93e96421-69aa-49eb-9e66-3cda2c022975" alt="">
+    <div class="stats-overlay"></div>
+  </div>
+  <div class="stats-inner">
+    <h2 class="stats-heading">Stats</h2>
+    <div class="stats-grid">
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">UK-wide Network</h3>
+          <p class="stat-text">Connecting Sikh professionals across the United Kingdom.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/db4473f3-72f6-4c93-ae06-3670cd532911" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">18+ Membership</h3>
+          <p class="stat-text">Sikh professionals, students, and graduates aged 18+ looking to grow skills, networks, and opportunities.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/db4473f3-72f6-4c93-ae06-3670cd532911" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Cross-Sector Community</h3>
+          <p class="stat-text">Bringing together members from multiple industries, professions and career pathways.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/db4473f3-72f6-4c93-ae06-3670cd532911" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">5 Core Offers</h3>
+          <p class="stat-text">Talks, resources, mentorship, advice and professional experience opportunities.</p>
+        </div>
+        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/db4473f3-72f6-4c93-ae06-3670cd532911" alt="">
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <p class="testimonials-quote">"</p>
+      <h2 class="testimonials-heading">Why Members Rely on Us</h2>
+    </div>
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track" id="testimonialsTrack">
+
+        <article class="testimonial-card featured">
+          <p class="testimonial-text">SPN creates the kind of professional community many of us wished we had earlier in our careers: a space where Sikh identity, career ambition and seva are all valued together.</p>
+          <p class="testimonial-author">Founding Member</p>
+        </article>
+
+        <article class="testimonial-card light">
+          <p class="testimonial-text">This network gives Sikh professionals a practical way to support one another, share experience and open doors for the next generation.</p>
+          <p class="testimonial-author">Advisor</p>
+        </article>
+
+        <article class="testimonial-card light">
+          <p class="testimonial-text">SPN helped me see that professional success and Sikh values do not sit separately. They can strengthen each other.</p>
+          <p class="testimonial-author">Early Participant</p>
+        </article>
+
+      </div>
+    </div>
+    <div class="testimonials-progress-wrap">
+      <div class="testimonials-progress" id="testimonialsProgress"></div>
+    </div>
+    <div class="testimonials-nav" role="group" aria-label="Testimonials navigation">
+      <button class="tn-btn" id="tnPrev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 4l-6 6 6 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tn-btn" id="tnNext" aria-label="Next testimonial">
+        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 4l6 6-6 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOIN CTA ===== -->
+<section class="join-cta" id="join">
+  <div class="join-cta-bg">
+    <img src="https://www.figma.com/api/mcp/asset/bf5c81f1-e84a-4b5a-b27d-5ad2882be629" alt="">
+  </div>
+  <div class="join-cta-card">
+    <div>
+      <h2 class="join-cta-heading">Join the Sikh Professionals Network</h2>
+    </div>
+    <p class="join-cta-text">SPN connects Sikh professionals, students, and mentors to strengthen identity, develop leadership, pursue excellence, and serve their communities.</p>
+    <div class="join-cta-actions">
+      <a href="#stay-connected" class="btn btn-outline">Join SPN</a>
+      <a href="#stay-connected" class="btn btn-primary">Subscribe for Updates</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAY CONNECTED ===== -->
+<section class="stay-connected" id="stay-connected">
+  <div class="stay-connected-inner">
+    <div class="sc-header">
+      <h2 class="sc-heading">Stay Connected</h2>
+      <p class="sc-desc">Sign up to receive updates about SPN events, webinars, mentoring opportunities, resources and professional insight days.</p>
+    </div>
+    <form class="form-card" action="mailto:Admin@sikhpn.org" method="post" enctype="text/plain">
+      <p class="form-section-label">Name (required)</p>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="firstName">First Name</label>
+          <input class="form-input" type="text" id="firstName" name="firstName" required placeholder="">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="lastName">Last Name</label>
+          <input class="form-input" type="text" id="lastName" name="lastName" required placeholder="">
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="phone">Phone</label>
+        <input class="form-input" type="tel" id="phone" name="phone" placeholder="">
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="email">Email (required)</label>
+        <input class="form-input" type="email" id="email" name="email" required placeholder="">
+        <div class="form-check-row">
+          <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+          <label for="newsletter">Sign up for news and updates</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="profession">Profession / Area of Interest</label>
+        <input class="form-input" type="text" id="profession" name="profession" placeholder="">
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Sign Up for Updates</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="faq-sub">Common questions</p>
+      <h2 class="faq-heading">FAQ</h2>
+      <p class="faq-desc">Everything you need to know about joining and getting the most from SPN.</p>
+    </header>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Who can join SPN?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="faq-answer">SPN is open to Sikh professionals, students, and graduates aged 18+ who are based in the United Kingdom. Whether you are just starting your career or are an established professional, you are welcome to join.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Do I need to be established in my career to join?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="faq-answer">No. SPN welcomes members at all career stages — from students and recent graduates to experienced professionals. Whether you are just starting out or looking to give back through mentoring, there is a place for you.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">What does SPN offer members?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="faq-answer">Members benefit from professional networking, mentorship and career support, faith and identity guidance, events and talks, practical resources and toolkits, and opportunities to volunteer and serve the community.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Is SPN only for one profession or industry?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="faq-answer">No — SPN brings together professionals from a wide range of fields including law, finance, medicine, technology, education, business, public service, engineering, and the charity sector.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">How can I get involved as a mentor or advisor?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="faq-answer">If you are an experienced professional who would like to mentor or advise SPN members, please get in touch via Admin@sikhpn.org. We are always looking for knowledgeable volunteers to share their experience and guide the next generation.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="footer-logo-block">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <img src="https://www.figma.com/api/mcp/asset/fc6b68c3-e7c8-41b6-824c-4c506f988af4" alt="">
+            </div>
+            <span class="footer-logo-text">SPN</span>
+          </div>
+          <p class="footer-tagline">Connect | Empower | Succeed</p>
+          <p class="footer-desc">The Sikh Professionals Network empowers individuals across the UK to develop leadership and professional excellence while serving society through Sikhi values.</p>
+        </div>
+        <div class="footer-follow">
+          <p class="footer-follow-label">Follow Us</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/cd89a66f-afe6-42c4-84c3-5ddf15ec22c9" alt="Facebook">
+              <span>Facebook</span>
             </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/d7b1bbfd-1705-4223-8d09-c4cddc6aed2d" alt="Instagram">
+              <span>Instagram</span>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/20f0c77d-581c-4889-801f-b551a0dfa3ce" alt="Twitter">
+              <span>Twitter</span>
+            </a>
+            <a href="https://www.linkedin.com/company/sikhprofessionalsnetwork/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/5cd52f2e-9553-4505-b853-31debb3450e6" alt="LinkedIn">
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-hours">
+          <span>Monday – Friday</span>
+          <span>10am – 6pm</span>
+        </div>
+        <div class="footer-divider"></div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <form class="footer-email-form" action="mailto:Admin@sikhpn.org" method="post">
+            <div class="footer-email-field">
+              <label class="footer-email-label" for="footerEmail">Enter your email</label>
+              <input class="footer-email-input" type="email" id="footerEmail" name="email" placeholder="your@email.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+          <p class="footer-privacy">By subscribing you agree with our <a href="#">Privacy Policy</a> and provide consent to receive updates from our company.</p>
+        </div>
+      </div>
     </div>
+
+    <div class="footer-bottom">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#advisors">Advisors</a></li>
+          <li><a href="#network">Network</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+        <ul class="footer-legal-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </nav>
+      <div class="footer-divider"></div>
+      <p class="footer-copyright">Copyright &copy; 2025 Sikh Professionals Network. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Testimonials carousel
+  (function(){
+    var track = document.getElementById('testimonialsTrack');
+    var progress = document.getElementById('testimonialsProgress');
+    var cards = track.querySelectorAll('.testimonial-card');
+    var total = cards.length;
+    var current = 0;
+    function update(){
+      var cardW = cards[0].offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
+      progress.style.width = ((current + 1) / total * 100) + '%';
+    }
+    document.getElementById('tnNext').addEventListener('click', function(){
+      current = (current + 1) % total;
+      update();
+    });
+    document.getElementById('tnPrev').addEventListener('click', function(){
+      current = (current - 1 + total) % total;
+      update();
+    });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // FAQ icon rotation via details/summary native
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.addEventListener('toggle', function(){
+      var icon = item.querySelector('.faq-icon');
+      if(item.open){
+        icon.style.transform = 'rotate(45deg)';
+      } else {
+        icon.style.transform = 'rotate(0)';
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
