@@ -101,18 +101,19 @@
     .hero-actions{display:flex;gap:16px;align-items:center}
 
     /* ── LOGO BAR ── */
-    .logo-bar{background:var(--dark2);padding:40px var(--px)}
-    .logo-bar-inner{
-      max-width:1128px;margin:0 auto;
-      display:flex;align-items:center;justify-content:space-between;gap:20px
+    .logo-bar{background:var(--dark2);padding:32px 0;overflow:hidden}
+    .logo-reel{
+      display:flex;align-items:center;gap:72px;
+      width:max-content;
+      animation:logo-scroll 32s linear infinite
     }
-    .logo-item{height:40px;display:flex;align-items:center;flex-shrink:0}
-    .logo-item img{width:100%;height:100%;display:block;object-fit:contain}
-    .logo-item.logo-1{width:172px}
-    .logo-item.logo-2{width:163.9px}
-    .logo-item.logo-3{width:162.93px}
-    .logo-item.logo-4{width:165.85px}
-    .logo-item.logo-5{width:165.85px}
+    .logo-reel:hover{animation-play-state:paused}
+    @keyframes logo-scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+    .logo-item{flex-shrink:0;display:flex;align-items:center}
+    .logo-item img{height:40px;width:auto;max-width:160px;display:block;object-fit:contain}
 
     /* ── FEATURES ── */
     .features{background:#fff;padding:50px var(--px)}
@@ -217,16 +218,16 @@
 
     /* ── STATS ── */
     .stats{
-      position:relative;padding:89px 106px;
-      min-height:786px;display:flex;align-items:flex-start;
+      position:relative;padding:89px var(--px);
+      min-height:786px;display:flex;align-items:center;
       overflow:hidden
     }
-    .stats-bg{position:absolute;inset:0;border-radius:0}
-    .stats-bg img{width:100%;height:100%;object-fit:cover;object-position:bottom}
+    .stats-bg{position:absolute;inset:0;border-radius:20px;overflow:hidden}
+    .stats-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
     .stats-overlay{position:absolute;inset:0;background:var(--dark);opacity:.7}
     .stats-inner{
       position:relative;z-index:1;
-      max-width:1128px;width:100%;
+      max-width:1128px;width:100%;margin:0 auto;
       display:flex;flex-direction:column;gap:40px
     }
     .stats-heading{
@@ -236,8 +237,16 @@
     .stats-grid{display:flex;flex-wrap:wrap;gap:20px}
     .stat-card{
       background:var(--light2);border-radius:12px;padding:30px;
-      width:554px;opacity:.89;display:flex;flex-direction:column;gap:29px
+      width:554px;opacity:.89;display:flex;flex-direction:column;gap:29px;
+      transition:transform .3s ease,box-shadow .3s ease,opacity .3s ease;
+      cursor:default
     }
+    .stat-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 32px rgba(19,32,48,.15);
+      opacity:1
+    }
+    .stat-card:hover .stat-arrow{transform:translateX(3px)}
     .stat-content{display:flex;flex-direction:column;gap:12px}
     .stat-title{
       font-family:'Lora',serif;font-size:40px;font-weight:400;
@@ -245,9 +254,9 @@
     }
     .stat-text{
       font-family:'Lora',serif;font-size:20px;font-weight:400;
-      color:var(--text-mid);line-height:28px;letter-spacing:-0.6px
+      color:var(--text-mid);line-height:28px;letter-spacing:-0.4px
     }
-    .stat-arrow{width:24px;height:24px;object-fit:contain}
+    .stat-arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease}
 
     /* ── TESTIMONIALS ── */
     .testimonials{background:#fff;padding:100px var(--px);overflow:hidden}
@@ -257,8 +266,9 @@
     }
     .testimonials-header{max-width:538px}
     .testimonials-quote{
-      font-family:'Lora',serif;font-size:96px;font-weight:700;
-      color:var(--text-dark);line-height:96px;letter-spacing:-5.28px
+      font-family:'Instrument Sans',sans-serif;font-size:96px;font-weight:700;
+      color:var(--text-dark);line-height:96px;letter-spacing:-5.28px;
+      font-variation-settings:'wdth' 100
     }
     .testimonials-heading{
       font-family:'Lora',serif;font-size:48px;font-weight:400;
@@ -276,18 +286,35 @@
     }
     .testimonial-card.featured{background:var(--accent)}
     .testimonial-card.light{background:var(--light)}
+    .testimonial-card{
+      transition:background .3s ease,transform .3s ease,box-shadow .3s ease;
+      cursor:pointer
+    }
+    .testimonial-card:hover{
+      background:var(--accent);
+      transform:translateY(-4px);
+      box-shadow:0 16px 40px rgba(184,108,64,.3)
+    }
+    .testimonial-card:hover .testimonial-text{color:#fff}
+    .testimonial-card:hover .testimonial-author{color:#fff}
     .testimonial-text{
       font-family:'Instrument Sans',sans-serif;font-size:36px;font-weight:400;
-      line-height:40px;letter-spacing:-1.26px
+      line-height:40px;letter-spacing:-1.26px;
+      font-variation-settings:'wdth' 100;
+      transition:color .3s ease
     }
     .testimonial-card.featured .testimonial-text{color:#fff}
     .testimonial-card.light .testimonial-text{color:#000}
+    .testimonial-card.light:hover .testimonial-text{color:#fff}
     .testimonial-author{
       font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:600;
-      letter-spacing:-0.14px;line-height:20px
+      letter-spacing:-0.14px;line-height:20px;
+      font-variation-settings:'wdth' 100;
+      transition:color .3s ease
     }
     .testimonial-card.featured .testimonial-author{color:#fff}
     .testimonial-card.light .testimonial-author{color:#000}
+    .testimonial-card.light:hover .testimonial-author{color:#fff}
     .testimonials-progress-wrap{background:var(--light);height:10px;border-radius:4px;overflow:hidden}
     .testimonials-progress{background:var(--accent);height:10px;border-radius:4px;width:33%;transition:width .4s}
     .testimonials-nav{display:flex;gap:20px;align-items:center}
@@ -375,7 +402,7 @@
     .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
     .faq-sub{
       font-family:'Instrument Sans',sans-serif;font-size:16px;
-      color:var(--text);line-height:42px;letter-spacing:-0.8px
+      color:var(--text);line-height:24px;letter-spacing:-0.8px
     }
     .faq-heading{
       font-family:'Lora',serif;font-size:48px;font-weight:400;
@@ -384,13 +411,14 @@
     .faq-desc{
       font-family:'Instrument Sans',sans-serif;font-size:16px;
       color:var(--text-grey);line-height:18px;letter-spacing:-0.8px;
-      max-width:466px
+      white-space:nowrap
     }
     .faq-list{
       display:flex;flex-direction:column;
-      max-width:1038px;margin:0 auto;width:100%
+      max-width:1038px;margin:0 auto;width:100%;
+      border-top:1px solid rgba(184,108,64,.3)
     }
-    .faq-item{border-bottom:1px solid #e5e5e5}
+    .faq-item{border-bottom:1px solid rgba(184,108,64,.3)}
     .faq-question{
       display:flex;align-items:center;justify-content:space-between;
       padding:24px 0;cursor:pointer;gap:16px;list-style:none
@@ -404,7 +432,8 @@
       width:24px;height:24px;flex-shrink:0;
       display:flex;align-items:center;justify-content:center;transition:transform .3s
     }
-    .faq-item[open] .faq-icon{transform:rotate(45deg)}
+    .faq-item[open] .faq-icon{transform:rotate(90deg)}
+    .faq-body{overflow:hidden;height:0;transition:height .45s cubic-bezier(.4,0,.2,1)}
     .faq-answer{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
       color:var(--text-mid);line-height:24px;padding-bottom:24px
@@ -477,10 +506,31 @@
       color:#fff;text-decoration:none;line-height:1.5
     }
     .footer-nav-links a:hover,.footer-legal-links a:hover{text-decoration:underline}
-    .footer-copyright{
-      text-align:center;font-family:'Instrument Sans',sans-serif;
-      font-size:14px;font-weight:400;color:#fff;line-height:1.5
+    .footer-copyright-bar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px
     }
+    .footer-copyright-logo{display:flex;align-items:center;gap:8px}
+    .footer-copyright-logo-mark{
+      width:28px;height:28px;background:#fff;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .footer-copyright-logo-mark img{width:18px;height:18px;object-fit:contain}
+    .footer-copyright-logo-name{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:700;
+      color:#fff;letter-spacing:0.5px
+    }
+    .footer-copyright{
+      font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
+      text-align:center
+    }
+    .footer-siteby{
+      font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
+      white-space:nowrap
+    }
+    .footer-siteby a{color:#fff;text-decoration:none}
+    .footer-siteby a:hover{text-decoration:underline}
 
     /* ── RESPONSIVE ── */
 
@@ -552,10 +602,8 @@
       .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
       .hero-desc{font-size:15px;line-height:24px}
       /* logo bar */
-      .logo-bar{padding:28px 20px}
-      .logo-bar-inner{flex-wrap:wrap;justify-content:center;gap:20px}
-      .logo-item{width:140px !important;height:32px}
-      .logo-item img{height:32px}
+      .logo-reel{gap:40px}
+      .logo-item img{height:30px}
       /* features */
       .section-heading{font-size:36px;line-height:40px}
       .feature-cards{grid-template-columns:1fr}
@@ -598,8 +646,8 @@
       .hero-desc{font-size:14px;line-height:20px}
       .hero-actions{flex-wrap:wrap;justify-content:center;gap:10px}
       /* logo bar */
-      .logo-bar-inner{gap:14px}
-      .logo-item{width:100px !important;height:26px}
+      .logo-reel{gap:28px}
+      .logo-item img{height:24px}
       /* buttons */
       .btn{padding:8px 18px;font-size:14px}
       /* stats */
@@ -669,12 +717,18 @@
 
 <!-- ===== LOGO BAR ===== -->
 <section class="logo-bar" aria-label="Partners and affiliates">
-  <div class="logo-bar-inner">
-    <div class="logo-item logo-1"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt="Partner"></div>
-    <div class="logo-item logo-2"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt="Partner"></div>
-    <div class="logo-item logo-3"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt="Partner"></div>
-    <div class="logo-item logo-4"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt="Partner"></div>
-    <div class="logo-item logo-5"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt="Partner"></div>
+  <div class="logo-reel">
+    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt="Partner"></div>
+    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt="Partner"></div>
+    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt="Partner"></div>
+    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt="Partner"></div>
+    <div class="logo-item"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt="Partner"></div>
+    <!-- duplicates for seamless loop -->
+    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/9cde3664-b28d-48d3-9649-9a9cbcb5ab38" alt=""></div>
+    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/d057c502-a549-4fef-b4d8-00bf62eb24c4" alt=""></div>
+    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/f842fae1-65af-472f-8115-475d0f12de61" alt=""></div>
+    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/99e0f719-805f-4b2d-b385-79154c835438" alt=""></div>
+    <div class="logo-item" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/77d18a75-5f1e-4d69-bf16-6c029ff34174" alt=""></div>
   </div>
 </section>
 
@@ -845,7 +899,7 @@
 <!-- ===== STATS ===== -->
 <section class="stats">
   <div class="stats-bg">
-    <img src="https://www.figma.com/api/mcp/asset/93e96421-69aa-49eb-9e66-3cda2c022975" alt="">
+    <img src="files/stats_bg.png" alt="">
     <div class="stats-overlay"></div>
   </div>
   <div class="stats-inner">
@@ -892,7 +946,7 @@
 <section class="testimonials">
   <div class="testimonials-inner">
     <div class="testimonials-header">
-      <p class="testimonials-quote">"</p>
+      <p class="testimonials-quote">&#8220;</p>
       <h2 class="testimonials-heading">Why Members Rely on Us</h2>
     </div>
     <div class="testimonials-track-wrap">
@@ -1000,50 +1054,50 @@
         <summary class="faq-question">
           <span class="faq-q-text">Who can join SPN?</span>
           <span class="faq-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <p class="faq-answer">SPN is open to Sikh professionals, students, and graduates aged 18+ who are based in the United Kingdom. Whether you are just starting your career or are an established professional, you are welcome to join.</p>
+        <div class="faq-body"><p class="faq-answer">SPN is open to Sikh professionals, students, and graduates aged 18+ who are based in the United Kingdom. Whether you are just starting your career or are an established professional, you are welcome to join.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
           <span class="faq-q-text">Do I need to be established in my career to join?</span>
           <span class="faq-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <p class="faq-answer">No. SPN welcomes members at all career stages — from students and recent graduates to experienced professionals. Whether you are just starting out or looking to give back through mentoring, there is a place for you.</p>
+        <div class="faq-body"><p class="faq-answer">No. SPN welcomes members at all career stages — from students and recent graduates to experienced professionals. Whether you are just starting out or looking to give back through mentoring, there is a place for you.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
           <span class="faq-q-text">What does SPN offer members?</span>
           <span class="faq-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <p class="faq-answer">Members benefit from professional networking, mentorship and career support, faith and identity guidance, events and talks, practical resources and toolkits, and opportunities to volunteer and serve the community.</p>
+        <div class="faq-body"><p class="faq-answer">Members benefit from professional networking, mentorship and career support, faith and identity guidance, events and talks, practical resources and toolkits, and opportunities to volunteer and serve the community.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
           <span class="faq-q-text">Is SPN only for one profession or industry?</span>
           <span class="faq-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <p class="faq-answer">No — SPN brings together professionals from a wide range of fields including law, finance, medicine, technology, education, business, public service, engineering, and the charity sector.</p>
+        <div class="faq-body"><p class="faq-answer">No — SPN brings together professionals from a wide range of fields including law, finance, medicine, technology, education, business, public service, engineering, and the charity sector.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
           <span class="faq-q-text">How can I get involved as a mentor or advisor?</span>
           <span class="faq-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="#191615" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <p class="faq-answer">If you are an experienced professional who would like to mentor or advise SPN members, please get in touch via Admin@sikhpn.org. We are always looking for knowledgeable volunteers to share their experience and guide the next generation.</p>
+        <div class="faq-body"><p class="faq-answer">If you are an experienced professional who would like to mentor or advise SPN members, please get in touch via Admin@sikhpn.org. We are always looking for knowledgeable volunteers to share their experience and guide the next generation.</p></div>
       </details>
 
     </div>
@@ -1125,7 +1179,16 @@
         </ul>
       </nav>
       <div class="footer-divider"></div>
-      <p class="footer-copyright">Copyright &copy; 2025 Sikh Professionals Network. All rights reserved.</p>
+      <div class="footer-copyright-bar">
+        <div class="footer-copyright-logo">
+          <div class="footer-copyright-logo-mark">
+            <img src="https://www.figma.com/api/mcp/asset/fc6b68c3-e7c8-41b6-824c-4c506f988af4" alt="">
+          </div>
+          <span class="footer-copyright-logo-name">SPN</span>
+        </div>
+        <p class="footer-copyright">Copyright &copy; 2025 Sikh Professionals Network. All rights reserved.</p>
+        <p class="footer-siteby">Site by <a href="https://5rv.digital" target="_blank" rel="noopener noreferrer">5rv.digital</a></p>
+      </div>
     </div>
   </div>
 </footer>
@@ -1155,14 +1218,33 @@
     update();
   })();
 
-  // FAQ icon rotation via details/summary native
-  document.querySelectorAll('.faq-item').forEach(function(item){
-    item.addEventListener('toggle', function(){
-      var icon = item.querySelector('.faq-icon');
-      if(item.open){
-        icon.style.transform = 'rotate(45deg)';
+  // FAQ smooth accordion
+  document.querySelectorAll('.faq-item').forEach(function(details){
+    var summary = details.querySelector('.faq-question');
+    var body = details.querySelector('.faq-body');
+    var icon = details.querySelector('.faq-icon');
+    summary.addEventListener('click', function(e){
+      e.preventDefault();
+      if(details.open){
+        // snapshot rendered height, force reflow, animate to 0
+        body.style.height = body.getBoundingClientRect().height + 'px';
+        body.offsetHeight; // force reflow
+        body.style.height = '0px';
+        icon.style.transform = 'rotate(0deg)';
+        body.addEventListener('transitionend', function(){
+          details.removeAttribute('open');
+          body.style.height = '';
+        }, {once:true});
       } else {
-        icon.style.transform = 'rotate(0)';
+        details.setAttribute('open','');
+        var target = body.scrollHeight;
+        body.style.height = '0px';
+        body.offsetHeight; // force reflow
+        body.style.height = target + 'px';
+        icon.style.transform = 'rotate(90deg)';
+        body.addEventListener('transitionend', function(){
+          body.style.height = 'auto'; // 'auto' not '' — avoids CSS height:0 fallback re-triggering transition
+        }, {once:true});
       }
     });
   });
