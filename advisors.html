@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPN Advisors — Sikh Professionals Network</title>
+  <meta name="description" content="Connect with experienced SPN Advisors across the UK for career guidance, mentorship, faith support, and professional development.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* ── BUTTONS ── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:.85}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
+
+    /* ── NAVBAR ── */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo-mark{
+      width:41px;height:48px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .nav-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* ── HERO ── */
+    .adv-hero{background:#fff;padding:0 50px 50px}
+    .adv-hero-card{
+      position:relative;border-radius:20px;overflow:hidden;
+      min-height:560px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;
+      max-width:calc(var(--max) - 100px);margin:0 auto;
+      padding:60px 121px
+    }
+    .adv-hero-inner{
+      display:flex;flex-direction:column;align-items:center;gap:24px;
+      text-align:center;max-width:830px;width:100%
+    }
+    .adv-hero-label{
+      font-family:'Instrument Sans',sans-serif;font-size:20px;font-weight:400;
+      color:rgba(255,255,255,.7);line-height:42px;letter-spacing:-1px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-hero-h1{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#fff;line-height:64px;letter-spacing:-3.2px
+    }
+    .adv-hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:rgba(255,255,255,.85);line-height:28px;
+      font-variation-settings:'wdth' 100;max-width:700px
+    }
+    .adv-hero-btns{
+      display:flex;gap:16px;align-items:center;justify-content:center;
+      flex-wrap:wrap;margin-top:8px
+    }
+
+    /* ── FEATURES ── */
+    .adv-features{background:#fff;padding:60px var(--px) 60px}
+    .adv-features-header{display:flex;flex-direction:column;gap:16px;margin-bottom:60px}
+    .adv-features-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px;
+      max-width:720px
+    }
+    .adv-features-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-features-grid{
+      display:flex;justify-content:space-between;align-items:flex-start;gap:40px
+    }
+    .adv-feature{
+      display:flex;flex-direction:column;gap:24px;flex:1;min-width:0
+    }
+    .adv-feature-icon{
+      width:48px;height:48px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center
+    }
+    .adv-feature-icon img{width:48px;height:48px;object-fit:contain}
+    .adv-feature-title{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      color:var(--text);line-height:32px;letter-spacing:-0.72px
+    }
+    .adv-feature-text{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:var(--text-mid);line-height:20px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── WIDE PHOTO ── */
+    .adv-photo-wrap{background:#fff;padding:0 var(--px) 60px}
+    .adv-photo-frame{
+      border-radius:20px;overflow:hidden;height:481px;
+      position:relative
+    }
+    .adv-photo-frame img{
+      width:100%;height:100%;object-fit:cover;display:block
+    }
+
+    /* ── WHAT ADVISORS OFFER ── */
+    .adv-offers{background:#fff;padding:0 var(--px) 100px}
+    .adv-offers-inner{display:flex;gap:64px;align-items:flex-start}
+    .adv-offers-left{
+      display:flex;flex-direction:column;gap:30px;
+      flex-shrink:0;width:500px
+    }
+    .adv-offers-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:var(--text);line-height:64px;letter-spacing:-3.2px
+    }
+    .adv-offers-portrait{
+      width:500px;height:450px;border-radius:20px;overflow:hidden;
+      flex-shrink:0;background:#e8e4df
+    }
+    .adv-offers-portrait img{
+      width:100%;height:100%;object-fit:cover;object-position:center top
+    }
+    .adv-offer-cards{
+      flex:1;display:flex;flex-direction:column;gap:16px;min-width:0
+    }
+    .adv-offer-card{
+      background:var(--light);border-radius:20px;padding:20px 24px;
+      display:flex;gap:32px;align-items:flex-start
+    }
+    .adv-offer-icon{
+      width:48px;height:48px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center
+    }
+    .adv-offer-icon img{width:48px;height:48px;object-fit:contain}
+    .adv-offer-body{display:flex;flex-direction:column;gap:16px;flex:1;min-width:0}
+    .adv-offer-title{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      color:var(--dark);line-height:32px;letter-spacing:-0.72px
+    }
+    .adv-offer-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── JOIN / BECOME AN ADVISOR FORM ── */
+    .adv-join{
+      background:var(--dark);padding:96px var(--px)
+    }
+    .adv-join-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:40px
+    }
+    .adv-join-header{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:40px
+    }
+    .adv-join-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#ecece7;line-height:64px;letter-spacing:-3.2px;
+      flex-shrink:0
+    }
+    .adv-join-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:500;
+      color:#dee2e8;line-height:20px;letter-spacing:-0.07px;
+      max-width:416px;padding-top:8px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-form-card{
+      background:#f8f8f8;border-radius:20px;padding:64px;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .adv-form-label-main{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:600;
+      color:#121217;line-height:24px;letter-spacing:-0.18px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-form-fields{display:flex;flex-direction:column;gap:32px}
+    .adv-form-row{display:flex;gap:16px}
+    .adv-form-field{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+    .adv-form-field-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#121217;line-height:24px;letter-spacing:-0.128px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-form-input{
+      border:none;border-bottom:1px solid var(--accent);background:transparent;
+      padding:8px 0 4px;font-family:'Instrument Sans',sans-serif;
+      font-size:16px;color:#121217;outline:none;width:100%;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-form-input::placeholder{color:rgba(18,18,23,.3)}
+
+    /* ── TESTIMONIALS ── */
+    .adv-testimonials{background:#fff;padding:100px var(--px)}
+    .adv-testimonials-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:48px
+    }
+    .adv-test-header{display:flex;flex-direction:column;gap:8px;max-width:538px}
+    .adv-test-quote-mark{
+      font-family:'Instrument Sans',sans-serif;font-size:96px;font-weight:700;
+      color:var(--text-dark);line-height:96px;letter-spacing:-5.28px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-test-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .adv-test-cards{display:flex;gap:20px;align-items:flex-start}
+    .adv-test-card{
+      flex:1;border-radius:12px;padding:40px;
+      display:flex;flex-direction:column;gap:24px
+    }
+    .adv-test-card.accent{background:var(--accent)}
+    .adv-test-card.light{background:var(--light)}
+    .adv-test-text{
+      font-family:'Instrument Sans',sans-serif;font-size:36px;font-weight:400;
+      line-height:40px;letter-spacing:-1.26px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-test-card.accent .adv-test-text{color:#fff}
+    .adv-test-card.light .adv-test-text{color:#000}
+    .adv-test-attribution{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:600;
+      line-height:20px;letter-spacing:-0.14px;
+      font-variation-settings:'wdth' 100
+    }
+    .adv-test-card.accent .adv-test-attribution{color:#fff}
+    .adv-test-card.light .adv-test-attribution{color:#000}
+    .adv-test-footer{display:flex;flex-direction:column;gap:20px}
+    .adv-test-progress{
+      background:var(--light);border-radius:4px;height:10px;
+      overflow:hidden;position:relative
+    }
+    .adv-test-progress-fill{
+      position:absolute;left:0;top:0;height:10px;
+      width:300px;background:var(--accent);border-radius:4px
+    }
+    .adv-test-nav{display:flex;gap:20px;align-items:center}
+    .adv-test-btn{
+      width:48px;height:48px;border-radius:4px;background:var(--accent);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;border:none;flex-shrink:0;transition:opacity .2s
+    }
+    .adv-test-btn:hover{opacity:.8}
+    .adv-test-btn svg{width:20px;height:20px}
+
+    /* ── DUAL CTA ── */
+    .adv-dual-cta{
+      position:relative;min-height:708px;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden
+    }
+    .adv-dual-cta-bg{position:absolute;inset:0}
+    .adv-dual-cta-bg img{width:100%;height:100%;object-fit:cover;transform:scaleY(-1)}
+    .adv-dual-cta-inner{
+      position:relative;z-index:1;
+      display:flex;gap:44px;align-items:flex-start;justify-content:center;
+      padding:80px var(--px);width:100%
+    }
+    .adv-cta-card{
+      flex:1;max-width:532px;background:#fff;border-radius:12px;padding:40px;
+      display:flex;flex-direction:column;gap:32px
+    }
+    .adv-cta-content{display:flex;flex-direction:column;gap:24px}
+    .adv-cta-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .adv-cta-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* ── FAQ ── */
+    .faq{background:#fff;padding:80px var(--px)}
+    .faq-inner{
+      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      display:flex;flex-direction:column;gap:35px
+    }
+    .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .faq-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text);line-height:24px;letter-spacing:-0.8px
+    }
+    .faq-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .faq-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;
+      color:var(--text-grey);line-height:18px;letter-spacing:-0.8px
+    }
+    .faq-list{
+      display:flex;flex-direction:column;
+      max-width:1038px;margin:0 auto;width:100%;
+      border-top:1px solid rgba(184,108,64,.3)
+    }
+    .faq-item{border-bottom:1px solid rgba(184,108,64,.3)}
+    .faq-question{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:24px 0;cursor:pointer;gap:16px;list-style:none
+    }
+    .faq-question::-webkit-details-marker{display:none}
+    .faq-q-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px;letter-spacing:-0.16px
+    }
+    .faq-icon{
+      width:24px;height:24px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;transition:transform .3s
+    }
+    .faq-item[open] .faq-icon{transform:rotate(90deg)}
+    .faq-body{overflow:hidden;height:0;transition:height .45s cubic-bezier(.4,0,.2,1)}
+    .faq-answer{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;padding-bottom:24px
+    }
+
+    /* ── FOOTER ── */
+    .footer{background:var(--dark);padding:80px var(--px);overflow:hidden}
+    .footer-inner{
+      max-width:1169px;margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .footer-top{display:flex;gap:200px;align-items:flex-start}
+    .footer-left{display:flex;flex-direction:column;gap:32px;width:499px;flex-shrink:0}
+    .footer-logo-block{display:flex;flex-direction:column;gap:40px}
+    .footer-logo{display:flex;align-items:center}
+    .footer-logo-mark{
+      width:41px;height:48px;background:#fff;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .footer-logo-mark img{width:26px;height:26px;object-fit:contain}
+    .footer-logo-text{
+      font-family:'Lora',serif;font-size:39px;font-weight:400;color:#fff;
+      letter-spacing:-0.32px;line-height:1;padding-left:14px
+    }
+    .footer-tagline{
+      font-family:'Lora',serif;font-size:36px;font-weight:400;
+      color:#fff;line-height:40px;letter-spacing:-1.08px;width:493px
+    }
+    .footer-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:#fff;line-height:28px;width:493px
+    }
+    .footer-follow{display:flex;flex-direction:column;gap:16px}
+    .footer-follow-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:#fff;line-height:1.5
+    }
+    .footer-social{display:flex;gap:8px;align-items:center;width:416px;flex-wrap:wrap}
+    .footer-social-link{
+      display:flex;flex:1;align-items:center;gap:8px;color:#fff;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;line-height:1.5
+    }
+    .footer-social-link img{width:24px;height:24px;flex-shrink:0}
+    .footer-right{flex:1;display:flex;flex-direction:column;gap:16px;justify-content:flex-start}
+    .footer-hours{
+      display:flex;justify-content:flex-end;gap:40px;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;line-height:1.5
+    }
+    .footer-divider{height:1px;background:var(--accent)}
+    .footer-email-form{display:flex;gap:24px;align-items:flex-end;margin-top:4px}
+    .footer-email-field{flex:1;display:flex;flex-direction:column;gap:8px}
+    .footer-email-label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#fff;line-height:24px;letter-spacing:-0.128px
+    }
+    .footer-email-input{
+      border:none;border-bottom:1px solid #fff;background:transparent;
+      padding:4px 0;font-family:'Instrument Sans',sans-serif;font-size:14px;color:#fff;outline:none
+    }
+    .footer-email-input::placeholder{color:rgba(255,255,255,.4)}
+    .footer-privacy{
+      font-family:'Instrument Sans',sans-serif;font-size:10px;color:#fff;line-height:1.5
+    }
+    .footer-privacy a{color:#fff;text-decoration:underline}
+    .footer-bottom{display:flex;flex-direction:column;gap:40px}
+    .footer-nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-nav-links,.footer-legal-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+    .footer-nav-links a,.footer-legal-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:#fff;text-decoration:none;line-height:1.5
+    }
+    .footer-nav-links a:hover,.footer-legal-links a:hover{text-decoration:underline}
+    .footer-copyright-bar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px
+    }
+    .footer-copyright-logo{display:flex;align-items:center;gap:8px}
+    .footer-copyright-logo-mark{
+      width:28px;height:28px;background:#fff;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .footer-copyright-logo-mark img{width:18px;height:18px;object-fit:contain}
+    .footer-copyright-logo-name{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:700;
+      color:#fff;letter-spacing:0.5px
+    }
+    .footer-copyright{
+      font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
+      text-align:center
+    }
+    .footer-siteby{
+      font-family:'Instrument Sans',sans-serif;
+      font-size:14px;font-weight:400;color:rgba(255,255,255,.6);line-height:1.5;
+      white-space:nowrap
+    }
+    .footer-siteby a{color:#fff;text-decoration:none}
+    .footer-siteby a:hover{text-decoration:underline}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1280px){
+      :root{--px:80px}
+    }
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .adv-hero-card{min-height:auto;padding:60px 40px}
+      .adv-hero-h1{font-size:48px;line-height:52px}
+      .adv-features-grid{flex-direction:column}
+      .adv-features-heading{font-size:48px;line-height:52px}
+      .adv-offers-inner{flex-direction:column}
+      .adv-offers-left{width:100%}
+      .adv-offers-portrait{width:100%;height:360px}
+      .adv-offers-heading{font-size:48px;line-height:52px}
+      .adv-join-header{flex-direction:column}
+      .adv-join-heading{font-size:48px;line-height:52px}
+      .adv-form-card{padding:40px 32px}
+      .adv-test-cards{flex-direction:column}
+      .adv-dual-cta-inner{flex-direction:column;align-items:center}
+      .adv-cta-card{max-width:100%}
+      .footer-top{flex-direction:column;gap:48px}
+      .footer-left{width:100%}
+      .footer-tagline,.footer-desc{width:100%}
+      .footer-hours{justify-content:flex-start;flex-wrap:wrap;gap:16px}
+      .footer-social{width:100%}
+    }
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .adv-hero-card{padding:48px 24px}
+      .adv-hero-h1{font-size:36px;line-height:40px}
+      .adv-hero-desc{font-size:16px}
+      .adv-form-row{flex-direction:column}
+      .adv-test-heading{font-size:36px;line-height:44px}
+      .adv-cta-heading{font-size:36px;line-height:44px}
+      .faq-heading{font-size:36px;line-height:44px}
+      .footer-top{gap:32px}
+      .footer-tagline{font-size:28px;line-height:34px;width:100%}
+      .footer-desc{font-size:16px;width:100%}
+      .footer-nav{flex-direction:column;align-items:flex-start}
+      .footer-email-form{flex-direction:column;gap:16px}
+      .adv-form-card{padding:32px 20px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" aria-label="SPN Home">
+      <div class="nav-logo-mark">
+        <img src="https://www.figma.com/api/mcp/asset/a1a3fd99-8a84-47b1-b5ec-aed6c7d8e895" alt="">
+      </div>
+      <span class="nav-logo-text">SPN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="advisors.html" class="active">Advisors</a></li>
+      <li><a href="#network">Network</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="#join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="adv-hero">
+  <div class="adv-hero-card">
+    <div class="adv-hero-inner">
+      <p class="adv-hero-label">Sikh Professionals Network</p>
+      <h1 class="adv-hero-h1">SPN Advisors</h1>
+      <p class="adv-hero-desc">Our experienced advisors across the UK share their knowledge and insights to help the next generation succeed. Moving beyond corporate coaching, they offer a holistic approach to growth.</p>
+      <div class="adv-hero-btns">
+        <a href="#become-advisor" class="btn btn-primary">Become an Advisor</a>
+        <a href="#connect-advisor" class="btn btn-outline-white">Connect With an Advisor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="adv-features">
+  <div class="adv-features-header">
+    <h2 class="adv-features-heading">Features</h2>
+    <p class="adv-features-sub">Career support, industry knowledge, and values-led mentoring from Sikh professionals across the UK.</p>
+  </div>
+  <div class="adv-features-grid">
+    <div class="adv-feature">
+      <div class="adv-feature-icon">
+        <img src="https://www.figma.com/api/mcp/asset/daea1485-9561-4263-b5b3-3e9951c5c6ef" alt="">
+      </div>
+      <div>
+        <h3 class="adv-feature-title">Career Guidance</h3>
+        <p class="adv-feature-text">Making choices can feel daunting. Our advisors across the UK help you navigate decisions, polish applications, ace interviews, and build confidence.</p>
+      </div>
+    </div>
+    <div class="adv-feature">
+      <div class="adv-feature-icon">
+        <img src="https://www.figma.com/api/mcp/asset/b1b022be-ad62-4d82-b1bf-de152238f0b6" alt="">
+      </div>
+      <div>
+        <h3 class="adv-feature-title">Industry Insights</h3>
+        <p class="adv-feature-text">Skip guesswork. Connect with professionals across the UK who know your sector. Get the inside track on opportunities.</p>
+      </div>
+    </div>
+    <div class="adv-feature">
+      <div class="adv-feature-icon">
+        <img src="https://www.figma.com/api/mcp/asset/d8343ba8-3470-496d-a160-2c2855f1d0b0" alt="">
+      </div>
+      <div>
+        <h3 class="adv-feature-title">Mentoring &amp; Identity Support</h3>
+        <p class="adv-feature-text">You shouldn't leave your values behind. Mentors across the UK help you navigate corporate landscapes while staying grounded in your identity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WIDE PHOTO ===== -->
+<section class="adv-photo-wrap">
+  <div class="adv-photo-frame">
+    <img src="https://www.figma.com/api/mcp/asset/255e7de1-4b90-4b33-9481-a0e5ea919cbf" alt="SPN advisors and professionals">
+  </div>
+</section>
+
+<!-- ===== WHAT ADVISORS OFFER ===== -->
+<section class="adv-offers">
+  <div class="adv-offers-inner">
+    <div class="adv-offers-left">
+      <h2 class="adv-offers-heading">What Advisors Offer</h2>
+      <div class="adv-offers-portrait">
+        <img src="https://www.figma.com/api/mcp/asset/45ce1e72-2de7-4f4e-906e-6f48def5897e" alt="SPN Advisor">
+      </div>
+    </div>
+    <div class="adv-offer-cards">
+      <div class="adv-offer-card">
+        <div class="adv-offer-icon">
+          <img src="https://www.figma.com/api/mcp/asset/bc6cc679-f5ff-4dde-a9ce-fae1bce312ae" alt="">
+        </div>
+        <div class="adv-offer-body">
+          <h3 class="adv-offer-title">Mentorship</h3>
+          <p class="adv-offer-text">Whether you need individual guidance or prefer a group setting, our mentors across the UK help students, graduates, and professionals find clear career direction and unlock growth.</p>
+        </div>
+      </div>
+      <div class="adv-offer-card">
+        <div class="adv-offer-icon">
+          <img src="https://www.figma.com/api/mcp/asset/49a4768c-e895-4e6e-bbba-799792968370" alt="">
+        </div>
+        <div class="adv-offer-body">
+          <h3 class="adv-offer-title">Job &amp; Career Support</h3>
+          <p class="adv-offer-text">Get down-to-earth advice on perfecting your CV, nailing applications, and mastering interviews. We also help refine your workplace communication across the UK and career planning.</p>
+        </div>
+      </div>
+      <div class="adv-offer-card">
+        <div class="adv-offer-icon">
+          <img src="https://www.figma.com/api/mcp/asset/98890b92-4094-4ef5-bc07-b88a14019fcd" alt="">
+        </div>
+        <div class="adv-offer-body">
+          <h3 class="adv-offer-title">Faith Support</h3>
+          <p class="adv-offer-text">You don't have to navigate identity questions alone. Get guidance across the UK on embracing your Sikh identity, appearance, and conduct in professional settings.</p>
+        </div>
+      </div>
+      <div class="adv-offer-card">
+        <div class="adv-offer-icon">
+          <img src="https://www.figma.com/api/mcp/asset/3ead48ad-5c16-4552-b101-7abbaf9498a0" alt="">
+        </div>
+        <div class="adv-offer-body">
+          <h3 class="adv-offer-title">Policy &amp; Workplace Guidance</h3>
+          <p class="adv-offer-text">Learn how to navigate the corporate landscape effectively. Our advisors across the UK help you understand workplace policies, diversity frameworks, accommodations, and communication.</p>
+        </div>
+      </div>
+      <div class="adv-offer-card">
+        <div class="adv-offer-icon">
+          <img src="https://www.figma.com/api/mcp/asset/2cd13828-9a0e-4d4b-b8bc-9b39671d8440" alt="">
+        </div>
+        <div class="adv-offer-body">
+          <h3 class="adv-offer-title">Talks &amp; Panels</h3>
+          <p class="adv-offer-text">Our advisors don't just work behind the scenes. They actively give back by sharing their expertise as speakers and panellists in our webinars, seminars, and community engagement sessions.</p>
+        </div>
+      </div>
+      <div class="adv-offer-card">
+        <div class="adv-offer-icon">
+          <img src="https://www.figma.com/api/mcp/asset/f420245b-3c2b-4942-8f6c-ae1cd4465cd7" alt="">
+        </div>
+        <div class="adv-offer-body">
+          <h3 class="adv-offer-title">Real-World Experience</h3>
+          <p class="adv-offer-text">Whenever possible, advisors open doors to the professional world through hands-on opportunities like corporate insight days, workplace visits, job shadowing, and immersive learning experiences.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BECOME AN ADVISOR FORM ===== -->
+<section class="adv-join" id="become-advisor">
+  <div class="adv-join-inner">
+    <div class="adv-join-header">
+      <h2 class="adv-join-heading">Become an Advisor</h2>
+      <p class="adv-join-desc">Join our growing network of professionals and help us make a difference by submitting your details below.</p>
+    </div>
+    <div class="adv-form-card">
+      <form class="adv-form-fields" action="mailto:Admin@sikhpn.org" method="post" enctype="text/plain">
+        <p class="adv-form-label-main">Name (required)</p>
+        <div class="adv-form-row">
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advFirstName">First Name</label>
+            <input class="adv-form-input" type="text" id="advFirstName" name="firstName" required>
+          </div>
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advLastName">Last Name</label>
+            <input class="adv-form-input" type="text" id="advLastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="adv-form-row">
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advSector">Sector</label>
+            <input class="adv-form-input" type="text" id="advSector" name="sector">
+          </div>
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advRole">Role</label>
+            <input class="adv-form-input" type="text" id="advRole" name="role">
+          </div>
+        </div>
+        <div class="adv-form-row">
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advLocation">Location</label>
+            <input class="adv-form-input" type="text" id="advLocation" name="location">
+          </div>
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advAreaSupport">Area of Support</label>
+            <input class="adv-form-input" type="text" id="advAreaSupport" name="areaSupport">
+          </div>
+        </div>
+        <div class="adv-form-row">
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advBio">Short Bio</label>
+            <input class="adv-form-input" type="text" id="advBio" name="shortBio">
+          </div>
+          <div class="adv-form-field">
+            <label class="adv-form-field-label" for="advLinkedIn">LinkedIn</label>
+            <input class="adv-form-input" type="url" id="advLinkedIn" name="linkedin" placeholder="https://linkedin.com/in/...">
+          </div>
+        </div>
+        <div class="adv-form-field">
+          <label class="adv-form-field-label" for="advMotivation">Why do you want to become an SPN Advisor?</label>
+          <input class="adv-form-input" type="text" id="advMotivation" name="motivation">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;height:40px;border-radius:4px">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CLIENTS RELY ON US ===== -->
+<section class="adv-testimonials">
+  <div class="adv-testimonials-inner">
+    <div class="adv-test-header">
+      <span class="adv-test-quote-mark">"</span>
+      <h2 class="adv-test-heading">Why Clients Rely on Us</h2>
+    </div>
+    <div class="adv-test-cards">
+      <div class="adv-test-card accent">
+        <p class="adv-test-text">Being an SPN advisor means using your experience to open doors, build confidence and help others succeed without losing sight of who they are.</p>
+        <p class="adv-test-attribution">Advisor</p>
+      </div>
+      <div class="adv-test-card light">
+        <p class="adv-test-text">Having access to a Sikh professional who understood both my career ambitions and my identity made the advice much more meaningful.</p>
+        <p class="adv-test-attribution">Mentee</p>
+      </div>
+    </div>
+    <div class="adv-test-footer">
+      <div class="adv-test-progress">
+        <div class="adv-test-progress-fill"></div>
+      </div>
+      <div class="adv-test-nav">
+        <button class="adv-test-btn" aria-label="Previous testimonial">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15L7 10L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="adv-test-btn" aria-label="Next testimonial">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5L13 10L8 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DUAL CTA ===== -->
+<section class="adv-dual-cta" id="connect-advisor">
+  <div class="adv-dual-cta-bg">
+    <img src="https://www.figma.com/api/mcp/asset/b05dd474-b612-463d-b1ad-13aea93ba9c7" alt="">
+  </div>
+  <div class="adv-dual-cta-inner">
+    <div class="adv-cta-card">
+      <div class="adv-cta-content">
+        <h2 class="adv-cta-heading">Support the Next Generation</h2>
+        <p class="adv-cta-text">If you are an experienced professional, join us as an SPN Advisor across the UK to empower the next generation.</p>
+      </div>
+      <a href="#become-advisor" class="btn btn-primary">Register as an Advisor</a>
+    </div>
+    <div class="adv-cta-card">
+      <div class="adv-cta-content">
+        <h2 class="adv-cta-heading">Looking for Guidance?</h2>
+        <p class="adv-cta-text">If you are seeking support, join SPN and tell us what type of guidance would help you most.</p>
+      </div>
+      <a href="index.html#stay-connected" class="btn btn-primary">Join SPN</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="faq-sub">Common questions</p>
+      <h2 class="faq-heading">FAQ</h2>
+      <p class="faq-desc">Everything you need to know about SPN Advisors.</p>
+    </header>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Who can become an SPN advisor?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Any experienced Sikh professional who is passionate about giving back can become an SPN Advisor. Whether you work in finance, law, technology, healthcare, or any other sector, if you have knowledge and experience to share, we would love to hear from you.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Do advisors need to commit to regular mentoring?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Advisors are asked to commit to a reasonable level of engagement, but flexibility is built in. Whether you have capacity for one session per month or more, we will work with your schedule to match you with members who will benefit most from your expertise.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">Can advisors support faith-related workplace questions?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Absolutely. Many of our advisors have navigated faith-related workplace challenges themselves and are well-placed to offer practical, empathetic guidance on topics such as wearing kirpan, maintaining rehat, requesting religious holidays, and representing Sikh identity in professional environments.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-q-text">How will members connect with advisors?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="faq-body"><p class="faq-answer">Members will be able to connect with advisors through the SPN platform, at network events, and via our scheduled one-to-one and group sessions. We aim to make access easy and accessible, both online and in person across the UK.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="footer-logo-block">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <img src="https://www.figma.com/api/mcp/asset/630617c2-4811-43c0-b0c7-a52cc1ab0d3f" alt="">
+            </div>
+            <span class="footer-logo-text">SPN</span>
+          </div>
+          <p class="footer-tagline">Connect | Empower | Succeed</p>
+          <p class="footer-desc">The Sikh Professionals Network empowers individuals across the UK to develop leadership and professional excellence while serving society through Sikhi values.</p>
+        </div>
+        <div class="footer-follow">
+          <p class="footer-follow-label">Follow Us</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/46c8f956-5216-4f45-b1ed-55982b10adb0" alt="Facebook">
+              <span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/363fc800-12a2-4092-ac3b-0cf4b2f5566e" alt="Instagram">
+              <span>Instagram</span>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/4b0470da-4026-452a-b2a4-acfe6ff4e6a1" alt="Twitter">
+              <span>Twitter</span>
+            </a>
+            <a href="https://www.linkedin.com/company/sikhprofessionalsnetwork/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <img src="https://www.figma.com/api/mcp/asset/d6bf5e33-eacb-4bde-baa9-af8322e4c900" alt="LinkedIn">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-hours">
+          <span>Monday &#8211; Friday</span>
+          <span>10am &#8211; 6pm</span>
+        </div>
+        <div class="footer-divider"></div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <form class="footer-email-form" action="mailto:Admin@sikhpn.org" method="post">
+            <div class="footer-email-field">
+              <label class="footer-email-label" for="footerEmailAdv">Enter your email</label>
+              <input class="footer-email-input" type="email" id="footerEmailAdv" name="email" placeholder="your@email.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+          <p class="footer-privacy">By subscribing you agree with our <a href="#">Privacy Policy</a> and provide consent to receive updates from our company.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="#network">Network</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+        <ul class="footer-legal-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </nav>
+      <div class="footer-divider"></div>
+      <div class="footer-copyright-bar">
+        <div class="footer-copyright-logo">
+          <div class="footer-copyright-logo-mark">
+            <img src="https://www.figma.com/api/mcp/asset/630617c2-4811-43c0-b0c7-a52cc1ab0d3f" alt="">
+          </div>
+          <span class="footer-copyright-logo-name">SPN</span>
+        </div>
+        <p class="footer-copyright">Copyright &copy; 2025 Sikh Professionals Network. All rights reserved.</p>
+        <p class="footer-siteby">Site by <a href="https://5rv.digital" target="_blank" rel="noopener noreferrer">5rv.digital</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion with animated height
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var summary = item.querySelector('.faq-question');
+    var body = item.querySelector('.faq-body');
+    var inner = body ? body.querySelector('.faq-answer') : null;
+    if (!summary || !body || !inner) return;
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isOpen = item.hasAttribute('open');
+      document.querySelectorAll('.faq-item[open]').forEach(function(o) {
+        var b = o.querySelector('.faq-body');
+        if (b) b.style.height = '0';
+        o.removeAttribute('open');
+      });
+      if (!isOpen) {
+        item.setAttribute('open', '');
+        body.style.height = inner.offsetHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
