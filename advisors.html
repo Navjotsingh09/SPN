@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/components.css">
+  <link rel="stylesheet" href="files/footer.css">
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
@@ -91,39 +93,58 @@
       flex-wrap:wrap;margin-top:8px
     }
 
-    /* ── FEATURES ── */
-    .adv-features{background:#fff;padding:60px var(--px) 60px}
-    .adv-features-header{display:flex;flex-direction:column;gap:16px;margin-bottom:60px}
+    /* ── FEATURES / TRUSTED COMMUNITY ── */
+    .adv-features{background:#fff;padding:100px var(--px)}
+    .adv-features-top{
+      display:flex;gap:32px;align-items:flex-end;margin-bottom:64px
+    }
     .adv-features-heading{
-      font-family:'Lora',serif;font-size:64px;font-weight:400;
-      color:var(--text);line-height:64px;letter-spacing:-3.2px;
-      max-width:720px
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px;
+      flex:1;min-width:0
     }
     .adv-features-sub{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:var(--text-mid);line-height:24px;
+      color:var(--text-mid);line-height:24px;flex:1;min-width:0;
       font-variation-settings:'wdth' 100
     }
-    .adv-features-grid{
-      display:flex;justify-content:space-between;align-items:flex-start;gap:40px
+    .adv-tc-row{display:flex;gap:24px;align-items:stretch}
+    .adv-tc-card{
+      flex:1;min-width:0;border-radius:20px;padding:32px;
+      background:#f9f9f9;
+      display:flex;flex-direction:column;gap:20px;
+      cursor:default;
+      transition:background .35s ease
     }
-    .adv-feature{
-      display:flex;flex-direction:column;gap:24px;flex:1;min-width:0
+    .adv-tc-card:hover{background:#132030}
+    .adv-tc-card-top{
+      display:flex;align-items:center;justify-content:space-between
     }
-    .adv-feature-icon{
-      width:48px;height:48px;flex-shrink:0;
-      display:flex;align-items:center;justify-content:center
+    .adv-tc-icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center}
+    .adv-tc-icon img{
+      width:48px;height:48px;object-fit:contain;
+      transition:filter .35s ease
     }
-    .adv-feature-icon img{width:48px;height:48px;object-fit:contain}
-    .adv-feature-title{
+    .adv-tc-card:hover .adv-tc-icon img{filter:brightness(0) invert(1)}
+    .adv-tc-arrow{
+      width:24px;height:24px;object-fit:contain;flex-shrink:0;
+      transition:filter .35s ease
+    }
+    .adv-tc-card:hover .adv-tc-arrow{filter:brightness(0) invert(1)}
+    .adv-tc-card-body{display:flex;flex-direction:column;gap:16px}
+    .adv-tc-num{
       font-family:'Lora',serif;font-size:24px;font-weight:400;
-      color:var(--text);line-height:32px;letter-spacing:-0.72px
+      color:#132030;line-height:32px;letter-spacing:-0.72px;
+      transition:color .35s ease
     }
-    .adv-feature-text{
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
-      color:var(--text-mid);line-height:20px;
-      font-variation-settings:'wdth' 100
+    .adv-tc-card:hover .adv-tc-num{color:#fff}
+    .adv-tc-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100;
+      transition:color .35s ease
     }
+    .adv-tc-card:hover .adv-tc-text{color:#949494}
 
     /* ── WIDE PHOTO ── */
     .adv-photo-wrap{background:#fff;padding:0 var(--px) 60px}
@@ -133,47 +154,6 @@
     }
     .adv-photo-frame img{
       width:100%;height:100%;object-fit:cover;display:block
-    }
-
-    /* ── WHAT ADVISORS OFFER ── */
-    .adv-offers{background:#fff;padding:0 var(--px) 100px}
-    .adv-offers-inner{display:flex;gap:64px;align-items:flex-start}
-    .adv-offers-left{
-      display:flex;flex-direction:column;gap:30px;
-      flex-shrink:0;width:500px
-    }
-    .adv-offers-heading{
-      font-family:'Lora',serif;font-size:64px;font-weight:400;
-      color:var(--text);line-height:64px;letter-spacing:-3.2px
-    }
-    .adv-offers-portrait{
-      width:500px;height:450px;border-radius:20px;overflow:hidden;
-      flex-shrink:0;background:#e8e4df
-    }
-    .adv-offers-portrait img{
-      width:100%;height:100%;object-fit:cover;object-position:center top
-    }
-    .adv-offer-cards{
-      flex:1;display:flex;flex-direction:column;gap:16px;min-width:0
-    }
-    .adv-offer-card{
-      background:var(--light);border-radius:20px;padding:20px 24px;
-      display:flex;gap:32px;align-items:flex-start
-    }
-    .adv-offer-icon{
-      width:48px;height:48px;flex-shrink:0;
-      display:flex;align-items:center;justify-content:center
-    }
-    .adv-offer-icon img{width:48px;height:48px;object-fit:contain}
-    .adv-offer-body{display:flex;flex-direction:column;gap:16px;flex:1;min-width:0}
-    .adv-offer-title{
-      font-family:'Lora',serif;font-size:24px;font-weight:400;
-      color:var(--dark);line-height:32px;letter-spacing:-0.72px
-    }
-    .adv-offer-text{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:var(--text-mid);line-height:24px;
-      font-variation-settings:'wdth' 100
     }
 
     /* ── JOIN / BECOME AN ADVISOR FORM ── */
@@ -222,61 +202,6 @@
       font-variation-settings:'wdth' 100
     }
     .adv-form-input::placeholder{color:rgba(18,18,23,.3)}
-
-    /* ── TESTIMONIALS ── */
-    .adv-testimonials{background:#fff;padding:100px var(--px)}
-    .adv-testimonials-inner{
-      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
-      display:flex;flex-direction:column;gap:48px
-    }
-    .adv-test-header{display:flex;flex-direction:column;gap:8px;max-width:538px}
-    .adv-test-quote-mark{
-      font-family:'Instrument Sans',sans-serif;font-size:96px;font-weight:700;
-      color:var(--text-dark);line-height:96px;letter-spacing:-5.28px;
-      font-variation-settings:'wdth' 100
-    }
-    .adv-test-heading{
-      font-family:'Lora',serif;font-size:48px;font-weight:400;
-      color:var(--text);line-height:56px;letter-spacing:-2.4px
-    }
-    .adv-test-cards{display:flex;gap:20px;align-items:flex-start}
-    .adv-test-card{
-      flex:1;border-radius:12px;padding:40px;
-      display:flex;flex-direction:column;gap:24px
-    }
-    .adv-test-card.accent{background:var(--accent)}
-    .adv-test-card.light{background:var(--light)}
-    .adv-test-text{
-      font-family:'Instrument Sans',sans-serif;font-size:36px;font-weight:400;
-      line-height:40px;letter-spacing:-1.26px;
-      font-variation-settings:'wdth' 100
-    }
-    .adv-test-card.accent .adv-test-text{color:#fff}
-    .adv-test-card.light .adv-test-text{color:#000}
-    .adv-test-attribution{
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:600;
-      line-height:20px;letter-spacing:-0.14px;
-      font-variation-settings:'wdth' 100
-    }
-    .adv-test-card.accent .adv-test-attribution{color:#fff}
-    .adv-test-card.light .adv-test-attribution{color:#000}
-    .adv-test-footer{display:flex;flex-direction:column;gap:20px}
-    .adv-test-progress{
-      background:var(--light);border-radius:4px;height:10px;
-      overflow:hidden;position:relative
-    }
-    .adv-test-progress-fill{
-      position:absolute;left:0;top:0;height:10px;
-      width:300px;background:var(--accent);border-radius:4px
-    }
-    .adv-test-nav{display:flex;gap:20px;align-items:center}
-    .adv-test-btn{
-      width:48px;height:48px;border-radius:4px;background:var(--accent);
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;border:none;flex-shrink:0;transition:opacity .2s
-    }
-    .adv-test-btn:hover{opacity:.8}
-    .adv-test-btn svg{width:20px;height:20px}
 
     /* ── DUAL CTA ── */
     .adv-dual-cta{
@@ -452,16 +377,12 @@
       :root{--px:32px}
       .adv-hero-card{min-height:auto;padding:60px 40px}
       .adv-hero-h1{font-size:48px;line-height:52px}
-      .adv-features-grid{flex-direction:column}
-      .adv-features-heading{font-size:48px;line-height:52px}
-      .adv-offers-inner{flex-direction:column}
-      .adv-offers-left{width:100%}
-      .adv-offers-portrait{width:100%;height:360px}
-      .adv-offers-heading{font-size:48px;line-height:52px}
+      .adv-tc-row{flex-direction:column}
+      .adv-features-top{flex-direction:column;align-items:flex-start;gap:20px}
+      .adv-features-heading{font-size:40px;line-height:48px}
       .adv-join-header{flex-direction:column}
       .adv-join-heading{font-size:48px;line-height:52px}
       .adv-form-card{padding:40px 32px}
-      .adv-test-cards{flex-direction:column}
       .adv-dual-cta-inner{flex-direction:column;align-items:center}
       .adv-cta-card{max-width:100%}
       .footer-top{flex-direction:column;gap:48px}
@@ -477,7 +398,6 @@
       .adv-hero-h1{font-size:36px;line-height:40px}
       .adv-hero-desc{font-size:16px}
       .adv-form-row{flex-direction:column}
-      .adv-test-heading{font-size:36px;line-height:44px}
       .adv-cta-heading{font-size:36px;line-height:44px}
       .faq-heading{font-size:36px;line-height:44px}
       .footer-top{gap:32px}
@@ -531,38 +451,47 @@
   </div>
 </section>
 
-<!-- ===== FEATURES ===== -->
+<!-- ===== FEATURES / TRUSTED COMMUNITY ===== -->
 <section class="adv-features">
-  <div class="adv-features-header">
-    <h2 class="adv-features-heading">Features</h2>
-    <p class="adv-features-sub">Career support, industry knowledge, and values-led mentoring from Sikh professionals across the UK.</p>
+  <div class="adv-features-top">
+    <h2 class="adv-features-heading">A Trusted Sikh Professional Community</h2>
+    <p class="adv-features-sub">At SPN, we connect you with a credible, grounded network of Sikh professionals who truly understand the unique balance between career ambition, cultural identity, and Seva (service).</p>
   </div>
-  <div class="adv-features-grid">
-    <div class="adv-feature">
-      <div class="adv-feature-icon">
-        <img src="https://www.figma.com/api/mcp/asset/daea1485-9561-4263-b5b3-3e9951c5c6ef" alt="">
+  <div class="adv-tc-row">
+    <div class="adv-tc-card">
+      <div class="adv-tc-card-top">
+        <div class="adv-tc-icon">
+          <img src="https://www.figma.com/api/mcp/asset/b57a5aee-455c-4ddd-8707-d9cde47e2e18" alt="">
+        </div>
+        <img class="adv-tc-arrow" src="https://www.figma.com/api/mcp/asset/19f6e5f9-fde4-40bc-9d0a-e73fbd6f62c6" alt="">
       </div>
-      <div>
-        <h3 class="adv-feature-title">Career Guidance</h3>
-        <p class="adv-feature-text">Making choices can feel daunting. Our advisors across the UK help you navigate decisions, polish applications, ace interviews, and build confidence.</p>
-      </div>
-    </div>
-    <div class="adv-feature">
-      <div class="adv-feature-icon">
-        <img src="https://www.figma.com/api/mcp/asset/b1b022be-ad62-4d82-b1bf-de152238f0b6" alt="">
-      </div>
-      <div>
-        <h3 class="adv-feature-title">Industry Insights</h3>
-        <p class="adv-feature-text">Skip guesswork. Connect with professionals across the UK who know your sector. Get the inside track on opportunities.</p>
+      <div class="adv-tc-card-body">
+        <p class="adv-tc-num">01.</p>
+        <p class="adv-tc-text">Mentoring &amp; Real Guidance: Connect with mentors across the UK to make big career decisions, build confidence, nail interviews, and fast-track your professional growth.</p>
       </div>
     </div>
-    <div class="adv-feature">
-      <div class="adv-feature-icon">
-        <img src="https://www.figma.com/api/mcp/asset/d8343ba8-3470-496d-a160-2c2855f1d0b0" alt="">
+    <div class="adv-tc-card">
+      <div class="adv-tc-card-top">
+        <div class="adv-tc-icon">
+          <img src="https://www.figma.com/api/mcp/asset/091d8c00-9636-4d4d-b701-024b2e5c20e0" alt="">
+        </div>
+        <img class="adv-tc-arrow" src="https://www.figma.com/api/mcp/asset/19f6e5f9-fde4-40bc-9d0a-e73fbd6f62c6" alt="">
       </div>
-      <div>
-        <h3 class="adv-feature-title">Mentoring &amp; Identity Support</h3>
-        <p class="adv-feature-text">You shouldn't leave your values behind. Mentors across the UK help you navigate corporate landscapes while staying grounded in your identity.</p>
+      <div class="adv-tc-card-body">
+        <p class="adv-tc-num">02.</p>
+        <p class="adv-tc-text">Cross-Sector Connections: Break out of your bubble. Connect with diverse professionals across the UK for authentic collaboration, learning, and trusted business referrals.</p>
+      </div>
+    </div>
+    <div class="adv-tc-card">
+      <div class="adv-tc-card-top">
+        <div class="adv-tc-icon">
+          <img src="https://www.figma.com/api/mcp/asset/9645a879-949c-43be-ae9c-3622fbd1ce91" alt="">
+        </div>
+        <img class="adv-tc-arrow" src="https://www.figma.com/api/mcp/asset/19f6e5f9-fde4-40bc-9d0a-e73fbd6f62c6" alt="">
+      </div>
+      <div class="adv-tc-card-body">
+        <p class="adv-tc-num">03.</p>
+        <p class="adv-tc-text">Values-Led Leadership: Leadership is more than climbing the ladder; we encourage members across the UK to lead with discipline, integrity, confidence, and service.</p>
       </div>
     </div>
   </div>
@@ -576,68 +505,105 @@
 </section>
 
 <!-- ===== WHAT ADVISORS OFFER ===== -->
-<section class="adv-offers">
-  <div class="adv-offers-inner">
-    <div class="adv-offers-left">
-      <h2 class="adv-offers-heading">What Advisors Offer</h2>
-      <div class="adv-offers-portrait">
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-left">
+      <h2 class="section-heading">What Advisors Offer</h2>
+      <div class="benefits-photo">
         <img src="https://www.figma.com/api/mcp/asset/45ce1e72-2de7-4f4e-906e-6f48def5897e" alt="SPN Advisor">
       </div>
     </div>
-    <div class="adv-offer-cards">
-      <div class="adv-offer-card">
-        <div class="adv-offer-icon">
-          <img src="https://www.figma.com/api/mcp/asset/bc6cc679-f5ff-4dde-a9ce-fae1bce312ae" alt="">
+    <div class="benefits-right">
+      <div class="benefits-reel">
+
+        <!-- original set -->
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/bc6cc679-f5ff-4dde-a9ce-fae1bce312ae" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Mentorship</h3>
+            <p class="benefit-text">Whether you need individual guidance or prefer a group setting, our mentors across the UK help students, graduates, and professionals find clear career direction and unlock growth.</p>
+          </div>
         </div>
-        <div class="adv-offer-body">
-          <h3 class="adv-offer-title">Mentorship</h3>
-          <p class="adv-offer-text">Whether you need individual guidance or prefer a group setting, our mentors across the UK help students, graduates, and professionals find clear career direction and unlock growth.</p>
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/49a4768c-e895-4e6e-bbba-799792968370" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Job &amp; Career Support</h3>
+            <p class="benefit-text">Get down-to-earth advice on perfecting your CV, nailing applications, and mastering interviews. We also help refine your workplace communication across the UK and career planning.</p>
+          </div>
         </div>
-      </div>
-      <div class="adv-offer-card">
-        <div class="adv-offer-icon">
-          <img src="https://www.figma.com/api/mcp/asset/49a4768c-e895-4e6e-bbba-799792968370" alt="">
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/98890b92-4094-4ef5-bc07-b88a14019fcd" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Faith Support</h3>
+            <p class="benefit-text">You don't have to navigate identity questions alone. Get guidance across the UK on embracing your Sikh identity, appearance, and conduct in professional settings.</p>
+          </div>
         </div>
-        <div class="adv-offer-body">
-          <h3 class="adv-offer-title">Job &amp; Career Support</h3>
-          <p class="adv-offer-text">Get down-to-earth advice on perfecting your CV, nailing applications, and mastering interviews. We also help refine your workplace communication across the UK and career planning.</p>
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/3ead48ad-5c16-4552-b101-7abbaf9498a0" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Policy &amp; Workplace Guidance</h3>
+            <p class="benefit-text">Learn how to navigate the corporate landscape effectively. Our advisors across the UK help you understand workplace policies, diversity frameworks, accommodations, and communication.</p>
+          </div>
         </div>
-      </div>
-      <div class="adv-offer-card">
-        <div class="adv-offer-icon">
-          <img src="https://www.figma.com/api/mcp/asset/98890b92-4094-4ef5-bc07-b88a14019fcd" alt="">
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/2cd13828-9a0e-4d4b-b8bc-9b39671d8440" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Talks &amp; Panels</h3>
+            <p class="benefit-text">Our advisors don't just work behind the scenes. They actively give back by sharing their expertise as speakers and panellists in our webinars, seminars, and community engagement sessions.</p>
+          </div>
         </div>
-        <div class="adv-offer-body">
-          <h3 class="adv-offer-title">Faith Support</h3>
-          <p class="adv-offer-text">You don't have to navigate identity questions alone. Get guidance across the UK on embracing your Sikh identity, appearance, and conduct in professional settings.</p>
+        <div class="benefit-item">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/f420245b-3c2b-4942-8f6c-ae1cd4465cd7" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Real-World Experience</h3>
+            <p class="benefit-text">Whenever possible, advisors open doors to the professional world through hands-on opportunities like corporate insight days, workplace visits, job shadowing, and immersive learning experiences.</p>
+          </div>
         </div>
-      </div>
-      <div class="adv-offer-card">
-        <div class="adv-offer-icon">
-          <img src="https://www.figma.com/api/mcp/asset/3ead48ad-5c16-4552-b101-7abbaf9498a0" alt="">
+
+        <!-- duplicate set for seamless loop -->
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/bc6cc679-f5ff-4dde-a9ce-fae1bce312ae" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Mentorship</h3>
+            <p class="benefit-text">Whether you need individual guidance or prefer a group setting, our mentors across the UK help students, graduates, and professionals find clear career direction and unlock growth.</p>
+          </div>
         </div>
-        <div class="adv-offer-body">
-          <h3 class="adv-offer-title">Policy &amp; Workplace Guidance</h3>
-          <p class="adv-offer-text">Learn how to navigate the corporate landscape effectively. Our advisors across the UK help you understand workplace policies, diversity frameworks, accommodations, and communication.</p>
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/49a4768c-e895-4e6e-bbba-799792968370" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Job &amp; Career Support</h3>
+            <p class="benefit-text">Get down-to-earth advice on perfecting your CV, nailing applications, and mastering interviews. We also help refine your workplace communication across the UK and career planning.</p>
+          </div>
         </div>
-      </div>
-      <div class="adv-offer-card">
-        <div class="adv-offer-icon">
-          <img src="https://www.figma.com/api/mcp/asset/2cd13828-9a0e-4d4b-b8bc-9b39671d8440" alt="">
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/98890b92-4094-4ef5-bc07-b88a14019fcd" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Faith Support</h3>
+            <p class="benefit-text">You don't have to navigate identity questions alone. Get guidance across the UK on embracing your Sikh identity, appearance, and conduct in professional settings.</p>
+          </div>
         </div>
-        <div class="adv-offer-body">
-          <h3 class="adv-offer-title">Talks &amp; Panels</h3>
-          <p class="adv-offer-text">Our advisors don't just work behind the scenes. They actively give back by sharing their expertise as speakers and panellists in our webinars, seminars, and community engagement sessions.</p>
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/3ead48ad-5c16-4552-b101-7abbaf9498a0" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Policy &amp; Workplace Guidance</h3>
+            <p class="benefit-text">Learn how to navigate the corporate landscape effectively. Our advisors across the UK help you understand workplace policies, diversity frameworks, accommodations, and communication.</p>
+          </div>
         </div>
-      </div>
-      <div class="adv-offer-card">
-        <div class="adv-offer-icon">
-          <img src="https://www.figma.com/api/mcp/asset/f420245b-3c2b-4942-8f6c-ae1cd4465cd7" alt="">
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/2cd13828-9a0e-4d4b-b8bc-9b39671d8440" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Talks &amp; Panels</h3>
+            <p class="benefit-text">Our advisors don't just work behind the scenes. They actively give back by sharing their expertise as speakers and panellists in our webinars, seminars, and community engagement sessions.</p>
+          </div>
         </div>
-        <div class="adv-offer-body">
-          <h3 class="adv-offer-title">Real-World Experience</h3>
-          <p class="adv-offer-text">Whenever possible, advisors open doors to the professional world through hands-on opportunities like corporate insight days, workplace visits, job shadowing, and immersive learning experiences.</p>
+        <div class="benefit-item" aria-hidden="true">
+          <img class="benefit-icon" src="https://www.figma.com/api/mcp/asset/f420245b-3c2b-4942-8f6c-ae1cd4465cd7" alt="">
+          <div class="benefit-body">
+            <h3 class="benefit-title">Real-World Experience</h3>
+            <p class="benefit-text">Whenever possible, advisors open doors to the professional world through hands-on opportunities like corporate insight days, workplace visits, job shadowing, and immersive learning experiences.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -704,38 +670,37 @@
 </section>
 
 <!-- ===== WHY CLIENTS RELY ON US ===== -->
-<section class="adv-testimonials">
-  <div class="adv-testimonials-inner">
-    <div class="adv-test-header">
-      <span class="adv-test-quote-mark">"</span>
-      <h2 class="adv-test-heading">Why Clients Rely on Us</h2>
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <p class="testimonials-quote">&#8220;</p>
+      <h2 class="testimonials-heading">Why Clients Rely on Us</h2>
     </div>
-    <div class="adv-test-cards">
-      <div class="adv-test-card accent">
-        <p class="adv-test-text">Being an SPN advisor means using your experience to open doors, build confidence and help others succeed without losing sight of who they are.</p>
-        <p class="adv-test-attribution">Advisor</p>
-      </div>
-      <div class="adv-test-card light">
-        <p class="adv-test-text">Having access to a Sikh professional who understood both my career ambitions and my identity made the advice much more meaningful.</p>
-        <p class="adv-test-attribution">Mentee</p>
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track" id="testimonialsTrack">
+
+        <article class="testimonial-card featured">
+          <p class="testimonial-text">Being an SPN advisor means using your experience to open doors, build confidence and help others succeed without losing sight of who they are.</p>
+          <p class="testimonial-author">Advisor</p>
+        </article>
+
+        <article class="testimonial-card light">
+          <p class="testimonial-text">Having access to a Sikh professional who understood both my career ambitions and my identity made the advice much more meaningful.</p>
+          <p class="testimonial-author">Mentee</p>
+        </article>
+
       </div>
     </div>
-    <div class="adv-test-footer">
-      <div class="adv-test-progress">
-        <div class="adv-test-progress-fill"></div>
-      </div>
-      <div class="adv-test-nav">
-        <button class="adv-test-btn" aria-label="Previous testimonial">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 15L7 10L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="adv-test-btn" aria-label="Next testimonial">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 5L13 10L8 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
+    <div class="testimonials-progress-wrap">
+      <div class="testimonials-progress" id="testimonialsProgress"></div>
+    </div>
+    <div class="testimonials-nav" role="group" aria-label="Testimonials navigation">
+      <button class="tn-btn" id="tnPrev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 4l-6 6 6 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tn-btn" id="tnNext" aria-label="Next testimonial">
+        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 4l6 6-6 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -907,6 +872,30 @@
 </footer>
 
 <script>
+  // Testimonials carousel
+  (function(){
+    var track = document.getElementById('testimonialsTrack');
+    var progress = document.getElementById('testimonialsProgress');
+    var cards = track.querySelectorAll('.testimonial-card');
+    var total = cards.length;
+    var current = 0;
+    function update(){
+      var cardW = cards[0].offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
+      progress.style.width = ((current + 1) / total * 100) + '%';
+    }
+    document.getElementById('tnNext').addEventListener('click', function(){
+      current = (current + 1) % total;
+      update();
+    });
+    document.getElementById('tnPrev').addEventListener('click', function(){
+      current = (current - 1 + total) % total;
+      update();
+    });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
   // FAQ accordion with animated height
   document.querySelectorAll('.faq-item').forEach(function(item) {
     var summary = item.querySelector('.faq-question');
