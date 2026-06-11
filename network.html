@@ -94,6 +94,7 @@
       color:#bfb5b5;line-height:28px;max-width:1038px;
       font-variation-settings:'wdth' 100
     }
+    .hero-card-dark{background:linear-gradient(150deg,#172e49 0%,#101b29 100%)}
 
     /* ── LOGO BAR ── */
     .logo-bar{
@@ -226,6 +227,36 @@
       color:#282422;line-height:32px;font-variation-settings:'wdth' 100
     }
     .feature-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#474747;line-height:24px;font-variation-settings:'wdth' 100
+    }
+
+    /* ── BENEFITS ── */
+    .benefits-net{background:#fff;padding:100px var(--px)}
+    .benefits-net-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:48px
+    }
+    .benefits-net-banner{
+      width:100%;height:420px;border-radius:20px;overflow:hidden;background:#f0ede8
+    }
+    .benefits-net-banner img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .benefits-net-head{display:flex;flex-direction:column;gap:20px}
+    .benefits-net-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#191615;line-height:56px;letter-spacing:-2.4px
+    }
+    .benefits-net-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#474747;line-height:24px;max-width:635px;font-variation-settings:'wdth' 100
+    }
+    .benefits-net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px}
+    .benefit-item{display:flex;flex-direction:column;gap:10px}
+    .benefit-title{
+      font-family:'Instrument Sans',sans-serif;font-size:24px;font-weight:400;
+      color:#282422;line-height:32px;font-variation-settings:'wdth' 100
+    }
+    .benefit-desc{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
       color:#474747;line-height:24px;font-variation-settings:'wdth' 100
     }
@@ -401,6 +432,9 @@
       .about-cv-heading{font-size:40px;line-height:48px}
       .features-grid{grid-template-columns:repeat(2,1fr)}
       .features-heading{font-size:40px;line-height:48px}
+      .benefits-net-grid{grid-template-columns:repeat(2,1fr)}
+      .benefits-net-heading{font-size:40px;line-height:48px}
+      .benefits-net-banner{height:320px}
       .about-trusted-top{flex-direction:column;align-items:flex-start;gap:20px}
       .about-trusted-heading{font-size:40px;line-height:48px}
       .about-tc-cards{grid-template-columns:repeat(2,1fr)}
@@ -421,6 +455,8 @@
       .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
       .about-cv-grid{grid-template-columns:1fr}
       .features-grid{grid-template-columns:1fr}
+      .benefits-net-grid{grid-template-columns:1fr}
+      .benefits-net-banner{height:220px}
       .about-tc-cards{grid-template-columns:1fr}
       .stats-grid{flex-direction:column}
       .stats-heading{font-size:32px;line-height:40px}
@@ -475,11 +511,7 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-card">
-    <div class="hero-bg">
-      <img src="https://www.figma.com/api/mcp/asset/70c6210c-1012-46fc-8337-2a66643c1cb3" alt="">
-      <div class="hero-overlay"></div>
-    </div>
+  <div class="hero-card hero-card-dark">
     <div class="hero-inner">
       <div class="hero-content">
         <p class="hero-label">Sikh Professionals Network</p>
@@ -489,126 +521,6 @@
         </div>
       </div>
       <a href="/join" class="btn btn-primary">Join the Network</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== LOGO BAR ===== -->
-<section class="logo-bar" aria-label="Partners and affiliates">
-  <div class="logo-track">
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt="Partner"></div>
-    <!-- duplicates for seamless loop -->
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt=""></div>
-  </div>
-</section>
-
-<!-- ===== WHO WE ARE ===== -->
-<section class="about-wwa">
-  <div class="about-wwa-inner">
-    <div class="about-text-block">
-      <h2 class="about-section-heading">A Community of Sikh Professionals</h2>
-      <p class="about-body-text">The SPN Network brings together Sikh students, graduates, professionals, advisors, and leaders aged 18 and over across the UK.<br><br>Through networking, mentoring, educational talks, resources, and guidance, members build connections and advance their careers — while strengthening their Sikh identity and upholding the values of service, leadership, and community engagement.<br><br>Whether you are starting out or leading at a senior level, the Network is a trusted space to grow in confidence and excellence, and to make a positive impact on wider society through Sikhi values.</p>
-    </div>
-    <div class="about-photo">
-      <img src="https://www.figma.com/api/mcp/asset/9a42716f-0f4c-4cd4-81d8-97e728347862" alt="Sikh professional">
-    </div>
-  </div>
-</section>
-
-<!-- ===== CORE VALUES ===== -->
-<section class="about-cv">
-  <div class="about-cv-inner">
-    <h2 class="about-cv-heading">Core Values</h2>
-    <div class="about-cv-grid">
-
-      <article class="about-cv-card">
-        <div class="about-cv-body">
-          <div class="about-cv-icon">
-            <img src="https://www.figma.com/api/mcp/asset/8763365b-61d4-460c-8344-0bb9841036b1" alt="">
-          </div>
-          <div class="about-cv-text-block">
-            <h3 class="about-cv-title">Discipline</h3>
-            <div>
-              <p class="about-cv-subtitle">Rehat &amp; Excellence</p>
-              <p class="about-cv-desc">We believe in striving for personal and professional excellence through discipline, responsibility and growth.</p>
-            </div>
-          </div>
-        </div>
-        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="about-cv-card">
-        <div class="about-cv-body">
-          <div class="about-cv-icon">
-            <img src="https://www.figma.com/api/mcp/asset/2aefecf2-7c7b-46a8-8d47-0f051efea701" alt="">
-          </div>
-          <div class="about-cv-text-block">
-            <h3 class="about-cv-title">Integrity</h3>
-            <div>
-              <p class="about-cv-subtitle">Sach &amp; Naitikta</p>
-              <p class="about-cv-desc">We believe Sikh professionals should lead with honesty, ethics and accountability in professional and community life.</p>
-            </div>
-          </div>
-        </div>
-        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="about-cv-card">
-        <div class="about-cv-body">
-          <div class="about-cv-icon">
-            <img src="https://www.figma.com/api/mcp/asset/69d170ae-2470-4337-9a50-bcec3bca1f21" alt="">
-          </div>
-          <div class="about-cv-text-block">
-            <h3 class="about-cv-title">Sovereignty</h3>
-            <div>
-              <p class="about-cv-subtitle">Miri-Piri Leadership</p>
-              <p class="about-cv-desc">We encourage confidence, independent thought, and leadership rooted in Sikh principles.</p>
-            </div>
-          </div>
-        </div>
-        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="about-cv-card">
-        <div class="about-cv-body">
-          <div class="about-cv-icon">
-            <img src="https://www.figma.com/api/mcp/asset/51de87d0-1273-4b65-9f88-abec4a6356f9" alt="">
-          </div>
-          <div class="about-cv-text-block">
-            <h3 class="about-cv-title">Seva</h3>
-            <div>
-              <p class="about-cv-subtitle">Service</p>
-              <p class="about-cv-desc">We use professional knowledge, influence and resources to uplift others and contribute positively to society.</p>
-            </div>
-          </div>
-        </div>
-        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="about-cv-card">
-        <div class="about-cv-body">
-          <div class="about-cv-icon">
-            <img src="https://www.figma.com/api/mcp/asset/e092cff0-65e6-468e-b22e-ab02c26b64e1" alt="">
-          </div>
-          <div class="about-cv-text-block">
-            <h3 class="about-cv-title">Heritage</h3>
-            <div>
-              <p class="about-cv-subtitle">Virsa</p>
-              <p class="about-cv-desc">We honour the Sikh legacy by strengthening identity, historical knowledge, and pride in our roots.</p>
-            </div>
-          </div>
-        </div>
-        <img class="about-cv-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
     </div>
   </div>
 </section>
@@ -650,70 +562,37 @@
   </div>
 </section>
 
-<!-- ===== TRUSTED COMMUNITY ===== -->
-<section class="about-trusted">
-  <div class="about-trusted-inner">
-    <div class="about-trusted-top">
-      <h2 class="about-trusted-heading">A Trusted Sikh Professional Community</h2>
-      <p class="about-trusted-desc">At SPN, we connect you with a credible, grounded network of Sikh professionals who truly understand the unique balance between career ambition, cultural identity, and Seva (service).</p>
+<!-- ===== BENEFITS ===== -->
+<section class="benefits-net">
+  <div class="benefits-net-inner">
+    <div class="benefits-net-banner">
+      <img src="https://www.figma.com/api/mcp/asset/70c6210c-1012-46fc-8337-2a66643c1cb3" alt="Sikh professionals connecting across the UK">
     </div>
-    <div class="about-tc-cards">
-
-      <article class="about-tc-card dark">
-        <div class="about-tc-top">
-          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/96628493-cd3b-44b8-9332-aff1895f607e" alt="">
-          <span class="about-tc-label">Mentoring</span>
-        </div>
-        <div>
-          <p class="about-tc-num">01.</p>
-          <p class="about-tc-text">Connect with experienced advisors across the United Kingdom to guide career decisions, build workplace confidence, and fast-track your progression.</p>
-        </div>
-      </article>
-
-      <article class="about-tc-card light">
-        <div class="about-tc-top">
-          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/87fd0050-64ae-4a88-9bb9-4e2007cc52a4" alt="">
-          <span class="about-tc-label">Referrals and Opportunities</span>
-        </div>
-        <div>
-          <p class="about-tc-num">02.</p>
-          <p class="about-tc-text">Build relationships that may lead to introductions, insight opportunities, collaborations and professional growth.</p>
-        </div>
-      </article>
-
-      <article class="about-tc-card light">
-        <div class="about-tc-top">
-          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/224bc219-86db-4610-ae71-47fe82d2549c" alt="">
-          <span class="about-tc-label">Professional Development</span>
-        </div>
-        <div>
-          <p class="about-tc-num">03.</p>
-          <p class="about-tc-text">Learn from interactive webinars, seminars, and practical resources across the United Kingdom designed to sharpen your industry skill set.</p>
-        </div>
-      </article>
-
-      <article class="about-tc-card light">
-        <div class="about-tc-top">
-          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/96628493-cd3b-44b8-9332-aff1895f607e" alt="">
-          <span class="about-tc-label">Leadership and Confidence</span>
-        </div>
-        <div>
-          <p class="about-tc-num">04.</p>
-          <p class="about-tc-text">Develop the unwavering confidence to lead across the United Kingdom with foundational Sikh values integrated into your workplace and community.</p>
-        </div>
-      </article>
-
-      <article class="about-tc-card light">
-        <div class="about-tc-top">
-          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/224bc219-86db-4610-ae71-47fe82d2549c" alt="">
-          <span class="about-tc-label">Community Contribution</span>
-        </div>
-        <div>
-          <p class="about-tc-num">05.</p>
-          <p class="about-tc-text">Use your professional skills across the United Kingdom to uplift others through meaningful seva, career advice, and positive representation.</p>
-        </div>
-      </article>
-
+    <div class="benefits-net-head">
+      <h2 class="benefits-net-heading">Member Benefits</h2>
+      <p class="benefits-net-sub">Unlock professional opportunities across the United Kingdom designed to accelerate your growth, build connections, and uplift our community.</p>
+    </div>
+    <div class="benefits-net-grid">
+      <div class="benefit-item">
+        <h3 class="benefit-title">Mentoring</h3>
+        <p class="benefit-desc">Connect with experienced advisors across the United Kingdom to guide career decisions, build workplace confidence, and fast-track your progression.</p>
+      </div>
+      <div class="benefit-item">
+        <h3 class="benefit-title">Referrals and Opportunities</h3>
+        <p class="benefit-desc">Build relationships that may lead to introductions, insight opportunities, collaborations and professional growth.</p>
+      </div>
+      <div class="benefit-item">
+        <h3 class="benefit-title">Professional Development</h3>
+        <p class="benefit-desc">Learn from interactive webinars, seminars, and practical resources across the United Kingdom designed to sharpen your industry skill set.</p>
+      </div>
+      <div class="benefit-item">
+        <h3 class="benefit-title">Leadership and Confidence</h3>
+        <p class="benefit-desc">Develop the unwavering confidence to lead across the United Kingdom with foundational Sikh values integrated into your workplace and community.</p>
+      </div>
+      <div class="benefit-item">
+        <h3 class="benefit-title">Community Contribution</h3>
+        <p class="benefit-desc">Use your professional skills across the United Kingdom to uplift others through meaningful seva, career advice, and positive representation.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -730,32 +609,32 @@
 
       <article class="stat-card">
         <div class="stat-content">
-          <h3 class="stat-title">Founded for UK Sikhs</h3>
-          <p class="stat-text">Built from the ground up specifically for Sikh professionals, ambitious graduates, and emerging leaders right here across the UK.</p>
+          <h3 class="stat-title">UK-wide Reach</h3>
+          <p class="stat-text">A network designed to connect and empower Sikh professionals and leaders across the United Kingdom.</p>
         </div>
         <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
       </article>
 
       <article class="stat-card">
         <div class="stat-content">
-          <h3 class="stat-title">Built around 5 Core Values</h3>
-          <p class="stat-text">We aren't just about networking. Our entire community is anchored in five foundational values: discipline, integrity, sovereignty, heritage, and seva.</p>
+          <h3 class="stat-title">18+ Members</h3>
+          <p class="stat-text">Support for adults across the United Kingdom at every milestone, finishing education or launching careers.</p>
         </div>
         <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
       </article>
 
       <article class="stat-card">
         <div class="stat-content">
-          <h3 class="stat-title">Supporting Ages 18+</h3>
-          <p class="stat-text">Growth doesn't stop. We actively support Sikh adults at every single stage of their professional journey, from fresh grads to seasoned executives.</p>
+          <h3 class="stat-title">Multiple Sectors</h3>
+          <p class="stat-text">Connecting professionals across law, finance, medicine, technology, education, business and public service.</p>
         </div>
         <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
       </article>
 
       <article class="stat-card">
         <div class="stat-content">
-          <h3 class="stat-title">Career &amp; Community Impact</h3>
-          <p class="stat-text">We bridge the gap between success and purpose, seamlessly connecting your career development with meaningful service to society.</p>
+          <h3 class="stat-title">Future Directory</h3>
+          <p class="stat-text">Building a secure portal where members across the United Kingdom can find one another and offer support.</p>
         </div>
         <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
       </article>
