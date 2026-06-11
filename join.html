@@ -175,35 +175,93 @@
     .form-status.ok{color:#1e7d4f}
     .form-status.err{color:#b8403f}
 
+    /* ── OFFICES ── */
+    .offices{background:#fff;padding:80px var(--px) 80px}
+    .offices-inner{max-width:calc(var(--max) - 2*var(--px));margin:0 auto;display:flex;flex-direction:column;gap:40px}
+    .offices-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+    .offices-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .offices-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;max-width:320px;
+      font-variation-settings:'wdth' 100
+    }
+    .offices-map{width:100%;height:340px;border-radius:12px;overflow:hidden;border:1px solid var(--light2)}
+    .offices-map iframe{width:100%;height:100%;border:none;display:block}
+    .offices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .office-card{display:flex;flex-direction:column;gap:6px}
+    .office-pin-icon{color:var(--accent);flex-shrink:0;margin-bottom:4px}
+    .office-name{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      color:var(--text);line-height:24px
+    }
+    .office-addr{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:var(--text-mid);line-height:20px
+    }
+    .office-phone{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:var(--text-mid);line-height:20px
+    }
+    .office-link{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:600;
+      color:var(--accent);line-height:20px;display:inline-flex;align-items:center;gap:4px;margin-top:4px
+    }
+    .office-link:hover{opacity:.8}
+
     /* ── NEWSLETTER ── */
-    .newsletter{background:#fff;padding:0 var(--px) 100px}
+    .newsletter{background:var(--light);padding:80px var(--px) 80px}
     .newsletter-inner{
       max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
-      background:var(--dark);border-radius:20px;overflow:hidden;
+      background:#fff;border-radius:20px;overflow:hidden;
       display:flex;align-items:stretch
     }
-    .newsletter-img{flex:1;min-width:0;position:relative;background:#0e1925}
+    .newsletter-img{flex:1;min-width:0;position:relative;background:#d6dce4}
     .newsletter-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .newsletter-content{
-      flex:1;min-width:0;padding:56px;display:flex;flex-direction:column;gap:24px;justify-content:center
+      flex:1;min-width:0;padding:48px 56px;display:flex;flex-direction:column;gap:0;justify-content:center
     }
     .newsletter-h2{
       font-family:'Lora',serif;font-size:36px;font-weight:400;
-      color:#fff;line-height:44px;letter-spacing:-1.4px
+      color:var(--text);line-height:44px;letter-spacing:-1.4px;margin-bottom:8px
     }
     .newsletter-p{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#bfc6cf;line-height:24px;font-variation-settings:'wdth' 100
+      color:var(--text-mid);line-height:24px;font-variation-settings:'wdth' 100;margin-bottom:24px
     }
-    .newsletter-form{display:flex;flex-direction:column;gap:14px;max-width:360px}
-    .newsletter-form input{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;
-      padding:12px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.25);
-      background:rgba(255,255,255,.06);color:#fff;outline:none
+    .newsletter-form{display:flex;flex-direction:column;gap:0}
+    .newsletter-form-legend{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;
+      color:var(--text-dark);line-height:24px;margin-bottom:4px
     }
-    .newsletter-form input::placeholder{color:#8b97a3}
-    .newsletter-form input:focus{border-color:var(--accent)}
-
+    .newsletter-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+    .nf-field{display:flex;flex-direction:column;gap:6px;padding:12px 0 0}
+    .nf-field.full{grid-column:1 / -1}
+    .nf-field label{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-dark);line-height:24px
+    }
+    .nf-field input,.nf-field textarea{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-dark);line-height:24px;
+      border:none;border-bottom:1px solid var(--accent);
+      background:transparent;padding:6px 0;outline:none;width:100%
+    }
+    .nf-field textarea{resize:vertical;min-height:60px}
+    .nf-field input::placeholder,.nf-field textarea::placeholder{color:var(--text-grey)}
+    .nf-field input:focus,.nf-field textarea:focus{border-bottom-color:var(--dark)}
+    .nf-radio{display:flex;align-items:center;gap:8px;padding:14px 0 0;grid-column:1/-1}
+    .nf-radio input[type=radio]{accent-color:var(--accent);width:16px;height:16px;flex-shrink:0}
+    .nf-radio label{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:var(--text-dark);line-height:20px;cursor:pointer
+    }
+    .newsletter-form-legend-req{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;
+      color:var(--text-dark);line-height:24px;margin:16px 0 4px
+    }
     /* ── FAQ ── */
     .faq{background:#fff;padding:0 var(--px) 100px}
     .faq-inner{
@@ -262,8 +320,12 @@
       .contact-title{font-size:48px}
       .form-card{padding:32px}
       .form-grid{grid-template-columns:1fr;gap:0}
+      .offices-heading{font-size:40px;line-height:48px}
+      .offices-grid{grid-template-columns:1fr;gap:24px}
       .newsletter-inner{flex-direction:column}
       .newsletter-img{min-height:220px}
+      .newsletter-content{padding:32px 40px}
+      .newsletter-form-grid{grid-template-columns:1fr}
       .faq-heading{font-size:40px;line-height:48px}
     }
     @media(max-width:700px){
@@ -460,6 +522,47 @@
   </div>
 </section>
 
+<!-- ===== OFFICE LOCATIONS ===== -->
+<section class="offices">
+  <div class="offices-inner">
+    <div class="offices-head">
+      <h2 class="offices-heading">Our office locations</h2>
+      <p class="offices-sub">A modern professional space designed to bring people together.</p>
+    </div>
+    <div class="offices-map">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-97.82%2C30.22%2C-97.63%2C30.33&layer=mapnik"
+        title="Office locations map"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="offices-grid">
+      <div class="office-card">
+        <svg class="office-pin-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#b86c40"/></svg>
+        <p class="office-name">412 Maple Drive Austin</p>
+        <p class="office-addr">TX 75101</p>
+        <p class="office-phone">Phone: (512) 555-7824</p>
+        <a href="#" class="office-link">Free consultation <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="office-card">
+        <svg class="office-pin-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#b86c40"/></svg>
+        <p class="office-name">5827 Oak Lane Orlando</p>
+        <p class="office-addr">FL 32807</p>
+        <p class="office-phone">Phone: +01 591 332 1508</p>
+        <a href="#" class="office-link">Free consultation <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="office-card">
+        <svg class="office-pin-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#b86c40"/></svg>
+        <p class="office-name">2234 Pine Street</p>
+        <p class="office-addr">Apt 3B</p>
+        <p class="office-phone">Phone: +01 208 335 6178</p>
+        <a href="#" class="office-link">Free consultation <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== NEWSLETTER ===== -->
 <section class="newsletter">
   <div class="newsletter-inner">
@@ -467,15 +570,44 @@
       <img src="https://www.figma.com/api/mcp/asset/70c6210c-1012-46fc-8337-2a66643c1cb3" alt="Sikh professionals connecting">
     </div>
     <div class="newsletter-content">
-      <h2 class="newsletter-h2">Stay in the loop</h2>
-      <p class="newsletter-p">Get updates on upcoming events, mentoring opportunities, and ways to get involved with the Sikh Professionals Network.</p>
+      <h2 class="newsletter-h2">News Letter</h2>
+      <p class="newsletter-p">You can use the feedback form below to reach out to us directly through our website.</p>
       <form class="newsletter-form" id="newsletterForm" data-web3form data-success="Thanks for subscribing — you're on the list." action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
         <input type="hidden" name="subject" value="New SPN Newsletter Subscriber">
         <input type="hidden" name="from_name" value="SPN Website — Newsletter">
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-        <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <p class="newsletter-form-legend">Name (required)</p>
+        <div class="newsletter-form-grid">
+          <div class="nf-field">
+            <label for="nlFirstName">First Name</label>
+            <input id="nlFirstName" name="nlFirstName" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="nf-field">
+            <label for="nlLastName">Last Name</label>
+            <input id="nlLastName" name="nlLastName" type="text" autocomplete="family-name" required>
+          </div>
+          <div class="nf-field full">
+            <label for="nlPhone">Phone</label>
+            <input id="nlPhone" name="nlPhone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <p class="newsletter-form-legend-req">Email (required)</p>
+        <div class="newsletter-form-grid">
+          <div class="nf-field full">
+            <input id="nlEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="nf-radio">
+            <input type="radio" id="nlSignup" name="nlNewsletterOptIn" value="yes" checked>
+            <label for="nlSignup">Sign up for newsletter updates</label>
+          </div>
+          <div class="nf-field full">
+            <label for="nlCause">Describe you cause</label>
+            <textarea id="nlCause" name="nlCause" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:20px;width:100%;height:48px;border-radius:6px">Submit</button>
+        <p class="form-status web3-status" id="nlStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
