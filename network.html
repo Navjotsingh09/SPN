@@ -199,6 +199,37 @@
     }
     .about-cv-arrow{width:24px;height:24px;object-fit:contain;flex-shrink:0}
 
+    /* ── FEATURES ── */
+    .features{background:#fff;padding:100px var(--px) 60px}
+    .features-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:40px
+    }
+    .features-header{display:flex;flex-direction:column;gap:16px}
+    .features-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#191615;line-height:56px;letter-spacing:-2.4px
+    }
+    .features-sub{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#888;line-height:24px;max-width:760px;
+      font-variation-settings:'wdth' 100
+    }
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .feature-card{display:flex;flex-direction:column;gap:20px}
+    .feature-icon{
+      width:48px;height:48px;border-radius:100px;background:var(--accent);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .feature-title{
+      font-family:'Instrument Sans',sans-serif;font-size:24px;font-weight:400;
+      color:#282422;line-height:32px;font-variation-settings:'wdth' 100
+    }
+    .feature-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#474747;line-height:24px;font-variation-settings:'wdth' 100
+    }
+
     /* ── TRUSTED COMMUNITY ── */
     .about-trusted{background:#fff;padding:100px var(--px)}
     .about-trusted-inner{
@@ -368,6 +399,8 @@
       .about-photo img{width:100%;height:120%;left:0;top:-10%}
       .about-cv-grid{grid-template-columns:repeat(2,1fr)}
       .about-cv-heading{font-size:40px;line-height:48px}
+      .features-grid{grid-template-columns:repeat(2,1fr)}
+      .features-heading{font-size:40px;line-height:48px}
       .about-trusted-top{flex-direction:column;align-items:flex-start;gap:20px}
       .about-trusted-heading{font-size:40px;line-height:48px}
       .about-tc-cards{grid-template-columns:repeat(2,1fr)}
@@ -387,6 +420,7 @@
       .hero-card{height:440px}
       .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
       .about-cv-grid{grid-template-columns:1fr}
+      .features-grid{grid-template-columns:1fr}
       .about-tc-cards{grid-template-columns:1fr}
       .stats-grid{flex-direction:column}
       .stats-heading{font-size:32px;line-height:40px}
@@ -450,8 +484,8 @@
       <div class="hero-content">
         <p class="hero-label">Sikh Professionals Network</p>
         <div class="hero-tagline">
-          <h1 class="hero-h1">Our Network</h1>
-          <p class="hero-desc">A growing community of Sikh professionals, students and leaders across the UK — connected through mentorship, shared learning, and a commitment to excellence rooted in identity and seva.</p>
+          <h1 class="hero-h1">The SPN Network</h1>
+          <p class="hero-desc">The SPN Network is a premier professional community across the UK built for Sikh professionals, graduates, and emerging leaders to connect and grow.</p>
         </div>
       </div>
       <a href="/join" class="btn btn-primary">Join the Network</a>
@@ -579,6 +613,43 @@
   </div>
 </section>
 
+<!-- ===== FEATURES ===== -->
+<section class="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <h2 class="features-heading">Features</h2>
+      <p class="features-sub">Exclusive tools and opportunities built to connect Sikh professionals across the UK.</p>
+    </div>
+    <div class="features-grid">
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M7 4v16" stroke="#fff" stroke-width="1.6"/><circle cx="14" cy="10" r="2" stroke="#fff" stroke-width="1.6"/><path d="M11 16c0-1.66 1.34-3 3-3s3 1.34 3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-title">Directory Access</h3>
+        <p class="feature-desc">We are currently building an exclusive professional directory across the UK to instantly connect with Sikh professionals.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-title">Community Events</h3>
+        <p class="feature-desc">Get ready to connect in real life and online. Members get exclusive invitations across the UK to webinars, seminars, and flagship SPN events.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l2.59 5.25L20.4 9.1l-4.2 4.1 1 5.8L12 16.3 6.8 19l1-5.8-4.2-4.1 5.81-.85L12 3z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="feature-title">Member Spotlights</h3>
+        <p class="feature-desc">We believe in celebrating our own. SPN highlights stories across the UK of professionals making a real impact.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== TRUSTED COMMUNITY ===== -->
 <section class="about-trusted">
   <div class="about-trusted-inner">
@@ -591,31 +662,55 @@
       <article class="about-tc-card dark">
         <div class="about-tc-top">
           <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/96628493-cd3b-44b8-9332-aff1895f607e" alt="">
-          <span class="about-tc-label">Mentoring &amp; Guidance</span>
+          <span class="about-tc-label">Mentoring</span>
         </div>
         <div>
           <p class="about-tc-num">01.</p>
-          <p class="about-tc-text">Connect with mentors across the UK to make big career decisions, build confidence, nail interviews, and fast-track your professional growth.</p>
+          <p class="about-tc-text">Connect with experienced advisors across the United Kingdom to guide career decisions, build workplace confidence, and fast-track your progression.</p>
         </div>
       </article>
 
       <article class="about-tc-card light">
         <div class="about-tc-top">
           <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/87fd0050-64ae-4a88-9bb9-4e2007cc52a4" alt="">
+          <span class="about-tc-label">Referrals and Opportunities</span>
         </div>
         <div>
           <p class="about-tc-num">02.</p>
-          <p class="about-tc-text">Cross-Sector Connections: Break out of your bubble. Connect with diverse professionals across the UK for authentic collaboration, learning, and trusted business referrals.</p>
+          <p class="about-tc-text">Build relationships that may lead to introductions, insight opportunities, collaborations and professional growth.</p>
         </div>
       </article>
 
       <article class="about-tc-card light">
         <div class="about-tc-top">
           <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/224bc219-86db-4610-ae71-47fe82d2549c" alt="">
+          <span class="about-tc-label">Professional Development</span>
         </div>
         <div>
           <p class="about-tc-num">03.</p>
-          <p class="about-tc-text">Values-Led Leadership: Leadership is more than climbing the ladder — we encourage members across the UK to lead with discipline, integrity, confidence, and service.</p>
+          <p class="about-tc-text">Learn from interactive webinars, seminars, and practical resources across the United Kingdom designed to sharpen your industry skill set.</p>
+        </div>
+      </article>
+
+      <article class="about-tc-card light">
+        <div class="about-tc-top">
+          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/96628493-cd3b-44b8-9332-aff1895f607e" alt="">
+          <span class="about-tc-label">Leadership and Confidence</span>
+        </div>
+        <div>
+          <p class="about-tc-num">04.</p>
+          <p class="about-tc-text">Develop the unwavering confidence to lead across the United Kingdom with foundational Sikh values integrated into your workplace and community.</p>
+        </div>
+      </article>
+
+      <article class="about-tc-card light">
+        <div class="about-tc-top">
+          <img class="about-tc-icon" src="https://www.figma.com/api/mcp/asset/224bc219-86db-4610-ae71-47fe82d2549c" alt="">
+          <span class="about-tc-label">Community Contribution</span>
+        </div>
+        <div>
+          <p class="about-tc-num">05.</p>
+          <p class="about-tc-text">Use your professional skills across the United Kingdom to uplift others through meaningful seva, career advice, and positive representation.</p>
         </div>
       </article>
 
