@@ -212,22 +212,22 @@
       color:#191615;line-height:64px;letter-spacing:-3.2px
     }
     .features-sub{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
       color:#474747;line-height:24px;max-width:760px;
       font-variation-settings:'wdth' 100
     }
-    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;align-items:start}
     .feature-card{display:flex;flex-direction:column;gap:24px}
     .feature-icon{
-      width:48px;height:48px;
-      display:flex;align-items:center;justify-content:center;flex-shrink:0
+      width:48px;height:48px;flex-shrink:0
     }
+    .feature-icon img{width:48px;height:48px;display:block;object-fit:contain}
     .feature-title{
-      font-family:'Lora',serif;font-size:24px;font-weight:700;
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
       color:#191615;line-height:32px;letter-spacing:-0.72px
     }
     .feature-desc{
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:700;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
       color:#474747;line-height:20px;font-variation-settings:'wdth' 100
     }
 
@@ -579,26 +579,23 @@
 
       <article class="feature-card">
         <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#132030" stroke-width="1.6"/><path d="M7 4v16" stroke="#132030" stroke-width="1.6"/><circle cx="14" cy="10" r="2" stroke="#132030" stroke-width="1.6"/><path d="M11 16c0-1.66 1.34-3 3-3s3 1.34 3 3" stroke="#132030" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <img src="images/network/icon-career.svg" alt="">
         </div>
-        <h3 class="feature-title">Directory Access</h3>
-        <p class="feature-desc">We are currently building an exclusive professional directory across the UK to instantly connect with Sikh professionals.</p>
+        <h3 class="feature-title">Career Guidance</h3>
+        <p class="feature-desc">Making choices can feel daunting. Our advisors across the UK help you navigate decisions, polish applications, ace interviews, and build confidence.</p>
+      </article>
+
+      <article class="feature-card">
+        <h3 class="feature-title">Industry Insights</h3>
+        <p class="feature-desc">Skip guesswork. Connect with professionals across the UK who know your sector. Get the inside track on opportunities.</p>
       </article>
 
       <article class="feature-card">
         <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#132030" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="#132030" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <img src="images/network/icon-mentoring.svg" alt="">
         </div>
-        <h3 class="feature-title">Community Events</h3>
-        <p class="feature-desc">Get ready to connect in real life and online. Members get exclusive invitations across the UK to webinars, seminars, and flagship SPN events.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l2.59 5.25L20.4 9.1l-4.2 4.1 1 5.8L12 16.3 6.8 19l1-5.8-4.2-4.1 5.81-.85L12 3z" stroke="#132030" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 class="feature-title">Member Spotlights</h3>
-        <p class="feature-desc">We believe in celebrating our own. SPN highlights stories across the UK of professionals making a real impact.</p>
+        <h3 class="feature-title">Mentoring &amp; Identity Support</h3>
+        <p class="feature-desc">You shouldn't leave values behind. Mentors across the UK help you navigate corporate landscapes while staying grounded.</p>
       </article>
 
     </div>
