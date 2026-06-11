@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# SPN pre-push guardrail
+# ----------------------
+# Pushing to the remote auto-deploys to Vercel, which redeploys BOTH
+# sikhpn.org (LIVE) and sikhpn.vercel.app. This hook blocks accidental pushes
+# (especially by AI agents) and requires an explicit human confirmation.
+#
+# To push intentionally, either:
+#   1) run:  SPN_ALLOW_PUSH=1 git push        (preferred for scripted/agent use
+#                                               AFTER the user approved), or
+#   2) type the confirmation word when prompted below.
+#
+# This hook is version-controlled in .githooks/. It is active when
+# `git config core.hooksPath .githooks` is set (run scripts/enable-hooks.sh).
+
+# Explicit override (only use after the user has approved a push/deploy).
+if [ "$SPN_ALLOW_PUSH" = "1" ]; then
+  exit 0
+fi
+
+# No terminal available to confirm (typical for a non-interactive agent push).
+if [ ! -e /dev/tty ]; then
+  echo "" >&2
+  echo "pre-push BLOCKED: pushing redeploys sikhpn.org (LIVE)." >&2
+  echo "No TTY to confirm. If the user approved, re-run with: SPN_ALLOW_PUSH=1 git push" >&2
+  echo "" >&2
+  exit 1
+fi
+
+printf '\n' > /dev/tty
+printf '  WARNING: pushing to this remote redeploys BOTH:\n' > /dev/tty
+printf '    - sikhpn.org        (LIVE / public)\n' > /dev/tty
+printf '    - sikhpn.vercel.app (staging)\n' > /dev/tty
+printf '\n  Type "deploy" to confirm, anything else to abort: ' > /dev/tty
+read CONFIRM < /dev/tty
+if [ "$CONFIRM" = "deploy" ]; then
+  exit 0
+fi
+
+echo "pre-push aborted by guardrail (confirmation not given)." >&2
+exit 1
