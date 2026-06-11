@@ -323,7 +323,7 @@
     .stats-grid{display:flex;flex-wrap:wrap;gap:20px}
     .stat-card{
       background:var(--light2);border-radius:12px;padding:30px;
-      width:554px;opacity:.89;display:flex;flex-direction:column;gap:29px;
+      width:calc(50% - 10px);opacity:.89;display:flex;flex-direction:column;gap:29px;
       transition:transform .3s ease,box-shadow .3s ease,opacity .3s ease;cursor:default
     }
     .stat-card:hover{
@@ -483,6 +483,49 @@
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
     }
+
+    /* ── CONNECT WITH US ── */
+    .connect{background:var(--off-white);padding:80px var(--px) 100px}
+    .connect-inner{max-width:calc(var(--max) - 2*var(--px));margin:0 auto}
+    .connect-head{margin-bottom:48px}
+    .connect-title{font-family:'Lora',serif;font-size:64px;font-weight:400;color:var(--text-dark);line-height:1;letter-spacing:-2.4px;margin-bottom:16px}
+    .connect-sub{font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:24px;max-width:560px}
+    .connect-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
+    .connect-photo{border-radius:20px;overflow:hidden;min-height:520px}
+    .connect-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .connect .form-card{
+      background:#fff;border:1px solid var(--light2);border-radius:20px;
+      padding:48px 56px;display:flex;flex-direction:column;gap:0
+    }
+    .form-legend{font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text-dark);line-height:24px;margin-bottom:8px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+    .field{display:flex;flex-direction:column;gap:8px;padding:24px 0 0}
+    .field.full{grid-column:1 / -1}
+    .field label{font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;color:var(--text-dark);line-height:24px}
+    .field input,.field textarea{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-dark);line-height:24px;border:none;border-bottom:1px solid var(--accent);
+      background:transparent;padding:8px 0;outline:none;width:100%
+    }
+    .field textarea{resize:vertical;min-height:48px}
+    .field input::placeholder,.field textarea::placeholder{color:var(--text-grey)}
+    .field input:focus,.field textarea:focus{border-bottom-color:var(--dark)}
+    .field-check{flex-direction:row;align-items:center;gap:10px}
+    .field-check input{width:auto;flex-shrink:0}
+    .field-check label{margin:0}
+    .form-submit{
+      width:100%;margin-top:36px;height:52px;border-radius:6px;background:var(--accent);
+      color:#fff;border:1px solid var(--accent);font-family:'Inter',sans-serif;font-size:16px;
+      font-weight:600;cursor:pointer;transition:background .2s
+    }
+    .form-submit:hover{background:var(--dark);border-color:var(--dark)}
+    .web3-status,.form-status{font-family:'Instrument Sans',sans-serif;font-size:14px;line-height:20px;margin-top:16px}
+    @media(max-width:900px){
+      .connect-grid{grid-template-columns:1fr}
+      .connect-photo{min-height:300px}
+      .connect .form-card{padding:32px 24px}
+      .connect-title{font-size:40px;letter-spacing:-1.5px}
+    }
   </style>
 </head>
 <body>
@@ -492,7 +535,7 @@
   <nav class="navbar">
     <a href="/" class="nav-logo" aria-label="SPN Home">
       <div class="nav-logo-mark">
-        <img src="https://www.figma.com/api/mcp/asset/8437fe40-dfaa-4d42-89ff-663a8d37a962" alt="">
+        <img src="images/network/nav-logo.svg" alt="">
       </div>
       <span class="nav-logo-text">SPN</span>
     </a>
@@ -562,11 +605,57 @@
   </div>
 </section>
 
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="stats-bg">
+    <img src="images/network/stats-bg.png" alt="">
+    <div class="stats-overlay"></div>
+  </div>
+  <div class="stats-inner">
+    <h2 class="stats-heading">Stats</h2>
+    <div class="stats-grid">
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">UK-wide Reach</h3>
+          <p class="stat-text">A network designed to connect and empower Sikh professionals and leaders across the United Kingdom.</p>
+        </div>
+        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">18+ Members</h3>
+          <p class="stat-text">Support for adults across the United Kingdom at every milestone, finishing education or launching careers.</p>
+        </div>
+        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Multiple Sectors</h3>
+          <p class="stat-text">Connecting professionals across law, finance, medicine, technology, education, business and public service.</p>
+        </div>
+        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-content">
+          <h3 class="stat-title">Future Directory</h3>
+          <p class="stat-text">Building a secure portal where members across the United Kingdom can find one another and offer support.</p>
+        </div>
+        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== BENEFITS ===== -->
 <section class="benefits-net">
   <div class="benefits-net-inner">
     <div class="benefits-net-banner">
-      <img src="https://www.figma.com/api/mcp/asset/70c6210c-1012-46fc-8337-2a66643c1cb3" alt="Sikh professionals connecting across the UK">
+      <img src="images/network/benefits-banner.png" alt="Sikh professionals connecting across the UK">
     </div>
     <div class="benefits-net-head">
       <h2 class="benefits-net-heading">Member Benefits</h2>
@@ -597,62 +686,16 @@
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section class="stats">
-  <div class="stats-bg">
-    <img src="https://www.figma.com/api/mcp/asset/45bb54ea-059e-417f-8d6a-f5b481d05e01" alt="">
-    <div class="stats-overlay"></div>
-  </div>
-  <div class="stats-inner">
-    <h2 class="stats-heading">Stats</h2>
-    <div class="stats-grid">
-
-      <article class="stat-card">
-        <div class="stat-content">
-          <h3 class="stat-title">UK-wide Reach</h3>
-          <p class="stat-text">A network designed to connect and empower Sikh professionals and leaders across the United Kingdom.</p>
-        </div>
-        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="stat-card">
-        <div class="stat-content">
-          <h3 class="stat-title">18+ Members</h3>
-          <p class="stat-text">Support for adults across the United Kingdom at every milestone, finishing education or launching careers.</p>
-        </div>
-        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="stat-card">
-        <div class="stat-content">
-          <h3 class="stat-title">Multiple Sectors</h3>
-          <p class="stat-text">Connecting professionals across law, finance, medicine, technology, education, business and public service.</p>
-        </div>
-        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-      <article class="stat-card">
-        <div class="stat-content">
-          <h3 class="stat-title">Future Directory</h3>
-          <p class="stat-text">Building a secure portal where members across the United Kingdom can find one another and offer support.</p>
-        </div>
-        <img class="stat-arrow" src="https://www.figma.com/api/mcp/asset/88af6e89-8fd8-4658-9d6f-e23f10428482" alt="">
-      </article>
-
-    </div>
-  </div>
-</section>
-
 <!-- ===== BE PART OF SPN ===== -->
 <section class="join-cta" id="join">
   <div class="join-cta-bg">
-    <img src="https://www.figma.com/api/mcp/asset/37fa89b6-17c4-4d92-832c-d726fcb5dcc9" alt="">
+    <img src="images/network/join-cta.jpg" alt="">
   </div>
   <div class="join-cta-card">
     <div>
-      <h2 class="join-cta-heading">Be Part of SPN</h2>
+      <h2 class="join-cta-heading">Join the SPN Network</h2>
     </div>
-    <p class="join-cta-text">Join a growing network of Sikh professionals committed to excellence, identity and service.</p>
+    <p class="join-cta-text">Become part of a growing UK-wide network of Sikh professionals committed to identity, excellence, leadership and service.</p>
     <div class="join-cta-actions">
       <a href="/join" class="btn btn-outline">Join SPN</a>
       <a href="/#stay-connected" class="btn btn-primary">Subscribe for Updates</a>
@@ -672,44 +715,94 @@
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span class="faq-q-text">What is the purpose of SPN?</span>
+          <span class="faq-q-text">What does it mean to join the SPN Network?</span>
           <span class="faq-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <div class="faq-body"><p class="faq-answer">SPN exists to connect and empower Sikh professionals across the UK. We provide a trusted space where career development, Sikh identity, and the value of seva (service) come together — helping members grow professionally while remaining rooted in their heritage.</p></div>
+        <div class="faq-body"><p class="faq-answer">Joining the SPN Network means becoming part of a growing UK-wide community of Sikh professionals, graduates and emerging leaders. You gain access to mentoring, community events, member spotlights and networking opportunities — all grounded in shared identity, professional excellence and the spirit of seva.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span class="faq-q-text">Is SPN a religious organisation or a professional organisation?</span>
+          <span class="faq-q-text">Will there be a member directory?</span>
           <span class="faq-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <div class="faq-body"><p class="faq-answer">SPN is a professional network rooted in Sikh values. It is not a religious organisation, but it acknowledges that for many Sikh professionals, faith and identity are integral to who they are and how they work. SPN provides a space where both dimensions coexist and strengthen one another.</p></div>
+        <div class="faq-body"><p class="faq-answer">Yes. We are building a secure professional directory where members across the United Kingdom can find and connect with one another. It is currently in development and will be made available to members as the network grows.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span class="faq-q-text">Can non-senior professionals join?</span>
+          <span class="faq-q-text">Will my personal details be public?</span>
           <span class="faq-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <div class="faq-body"><p class="faq-answer">Absolutely. SPN is open to anyone aged 18 and over — students, graduates, early-career professionals, and experienced leaders alike. Whether you are just starting out or have decades of experience, there is a place for you in the network.</p></div>
+        <div class="faq-body"><p class="faq-answer">No. Your personal details are kept private and are never shared publicly. Any future directory will be members-only and built with your privacy and consent in mind — you choose what information you share with the community.</p></div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span class="faq-q-text">Will SPN run in-person and online activities?</span>
+          <span class="faq-q-text">Can I join if I am still studying?</span>
           <span class="faq-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h11" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l5 4-5 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </summary>
-        <div class="faq-body"><p class="faq-answer">Yes. SPN plans to run a mix of in-person events across the UK as well as online webinars, panel discussions, and virtual mentoring sessions — ensuring members from different parts of the country can all participate and benefit.</p></div>
+        <div class="faq-body"><p class="faq-answer">Absolutely. SPN is open to anyone aged 18 and over, including students and recent graduates. Whether you are still studying or just starting your career, you are welcome to join and grow alongside the network.</p></div>
       </details>
 
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONNECT WITH US ===== -->
+<section class="connect" id="connect">
+  <div class="connect-inner">
+    <header class="connect-head">
+      <h2 class="connect-title">Connect with us</h2>
+      <p class="connect-sub">You can also use the feedback form below to reach out to us directly through our website.</p>
+    </header>
+    <div class="connect-grid">
+      <div class="connect-photo">
+        <img src="images/network/community.jpg" alt="Sikh professionals connecting across the UK">
+      </div>
+      <form class="form-card" data-web3form data-success="Thank you — your message has been sent. We'll be in touch soon." action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
+        <input type="hidden" name="subject" value="New SPN Network Feedback">
+        <input type="hidden" name="from_name" value="SPN Website — Network Connect Form">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <p class="form-legend">Name (required)</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="connectFirst">First Name</label>
+            <input id="connectFirst" name="firstName" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="connectLast">Last Name</label>
+            <input id="connectLast" name="lastName" type="text" autocomplete="family-name" required>
+          </div>
+          <div class="field">
+            <label for="connectPhone">Phone</label>
+            <input id="connectPhone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="connectEmail">Email (required)</label>
+            <input id="connectEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field field-check full">
+            <input id="connectSignup" name="signup" type="checkbox" value="Yes">
+            <label for="connectSignup">Sign up for news and updates</label>
+          </div>
+          <div class="field full">
+            <label for="connectMessage">Your message</label>
+            <textarea id="connectMessage" name="message" rows="4"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit</button>
+        <p class="form-status web3-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
