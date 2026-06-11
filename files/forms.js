@@ -85,3 +85,122 @@
       });
   });
 })();
+
+/*
+ * SPN mobile navigation — injects an accessible burger menu on every page.
+ * Purely additive: it reads the page's existing .nav-links + .nav-cta so the
+ * menu always matches that page's navigation (including the active link). The
+ * burger and panel are hidden by CSS above the breakpoint, so desktop is
+ * unchanged. If this script fails to run, the page behaves exactly as before.
+ */
+(function () {
+  'use strict';
+
+  var BREAKPOINT = 1000; // keep in sync with footer.css mobile-nav media query
+
+  function init() {
+    var navbar = document.querySelector('.navbar');
+    if (!navbar || navbar.querySelector('.nav-toggle')) {
+      return;
+    }
+
+    var navLinks = navbar.querySelector('.nav-links');
+    var navCta = navbar.querySelector('.nav-cta');
+
+    // Build the slide-down panel from the page's own nav so it stays in sync.
+    var panel = document.createElement('div');
+    panel.className = 'mobile-menu';
+    panel.id = 'mobile-menu';
+
+    if (navLinks) {
+      navLinks.querySelectorAll('a').forEach(function (a) {
+        var link = a.cloneNode(true);
+        link.removeAttribute('class');
+        if (a.classList.contains('active')) {
+          link.className = 'active';
+        }
+        panel.appendChild(link);
+      });
+    }
+    if (navCta) {
+      panel.appendChild(navCta.cloneNode(true));
+    }
+
+    var backdrop = document.createElement('div');
+    backdrop.className = 'mobile-menu-backdrop';
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'nav-toggle';
+    toggle.setAttribute('aria-label', 'Menu');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'mobile-menu');
+    toggle.innerHTML =
+      '<span class="nav-toggle-box">' +
+      '<span class="nav-toggle-bar"></span>' +
+      '<span class="nav-toggle-bar"></span>' +
+      '<span class="nav-toggle-bar"></span>' +
+      '</span>';
+
+    // Insert the burger before the CTA (or at the end of the navbar).
+    if (navCta) {
+      navbar.insertBefore(toggle, navCta);
+    } else {
+      navbar.appendChild(toggle);
+    }
+    document.body.appendChild(backdrop);
+    document.body.appendChild(panel);
+
+    function open() {
+      panel.classList.add('open');
+      backdrop.classList.add('open');
+      document.body.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function close() {
+      panel.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function isOpen() {
+      return panel.classList.contains('open');
+    }
+
+    toggle.addEventListener('click', function () {
+      if (isOpen()) {
+        close();
+      } else {
+        open();
+      }
+    });
+
+    backdrop.addEventListener('click', close);
+
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        close();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) {
+        close();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > BREAKPOINT && isOpen()) {
+        close();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

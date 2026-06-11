@@ -103,3 +103,63 @@
   .footer-logo-text{font-size:24px}
   .footer-email-form{flex-direction:column;gap:16px}
 }
+
+/* ── MOBILE NAV (burger menu) ──
+   Injected by files/forms.js on every page. Purely additive: the burger and
+   panel are hidden on desktop, so nothing changes above the breakpoint. */
+.nav-toggle{
+  display:none;
+  position:relative;z-index:1002;
+  width:44px;height:44px;flex-shrink:0;
+  align-items:center;justify-content:center;
+  background:transparent;border:none;padding:0;cursor:pointer;
+  -webkit-tap-highlight-color:transparent
+}
+.nav-toggle-box{position:relative;width:24px;height:18px}
+.nav-toggle-bar{
+  position:absolute;left:0;width:24px;height:2px;border-radius:2px;
+  background:var(--dark,#132030);
+  transition:transform .25s ease,opacity .2s ease,top .25s ease
+}
+.nav-toggle-bar:nth-child(1){top:0}
+.nav-toggle-bar:nth-child(2){top:8px}
+.nav-toggle-bar:nth-child(3){top:16px}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){top:8px;transform:rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){top:8px;transform:rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;top:0;left:0;right:0;z-index:1001;
+  background:#fff;
+  padding:96px var(--px,24px) 32px;
+  display:flex;flex-direction:column;gap:8px;
+  box-shadow:0 12px 32px rgba(0,0,0,.12);
+  transform:translateY(-100%);
+  opacity:0;visibility:hidden;
+  transition:transform .3s ease,opacity .3s ease,visibility .3s ease;
+  max-height:100dvh;overflow-y:auto
+}
+.mobile-menu.open{transform:translateY(0);opacity:1;visibility:visible}
+.mobile-menu a:not(.btn){
+  font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+  color:var(--dark,#132030);letter-spacing:-0.08px;line-height:1;
+  padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)
+}
+.mobile-menu a:not(.btn).active{font-weight:700}
+.mobile-menu .btn,.mobile-menu .nav-cta{
+  margin-top:16px;width:100%;height:48px
+}
+.mobile-menu-backdrop{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.4);
+  opacity:0;visibility:hidden;
+  transition:opacity .3s ease,visibility .3s ease
+}
+.mobile-menu-backdrop.open{opacity:1;visibility:visible}
+body.nav-open{overflow:hidden}
+
+@media(max-width:1000px){
+  .navbar .nav-links{display:none}
+  .navbar .nav-cta{display:none}
+  .nav-toggle{display:inline-flex}
+}
