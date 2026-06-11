@@ -783,7 +783,11 @@
       <h2 class="sc-heading">Stay Connected</h2>
       <p class="sc-desc">Sign up to receive updates about SPN events, webinars, mentoring opportunities, resources and professional insight days.</p>
     </div>
-    <form class="form-card" action="mailto:Admin@sikhpn.org" method="post" enctype="text/plain">
+    <form class="form-card" data-web3form data-success="Thank you for signing up — we'll keep you posted on SPN updates." action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
+      <input type="hidden" name="subject" value="New SPN Stay-Connected Signup">
+      <input type="hidden" name="from_name" value="SPN Website — Stay Connected">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <p class="form-section-label">Name (required)</p>
       <div class="form-row">
         <div class="form-field">
@@ -884,6 +888,7 @@
 <div id="site-footer"></div>
 <script>
   fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+  (function(){var s=document.createElement('script');s.src='files/forms.js';s.defer=true;document.head.appendChild(s);})();
 </script>
 
 <script>

@@ -239,12 +239,36 @@
   <script>
     function handleNotify(e) {
       e.preventDefault();
-      var btn = e.target.querySelector('button');
-      var input = e.target.querySelector('input');
-      btn.textContent = 'Thank you';
-      btn.style.background = '#2a6041';
-      input.disabled = true;
+      var form = e.target;
+      var btn = form.querySelector('button');
+      var input = form.querySelector('input');
       btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'fa2b3cfa-feb1-4783-9fe8-8d0505a04a52',
+          subject: 'New Coming-Soon Notify Signup',
+          from_name: 'SPN Website \u2014 Coming Soon',
+          email: input.value
+        })
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && res.success) {
+            btn.textContent = 'Thank you';
+            btn.style.background = '#2a6041';
+            input.disabled = true;
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Try again';
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Try again';
+        });
     }
   </script>
 </body>

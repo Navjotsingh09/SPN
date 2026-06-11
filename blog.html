@@ -239,6 +239,7 @@
 <div id="site-footer"></div>
 <script>
   fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+  (function(){var s=document.createElement('script');s.src='files/forms.js';s.defer=true;document.head.appendChild(s);})();
 </script>
 
 </body>
