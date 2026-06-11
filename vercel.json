@@ -1,16 +1,17 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/((?!coming-soon$|sikhprofessionalsnetwork_logo\\.jpeg$).*)",
       "has": [
         {
           "type": "host",
           "value": "(www\\.)?sikhpn\\.org"
         }
       ],
-      "destination": "/coming-soon.html"
+      "destination": "/coming-soon",
+      "permanent": false
     }
   ]
 }
