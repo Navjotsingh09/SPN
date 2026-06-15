@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400&display=swap');
+
 /* ── FOOTER ── */
 .footer{background:var(--dark);padding:80px var(--px);overflow:hidden;position:relative}
 .footer-inner{
@@ -57,12 +59,11 @@
 }
 .footer-nav-links a:hover,.footer-legal-links a:hover{text-decoration:underline}
 .footer-watermark{
-  position:absolute;bottom:-60px;left:calc(50% + 70px);
-  font-family:'Instrument Sans',sans-serif;font-weight:700;
-  font-size:276px;line-height:1;letter-spacing:-15.19px;
+  position:absolute;bottom:-60px;left:calc(50% + 253px);
+  font-family:'Ibarra Real Nova',Georgia,serif;font-weight:400;
+  font-size:183px;line-height:1.675;letter-spacing:-10.08px;
   color:rgba(255,255,255,.04);white-space:nowrap;
-  pointer-events:none;user-select:none;
-  font-variation-settings:'wdth' 100
+  pointer-events:none;user-select:none
 }
 .footer-copyright-bar{
   display:flex;align-items:center;justify-content:center;gap:16px
