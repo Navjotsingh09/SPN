@@ -41,15 +41,7 @@
       display:flex;align-items:center;justify-content:space-between;gap:24px
     }
     .nav-logo{display:flex;align-items:center}
-    .nav-logo-mark{
-      width:41px;height:48px;background:var(--dark);
-      display:flex;align-items:center;justify-content:center;flex-shrink:0
-    }
-    .nav-logo-mark img{width:26px;height:26px;object-fit:contain}
-    .nav-logo-text{
-      font-family:'Lora',serif;font-size:39px;font-weight:400;
-      color:var(--dark);letter-spacing:-0.32px;line-height:1;padding-left:14px
-    }
+    .nav-logo img{height:50px;width:auto;display:block}
     .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
     .nav-links a{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
@@ -135,7 +127,6 @@
     @media(max-width:700px){
       :root{--px:20px}
       .nav-links{display:none}
-      .nav-logo-text{font-size:26px}
       .article{padding:24px var(--px)}
       .article-hero{height:300px;border-radius:14px}
       .article-body{padding:40px 0;gap:48px}
@@ -160,10 +151,7 @@
 <header class="site-header">
   <nav class="navbar">
     <a href="/" class="nav-logo" aria-label="SPN Home">
-      <div class="nav-logo-mark">
-        <img src="https://www.figma.com/api/mcp/asset/8437fe40-dfaa-4d42-89ff-663a8d37a962" alt="">
-      </div>
-      <span class="nav-logo-text">SPN</span>
+      <img src="images/spn-logo.png" alt="Sikh Professionals Network" width="183" height="50">
     </a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
