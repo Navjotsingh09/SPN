@@ -61,9 +61,9 @@
       height:575px;display:flex;align-items:center;justify-content:center;
       max-width:calc(var(--max) - 100px);margin:0 auto
     }
+    .hero-card{background:var(--dark)}
     .hero-bg{position:absolute;inset:0;overflow:hidden}
     .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-    .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
     .hero-inner{
       position:relative;z-index:1;width:100%;
       display:flex;flex-direction:column;align-items:center;gap:50px;
@@ -150,6 +150,12 @@
       width:136.47%;height:108.04%;
       left:-19.98%;top:0.26%;
       object-fit:cover
+    }
+    .about-wwa .about-photo{
+      background:var(--dark);display:flex;align-items:center;justify-content:center
+    }
+    .about-wwa .about-photo img{
+      position:static;width:60%;height:auto;object-fit:contain
     }
 
     /* ── OUR STORY ── */
@@ -374,6 +380,7 @@
       .about-wwa-inner,.about-story-inner{flex-direction:column}
       .about-photo{width:100%;height:360px}
       .about-photo img{width:100%;height:120%;left:0;top:-10%}
+      .about-wwa .about-photo img{width:55%;height:auto;left:auto;top:auto}
       .about-cv-grid{grid-template-columns:repeat(2,1fr)}
       .about-cv-heading{font-size:40px;line-height:48px}
       .about-trusted-top{flex-direction:column;align-items:flex-start;gap:20px}
@@ -446,10 +453,7 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-card">
-    <div class="hero-bg">
-      <img src="images/about/hero.jpg" alt="">
-      <div class="hero-overlay"></div>
-    </div>
+    <div class="hero-bg"></div>
     <div class="hero-inner">
       <div class="hero-content">
         <p class="hero-label">Sikh Professionals Network</p>
@@ -488,7 +492,7 @@
       <p class="about-body-text">The Sikh Professionals Network (SPN) brings together Sikh students, graduates, professionals, advisors, and leaders aged 18 and over across the UK.<br><br>Through networking, mentoring, educational talks, resources, and guidance, SPN helps members build connections and advance their careers. The network encourages individuals to strengthen their Sikh identity and uphold the values of service, leadership, and community engagement.<br><br>Our mission is to empower Sikh professionals to grow in confidence and excellence while making a positive impact on society through Sikhi values. We aim to inspire a generation of confident professionals who lead with integrity, purpose, and service, contributing meaningfully to wider society.</p>
     </div>
     <div class="about-photo">
-      <img src="images/about/who-are-we.jpg" alt="Sikh professional">
+      <img src="spn_logo.svg" alt="Sikh Professionals Network">
     </div>
   </div>
 </section>
