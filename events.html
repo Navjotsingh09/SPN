@@ -108,6 +108,13 @@
       display:flex;align-items:center;justify-content:center
     }
     .logo-slide img{height:40px;width:auto;max-width:160px;display:block;object-fit:contain}
+    .logo-placeholder{
+      height:40px;min-width:120px;padding:0 20px;
+      border:1px solid rgba(255,255,255,0.25);border-radius:6px;
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,0.45);font-size:12px;font-weight:500;
+      letter-spacing:0.05em;white-space:nowrap
+    }
 
     /* ── SECTION HEADER ── */
     .section-header{
@@ -403,16 +410,17 @@
 <!-- ===== LOGO BAR ===== -->
 <section class="logo-bar" aria-label="Partners and affiliates">
   <div class="logo-track">
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt="Partner"></div>
-    <div class="logo-slide"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt="Partner"></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/00bfaa42-4ac1-4411-8aab-10d370928a3f" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/fdb6f399-1bc9-40c5-bab8-801b86b61e62" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/befd854a-e66e-4629-ae35-d9057f4fcad3" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8c05f50d-b3a3-4834-8972-ba74d1d6ac92" alt=""></div>
-    <div class="logo-slide" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/8f93705b-2c18-4105-9dff-b169fbe916f5" alt=""></div>
+    <div class="logo-slide"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide"><div class="logo-placeholder">Partner Logo</div></div>
+    <!-- duplicates for seamless loop -->
+    <div class="logo-slide" aria-hidden="true"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide" aria-hidden="true"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide" aria-hidden="true"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide" aria-hidden="true"><div class="logo-placeholder">Partner Logo</div></div>
+    <div class="logo-slide" aria-hidden="true"><div class="logo-placeholder">Partner Logo</div></div>
   </div>
 </section>
 
@@ -432,7 +440,7 @@
       <div class="events-row">
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="https://www.figma.com/api/mcp/asset/e0a9ec30-96c5-43da-a282-12f5860e811d" alt="">
+            <img src="images/events/upcoming-professional-networking-evening.jpg" alt="">
           </div>
           <div class="event-card-content">
             <div class="event-tags">
@@ -448,7 +456,7 @@
 
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="https://www.figma.com/api/mcp/asset/ea0fc7b1-8b0b-4253-b914-34e0242c35c8" alt="">
+            <img src="images/events/upcoming-careers-and-identity-webinar.jpg" alt="">
           </div>
           <div class="event-card-content">
             <div class="event-tags">
@@ -467,7 +475,7 @@
       <div class="events-row">
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="https://www.figma.com/api/mcp/asset/e0a9ec30-96c5-43da-a282-12f5860e811d" alt="">
+            <img src="images/events/upcoming-panel-discussion.jpg" alt="">
           </div>
           <div class="event-card-content">
             <div class="event-tags">
@@ -483,7 +491,7 @@
 
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="https://www.figma.com/api/mcp/asset/ea0fc7b1-8b0b-4253-b914-34e0242c35c8" alt="">
+            <img src="images/events/upcoming-professional-insight-day.jpg" alt="">
           </div>
           <div class="event-card-content">
             <div class="event-tags">
@@ -516,7 +524,7 @@
       <div class="events-row">
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="https://www.figma.com/api/mcp/asset/e0a9ec30-96c5-43da-a282-12f5860e811d" alt="">
+            <img src="images/events/featured-parliament-day.jpg" alt="">
           </div>
           <div class="event-card-content">
             <div class="event-tags">
@@ -532,7 +540,7 @@
 
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="https://www.figma.com/api/mcp/asset/ea0fc7b1-8b0b-4253-b914-34e0242c35c8" alt="">
+            <img src="images/events/featured-awards.jpg" alt="">
           </div>
           <div class="event-card-content">
             <div class="event-tags">
@@ -552,7 +560,7 @@
 
 <!-- ===== PHOTO BANNER ===== -->
 <div class="photo-banner" aria-hidden="true">
-  <img src="https://www.figma.com/api/mcp/asset/121e6939-f102-4841-9dc9-69c12e63dbe8" alt="">
+  <img src="images/events/banner.jpg" alt="">
 </div>
 
 <!-- ===== HOW IT WORKS ===== -->
@@ -616,7 +624,7 @@
 <!-- ===== ATTEND, SPEAK OR SUPPORT ===== -->
 <section class="attend" id="attend">
   <div class="attend-bg">
-    <img src="https://www.figma.com/api/mcp/asset/e048c9b1-66ef-4710-b6dd-08222ef2bfc4" alt="">
+    <img src="images/events/footer-cta.jpg" alt="">
   </div>
   <div class="attend-card">
     <div class="attend-card-inner">
