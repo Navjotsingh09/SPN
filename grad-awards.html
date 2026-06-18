@@ -327,16 +327,25 @@
 
     /* NOMINATE CTA */
     .nominate{
-      background:var(--dark);padding:100px var(--px)
+      background:var(--dark);padding:100px var(--px);
+      position:relative;overflow:hidden
+    }
+    .nominate-bg{position:absolute;inset:0;overflow:hidden}
+    .nominate-bg img{width:100%;height:100%;object-fit:cover;opacity:.18}
+    .nominate-bg::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to right,rgba(19,32,48,0.75) 0%,rgba(19,32,48,0.45) 100%)
     }
     .nominate-inner{
+      position:relative;z-index:1;
       max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
       display:flex;gap:80px;align-items:center
     }
     .nominate-content{flex:1;display:flex;flex-direction:column;gap:24px}
     .nominate-heading{
       font-family:'Lora',serif;font-size:56px;font-weight:400;
-      color:#fff;line-height:60px;letter-spacing:-2.8px
+      color:#fff;line-height:60px;letter-spacing:-2.8px;
+      text-shadow:0 2px 12px rgba(0,0,0,0.5)
     }
     .nominate-desc{
       font-family:'Instrument Sans',sans-serif;font-size:17px;font-weight:400;
@@ -657,6 +666,9 @@
 
 <!-- NOMINATE CTA -->
 <section class="nominate" id="nominate">
+  <div class="nominate-bg">
+    <img src="images/events/footer-cta.jpg" alt="">
+  </div>
   <div class="nominate-inner">
     <div class="nominate-content">
       <h2 class="nominate-heading">Nominate Yourself or Someone Else</h2>
