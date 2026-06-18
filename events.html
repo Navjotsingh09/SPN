@@ -184,11 +184,11 @@
 
     /* ── PHOTO BANNER ── */
     .photo-banner{
-      width:100%;overflow:hidden;
-      height:481px;position:relative
+      padding:0 var(--px);width:100%;
     }
     .photo-banner img{
-      width:100%;height:100%;object-fit:cover;object-position:center
+      width:100%;height:481px;object-fit:cover;object-position:center;
+      border-radius:20px;display:block
     }
 
     /* ── HOW IT WORKS ── */
@@ -344,6 +344,7 @@
       .logo-slide{width:160px}
       .logo-track{width:calc(160px * 10)}
       .logo-slide img{height:30px}
+      .photo-banner img{height:320px;border-radius:16px}
       .events-section{padding:60px var(--px) 80px}
       .events-inner{gap:60px}
       .event-card{height:auto;min-height:440px}
@@ -481,41 +482,6 @@
       <div class="events-row">
         <article class="event-card">
           <div class="event-card-bg">
-            <img src="images/events/featured-parliament-day.jpg" alt="">
-          </div>
-          <div class="event-card-content">
-            <div class="event-tags">
-              <span class="event-tag">Date: dd/mm/yyyy</span>
-              <span class="event-tag">Time: 00:00 to 00:00</span>
-              <span class="event-tag">Location: To be confirmed</span>
-            </div>
-            <h3 class="event-title">Parliament Day</h3>
-            <p class="event-desc">A flagship SPN event designed to give Sikh professionals and emerging leaders deep insights into public life, leadership, representation, and civic responsibility.</p>
-            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
-          </div>
-        </article>
-
-        <article class="event-card">
-          <div class="event-card-bg">
-            <img src="images/events/featured-awards.jpg" alt="">
-          </div>
-          <div class="event-card-content">
-            <div class="event-tags">
-              <span class="event-tag">Date: dd/mm/yyyy</span>
-              <span class="event-tag">Time: 00:00 to 00:00</span>
-              <span class="event-tag">Location: To be confirmed</span>
-            </div>
-            <h3 class="event-title">SPN Awards</h3>
-            <p class="event-desc">The SPN Awards recognise exceptional Sikh professionals who demonstrate excellence, integrity, leadership, and spirit of service in their careers and wider communities.</p>
-            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="events-row">
-        <article class="event-card">
-          <div class="event-card-bg">
             <img src="images/events/upcoming-professional-networking-evening.jpg" alt="">
           </div>
           <div class="event-card-content">
@@ -547,7 +513,7 @@
         </article>
       </div>
 
-      <!-- Row 3 -->
+      <!-- Row 2 -->
       <div class="events-row">
         <article class="event-card">
           <div class="event-card-bg">
@@ -577,6 +543,55 @@
             </div>
             <h3 class="event-title">Professional Insight Day</h3>
             <p class="event-desc">An immersive learning opportunity for students and emerging professionals to understand different sectors and career pathways.</p>
+            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED EVENTS ===== -->
+<section class="events-section" style="padding-top:0" id="featured-events-spn">
+  <div class="events-inner">
+
+    <!-- Section header -->
+    <div class="section-header">
+      <h2 class="section-heading">Featured Events</h2>
+      <p class="section-desc">SPN's UK events bring professionals together to connect, learn, share expertise, and serve society while fostering impact.</p>
+    </div>
+
+    <!-- Event cards grid -->
+    <div class="events-grid">
+      <div class="events-row">
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="images/events/featured-parliament-day.jpg" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">Parliament Day</h3>
+            <p class="event-desc">A flagship SPN event designed to give Sikh professionals and emerging leaders deep insights into public life, leadership, representation, and civic responsibility.</p>
+            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-card-bg">
+            <img src="images/events/featured-awards.jpg" alt="">
+          </div>
+          <div class="event-card-content">
+            <div class="event-tags">
+              <span class="event-tag">Date: dd/mm/yyyy</span>
+              <span class="event-tag">Time: 00:00 to 00:00</span>
+              <span class="event-tag">Location: To be confirmed</span>
+            </div>
+            <h3 class="event-title">SPN Awards</h3>
+            <p class="event-desc">The SPN Awards recognise exceptional Sikh professionals who demonstrate excellence, integrity, leadership, and spirit of service in their careers and wider communities.</p>
             <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
           </div>
         </article>

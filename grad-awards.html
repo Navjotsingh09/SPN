@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sikh Graduate Awards — Sikh Professionals Network</title>
+  <meta name="description" content="The first-ever Sikh Graduate Awards — a national celebration recognising the achievements, ambition and contribution of Sikh graduates from across the UK.">
+  <link rel="icon" href="sikhprofessionalsnetwork_logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..125,100..700;1,75..125,100..700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="files/footer.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --dark:#132030;--dark2:#172e49;--accent:#b86c40;
+      --white:#ffffff;--off-white:#fbfbf9;--light:#f9f9f9;--light2:#eaeaea;
+      --text:#191615;--text-dark:#282422;--text-mid:#474747;--text-grey:#888;
+      --px:156px;--max:1440px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Instrument Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+    img{display:block}
+    a{text-decoration:none}
+
+    /* BUTTONS */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+      letter-spacing:-0.128px;padding:8px 32px;height:40px;border-radius:4px;
+      cursor:pointer;transition:opacity .2s;white-space:nowrap;border:none;line-height:24px
+    }
+    .btn:hover{opacity:.85}
+    .btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-outline-white{background:transparent;color:#fff;border:1px solid var(--accent)}
+
+    /* NAVBAR */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.05)}
+    .navbar{
+      max-width:var(--max);margin:0 auto;
+      padding:32px var(--px) 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo img{height:50px;width:auto;display:block}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--dark);letter-spacing:-0.08px;line-height:20px;
+      font-variation-settings:'wdth' 100
+    }
+    .nav-links a.active,.nav-links a:hover{font-weight:700}
+    .nav-cta{flex-shrink:0}
+
+    /* HERO */
+    .hero{background:#fff;padding:32px var(--px)}
+    .hero-card{
+      background:var(--dark);border-radius:20px;
+      min-height:620px;position:relative;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+      padding:64px 121px;
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto
+    }
+    .hero-bg{position:absolute;inset:0;overflow:hidden}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.35}
+    .hero-inner{
+      position:relative;z-index:1;
+      display:flex;flex-direction:column;align-items:center;gap:28px;
+      max-width:900px;width:100%;text-align:center
+    }
+    .hero-label{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:rgba(255,255,255,0.75);line-height:28px;
+      font-variation-settings:'wdth' 100
+    }
+    .hero-h1{
+      font-family:'Lora',serif;font-size:72px;font-weight:400;
+      color:#fff;line-height:72px;letter-spacing:-3.6px
+    }
+    .hero-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:rgba(255,255,255,0.85);line-height:28px;max-width:720px;
+      font-variation-settings:'wdth' 100
+    }
+    .hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .hero-tag{
+      background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);
+      border-radius:4px;padding:6px 14px;
+      font-family:'Inter',sans-serif;font-size:13px;font-weight:500;
+      color:#fff;white-space:nowrap
+    }
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+
+    /* INTRO */
+    .intro{background:#fff;padding:100px var(--px)}
+    .intro-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;gap:80px;align-items:flex-start
+    }
+    .intro-left{flex:0 0 400px}
+    .intro-eyebrow{
+      font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:700;
+      color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;
+      line-height:20px;margin-bottom:16px;
+      font-variation-settings:'wdth' 100
+    }
+    .intro-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .intro-right{flex:1;display:flex;flex-direction:column;gap:20px;padding-top:8px}
+    .intro-body{
+      font-family:'Instrument Sans',sans-serif;font-size:17px;font-weight:400;
+      color:var(--text-mid);line-height:28px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* WHY ATTEND */
+    .why{background:var(--dark);padding:100px var(--px)}
+    .why-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .why-header{display:flex;gap:69px;align-items:center}
+    .why-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#fff;line-height:56px;letter-spacing:-2.4px;flex-shrink:0
+    }
+    .why-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:rgba(255,255,255,0.65);line-height:24px;max-width:560px;
+      font-variation-settings:'wdth' 100
+    }
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .why-card{
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+      border-radius:16px;padding:32px;
+      display:flex;flex-direction:column;gap:16px
+    }
+    .why-icon{
+      width:44px;height:44px;background:var(--accent);border-radius:10px;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .why-card-title{
+      font-family:'Instrument Sans',sans-serif;font-size:17px;font-weight:700;
+      color:#fff;line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .why-card-text{
+      font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:400;
+      color:rgba(255,255,255,0.6);line-height:22px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* SCHEDULE */
+    .schedule{background:#fff;padding:100px var(--px)}
+    .schedule-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .schedule-header{display:flex;gap:69px;align-items:center}
+    .schedule-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px;flex-shrink:0
+    }
+    .schedule-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;max-width:560px;
+      font-variation-settings:'wdth' 100
+    }
+    .schedule-list{
+      display:flex;flex-direction:column;
+      border-left:2px solid var(--accent);
+      margin-left:8px
+    }
+    .schedule-item{
+      display:flex;gap:40px;align-items:flex-start;
+      padding:20px 0 20px 36px;position:relative
+    }
+    .schedule-item::before{
+      content:'';position:absolute;left:-9px;top:26px;
+      width:16px;height:16px;border-radius:50%;
+      background:var(--accent);border:3px solid #fff;
+      box-shadow:0 0 0 2px var(--accent)
+    }
+    .schedule-time{
+      font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+      color:var(--accent);line-height:20px;white-space:nowrap;
+      min-width:170px;flex-shrink:0;padding-top:3px
+    }
+    .schedule-text{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .schedule-text strong{color:var(--text);font-weight:600}
+
+    /* ELIGIBILITY */
+    .eligibility{background:#f9f9f9;padding:100px var(--px)}
+    .elig-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;gap:80px;align-items:flex-start
+    }
+    .elig-left{flex:0 0 400px}
+    .elig-eyebrow{
+      font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:700;
+      color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;
+      line-height:20px;margin-bottom:16px;
+      font-variation-settings:'wdth' 100
+    }
+    .elig-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px
+    }
+    .elig-right{flex:1;display:flex;flex-direction:column;gap:20px;padding-top:8px}
+    .elig-body{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:26px;
+      font-variation-settings:'wdth' 100
+    }
+    .elig-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+    .elig-list li{
+      display:flex;gap:12px;align-items:flex-start;
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .elig-list li::before{
+      content:'';width:6px;height:6px;border-radius:50%;
+      background:var(--accent);flex-shrink:0;margin-top:9px
+    }
+
+    /* AWARD CATEGORIES */
+    .categories{background:#fff;padding:100px var(--px)}
+    .cat-inner{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;flex-direction:column;gap:64px
+    }
+    .cat-header{display:flex;gap:69px;align-items:center}
+    .cat-heading{
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:var(--text);line-height:56px;letter-spacing:-2.4px;flex-shrink:0
+    }
+    .cat-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:24px;max-width:560px;
+      font-variation-settings:'wdth' 100
+    }
+    .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .cat-card{
+      border:1px solid #cdd0d3;border-radius:16px;padding:32px;
+      display:flex;flex-direction:column;gap:16px;
+      cursor:pointer;transition:border-color .2s,box-shadow .2s;
+      background:#fff;text-align:left;
+      font-family:inherit
+    }
+    .cat-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(184,108,64,.12)}
+    .cat-card-number{
+      font-family:'Lora',serif;font-size:28px;font-weight:400;
+      color:var(--accent);line-height:36px
+    }
+    .cat-card-title{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:700;
+      color:var(--text);line-height:24px;
+      font-variation-settings:'wdth' 100
+    }
+    .cat-card-preview{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:var(--text-grey);line-height:20px;
+      font-variation-settings:'wdth' 100;flex:1
+    }
+    .cat-card-cta{
+      display:inline-flex;align-items:center;gap:6px;
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:700;
+      color:var(--accent);line-height:20px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* MODAL */
+    .modal-overlay{
+      display:none;position:fixed;inset:0;z-index:1000;
+      background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+      align-items:center;justify-content:center;padding:24px
+    }
+    .modal-overlay.open{display:flex}
+    .modal-box{
+      background:#fff;border-radius:20px;padding:48px;
+      max-width:680px;width:100%;max-height:85vh;overflow-y:auto;
+      position:relative;animation:modal-in .25s ease
+    }
+    @keyframes modal-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .modal-close{
+      position:absolute;top:20px;right:20px;
+      width:36px;height:36px;border-radius:50%;
+      background:#f0f0f0;border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      font-size:20px;color:var(--text);line-height:1;transition:background .15s;
+      font-family:inherit
+    }
+    .modal-close:hover{background:var(--light2)}
+    .modal-number{
+      font-family:'Lora',serif;font-size:20px;font-weight:400;
+      color:var(--accent);margin-bottom:8px
+    }
+    .modal-title{
+      font-family:'Lora',serif;font-size:32px;font-weight:400;
+      color:var(--text);line-height:40px;letter-spacing:-1.6px;margin-bottom:24px
+    }
+    .modal-body{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:var(--text-mid);line-height:26px;
+      font-variation-settings:'wdth' 100
+    }
+    .modal-body p+p{margin-top:16px}
+    .modal-body ul{margin-top:12px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+    .modal-body ul li{display:flex;gap:10px;align-items:flex-start}
+    .modal-body ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:10px}
+    .modal-actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .modal-note{
+      font-family:'Instrument Sans',sans-serif;font-size:13px;
+      color:var(--text-grey);line-height:18px;
+      font-variation-settings:'wdth' 100
+    }
+
+    /* NOMINATE CTA */
+    .nominate{
+      background:var(--dark);padding:100px var(--px);
+      position:relative;overflow:hidden
+    }
+    .nominate-bg{position:absolute;inset:0;overflow:hidden}
+    .nominate-bg img{width:100%;height:100%;object-fit:cover;opacity:.2}
+    .nominate-inner{
+      position:relative;z-index:1;
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
+      display:flex;gap:80px;align-items:center
+    }
+    .nominate-content{flex:1;display:flex;flex-direction:column;gap:24px}
+    .nominate-heading{
+      font-family:'Lora',serif;font-size:56px;font-weight:400;
+      color:#fff;line-height:60px;letter-spacing:-2.8px
+    }
+    .nominate-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:17px;font-weight:400;
+      color:rgba(255,255,255,0.72);line-height:28px;max-width:540px;
+      font-variation-settings:'wdth' 100
+    }
+    .nominate-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .nominate-note{
+      font-family:'Instrument Sans',sans-serif;font-size:13px;
+      color:rgba(255,255,255,0.4);
+      font-variation-settings:'wdth' 100
+    }
+    .nominate-aside{
+      flex:0 0 360px;background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.13);border-radius:16px;
+      padding:32px;display:flex;flex-direction:column;gap:12px
+    }
+    .nominate-aside-title{
+      font-family:'Instrument Sans',sans-serif;font-size:12px;font-weight:700;
+      color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;
+      font-variation-settings:'wdth' 100;margin-bottom:4px
+    }
+    .nominate-aside-item{
+      display:flex;gap:10px;align-items:flex-start;
+      font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:400;
+      color:rgba(255,255,255,0.8);line-height:22px;
+      font-variation-settings:'wdth' 100
+    }
+    .nominate-aside-item::before{
+      content:'';width:5px;height:5px;border-radius:50%;
+      background:var(--accent);flex-shrink:0;margin-top:9px
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1280px){:root{--px:80px}}
+    @media(max-width:1000px){
+      :root{--px:32px}
+      .hero-card{padding:48px;min-height:520px}
+      .hero-h1{font-size:52px;line-height:56px}
+      .intro-inner,.elig-inner{flex-direction:column;gap:40px}
+      .intro-left,.elig-left{flex:none}
+      .why-grid,.cat-grid{grid-template-columns:repeat(2,1fr)}
+      .why-header,.schedule-header,.cat-header{flex-direction:column;gap:24px;align-items:flex-start}
+      .nominate-inner{flex-direction:column;gap:40px}
+      .nominate-aside{flex:none;width:100%}
+      .nominate-heading{font-size:42px;line-height:50px}
+      .modal-box{padding:36px}
+    }
+    @media(max-width:700px){
+      :root{--px:20px}
+      .nav-links{display:none}
+      .hero-card{padding:40px 24px;min-height:460px}
+      .hero-h1{font-size:40px;line-height:44px;letter-spacing:-2px}
+      .intro-heading,.elig-heading,.schedule-heading,.cat-heading,.why-heading,.nominate-heading{font-size:36px;line-height:44px}
+      .why-grid,.cat-grid{grid-template-columns:1fr}
+      .schedule-item{flex-direction:column;gap:4px}
+      .schedule-time{min-width:auto}
+      .modal-box{padding:28px 24px}
+      .modal-title{font-size:26px;line-height:34px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      @keyframes modal-in{from{opacity:0}to{opacity:1}}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" aria-label="SPN Home">
+      <img src="images/spn-logo.png" alt="Sikh Professionals Network" width="183" height="50">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="advisors.html">Advisors</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="/join">Join</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="/join" class="btn btn-primary nav-cta">Join SPN</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-bg">
+      <img src="images/events/featured-awards.jpg" alt="">
+    </div>
+    <div class="hero-inner">
+      <p class="hero-label">Sikh Professionals Network</p>
+      <h1 class="hero-h1">Sikh Graduate Awards</h1>
+      <p class="hero-desc">The first-ever national celebration recognising the achievements, ambition and contribution of Sikh graduates from across the UK.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Date: To be confirmed</span>
+        <span class="hero-tag">Time: 13:00 to 20:30</span>
+        <span class="hero-tag">Location: To be confirmed</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#register" class="btn btn-primary">Register to Attend</a>
+        <a href="#nominate" class="btn btn-outline-white">Nominate a Graduate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE AWARDS -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-left">
+      <p class="intro-eyebrow">About the Awards</p>
+      <h2 class="intro-heading">Welcome to the first-ever Sikh Graduate Awards</h2>
+    </div>
+    <div class="intro-right">
+      <p class="intro-body">The Sikh Graduate Awards are a national celebration recognising the achievements, ambition and contribution of Sikh graduates from across the UK. These awards have been created to celebrate Sikh graduate success and to shine a light on those who have demonstrated academic excellence, professional promise, leadership, resilience, seva and a commitment to making a positive difference in society.</p>
+      <p class="intro-body">This event is more than an awards ceremony. It is an opportunity for Sikh graduates to connect with Sikh professionals, build confidence, hear from inspiring speakers, meet other ambitious graduates and celebrate success with family members, community leaders, universities and employers.</p>
+      <p class="intro-body">The Sikh Graduate Awards are open to Sikh graduates who have completed a recognised higher education qualification, including an undergraduate degree, postgraduate qualification, PhD or Level 6 apprenticeship. Nominees should have graduated within the last two years or be in the early stages of their professional journey following completion of their qualification.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ATTEND -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <h2 class="why-heading">Why Attend?</h2>
+      <p class="why-desc">Designed for graduates ready to take the next step — connecting, learning, being recognised and building a professional identity grounded in Sikh values.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Professional Development Workshops</h3>
+        <p class="why-card-text">Three rotating workshops focused on employability, leadership, confidence, professional identity, entrepreneurship and early career pathways.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M21 21v-2a4 4 0 0 0-3-3.85" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Networking with Sikh Professionals</h3>
+        <p class="why-card-text">Opportunities for networking, mentoring conversations and meeting other ambitious Sikh graduates and established professionals from across the UK.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#fff" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" stroke="#fff" stroke-width="1.5"/><path d="M21 15l-5-5L5 21" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Professional Headshot</h3>
+        <p class="why-card-text">Every graduate receives a professional headshot and practical recommendations to strengthen their LinkedIn profile as they move into their career.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Awards Ceremony</h3>
+        <p class="why-card-text">A prestigious ceremony celebrating Sikh graduate success, with families, community leaders, universities and employers in attendance.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Community Recognition</h3>
+        <p class="why-card-text">Be recognised by a growing national network of Sikh professionals and communities for your achievements, ambition and contribution.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Identity and Inspiration</h3>
+        <p class="why-card-text">Hear from inspiring Sikh professionals and build confidence in your professional identity as you move into the next stage of your journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT OUTLINE -->
+<section class="schedule">
+  <div class="schedule-inner">
+    <div class="schedule-header">
+      <h2 class="schedule-heading">Event Outline</h2>
+      <p class="schedule-desc">A full day of development, networking and celebration — from registration through to the awards ceremony.</p>
+    </div>
+    <div class="schedule-list">
+      <div class="schedule-item">
+        <span class="schedule-time">13:00 &ndash; 14:00</span>
+        <span class="schedule-text"><strong>Registration and Networking</strong></span>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-time">14:00 &ndash; 16:30</span>
+        <span class="schedule-text"><strong>Three Rotating Graduate Workshops</strong><br>Employability, leadership, confidence, professional identity, entrepreneurship and early career pathways.</span>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-time">16:30 &ndash; 17:30</span>
+        <span class="schedule-text"><strong>Buffet and Networking</strong><br>With guests and invited dignitaries.</span>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-time">17:30 &ndash; 19:30</span>
+        <span class="schedule-text"><strong>Sikh Graduate Awards Ceremony</strong></span>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-time">19:30 &ndash; 20:00</span>
+        <span class="schedule-text"><strong>Photos, Networking and Sponsor Stands</strong></span>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-time">20:30</span>
+        <span class="schedule-text"><strong>Carriages</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="eligibility">
+  <div class="elig-inner">
+    <div class="elig-left">
+      <p class="elig-eyebrow">Who Can Be Nominated?</p>
+      <h2 class="elig-heading">Open to Sikh graduates across the UK</h2>
+    </div>
+    <div class="elig-right">
+      <p class="elig-body">To be eligible, nominees must meet the following criteria:</p>
+      <ul class="elig-list">
+        <li>Be Sikh</li>
+        <li>Have completed a recognised higher education qualification — including an undergraduate degree, postgraduate qualification, PhD or Level 6 apprenticeship — during 2025 or 2026</li>
+        <li>Be able to demonstrate achievement, growth, impact, service, leadership or resilience during their education or early professional journey</li>
+      </ul>
+      <p class="elig-body">Whether you have achieved outstanding academic results, overcome personal barriers, served your community, started a business, led a student society, supported others or shown exceptional future potential, we want to hear your story.</p>
+      <p class="elig-body">Graduates can nominate themselves or be nominated by someone else — including a family member, lecturer, employer, mentor, university, community organisation or Sikh society.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AWARD CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="cat-inner">
+    <div class="cat-header">
+      <h2 class="cat-heading">Award Categories</h2>
+      <p class="cat-desc">Eight awards celebrating the breadth of Sikh graduate achievement. Click any category to read the full description.</p>
+    </div>
+    <div class="cat-grid">
+
+      <button class="cat-card" data-category="1" aria-label="View Regional Sikh Graduate of the Year details">
+        <span class="cat-card-number">01</span>
+        <h3 class="cat-card-title">Regional Sikh Graduate of the Year</h3>
+        <p class="cat-card-preview">Recognising outstanding Sikh graduates across three regions — North, Midlands and South.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="2" aria-label="View Academic Excellence Award details">
+        <span class="cat-card-number">02</span>
+        <h3 class="cat-card-title">Academic Excellence Award</h3>
+        <p class="cat-card-preview">Celebrating outstanding academic achievement, excellent research or exceptional dedication to study.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="3" aria-label="View Leadership and Role Model Award details">
+        <span class="cat-card-number">03</span>
+        <h3 class="cat-card-title">Leadership and Role Model Award</h3>
+        <p class="cat-card-preview">For someone who has inspired others, led a Sikh society, student group, campaign or community initiative.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="4" aria-label="View Seva and Community Impact Award details">
+        <span class="cat-card-number">04</span>
+        <h3 class="cat-card-title">Seva and Community Impact Award</h3>
+        <p class="cat-card-preview">Recognising those who have supported others through volunteering, mentoring, gurdwara seva or community work.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="5" aria-label="View Award of Resilience details">
+        <span class="cat-card-number">05</span>
+        <h3 class="cat-card-title">Award of Resilience</h3>
+        <p class="cat-card-preview">Celebrating strength of character, perseverance and the ability to keep moving forward despite significant challenges.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="6" aria-label="View First Generation Graduate Award details">
+        <span class="cat-card-number">06</span>
+        <h3 class="cat-card-title">First Generation Graduate Award</h3>
+        <p class="cat-card-preview">Recognising a Sikh graduate who is the first in their immediate family to complete a higher education qualification.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="7" aria-label="View Professional Promise Award details">
+        <span class="cat-card-number">07</span>
+        <h3 class="cat-card-title">Professional Promise Award</h3>
+        <p class="cat-card-preview">For a recent Sikh graduate who has shown exceptional promise at the beginning of their professional journey.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+      <button class="cat-card" data-category="8" aria-label="View Graduate Choice Award details">
+        <span class="cat-card-number">08</span>
+        <h3 class="cat-card-title">Graduate Choice Award</h3>
+        <p class="cat-card-preview">A public vote celebrating Sikh graduates who have inspired others — the winner is selected by the wider community.</p>
+        <span class="cat-card-cta">Read More <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l4 4-4 4" stroke="#b86c40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <p class="modal-number" id="modal-number"></p>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-actions">
+      <a href="/join" class="btn btn-primary">Nominate for This Award</a>
+      <span class="modal-note">Nominations opening soon.</span>
+    </div>
+  </div>
+</div>
+
+<!-- NOMINATE CTA -->
+<section class="nominate" id="nominate">
+  <div class="nominate-bg">
+    <img src="images/events/footer-cta.jpg" alt="">
+  </div>
+  <div class="nominate-inner">
+    <div class="nominate-content">
+      <h2 class="nominate-heading">Nominate Yourself or Someone Else</h2>
+      <p class="nominate-desc">Nominations are open to graduates across the UK. You can nominate yourself or put forward someone whose journey deserves to be recognised. The Sikh Graduate Awards exist to celebrate success, honour hard work and inspire the next generation of Sikh graduates to lead with identity, excellence and seva.</p>
+      <div class="nominate-actions">
+        <a href="/join" class="btn btn-primary">Apply / Nominate</a>
+        <a href="/join" class="btn btn-outline-white">Register to Attend</a>
+      </div>
+      <p class="nominate-note">Nomination and registration forms opening soon.</p>
+    </div>
+    <div class="nominate-aside">
+      <p class="nominate-aside-title">Who can nominate?</p>
+      <p class="nominate-aside-item">The graduate themselves</p>
+      <p class="nominate-aside-item">A family member</p>
+      <p class="nominate-aside-item">A lecturer or university</p>
+      <p class="nominate-aside-item">An employer or mentor</p>
+      <p class="nominate-aside-item">A community organisation or Sikh society</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script>
+  fetch('files/footer.html').then(function(r){return r.text();}).then(function(h){document.getElementById('site-footer').innerHTML=h;});
+  setTimeout(function(){var s=document.createElement('script');s.src='files/forms.js';document.body.appendChild(s);},200);
+</script>
+
+<!-- MODAL SCRIPT -->
+<script>
+  var categories = {
+    "1":{
+      number:"01",
+      title:"Regional Sikh Graduate of the Year",
+      body:"<p>This award recognises outstanding Sikh graduates from across the UK who have demonstrated academic achievement, professional promise, leadership, resilience and a commitment to serving others. To ensure graduates are recognised across different parts of the country, we have decided to award this regionally:</p><ul><li>North Sikh Graduate of the Year</li><li>Midlands Sikh Graduate of the Year</li><li>South Sikh Graduate of the Year</li></ul><p>Each regional winner will be a graduate who has not only achieved success in their studies, but has also shown strong character, ambition, Sikh values and the potential to make a positive contribution to their profession and wider community.</p><p>This award is open to recent graduates who have completed their degree and can demonstrate achievement, growth, impact or service during their university journey.</p>"
+    },
+    "2":{
+      number:"02",
+      title:"Academic Excellence Award",
+      body:"<p>This award recognises a Sikh graduate who has demonstrated outstanding academic achievement, produced excellent research, or shown exceptional dedication to their studies.</p><p>Graduates may nominate themselves or be nominated by someone else if they can show strong academic performance, commitment to learning, intellectual curiosity, or a significant achievement during their higher education journey.</p>"
+    },
+    "3":{
+      number:"03",
+      title:"Leadership and Role Model Award",
+      body:"<p>This award is for someone who has inspired others, led a Sikh society, student group, a campaign, a project, a business idea or a community initiative.</p><p>This award recognises an individual graduate who has played a significant role in developing, leading or strengthening a university Sikh Society. It celebrates graduates who have helped elevate their Sikh Society through leadership, organisation, event delivery, sangat-building, collaboration, mentoring, fundraising, interfaith work, educational programmes or by simply creating a more welcoming and active space for Sikh students.</p><p>Graduates may nominate themselves or be nominated by others if they have made a clear contribution to the growth, visibility, impact or sustainability of their Sikh Society.</p>"
+    },
+    "4":{
+      number:"04",
+      title:"Seva and Community Impact Award",
+      body:"<p>This award recognises someone who has supported others through volunteering work, mentoring work, gurdwara seva, charity work, or youth and community club work.</p><p>Graduates may nominate themselves or be nominated by someone else if they have used their time, skills or knowledge to support others, strengthen their community or another organisation like their local Gurdwara, or make a positive difference beyond their own academic or professional journey.</p>"
+    },
+    "5":{
+      number:"05",
+      title:"Award of Resilience",
+      body:"<p>This award celebrates strength of character, perseverance and the ability to keep moving forward, even when the journey has not been easy.</p><p>This award recognises a Sikh graduate who has shown courage, determination and resilience in overcoming significant personal, financial, family, health-related or educational challenges.</p><p>Graduates may nominate themselves or be nominated by someone else if they have continued to pursue their education, personal development or professional goals despite difficult circumstances.</p>"
+    },
+    "6":{
+      number:"06",
+      title:"First Generation Graduate Award",
+      body:"<p>This award recognises a Sikh graduate who is the first in their immediate family to complete a recognised higher education qualification.</p><p>It celebrates not only the graduate's personal achievement, but also the wider family journey, sacrifice, encouragement and determination that may have supported them along the way.</p><p>Graduates may nominate themselves or be nominated by someone else if they are the first in their family to graduate and can share the significance of this achievement for themselves, their family and their future.</p>"
+    },
+    "7":{
+      number:"07",
+      title:"Professional Promise Award",
+      body:"<p>This award recognises a recent Sikh graduate who is at the beginning of their professional journey and has shown exceptional promise in their chosen career field.</p><p>Graduates may nominate themselves or be nominated by someone else if they can demonstrate ambition, focus, early career achievement, work experience, professional development, or clear potential in areas such as law, finance, medicine, engineering, technology, education, business, public service, the creative industries or any other professional pathway.</p><p>This award celebrates graduates who are taking their first steps with purpose, confidence and a strong commitment to future success.</p>"
+    },
+    "8":{
+      number:"08",
+      title:"Graduate Choice Award",
+      body:"<p>The Graduate Choice Award is a special public vote celebrating Sikh graduates who have inspired others through their achievements, journey, character or contribution.</p><p>Graduates may nominate themselves or be nominated by someone else. Shortlisted nominees will be featured as part of a separate online campaign, giving the wider community the opportunity to learn more about their stories and vote for the graduate they feel deserves to be recognised.</p><p>This award celebrates the voice of the community and highlights graduates whose journey has connected with, inspired or encouraged others.</p><p>The winner will be selected through an online voting process and announced at the Sikh Graduate Awards.</p>"
+    }
+  };
+
+  var overlay = document.getElementById('modal-overlay');
+  var closeBtn = document.getElementById('modal-close');
+
+  function openModal(id) {
+    var cat = categories[id];
+    if (!cat) return;
+    document.getElementById('modal-number').textContent = cat.number;
+    document.getElementById('modal-title').textContent = cat.title;
+    document.getElementById('modal-body').innerHTML = cat.body;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.cat-card[data-category]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      openModal(this.getAttribute('data-category'));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
