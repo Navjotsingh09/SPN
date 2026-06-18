@@ -195,11 +195,10 @@
     .stats{
       position:relative;padding:89px var(--px);
       min-height:786px;display:flex;align-items:center;
-      overflow:hidden
+      overflow:hidden;background:var(--dark)
     }
-    .stats-bg{position:absolute;inset:0;border-radius:20px;overflow:hidden}
-    .stats-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-    .stats-overlay{position:absolute;inset:0;background:var(--dark);opacity:.7}
+    .stats-bg{display:none}
+    .stats-overlay{display:none}
     .stats-inner{
       position:relative;z-index:1;
       max-width:1128px;width:100%;margin:0 auto;
@@ -668,10 +667,7 @@
 
 <!-- ===== STATS ===== -->
 <section class="stats">
-  <div class="stats-bg">
-    <img src="images/home/stats.jpg" alt="">
-    <div class="stats-overlay"></div>
-  </div>
+  <div class="stats-bg"></div>
   <div class="stats-inner">
     <h2 class="stats-heading">Stats</h2>
     <div class="stats-grid">
