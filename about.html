@@ -217,30 +217,38 @@
       font-variation-settings:'wdth' 100
     }
     .about-tc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .about-tc-card{border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px}
+    .about-tc-card{
+      border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px;
+      transition:background 0.3s ease
+    }
     .about-tc-card.dark{background:#132030}
     .about-tc-card.light{background:#f9f9f9}
+    .about-tc-card.light:hover{background:#132030}
     .about-tc-top{display:flex;align-items:center;justify-content:space-between}
-    .about-tc-icon{width:48px;height:48px;object-fit:contain;flex-shrink:0}
+    .about-tc-icon{width:48px;height:48px;object-fit:contain;flex-shrink:0;transition:filter 0.3s ease}
+    .about-tc-card.light:hover .about-tc-icon{filter:brightness(0) invert(1)}
     .about-tc-label{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
       line-height:24px;letter-spacing:-0.16px;
-      font-variation-settings:'wdth' 100
+      font-variation-settings:'wdth' 100;transition:color 0.3s ease
     }
     .about-tc-card.dark .about-tc-label{color:#fff}
     .about-tc-card.light .about-tc-label{color:var(--dark)}
+    .about-tc-card.light:hover .about-tc-label{color:#fff}
     .about-tc-num{
       font-family:'Lora',serif;font-size:24px;font-weight:400;
-      line-height:32px;letter-spacing:-0.72px;margin-bottom:16px
+      line-height:32px;letter-spacing:-0.72px;margin-bottom:16px;transition:color 0.3s ease
     }
     .about-tc-card.dark .about-tc-num{color:#fff}
     .about-tc-card.light .about-tc-num{color:#132030}
+    .about-tc-card.light:hover .about-tc-num{color:#fff}
     .about-tc-text{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      line-height:24px;font-variation-settings:'wdth' 100
+      line-height:24px;font-variation-settings:'wdth' 100;transition:color 0.3s ease
     }
     .about-tc-card.dark .about-tc-text{color:#949494}
     .about-tc-card.light .about-tc-text{color:#474747}
+    .about-tc-card.light:hover .about-tc-text{color:#949494}
 
     /* ── STATS ── */
     .stats{
@@ -262,7 +270,7 @@
     .stats-grid{display:flex;flex-wrap:wrap;gap:20px}
     .stat-card{
       background:var(--light2);border-radius:12px;padding:30px;
-      width:554px;opacity:.89;display:flex;flex-direction:column;gap:29px;
+      width:calc(50% - 10px);opacity:.89;display:flex;flex-direction:column;gap:29px;
       transition:transform .3s ease,box-shadow .3s ease,opacity .3s ease;cursor:default
     }
     .stat-card:hover{
