@@ -757,6 +757,21 @@
           <p class="testimonial-author">Early Participant</p>
         </article>
 
+        <article class="testimonial-card featured">
+          <p class="testimonial-text">Having a mentor who understood both my professional goals and my Sikh values made all the difference. SPN made that connection possible.</p>
+          <p class="testimonial-author">Mentee</p>
+        </article>
+
+        <article class="testimonial-card light">
+          <p class="testimonial-text">The conversations inside SPN are unlike anything else — honest, grounded, and genuinely useful for navigating career decisions.</p>
+          <p class="testimonial-author">Community Member</p>
+        </article>
+
+        <article class="testimonial-card light">
+          <p class="testimonial-text">SPN gave me access to a room of people who had already walked the path I was on — that kind of guidance is rare and invaluable.</p>
+          <p class="testimonial-author">Student Member</p>
+        </article>
+
       </div>
     </div>
     <div class="testimonials-progress-wrap">
@@ -910,24 +925,51 @@
   (function(){
     var track = document.getElementById('testimonialsTrack');
     var progress = document.getElementById('testimonialsProgress');
+    var wrap = track.parentElement;
     var cards = track.querySelectorAll('.testimonial-card');
     var total = cards.length;
     var current = 0;
+    var autoTimer = null;
+    var AUTO_DELAY = 4500;
+
     function update(){
       var cardW = cards[0].offsetWidth + 20;
       track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
       progress.style.width = ((current + 1) / total * 100) + '%';
     }
-    document.getElementById('tnNext').addEventListener('click', function(){
-      current = (current + 1) % total;
-      update();
-    });
-    document.getElementById('tnPrev').addEventListener('click', function(){
-      current = (current - 1 + total) % total;
-      update();
-    });
+    function next(){ current = (current + 1) % total; update(); }
+    function prev(){ current = (current - 1 + total) % total; update(); }
+    function stopAuto(){ clearInterval(autoTimer); autoTimer = null; }
+    function startAuto(){ stopAuto(); autoTimer = setInterval(next, AUTO_DELAY); }
+    function resetAuto(){ stopAuto(); startAuto(); }
+
+    document.getElementById('tnNext').addEventListener('click', function(){ next(); resetAuto(); });
+    document.getElementById('tnPrev').addEventListener('click', function(){ prev(); resetAuto(); });
+
+    // Pause auto-scroll on hover
+    wrap.addEventListener('mouseenter', stopAuto);
+    wrap.addEventListener('mouseleave', startAuto);
+
+    // Horizontal mouse-wheel / trackpad swipe
+    wrap.addEventListener('wheel', function(e){
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // ignore vertical scroll
+      if (Math.abs(e.deltaX) < 5) return;
+      e.preventDefault();
+      if (e.deltaX > 0) { next(); } else { prev(); }
+      resetAuto();
+    }, { passive: false });
+
+    // Touch swipe
+    var touchStartX = 0;
+    wrap.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, { passive: true });
+    wrap.addEventListener('touchend', function(e){
+      var dx = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) { if (dx > 0) { next(); } else { prev(); } resetAuto(); }
+    }, { passive: true });
+
     window.addEventListener('resize', update);
     update();
+    startAuto();
   })();
 
   // FAQ smooth accordion
