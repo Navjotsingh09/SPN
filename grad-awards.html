@@ -327,13 +327,9 @@
 
     /* NOMINATE CTA */
     .nominate{
-      background:var(--dark);padding:100px var(--px);
-      position:relative;overflow:hidden
+      background:var(--dark);padding:100px var(--px)
     }
-    .nominate-bg{position:absolute;inset:0;overflow:hidden}
-    .nominate-bg img{width:100%;height:100%;object-fit:cover;opacity:.2}
     .nominate-inner{
-      position:relative;z-index:1;
       max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
       display:flex;gap:80px;align-items:center
     }
@@ -354,8 +350,7 @@
       font-variation-settings:'wdth' 100
     }
     .nominate-aside{
-      flex:0 0 360px;background:rgba(13,20,31,0.85);
-      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      flex:0 0 360px;background:rgba(0,0,0,0.3);
       border:1px solid rgba(255,255,255,0.13);border-radius:16px;
       padding:32px;display:flex;flex-direction:column;gap:12px
     }
@@ -662,9 +657,6 @@
 
 <!-- NOMINATE CTA -->
 <section class="nominate" id="nominate">
-  <div class="nominate-bg">
-    <img src="images/events/footer-cta.jpg" alt="">
-  </div>
   <div class="nominate-inner">
     <div class="nominate-content">
       <h2 class="nominate-heading">Nominate Yourself or Someone Else</h2>
