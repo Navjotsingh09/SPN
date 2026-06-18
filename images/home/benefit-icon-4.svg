@@ -1,0 +1,13 @@
+<svg width="34.1429" height="32" viewBox="0 0 34.1429 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M31 3.14286H3.14286C1.95939 3.14286 1 4.10225 1 5.28571V28.8571C1 30.0406 1.95939 31 3.14286 31H31C32.1835 31 33.1429 30.0406 33.1429 28.8571V5.28571C33.1429 4.10225 32.1835 3.14286 31 3.14286Z" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" opacity="0.3" d="M31 3.14286H3.14286C1.95939 3.14286 1 4.10225 1 5.28571V9.57143C1 10.7549 1.95939 11.7143 3.14286 11.7143H31C32.1835 11.7143 33.1429 10.7549 33.1429 9.57143V5.28571C33.1429 4.10225 32.1835 3.14286 31 3.14286Z" fill="var(--fill-0, #B86C40)"/>
+<path id="Vector_3" d="M9.57143 1V6.35714" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M24.5714 1V6.35714" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M9.57143 21.8929C11.0508 21.8929 12.25 20.6936 12.25 19.2143C12.25 17.735 11.0508 16.5357 9.57143 16.5357C8.09209 16.5357 6.89286 17.735 6.89286 19.2143C6.89286 20.6936 8.09209 21.8929 9.57143 21.8929Z" fill="var(--fill-0, #132030)"/>
+<path id="Vector_6" opacity="0.7" d="M17.0714 26.1786C18.5508 26.1786 19.75 24.9793 19.75 23.5C19.75 22.0207 18.5508 20.8214 17.0714 20.8214C15.5921 20.8214 14.3929 22.0207 14.3929 23.5C14.3929 24.9793 15.5921 26.1786 17.0714 26.1786Z" fill="var(--fill-0, #132030)"/>
+<path id="Vector_7" opacity="0.5" d="M24.5714 21.8929C26.0508 21.8929 27.25 20.6936 27.25 19.2143C27.25 17.735 26.0508 16.5357 24.5714 16.5357C23.0921 16.5357 21.8929 17.735 21.8929 19.2143C21.8929 20.6936 23.0921 21.8929 24.5714 21.8929Z" fill="var(--fill-0, #132030)"/>
+<path id="Vector_8" d="M12.25 19.2143L14.3929 21.8929" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_9" d="M21.8929 19.2143L19.75 21.8929" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
