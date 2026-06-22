@@ -174,41 +174,6 @@
     .form-status.ok{color:#1e7d4f}
     .form-status.err{color:#b8403f}
 
-    /* ── OFFICES ── */
-    .offices{background:#fff;padding:80px var(--px) 80px}
-    .offices-inner{max-width:calc(var(--max) - 2*var(--px));margin:0 auto;display:flex;flex-direction:column;gap:40px}
-    .offices-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
-    .offices-heading{
-      font-family:'Lora',serif;font-size:48px;font-weight:400;
-      color:var(--text);line-height:56px;letter-spacing:-2.4px
-    }
-    .offices-sub{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:var(--text-mid);line-height:24px;max-width:320px;
-      font-variation-settings:'wdth' 100
-    }
-    .offices-map{width:100%;height:627px;border-radius:12px;overflow:hidden;border:1px solid var(--light2)}
-    .offices-map iframe{width:100%;height:100%;border:none;display:block}
-    .offices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
-    .office-card{display:flex;flex-direction:column;gap:32px;padding:24px;border-radius:20px}
-    .office-pin-icon{width:41px;height:48px;flex-shrink:0;display:block}
-    .office-card-body{display:flex;flex-direction:column;gap:24px}
-    .office-card-info{display:flex;flex-direction:column;gap:16px}
-    .office-name{
-      font-family:'Lora',serif;font-size:24px;font-weight:400;
-      color:#132030;line-height:26px;letter-spacing:-1.2px
-    }
-    .office-addr{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:var(--text-mid);line-height:24px;font-variation-settings:'wdth' 100
-    }
-    .office-link{
-      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:700;
-      color:var(--text);line-height:24px;display:inline-flex;align-items:center;gap:4px;
-      letter-spacing:-0.16px;font-variation-settings:'wdth' 100
-    }
-    .office-link:hover{opacity:.8}
-
     /* ── NEWSLETTER ── */
     .newsletter{background:var(--light);padding:80px var(--px) 80px}
     .newsletter-inner{
@@ -305,6 +270,27 @@
       color:var(--text-mid);line-height:24px;padding-bottom:24px
     }
 
+    /* ── PROCESS STEPS ── */
+    .process-steps{display:flex;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+    .process-step{flex:1;min-width:180px;display:flex;gap:16px;align-items:flex-start}
+    .process-num{font-family:'Lora',serif;font-size:36px;font-weight:400;color:var(--accent);line-height:1;flex-shrink:0}
+    .process-step-body{display:flex;flex-direction:column;gap:4px}
+    .process-step-title{font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;line-height:22px}
+    .process-step-desc{font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.7);line-height:20px;font-variation-settings:'wdth' 100}
+    /* ── FIELD ERRORS ── */
+    .field-error{font-family:'Instrument Sans',sans-serif;font-size:13px;color:#e05252;line-height:18px;margin-top:4px;display:none}
+    .field-error.show{display:block}
+    .field.invalid input,.field.invalid select,.field.invalid textarea{border-bottom-color:#e05252}
+    /* ── CONSENT / DATA NOTE ── */
+    .form-data-note{font-family:'Instrument Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.75);line-height:22px;margin-bottom:32px;font-variation-settings:'wdth' 100}
+    .form-data-note a{color:var(--accent);text-decoration:underline}
+    .consent-row{display:flex;align-items:flex-start;gap:12px;padding-top:24px}
+    .consent-row input[type=checkbox]{accent-color:var(--accent);width:18px;height:18px;flex-shrink:0;margin-top:2px;cursor:pointer}
+    .consent-row label{font-family:'Instrument Sans',sans-serif;font-size:14px;color:var(--text-dark);line-height:22px;cursor:pointer}
+    .consent-row label a{color:var(--accent);text-decoration:underline}
+    .consent-error{font-family:'Instrument Sans',sans-serif;font-size:13px;color:#e05252;line-height:18px;display:none;margin-top:4px}
+    .consent-error.show{display:block}
+    .field label .req{color:var(--accent);margin-left:2px}
     /* ── RESPONSIVE ── */
     @media(max-width:1280px){:root{--px:80px}}
     @media(max-width:1000px){
@@ -317,8 +303,6 @@
       .contact-title{font-size:48px}
       .form-card{padding:32px}
       .form-grid{grid-template-columns:1fr;gap:0}
-      .offices-heading{font-size:40px;line-height:48px}
-      .offices-grid{grid-template-columns:1fr;gap:24px}
       .newsletter-inner{flex-direction:column}
       .newsletter-img{min-height:220px}
       .newsletter-content{padding:32px 40px}
@@ -403,6 +387,32 @@
       <p class="contact-sub"><strong>Join the Sikh Professionals Network</strong>Please complete the form below so we can understand your background, profession and interests.</p>
     </div>
 
+    <p class="form-data-note">Your information will be used by the SPN team solely to review your membership application and keep you informed about SPN activities. It is never shared with third parties. <a href="/privacy-policy">Read our Privacy Policy &#8594;</a></p>
+
+    <div class="process-steps" aria-label="What happens next">
+      <div class="process-step">
+        <span class="process-num">1</span>
+        <div class="process-step-body">
+          <p class="process-step-title">We review your application</p>
+          <p class="process-step-desc">The SPN team reviews all submissions within 5&#8211;7 working days.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">2</span>
+        <div class="process-step-body">
+          <p class="process-step-title">You&#8217;ll hear from us by email</p>
+          <p class="process-step-desc">We&#8217;ll confirm your membership and share next steps tailored to your interests.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">3</span>
+        <div class="process-step-body">
+          <p class="process-step-title">Welcome to the community</p>
+          <p class="process-step-desc">Access events, mentoring opportunities, and the full SPN network.</p>
+        </div>
+      </div>
+    </div>
+
     <!--
       NOTE: To receive submissions, set the form `action` below to your form endpoint
       (e.g. a Formspree form URL like https://formspree.io/f/your-id, or a Vercel/Netlify
@@ -413,27 +423,30 @@
       <input type="hidden" name="subject" value="New SPN Join Request">
       <input type="hidden" name="from_name" value="SPN Website — Join Form">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-      <p class="form-legend">Name (required)</p>
+      <p class="form-legend">Personal details &nbsp;<span style="font-size:13px;font-weight:400;color:var(--text-grey)">Fields marked * are required</span></p>
       <div class="form-grid">
         <div class="field">
-          <label for="firstName">First Name</label>
+          <label for="firstName">First Name <span class="req" aria-hidden="true">*</span></label>
           <input id="firstName" name="firstName" type="text" autocomplete="given-name" required placeholder="e.g. Navjot">
+          <span class="field-error" id="firstNameError"></span>
         </div>
         <div class="field">
-          <label for="lastName">Last Name</label>
+          <label for="lastName">Last Name <span class="req" aria-hidden="true">*</span></label>
           <input id="lastName" name="lastName" type="text" autocomplete="family-name" required placeholder="e.g. Singh">
+          <span class="field-error" id="lastNameError"></span>
         </div>
 
         <div class="field">
-          <label for="ageRange">Age Range</label>
+          <label for="ageRange">Age Range <span class="req" aria-hidden="true">*</span></label>
           <select id="ageRange" name="ageRange" required>
-            <option value="" selected disabled hidden></option>
+            <option value="" selected disabled>Select an age range</option>
             <option>18–24</option>
             <option>25–34</option>
             <option>35–44</option>
             <option>45–54</option>
             <option>55+</option>
           </select>
+          <span class="field-error" id="ageRangeError"></span>
         </div>
         <div class="field">
           <label for="city">City</label>
@@ -443,10 +456,12 @@
         <div class="field">
           <label for="phone">Phone</label>
           <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. +44 7700 900000">
+          <span class="field-error" id="phoneError"></span>
         </div>
         <div class="field">
-          <label for="email">Email Address</label>
+          <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
           <input id="email" name="email" type="email" autocomplete="email" required placeholder="e.g. navjot@example.com">
+          <span class="field-error" id="emailError"></span>
         </div>
 
         <div class="field">
@@ -461,12 +476,13 @@
         <div class="field full">
           <label for="linkedin">LinkedIn Profile</label>
           <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/...">
+          <span class="field-error" id="linkedinError"></span>
         </div>
 
         <div class="field full">
           <label for="careerStage">Current Career Stage</label>
           <select id="careerStage" name="careerStage">
-            <option value="" selected disabled hidden></option>
+            <option value="" selected disabled>Select a career stage</option>
             <option>Student</option>
             <option>Recent graduate</option>
             <option>Early career</option>
@@ -485,7 +501,7 @@
         <div class="field full">
           <label for="mentoring">Would you like to be contacted about mentoring?</label>
           <select id="mentoring" name="mentoring">
-            <option value="" selected disabled hidden></option>
+            <option value="" selected disabled>Select an option</option>
             <option>Yes — I'd like a mentor</option>
             <option>Yes — I'd like to mentor others</option>
             <option>No, not at this time</option>
@@ -495,7 +511,7 @@
         <div class="field full">
           <label for="support">Would you like to support SPN as an advisor, speaker or volunteer?</label>
           <select id="support" name="support">
-            <option value="" selected disabled hidden></option>
+            <option value="" selected disabled>Select an option</option>
             <option>Yes — as an advisor</option>
             <option>Yes — as a speaker</option>
             <option>Yes — as a volunteer</option>
@@ -509,59 +525,15 @@
         </div>
       </div>
 
+      <div class="consent-row">
+        <input type="checkbox" id="consentPrivacy" name="consentPrivacy">
+        <label for="consentPrivacy">I have read and agree to the <a href="/privacy-policy">Privacy Policy</a> and consent to SPN processing my personal data for the purposes of my membership application. <span class="req" aria-hidden="true">*</span></label>
+      </div>
+      <p class="consent-error" id="consentError">Please accept the Privacy Policy to continue.</p>
+
       <button type="submit" class="form-submit">Join SPN</button>
       <p class="form-status web3-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
-  </div>
-</section>
-
-<!-- ===== OFFICE LOCATIONS ===== -->
-<section class="offices">
-  <div class="offices-inner">
-    <div class="offices-head">
-      <h2 class="offices-heading">Our office locations</h2>
-      <p class="offices-sub">A modern professional space designed to bring people together.</p>
-    </div>
-    <div class="offices-map">
-      <iframe
-        src="https://www.openstreetmap.org/export/embed.html?bbox=-97.82%2C30.22%2C-97.63%2C30.33&layer=mapnik"
-        title="Office locations map"
-        loading="lazy"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="offices-grid">
-      <div class="office-card">
-        <img class="office-pin-icon" src="images/join/pin-icon.svg" alt="" width="41" height="48">
-        <div class="office-card-body">
-          <div class="office-card-info">
-            <p class="office-name">412 Maple Drive Austin</p>
-            <p class="office-addr">TX 78701<br>Phone: (512) 555-7834</p>
-          </div>
-          <a href="#" class="office-link">Free consultation <img src="images/join/link-arrow.svg" alt="" width="24" height="24" style="display:block"></a>
-        </div>
-      </div>
-      <div class="office-card">
-        <img class="office-pin-icon" src="images/join/pin-icon.svg" alt="" width="41" height="48">
-        <div class="office-card-body">
-          <div class="office-card-info">
-            <p class="office-name">9827 Oak Lane Orlando</p>
-            <p class="office-addr">FL 32801<br>Phone: (407) 555-2398</p>
-          </div>
-          <a href="#" class="office-link">Free consultation <img src="images/join/link-arrow.svg" alt="" width="24" height="24" style="display:block"></a>
-        </div>
-      </div>
-      <div class="office-card">
-        <img class="office-pin-icon" src="images/join/pin-icon.svg" alt="" width="41" height="48">
-        <div class="office-card-body">
-          <div class="office-card-info">
-            <p class="office-name">2234 Pine Street</p>
-            <p class="office-addr">Apt. 5B<br>Denver, CO 80202<br>Phone: (303) 555-1276</p>
-          </div>
-          <a href="#" class="office-link">Free consultation <img src="images/join/link-arrow.svg" alt="" width="24" height="24" style="display:block"></a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -678,6 +650,86 @@
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  function showErr(field, msg) {
+    field.classList.add('invalid');
+    var e = field.querySelector('.field-error');
+    if (e) { e.textContent = msg; e.classList.add('show'); }
+  }
+  function clearErr(field) {
+    field.classList.remove('invalid');
+    var e = field.querySelector('.field-error');
+    if (e) e.classList.remove('show');
+  }
+
+  var form = document.getElementById('joinForm');
+  if (!form) return;
+
+  form.querySelectorAll('input, select, textarea').forEach(function (el) {
+    el.addEventListener('input',  function () { var f = el.closest('.field'); if (f) clearErr(f); });
+    el.addEventListener('change', function () { var f = el.closest('.field'); if (f) clearErr(f); });
+  });
+
+  var consentCb  = document.getElementById('consentPrivacy');
+  var consentErr = document.getElementById('consentError');
+  if (consentCb && consentErr) {
+    consentCb.addEventListener('change', function () {
+      if (consentCb.checked) consentErr.classList.remove('show');
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    var ok = true;
+
+    [['firstName', 'Please enter your first name.'],
+     ['lastName',  'Please enter your last name.']
+    ].forEach(function (pair) {
+      var el = document.getElementById(pair[0]);
+      var f  = el && el.closest('.field');
+      if (f && !el.value.trim()) { showErr(f, pair[1]); ok = false; }
+    });
+
+    var age = document.getElementById('ageRange');
+    var ageF = age && age.closest('.field');
+    if (ageF && !age.value) { showErr(ageF, 'Please select an age range.'); ok = false; }
+
+    var em = document.getElementById('email');
+    var emF = em && em.closest('.field');
+    if (emF) {
+      if (!em.value.trim()) {
+        showErr(emF, 'Please enter your email address.'); ok = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())) {
+        showErr(emF, 'Please enter a valid email address.'); ok = false;
+      }
+    }
+
+    var ph = document.getElementById('phone');
+    var phF = ph && ph.closest('.field');
+    if (phF && ph.value.trim() && !/^\+?[\d\s\-(). ]{7,20}$/.test(ph.value.trim())) {
+      showErr(phF, 'Please enter a valid phone number.'); ok = false;
+    }
+
+    var li = document.getElementById('linkedin');
+    var liF = li && li.closest('.field');
+    if (liF && li.value.trim() && !/^https?:\/\/(www\.)?linkedin\.com\/in\//i.test(li.value.trim())) {
+      showErr(liF, 'Please enter a valid LinkedIn URL (e.g. https://linkedin.com/in/yourname).'); ok = false;
+    }
+
+    if (consentCb && consentErr && !consentCb.checked) {
+      consentErr.classList.add('show'); ok = false;
+    }
+
+    if (!ok) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var first = form.querySelector('.field.invalid, .consent-error.show');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, true); // capture phase — fires before Web3Forms handler
+}());
+</script>
 
 <!-- ===== FOOTER ===== -->
 <div id="site-footer"></div>
