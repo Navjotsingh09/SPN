@@ -481,6 +481,27 @@
       .reg-row{flex-direction:column;gap:16px}
       .reg-heading{font-size:24px}
     }
+
+    /* ── REGISTRATION SUCCESS PANEL ── */
+    .reg-success{
+      display:none;flex-direction:column;align-items:center;
+      text-align:center;gap:20px;padding:16px 0 8px
+    }
+    .reg-success-icon{
+      width:72px;height:72px;border-radius:50%;
+      background:#eef7f2;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .reg-success-heading{
+      font-family:'Lora',serif;font-size:28px;font-weight:400;
+      color:var(--text);line-height:36px;letter-spacing:-1.2px;margin-bottom:8px
+    }
+    .reg-success-msg{
+      font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:400;
+      color:var(--text-mid);line-height:22px;
+      font-variation-settings:'wdth' 100;max-width:380px
+    }
+    .reg-success-btn{margin-top:8px;min-width:160px}
   </style>
 </head>
 <body>
@@ -545,7 +566,7 @@
     <!-- Section header -->
     <div class="section-header">
       <h2 class="section-heading">Featured Event</h2>
-      <p class="section-desc">The first-ever national celebration of Sikh graduate achievement, ambition and contribution — bringing graduates, professionals, families and communities together.</p>
+      <p class="section-desc">The first national celebration recognising the achievements, ambition and contribution of Sikh graduates from across the UK.</p>
     </div>
 
     <!-- Single featured card -->
@@ -562,7 +583,7 @@
               <span class="event-tag">Location: To be confirmed</span>
             </div>
             <h3 class="event-title">Sikh Graduate Awards</h3>
-            <p class="event-desc">The first-ever national celebration recognising the achievements, ambition and contribution of Sikh graduates from across the UK. Featuring three professional development workshops, networking with Sikh professionals, a professional headshot, and the awards ceremony.</p>
+            <p class="event-desc">The event will feature three professional development workshops, networking with Sikh professionals, professional headshots, and an awards ceremony.</p>
             <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
               <a href="grad-awards.html" class="btn btn-primary" style="align-self:flex-start">Find Out More</a>
               <button id="open-reg-modal" class="btn btn-outline" style="align-self:flex-start">Register Interest</button>
@@ -600,7 +621,7 @@
             </div>
             <h3 class="event-title">SPN Professional Networking Evening</h3>
             <p class="event-desc">An opportunity for Sikh professionals to meet, build connections and learn more about the SPN mission.</p>
-            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+            <button type="button" class="btn btn-primary" style="align-self:flex-start" data-open-event-modal data-event="SPN Professional Networking Evening">Register Interest</button>
           </div>
         </article>
 
@@ -616,7 +637,7 @@
             </div>
             <h3 class="event-title">Careers and Identity Webinar</h3>
             <p class="event-desc">A practical session exploring how Sikh professionals can build confidence, progress in their careers, and remain grounded in Sikh values.</p>
-            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+            <button type="button" class="btn btn-primary" style="align-self:flex-start" data-open-event-modal data-event="Careers and Identity Webinar">Register Interest</button>
           </div>
         </article>
       </div>
@@ -635,7 +656,7 @@
             </div>
             <h3 class="event-title">SPN Panel Discussion</h3>
             <p class="event-desc">A cross-sector panel featuring Sikh professionals discussing leadership, integrity, workplace confidence and seva.</p>
-            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+            <button type="button" class="btn btn-primary" style="align-self:flex-start" data-open-event-modal data-event="SPN Panel Discussion">Register Interest</button>
           </div>
         </article>
 
@@ -651,7 +672,7 @@
             </div>
             <h3 class="event-title">Professional Insight Day</h3>
             <p class="event-desc">An immersive learning opportunity for students and emerging professionals to understand different sectors and career pathways.</p>
-            <a href="/join" class="btn btn-primary" style="align-self:flex-start">Register Interest</a>
+            <button type="button" class="btn btn-primary" style="align-self:flex-start" data-open-event-modal data-event="Professional Insight Day">Register Interest</button>
           </div>
         </article>
       </div>
@@ -725,7 +746,7 @@
 <!-- ===== ATTEND, SPEAK OR SUPPORT ===== -->
 <section class="attend" id="attend">
   <div class="attend-bg">
-    <img src="images/events/footer-cta.jpg" alt="">
+    <img src="images/events/footer-cta.webp" alt="">
   </div>
   <div class="attend-card">
     <div class="attend-card-inner">
@@ -799,14 +820,16 @@
 <div class="reg-overlay" id="reg-overlay" role="dialog" aria-modal="true" aria-labelledby="reg-heading">
   <div class="reg-box">
     <button class="reg-close" id="reg-close" aria-label="Close">&times;</button>
-    <p class="reg-eyebrow">Sikh Graduate Awards</p>
+    <p class="reg-eyebrow" id="reg-eyebrow">Sikh Graduate Awards</p>
     <h2 class="reg-heading" id="reg-heading">Register Your Interest</h2>
     <p class="reg-sub">Fill in your details and we will be in touch once registration opens.</p>
-    <form class="reg-form" data-web3form
+    <form class="reg-form" id="reg-form" data-web3form
           action="https://api.web3forms.com/submit"
           data-success="Thank you &mdash; we have received your interest and will be in touch soon.">
-      <input type="hidden" name="access_key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
-      <input type="hidden" name="subject" value="Sikh Graduate Awards &mdash; Register Interest">
+      <input type="hidden" name="access_key" id="reg-access-key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
+      <input type="hidden" name="subject" id="reg-subject" value="Sikh Graduate Awards &mdash; Register Interest">
+      <input type="hidden" name="event_name" id="reg-event-name" value="Sikh Graduate Awards">
+      <input type="hidden" name="replyto" id="reg-replyto">
       <input type="hidden" name="from_name" value="SPN Website">
       <div class="reg-row">
         <div class="reg-field">
@@ -820,7 +843,7 @@
       </div>
       <div class="reg-field">
         <label class="reg-label" for="reg-email">Email Address <span aria-hidden="true">*</span></label>
-        <input class="reg-input" id="reg-email" name="email" type="email" placeholder="your@email.com" required autocomplete="email">
+        <input class="reg-input" id="reg-email" name="email" type="email" placeholder="your@email.com" required autocomplete="email" oninput="document.getElementById('reg-replyto').value=this.value">
       </div>
       <div class="reg-field">
         <label class="reg-label" for="reg-phone">Phone Number <span style="font-weight:400;color:#aaa">(optional)</span></label>
@@ -840,6 +863,20 @@
       </div>
       <button type="submit" class="btn btn-primary reg-submit">Register Interest</button>
     </form>
+
+    <!-- Success panel (shown after submission) -->
+    <div class="reg-success" id="reg-success">
+      <div class="reg-success-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 17l7 7L26 9" stroke="#2a6041" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="reg-success-heading">You&rsquo;re on the list</h3>
+        <p class="reg-success-msg" id="reg-success-msg">Thank you &mdash; we&rsquo;ll be in touch once registration opens.</p>
+      </div>
+      <button type="button" class="btn btn-primary reg-success-btn" id="reg-success-done">Done</button>
+    </div>
   </div>
 </div>
 
@@ -851,26 +888,91 @@
 </script>
 
 <script>
-  // Registration modal
+  // Registration modal — shared for Sikh Graduate Awards + all upcoming event cards
   (function(){
-    var overlay = document.getElementById('reg-overlay');
+    var overlay  = document.getElementById('reg-overlay');
     var closeBtn = document.getElementById('reg-close');
-    var openBtn  = document.getElementById('open-reg-modal');
-    if (!overlay || !openBtn) return;
-    function openModal(){
+    if (!overlay) return;
+
+    var eyebrowEl  = document.getElementById('reg-eyebrow');
+    var subjectIn  = document.getElementById('reg-subject');
+    var eventIn    = document.getElementById('reg-event-name');
+    var accessIn   = document.getElementById('reg-access-key');
+
+    var EVENTS_KEY = '8627b740-2e75-4852-8db8-b4092f0fbbf6';
+    var GRAD_KEY   = 'fa2b3cfa-feb1-4783-9fe8-8d0505a04a52';
+
+    var _opener = null;
+
+    var formEl    = document.getElementById('reg-form');
+    var successEl = document.getElementById('reg-success');
+    var successMsg = document.getElementById('reg-success-msg');
+    var doneBtn   = document.getElementById('reg-success-done');
+
+    function showForm() {
+      if (formEl)    formEl.style.display    = '';
+      if (successEl) successEl.style.display = 'none';
+    }
+    function showSuccess(label) {
+      if (successMsg) successMsg.textContent = 'Thank you \u2014 we\u2019ve received your interest in ' + label + ' and will be in touch once registration opens.';
+      if (formEl)    formEl.style.display    = 'none';
+      if (successEl) successEl.style.display = 'flex';
+      if (doneBtn)   setTimeout(function(){ doneBtn.focus(); }, 50);
+    }
+
+    function openModal(eventName, triggerBtn) {
+      var isGrad = (eventName === 'Sikh Graduate Awards');
+      var label  = eventName || 'Sikh Graduate Awards';
+      if (eyebrowEl) eyebrowEl.textContent = label;
+      if (subjectIn) subjectIn.value       = label + ' \u2014 Register Interest';
+      if (eventIn)   eventIn.value         = label;
+      if (accessIn)  accessIn.value        = isGrad ? GRAD_KEY : EVENTS_KEY;
+      // Clear previous status message and restore form view
+      var statusEl = overlay.querySelector('.web3-status');
+      if (statusEl) statusEl.textContent = '';
+      showForm();
+      _opener = triggerBtn || null;
       overlay.classList.add('open');
-      document.body.style.overflow='hidden';
-      setTimeout(function(){closeBtn.focus();},50);
+      document.body.style.overflow = 'hidden';
+      setTimeout(function(){ closeBtn.focus(); }, 50);
     }
-    function closeModal(){
+
+    function closeModal() {
       overlay.classList.remove('open');
-      document.body.style.overflow='';
-      openBtn.focus();
+      document.body.style.overflow = '';
+      showForm();
+      if (_opener) { _opener.focus(); _opener = null; }
     }
-    openBtn.addEventListener('click', openModal);
+
+    // Switch to success panel when Web3Forms reports success
+    overlay.addEventListener('spn:success', function() {
+      var label = (eventIn && eventIn.value) ? eventIn.value : 'this event';
+      showSuccess(label);
+    });
+
+    // Done button closes the modal
+    if (doneBtn) doneBtn.addEventListener('click', closeModal);
+
+    // Sikh Graduate Awards — existing dedicated button
+    var gradBtn = document.getElementById('open-reg-modal');
+    if (gradBtn) {
+      gradBtn.addEventListener('click', function(){
+        openModal('Sikh Graduate Awards', gradBtn);
+      });
+    }
+
+    // Upcoming event cards — delegated listener for data-open-event-modal
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-open-event-modal]');
+      if (!btn) return;
+      openModal(btn.getAttribute('data-event') || '', btn);
+    });
+
     closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal();});
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
   })();
 
   // FAQ accordion with animated height
