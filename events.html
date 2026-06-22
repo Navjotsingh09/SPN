@@ -159,6 +159,10 @@
     .event-card-bg img{
       width:100%;height:100%;object-fit:cover;object-position:center top
     }
+    /* zoom into the on-screen speaker's face for the panel-discussion card */
+    .event-card--zoomface .event-card-bg img{
+      transform:scale(2.2);transform-origin:63% 70%
+    }
     /* gradient overlay so content box reads well */
     .event-card-bg::after{
       content:'';position:absolute;inset:0;
@@ -646,7 +650,7 @@
 
       <!-- Row 2 -->
       <div class="events-row">
-        <article class="event-card">
+        <article class="event-card event-card--zoomface">
           <div class="event-card-bg">
             <img src="images/events/upcoming-panel-discussion.jpg" alt="">
           </div>
