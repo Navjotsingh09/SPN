@@ -426,16 +426,10 @@
       <p class="form-legend">Personal details &nbsp;<span style="font-size:13px;font-weight:400;color:var(--text-grey)">Fields marked * are required</span></p>
       <div class="form-grid">
         <div class="field">
-          <label for="firstName">First Name <span class="req" aria-hidden="true">*</span></label>
-          <input id="firstName" name="firstName" type="text" autocomplete="given-name" required placeholder="e.g. Navjot">
-          <span class="field-error" id="firstNameError"></span>
+          <label for="fullName">Full Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="e.g. Navjot Singh">
+          <span class="field-error" id="fullNameError"></span>
         </div>
-        <div class="field">
-          <label for="lastName">Last Name <span class="req" aria-hidden="true">*</span></label>
-          <input id="lastName" name="lastName" type="text" autocomplete="family-name" required placeholder="e.g. Singh">
-          <span class="field-error" id="lastNameError"></span>
-        </div>
-
         <div class="field">
           <label for="ageRange">Age Range <span class="req" aria-hidden="true">*</span></label>
           <select id="ageRange" name="ageRange" required>
@@ -448,21 +442,6 @@
           </select>
           <span class="field-error" id="ageRangeError"></span>
         </div>
-        <div class="field">
-          <label for="city">City</label>
-          <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. London">
-        </div>
-
-        <div class="field">
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. +44 7700 900000">
-          <span class="field-error" id="phoneError"></span>
-        </div>
-        <div class="field">
-          <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" required placeholder="e.g. navjot@example.com">
-          <span class="field-error" id="emailError"></span>
-        </div>
 
         <div class="field">
           <label for="profession">Profession / Current Role</label>
@@ -473,55 +452,20 @@
           <input id="industry" name="industry" type="text" placeholder="e.g. Technology, Finance, Healthcare">
         </div>
 
+        <div class="field">
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. London">
+        </div>
+        <div class="field">
+          <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="e.g. navjot@example.com">
+          <span class="field-error" id="emailError"></span>
+        </div>
+
         <div class="field full">
           <label for="linkedin">LinkedIn Profile</label>
           <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/...">
           <span class="field-error" id="linkedinError"></span>
-        </div>
-
-        <div class="field full">
-          <label for="careerStage">Current Career Stage</label>
-          <select id="careerStage" name="careerStage">
-            <option value="" selected disabled>Select a career stage</option>
-            <option>Student</option>
-            <option>Recent graduate</option>
-            <option>Early career</option>
-            <option>Mid career</option>
-            <option>Senior / Leadership</option>
-            <option>Executive</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="field full">
-          <label for="interests">Areas of Interest</label>
-          <input id="interests" name="interests" type="text" placeholder="e.g. mentoring, events, networking, seva">
-        </div>
-
-        <div class="field full">
-          <label for="mentoring">Would you like to be contacted about mentoring?</label>
-          <select id="mentoring" name="mentoring">
-            <option value="" selected disabled>Select an option</option>
-            <option>Yes — I'd like a mentor</option>
-            <option>Yes — I'd like to mentor others</option>
-            <option>No, not at this time</option>
-          </select>
-        </div>
-
-        <div class="field full">
-          <label for="support">Would you like to support SPN as an advisor, speaker or volunteer?</label>
-          <select id="support" name="support">
-            <option value="" selected disabled>Select an option</option>
-            <option>Yes — as an advisor</option>
-            <option>Yes — as a speaker</option>
-            <option>Yes — as a volunteer</option>
-            <option>No, not at this time</option>
-          </select>
-        </div>
-
-        <div class="field full">
-          <label for="message">Message / Additional Information</label>
-          <textarea id="message" name="message" rows="3" placeholder="Anything else you'd like us to know…"></textarea>
         </div>
       </div>
 
@@ -683,13 +627,9 @@
   form.addEventListener('submit', function (e) {
     var ok = true;
 
-    [['firstName', 'Please enter your first name.'],
-     ['lastName',  'Please enter your last name.']
-    ].forEach(function (pair) {
-      var el = document.getElementById(pair[0]);
-      var f  = el && el.closest('.field');
-      if (f && !el.value.trim()) { showErr(f, pair[1]); ok = false; }
-    });
+    var fn = document.getElementById('fullName');
+    var fnF = fn && fn.closest('.field');
+    if (fnF && !fn.value.trim()) { showErr(fnF, 'Please enter your full name.'); ok = false; }
 
     var age = document.getElementById('ageRange');
     var ageF = age && age.closest('.field');
@@ -703,12 +643,6 @@
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())) {
         showErr(emF, 'Please enter a valid email address.'); ok = false;
       }
-    }
-
-    var ph = document.getElementById('phone');
-    var phF = ph && ph.closest('.field');
-    if (phF && ph.value.trim() && !/^\+?[\d\s\-(). ]{7,20}$/.test(ph.value.trim())) {
-      showErr(phF, 'Please enter a valid phone number.'); ok = false;
     }
 
     var li = document.getElementById('linkedin');
