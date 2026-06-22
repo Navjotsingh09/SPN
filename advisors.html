@@ -207,12 +207,12 @@
     .adv-dual-cta-bg img{width:100%;height:100%;object-fit:cover;transform:scaleY(-1)}
     .adv-dual-cta-inner{
       position:relative;z-index:1;
-      display:flex;gap:44px;align-items:flex-start;justify-content:center;
+      display:flex;gap:44px;align-items:stretch;justify-content:center;
       padding:80px var(--px);width:100%
     }
     .adv-cta-card{
       flex:1;max-width:532px;background:#fff;border-radius:12px;padding:40px;
-      display:flex;flex-direction:column;gap:32px
+      display:flex;flex-direction:column;gap:32px;justify-content:space-between
     }
     .adv-cta-content{display:flex;flex-direction:column;gap:24px}
     .adv-cta-heading{
@@ -290,9 +290,12 @@
     @media(max-width:700px){
       :root{--px:20px}
       .nav-links{display:none}
+      .adv-hero{padding:0 16px 24px}
       .adv-hero-card{padding:48px 24px}
       .adv-hero-h1{font-size:36px;line-height:40px}
       .adv-hero-desc{font-size:16px}
+      .adv-hero-btns{flex-direction:column}
+      .adv-hero-btns .btn{width:100%;text-align:center}
       .adv-form-row{flex-direction:column}
       .adv-cta-heading{font-size:36px;line-height:44px}
       .faq-heading{font-size:36px;line-height:44px}
@@ -388,7 +391,7 @@
 <!-- ===== WIDE PHOTO ===== -->
 <section class="adv-photo-wrap">
   <div class="adv-photo-frame">
-    <img src="images/advisors/community.jpg" alt="SPN advisors and professionals">
+    <img src="images/advisors/community.webp" alt="SPN advisors and professionals">
   </div>
 </section>
 
@@ -398,7 +401,7 @@
     <div class="benefits-left">
       <h2 class="section-heading">What Advisors Offer</h2>
       <div class="benefits-photo">
-        <img src="images/advisors/what-advisors-offer.jpg" alt="SPN Advisor">
+        <img src="images/advisors/what-advisors-offer.webp" alt="SPN Advisor">
       </div>
     </div>
     <div class="benefits-right">
@@ -600,7 +603,7 @@
 <!-- ===== DUAL CTA ===== -->
 <section class="adv-dual-cta" id="connect-advisor">
   <div class="adv-dual-cta-bg">
-    <img src="images/advisors/footer-cta.jpg" alt="">
+    <img src="images/advisors/footer-cta.webp" alt="">
   </div>
   <div class="adv-dual-cta-inner">
     <div class="adv-cta-card">
