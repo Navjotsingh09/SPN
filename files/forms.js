@@ -50,16 +50,32 @@
       submitBtn.textContent = 'Sending\u2026';
     }
 
-    var payload = {};
-    new FormData(form).forEach(function (value, key) {
-      payload[key] = value;
-    });
+    // Forms that include a file input must be sent as multipart/form-data so the
+    // uploaded files reach Web3Forms. Forms without files keep using JSON.
+    var hasFile = false;
+    var fileInputs = form.querySelectorAll('input[type="file"]');
+    for (var i = 0; i < fileInputs.length; i++) {
+      if (fileInputs[i].files && fileInputs[i].files.length) { hasFile = true; break; }
+    }
 
-    fetch(form.getAttribute('action') || 'https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload)
-    })
+    var action = form.getAttribute('action') || 'https://api.web3forms.com/submit';
+    var fetchOpts;
+    if (hasFile) {
+      // Let the browser set Content-Type (with the multipart boundary).
+      fetchOpts = { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) };
+    } else {
+      var payload = {};
+      new FormData(form).forEach(function (value, key) {
+        payload[key] = value;
+      });
+      fetchOpts = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      };
+    }
+
+    fetch(action, fetchOpts)
       .then(function (response) { return response.json(); })
       .then(function (result) {
         if (result && result.success) {
@@ -70,12 +86,13 @@
             true
           );
           form.reset();
+          form.dispatchEvent(new CustomEvent('spn:success', { bubbles: true }));
         } else {
-          showStatus(form, 'Sorry, something went wrong. Please email Admin@sikhpn.org.', false);
+          showStatus(form, 'Sorry, something went wrong. Please email hello@sikhpn.org.', false);
         }
       })
       .catch(function () {
-        showStatus(form, 'Network error \u2014 please try again, or email Admin@sikhpn.org.', false);
+        showStatus(form, 'Network error \u2014 please try again, or email hello@sikhpn.org.', false);
       })
       .finally(function () {
         if (submitBtn) {
