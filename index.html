@@ -80,8 +80,8 @@
     }
     /* hero keyframes */
     @keyframes hero-zoom{
-      from{transform:scaleX(-1) scale(1)}
-      to{transform:scaleX(-1) scale(1.08)}
+      from{transform:scale(1)}
+      to{transform:scale(1.08)}
     }
     @keyframes hero-fade-up{
       from{opacity:0;transform:translateY(18px)}
@@ -123,7 +123,7 @@
       animation:hero-fade-up .9s cubic-bezier(.22,.68,0,.99) .75s both
     }
     @media(prefers-reduced-motion:reduce){
-      .hero-bg img{animation:none;transform:scaleX(-1)}
+      .hero-bg img{animation:none}
       .hero-label,.hero-h1,.hero-desc,.hero-actions{animation:none}
     }
 
