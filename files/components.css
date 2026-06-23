@@ -1,7 +1,7 @@
 /* ── BENEFITS / OFFERS ── */
 .benefits{background:#fff;padding:100px var(--px)}
 .benefits-inner{
-  max-width:calc(var(--max) - 2*156px);margin:0 auto;
+  max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
   display:flex;gap:64px;align-items:flex-start
 }
 .benefits-left{flex-shrink:0;width:466px;position:sticky;top:120px;display:flex;flex-direction:column;gap:30px}
@@ -47,7 +47,7 @@
 /* ── TESTIMONIALS ── */
 .testimonials{background:#fff;padding:100px var(--px);overflow:hidden}
 .testimonials-inner{
-  max-width:calc(var(--max) - 2*156px);margin:0 auto;
+  max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
   display:flex;flex-direction:column;gap:48px
 }
 .testimonials-header{max-width:538px}
