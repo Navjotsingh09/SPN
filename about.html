@@ -58,16 +58,14 @@
     .hero{background:#fff;padding:0 50px 50px}
     .hero-card{
       position:relative;border-radius:20px;overflow:hidden;
-      height:575px;display:flex;align-items:center;justify-content:center;
+      min-height:560px;background:var(--dark);
+      display:flex;align-items:center;justify-content:center;
+      padding:60px 121px;
       max-width:calc(var(--max) - 100px);margin:0 auto
     }
-    .hero-card{background:var(--dark)}
-    .hero-bg{position:absolute;inset:0;overflow:hidden}
-    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
     .hero-inner{
-      position:relative;z-index:1;width:100%;
-      display:flex;flex-direction:column;align-items:center;gap:50px;
-      padding:0 40px
+      position:relative;z-index:1;width:100%;max-width:830px;
+      display:flex;flex-direction:column;align-items:center;gap:24px
     }
     .hero-content{
       display:flex;flex-direction:column;align-items:center;
@@ -85,7 +83,7 @@
     }
     .hero-desc{
       font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
-      color:#bfb5b5;line-height:28px;max-width:1038px;
+      color:rgba(255,255,255,.85);line-height:28px;max-width:700px;
       font-variation-settings:'wdth' 100
     }
 
@@ -297,7 +295,7 @@
 
     /* ── BE PART OF SPN / JOIN CTA ── */
     .join-cta{
-      position:relative;min-height:708px;
+      position:relative;min-height:708px;background:var(--dark);
       display:flex;align-items:center;padding:80px var(--px);overflow:hidden
     }
     .join-cta-bg{position:absolute;inset:0}
@@ -453,13 +451,12 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-card">
-    <div class="hero-bg"></div>
     <div class="hero-inner">
       <div class="hero-content">
         <p class="hero-label">Sikh Professionals Network</p>
         <div class="hero-tagline">
           <h1 class="hero-h1">About SPN</h1>
-          <p class="hero-desc">The network empowers individuals across the UK to develop as leaders and achieve professional success.<br><br>Built on integrity, heritage and seva, SPN supports professionals to grow in their careers while remaining grounded in their Sikh identity.</p>
+          <p class="hero-desc">The network empowers individuals across the UK to develop as leaders and achieve professional success — built on integrity, heritage and seva, to grow in their careers while remaining grounded in their Sikh identity.</p>
         </div>
       </div>
       <a href="/join" class="btn btn-primary">Join the Network</a>
@@ -687,9 +684,6 @@
 
 <!-- ===== BE PART OF SPN ===== -->
 <section class="join-cta" id="join">
-  <div class="join-cta-bg">
-    <img src="images/about/footer-cta.webp" alt="">
-  </div>
   <div class="join-cta-card">
     <div>
       <h2 class="join-cta-heading">Be Part of SPN</h2>
