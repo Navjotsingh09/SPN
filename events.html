@@ -133,8 +133,8 @@
     }
 
     /* ── EVENT CARDS ── */
-    .events-section{background:#fff;padding:100px var(--px) 124px}
-    .events-inner{display:flex;flex-direction:column;gap:88px;width:100%;max-width:1128px;margin:0 auto}
+    .events-section{background:#fff;padding:100px var(--px)}
+    .events-inner{display:flex;flex-direction:column;gap:88px;width:100%;max-width:calc(var(--max) - 2*var(--px));margin:0 auto}
     .events-grid{display:flex;flex-direction:column;gap:44px;width:100%}
     .events-row{display:flex;gap:44px;width:100%}
 
@@ -225,7 +225,7 @@
 
     /* ── HOW IT WORKS ── */
     .how-it-works{background:#fff;padding:100px var(--px)}
-    .hiw-inner{display:flex;flex-direction:column;gap:64px;width:100%;max-width:1128px;margin:0 auto}
+    .hiw-inner{display:flex;flex-direction:column;gap:64px;width:100%;max-width:calc(var(--max) - 2*var(--px));margin:0 auto}
     .hiw-header{display:flex;gap:32px;align-items:flex-end;width:100%}
     .hiw-heading{
       font-family:'Lora',serif;font-size:48px;font-weight:400;
@@ -320,7 +320,7 @@
     /* ── FAQ ── */
     .faq{background:#fff;padding:80px var(--px)}
     .faq-inner{
-      max-width:1128px;margin:0 auto;
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto;
       display:flex;flex-direction:column;gap:35px
     }
     .faq-header{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
