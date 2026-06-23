@@ -90,7 +90,8 @@
     /* ── FEATURES / TRUSTED COMMUNITY ── */
     .adv-features{background:#fff;padding:100px var(--px)}
     .adv-features-top{
-      display:flex;gap:32px;align-items:flex-end;margin-bottom:64px
+      display:flex;gap:32px;align-items:flex-end;margin-bottom:64px;
+      max-width:calc(var(--max) - 2*var(--px));margin-left:auto;margin-right:auto
     }
     .adv-features-heading{
       font-family:'Lora',serif;font-size:48px;font-weight:400;
@@ -102,7 +103,7 @@
       color:var(--text-mid);line-height:24px;flex:1;min-width:0;
       font-variation-settings:'wdth' 100
     }
-    .adv-tc-row{display:flex;gap:24px;align-items:stretch}
+    .adv-tc-row{display:flex;gap:24px;align-items:stretch;max-width:calc(var(--max) - 2*var(--px));margin:0 auto}
     .adv-tc-card{
       flex:1;min-width:0;border-radius:20px;padding:32px;
       background:#f9f9f9;
