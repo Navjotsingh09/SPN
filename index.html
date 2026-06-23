@@ -74,6 +74,7 @@
       border-radius:20px;
       overflow:hidden;
       height:800px;
+      background:var(--dark);
       display:flex;align-items:center;justify-content:center;
       max-width:calc(var(--max) - 100px);
       margin:0 auto;
@@ -488,10 +489,6 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-card">
-    <div class="hero-bg">
-      <img src="images/home/hero.webp" alt="">
-      <div class="hero-overlay"></div>
-    </div>
     <div class="hero-inner">
       <div class="hero-content">
         <p class="hero-label">Sikh Professionals Network</p>
@@ -817,7 +814,7 @@
       <input type="hidden" name="subject" value="New SPN Stay-Connected Signup">
       <input type="hidden" name="from_name" value="SPN Website — Stay Connected">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-      <p class="form-section-label">Name (required)</p>
+      <p class="form-section-label">Name <span style="color:#d22" aria-hidden="true">*</span></p>
       <div class="form-row">
         <div class="form-field">
           <label class="form-label" for="firstName">First Name</label>
@@ -833,7 +830,7 @@
         <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. +44 7700 900000">
       </div>
       <div class="form-field">
-        <label class="form-label" for="email">Email (required)</label>
+        <label class="form-label" for="email">Email <span style="color:#d22" aria-hidden="true">*</span></label>
         <input class="form-input" type="email" id="email" name="email" required placeholder="e.g. navjot@example.com">
         <div class="form-check-row">
           <input type="checkbox" id="newsletter" name="newsletter" value="yes">
