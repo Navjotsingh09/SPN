@@ -280,30 +280,33 @@
     /* ── STAY CONNECTED ── */
     .stay-connected{background:var(--dark);padding:96px var(--px)}
     .stay-connected-inner{
-      max-width:calc(var(--max) - 2*156px);margin:0 auto;
+      max-width:780px;margin:0 auto;width:100%;
       display:flex;flex-direction:column;gap:40px
     }
-    .sc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:40px}
+    .sc-header{display:flex;flex-direction:column;gap:12px}
     .sc-heading{
-      font-family:'Lora',serif;font-size:64px;font-weight:400;
-      color:#ecece7;line-height:64px;letter-spacing:-3.2px;
-      min-width:506px;flex-shrink:0
+      font-family:'Lora',serif;font-size:48px;font-weight:400;
+      color:#ecece7;line-height:56px;letter-spacing:-2.4px
     }
     .sc-desc{
-      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:500;
-      color:#dee2e8;line-height:20px;letter-spacing:-0.07px;max-width:545px;
-      align-self:center
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
+      color:#dee2e8;line-height:24px;max-width:600px
     }
     .form-card{
-      background:#f8f8f8;border-radius:20px;padding:64px;
-      display:flex;flex-direction:column;gap:32px
+      background:#f8f8f8;border-radius:16px;padding:48px;
+      display:flex;flex-direction:column;gap:24px;
+      box-shadow:0 4px 24px rgba(0,0,0,.12);
+      max-width:780px;margin:0 auto;width:100%
     }
+    .form-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px
+    }
+    .form-field{display:flex;flex-direction:column;gap:8px}
+    .form-field.full{grid-column:1/-1}
     .form-section-label{
       font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:600;
       color:#121217;line-height:24px;letter-spacing:-0.18px
     }
-    .form-row{display:flex;gap:16px}
-    .form-field{display:flex;flex-direction:column;gap:8px;flex:1}
     .form-label{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
       color:#121217;line-height:24px;letter-spacing:-0.128px
@@ -320,7 +323,7 @@
       font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
       color:#121217;line-height:20px;letter-spacing:-0.07px
     }
-    .btn-full{width:100%;border-radius:4px}
+    .btn-full{width:100%;border-radius:4px;margin-top:8px}
 
     /* ── FAQ ── */
     .faq{background:#fff;padding:80px var(--px)}
@@ -811,32 +814,33 @@
       <input type="hidden" name="subject" value="New SPN Stay-Connected Signup">
       <input type="hidden" name="from_name" value="SPN Website — Stay Connected">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-      <p class="form-section-label">Name <span style="color:#d22" aria-hidden="true">*</span></p>
-      <div class="form-row">
+      <div class="form-grid">
         <div class="form-field">
-          <label class="form-label" for="firstName">First Name</label>
+          <label class="form-label" for="firstName">First Name <span style="color:#c0392b;font-weight:normal">*</span></label>
           <input class="form-input" type="text" id="firstName" name="firstName" required placeholder="e.g. Navjot">
         </div>
         <div class="form-field">
-          <label class="form-label" for="lastName">Last Name</label>
+          <label class="form-label" for="lastName">Last Name <span style="color:#c0392b;font-weight:normal">*</span></label>
           <input class="form-input" type="text" id="lastName" name="lastName" required placeholder="e.g. Singh">
         </div>
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="phone">Phone</label>
-        <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. +44 7700 900000">
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="email">Email <span style="color:#d22" aria-hidden="true">*</span></label>
-        <input class="form-input" type="email" id="email" name="email" required placeholder="e.g. navjot@example.com">
-        <div class="form-check-row">
-          <input type="checkbox" id="newsletter" name="newsletter" value="yes">
-          <label for="newsletter">Sign up for news and updates</label>
+        <div class="form-field">
+          <label class="form-label" for="phone">Phone</label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. +44 7700 900000">
         </div>
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="profession">Profession / Area of Interest</label>
-        <input class="form-input" type="text" id="profession" name="profession" placeholder="e.g. Software Engineer, Finance, Healthcare">
+        <div class="form-field">
+          <label class="form-label" for="email">Email <span style="color:#c0392b;font-weight:normal">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" required placeholder="e.g. navjot@example.com">
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="profession">Profession / Area of Interest</label>
+          <input class="form-input" type="text" id="profession" name="profession" placeholder="e.g. Software Engineer, Finance, Healthcare">
+        </div>
+        <div class="form-field full">
+          <div class="form-check-row">
+            <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+            <label for="newsletter">Sign up for news and updates</label>
+          </div>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary btn-full">Sign Up for Updates</button>
     </form>
