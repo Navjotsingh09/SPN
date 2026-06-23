@@ -199,29 +199,28 @@
 
     /* ── DUAL CTA ── */
     .adv-dual-cta{
-      position:relative;min-height:708px;background:var(--dark);
+      position:relative;min-height:708px;
+      background:linear-gradient(135deg,#1a0f0a 0%,#2d1810 25%,#3d2314 50%,#1f1208 75%,#0d0806 100%);
       display:flex;align-items:center;justify-content:center;
       overflow:hidden
     }
-    .adv-dual-cta-bg{position:absolute;inset:0}
-    .adv-dual-cta-bg img{width:100%;height:100%;object-fit:cover;transform:scaleY(-1)}
     .adv-dual-cta-inner{
       position:relative;z-index:1;
-      display:flex;gap:44px;align-items:stretch;justify-content:center;
-      padding:80px var(--px);width:100%
+      display:flex;gap:80px;align-items:flex-start;justify-content:center;
+      padding:80px var(--px);width:100%;max-width:calc(var(--max) - 2*var(--px));margin:0 auto
     }
     .adv-cta-card{
-      flex:1;max-width:532px;background:#fff;border-radius:12px;padding:40px;
-      display:flex;flex-direction:column;gap:32px;justify-content:space-between
+      flex:1;max-width:480px;
+      display:flex;flex-direction:column;gap:24px
     }
-    .adv-cta-content{display:flex;flex-direction:column;gap:24px}
+    .adv-cta-content{display:flex;flex-direction:column;gap:16px}
     .adv-cta-heading{
       font-family:'Lora',serif;font-size:48px;font-weight:400;
-      color:var(--text);line-height:56px;letter-spacing:-2.4px
+      color:#ffffff;line-height:56px;letter-spacing:-2.4px
     }
     .adv-cta-text{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:var(--text-mid);line-height:24px;
+      color:#e8d5c4;line-height:24px;
       font-variation-settings:'wdth' 100
     }
 
