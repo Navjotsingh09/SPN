@@ -3,9 +3,5 @@
 <path id="Vector" d="M24.8 0.5H3.2C1.70883 0.5 0.5 1.72463 0.5 3.23529V28.7647C0.5 30.2754 1.70883 31.5 3.2 31.5H24.8C26.2912 31.5 27.5 30.2754 27.5 28.7647V3.23529C27.5 1.72463 26.2912 0.5 24.8 0.5Z" stroke="var(--stroke-0, #B86C40)" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="Vector_2" d="M14 14.5C16.4853 14.5 18.5 12.4853 18.5 10C18.5 7.51472 16.4853 5.5 14 5.5C11.5147 5.5 9.5 7.51472 9.5 10C9.5 12.4853 11.5147 14.5 14 14.5Z" fill="var(--fill-0, #B86C40)" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="Vector_3" d="M4.5 27.5C4.5 20.8333 22.5 20.8333 22.5 27.5H4.5Z" fill="var(--fill-0, #B86C40)" stroke="var(--stroke-0, #B86C40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_4" d="M18.9615 30.4231C22.5301 30.4231 25.4231 27.5301 25.4231 23.9615C25.4231 20.3929 22.5301 17.5 18.9615 17.5C15.3929 17.5 12.5 20.3929 12.5 23.9615C12.5 27.5301 15.3929 30.4231 18.9615 30.4231Z" stroke="var(--stroke-0, #132030)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_5" d="M23.577 28.5769L28.1923 33.1923" stroke="var(--stroke-0, #132030)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_6" opacity="0.5" d="M16.1923 23.9615H21.7308" stroke="var(--stroke-0, #132030)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_7" opacity="0.5" d="M18.9615 21.1923V26.7307" stroke="var(--stroke-0, #132030)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>
