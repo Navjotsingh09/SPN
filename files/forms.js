@@ -9,6 +9,103 @@
 (function () {
   'use strict';
 
+  /* ── Success modal ── */
+  var modalStylesInjected = false;
+
+  function injectModalStyles() {
+    if (modalStylesInjected) return;
+    modalStylesInjected = true;
+    var s = document.createElement('style');
+    s.textContent = [
+      '.spn-modal-overlay{',
+        'position:fixed;inset:0;z-index:9999;',
+        'background:rgba(10,14,26,0.72);backdrop-filter:blur(4px);',
+        'display:flex;align-items:center;justify-content:center;',
+        'padding:24px;opacity:0;transition:opacity .25s ease;',
+      '}',
+      '.spn-modal-overlay.spn-modal-visible{opacity:1}',
+      '.spn-modal{',
+        'background:#fff;border-radius:20px;',
+        'padding:48px 40px 40px;max-width:480px;width:100%;',
+        'display:flex;flex-direction:column;align-items:center;gap:16px;',
+        'text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.25);',
+        'transform:translateY(16px);transition:transform .3s cubic-bezier(.34,1.56,.64,1);',
+      '}',
+      '.spn-modal-overlay.spn-modal-visible .spn-modal{transform:translateY(0)}',
+      '.spn-modal-icon{',
+        'width:64px;height:64px;border-radius:50%;',
+        'background:#b86c40;display:flex;align-items:center;justify-content:center;flex-shrink:0;',
+      '}',
+      '.spn-modal-icon svg{width:28px;height:28px}',
+      '.spn-modal-title{',
+        'font-family:\'Lora\',serif;font-size:28px;font-weight:400;',
+        'color:#132030;line-height:36px;letter-spacing:-1px;margin:0;',
+      '}',
+      '.spn-modal-msg{',
+        'font-family:\'Instrument Sans\',sans-serif;font-size:16px;font-weight:400;',
+        'color:#5a6170;line-height:24px;margin:0;max-width:380px;',
+      '}',
+      '.spn-modal-close{',
+        'margin-top:8px;padding:12px 32px;border-radius:6px;',
+        'background:#b86c40;color:#fff;border:none;cursor:pointer;',
+        'font-family:\'Instrument Sans\',sans-serif;font-size:15px;font-weight:600;',
+        'transition:background .2s;',
+      '}',
+      '.spn-modal-close:hover{background:#132030}',
+      '@media(max-width:480px){',
+        '.spn-modal{padding:36px 24px 28px}',
+        '.spn-modal-title{font-size:22px}',
+      '}'
+    ].join('');
+    document.head.appendChild(s);
+  }
+
+  function showSuccessModal(message) {
+    injectModalStyles();
+
+    var overlay = document.createElement('div');
+    overlay.className = 'spn-modal-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Form submitted successfully');
+
+    overlay.innerHTML =
+      '<div class="spn-modal">' +
+        '<div class="spn-modal-icon">' +
+          '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+            '<path d="M5 14.5l6.5 6.5L23 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>' +
+        '</div>' +
+        '<h3 class="spn-modal-title">You\'re all set!</h3>' +
+        '<p class="spn-modal-msg">' + message + '</p>' +
+        '<button class="spn-modal-close" type="button">Done</button>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+
+    // Animate in
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        overlay.classList.add('spn-modal-visible');
+      });
+    });
+
+    function closeModal() {
+      overlay.classList.remove('spn-modal-visible');
+      setTimeout(function () {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 300);
+    }
+
+    overlay.querySelector('.spn-modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function onKey(e) {
+      if (e.key === 'Escape') { closeModal(); document.removeEventListener('keydown', onKey); }
+    });
+  }
+
   function getStatusEl(form) {
     var el = form.querySelector('.web3-status');
     if (!el) {
@@ -80,12 +177,9 @@
       .then(function (response) { return response.json(); })
       .then(function (result) {
         if (result && result.success) {
-          showStatus(
-            form,
-            form.getAttribute('data-success') ||
-              'Thank you \u2014 your message has been sent. We will be in touch soon.',
-            true
-          );
+          var msg = form.getAttribute('data-success') ||
+            'Thank you \u2014 your message has been sent. We will be in touch soon.';
+          showSuccessModal(msg);
           form.reset();
           form.dispatchEvent(new CustomEvent('spn:success', { bubbles: true }));
         } else {
