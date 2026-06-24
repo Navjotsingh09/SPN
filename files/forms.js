@@ -327,7 +327,7 @@
     var header = document.querySelector('.site-header');
     if (!header) return;
     function onScroll() {
-      if (window.scrollY > 16) {
+      if (window.scrollY > 1) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
