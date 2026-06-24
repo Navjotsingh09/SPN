@@ -316,3 +316,74 @@
     init();
   }
 })();
+
+/*
+ * SPN sticky glass navbar — makes the site-header fixed with glassmorphism.
+ * Starts semi-transparent; gains a stronger frosted-glass backing on scroll.
+ * Applies to every page since this script is loaded site-wide.
+ */
+(function () {
+  'use strict';
+
+  function initGlassNav() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+
+    /* ── Inject CSS ── */
+    var s = document.createElement('style');
+    s.textContent = [
+      '.site-header{',
+        'position:fixed!important;top:0;left:0;right:0;',
+        'z-index:998;',
+        'background:rgba(255,255,255,0.6)!important;',
+        'backdrop-filter:blur(20px) saturate(180%)!important;',
+        '-webkit-backdrop-filter:blur(20px) saturate(180%)!important;',
+        'border-bottom:1px solid rgba(255,255,255,0.35)!important;',
+        'box-shadow:none!important;',
+        'transition:background .4s ease,box-shadow .4s ease,border-color .4s ease!important;',
+        'will-change:background,box-shadow;',
+      '}',
+      '.site-header.spn-nav--scrolled{',
+        'background:rgba(255,255,255,0.88)!important;',
+        'border-bottom:1px solid rgba(0,0,0,0.07)!important;',
+        'box-shadow:0 4px 32px rgba(0,0,0,0.08)!important;',
+      '}',
+      /* Compact navbar height on scroll */
+      '.site-header.spn-nav--scrolled .navbar{',
+        'padding-top:16px!important;padding-bottom:16px!important;',
+        'transition:padding .4s ease;',
+      '}',
+      '.navbar{transition:padding .4s ease!important}'
+    ].join('');
+    document.head.appendChild(s);
+
+    /* ── Compensate for fixed header ── */
+    function setBodyPad() {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+    }
+    setBodyPad();
+    window.addEventListener('resize', setBodyPad, { passive: true });
+
+    /* ── Scroll handler ── */
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          if (window.scrollY > 24) {
+            header.classList.add('spn-nav--scrolled');
+          } else {
+            header.classList.remove('spn-nav--scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGlassNav);
+  } else {
+    initGlassNav();
+  }
+})();
