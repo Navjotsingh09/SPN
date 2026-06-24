@@ -128,6 +128,41 @@
     el.style.color = ok ? '#b86c40' : '#e05252';
   }
 
+  // ----- Devanhaar backend config -----
+  // Forms marked `data-devanhaar` POST to the Devanhaar backend FIRST. If that
+  // fails (network/server), we fall back to Web3Forms so a lead is never lost —
+  // and we never send two emails on success. Forms without the attribute keep
+  // their existing Web3Forms-only behaviour.
+  // Override the base for local testing BEFORE this script loads, e.g.:
+  //   <script>window.SPN_DEVANHAAR_API = 'http://localhost:3000';</script>
+  var DEVANHAAR_BASE = (typeof window !== 'undefined' && window.SPN_DEVANHAAR_API) || 'https://devanhaar.com';
+  var DEVANHAAR_ENDPOINT = String(DEVANHAAR_BASE).replace(/\/+$/, '') + '/api/spn-submissions';
+
+  // POST the form's text fields to the Devanhaar backend. Resolves true on
+  // success, false on any failure (so the caller can fall back to Web3Forms).
+  function submitToDevanhaar(form, textPayload) {
+    var data = {};
+    Object.keys(textPayload).forEach(function (k) { data[k] = textPayload[k]; });
+    // Resolve submission type. The events form carries Grad Awards via its modal,
+    // so map an 'event' submission to 'grad_award' when it's the awards.
+    var st = form.getAttribute('data-submission-type') || data.submission_type || 'join';
+    if (st === 'event' && data.event_name && /graduate award/i.test(String(data.event_name))) {
+      st = 'grad_award';
+    }
+    data.submission_type = st;
+    data.source = data.source || 'SPN';
+    data.page_url = (typeof location !== 'undefined') ? location.href : '';
+    return fetch(DEVANHAAR_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (response) {
+      return response.json().then(function (r) {
+        return response.ok && r && r.success === true;
+      }).catch(function () { return response.ok; });
+    }).catch(function () { return false; });
+  }
+
   document.addEventListener('submit', function (e) {
     var form = e.target;
     if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-web3form')) {
@@ -157,44 +192,57 @@
     }
 
     var action = form.getAttribute('action') || 'https://api.web3forms.com/submit';
+    var textPayload = {};
+    new FormData(form).forEach(function (value, key) {
+      if (typeof value === 'string') { textPayload[key] = value; }
+    });
     var fetchOpts;
     if (hasFile) {
       // Let the browser set Content-Type (with the multipart boundary).
       fetchOpts = { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) };
     } else {
-      var payload = {};
-      new FormData(form).forEach(function (value, key) {
-        payload[key] = value;
-      });
       fetchOpts = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(textPayload)
       };
     }
 
-    fetch(action, fetchOpts)
-      .then(function (response) { return response.json(); })
-      .then(function (result) {
-        if (result && result.success) {
-          var msg = form.getAttribute('data-success') ||
-            'Thank you \u2014 your message has been sent. We will be in touch soon.';
-          showSuccessModal(msg);
-          form.reset();
-          form.dispatchEvent(new CustomEvent('spn:success', { bubbles: true }));
-        } else {
-          showStatus(form, 'Sorry, something went wrong. Please email hello@sikhpn.org.', false);
-        }
-      })
-      .catch(function () {
-        showStatus(form, 'Network error \u2014 please try again, or email hello@sikhpn.org.', false);
-      })
-      .finally(function () {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalLabel;
-        }
+    function restoreBtn() {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    }
+    function onSuccess() {
+      var msg = form.getAttribute('data-success') ||
+        'Thank you \u2014 your message has been sent. We will be in touch soon.';
+      showSuccessModal(msg);
+      form.reset();
+      form.dispatchEvent(new CustomEvent('spn:success', { bubbles: true }));
+      restoreBtn();
+    }
+    function onError() {
+      showStatus(form, 'Sorry, something went wrong. Please email hello@sikhpn.org.', false);
+      restoreBtn();
+    }
+    function submitToWeb3Forms() {
+      return fetch(action, fetchOpts)
+        .then(function (response) { return response.json(); })
+        .then(function (result) { return !!(result && result.success); })
+        .catch(function () { return false; });
+    }
+
+    if (form.hasAttribute('data-devanhaar')) {
+      // Primary: Devanhaar backend. Fallback on failure: Web3Forms email.
+      submitToDevanhaar(form, textPayload).then(function (ok) {
+        if (ok) { onSuccess(); return; }
+        submitToWeb3Forms().then(function (ok2) { if (ok2) { onSuccess(); } else { onError(); } });
       });
+    } else {
+      // Unchanged: Web3Forms only for non-connected forms.
+      submitToWeb3Forms().then(function (ok) { if (ok) { onSuccess(); } else { onError(); } });
+    }
   });
 })();
 

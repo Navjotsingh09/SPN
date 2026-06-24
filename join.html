@@ -445,8 +445,9 @@
       (e.g. a Formspree form URL like https://formspree.io/f/your-id, or a Vercel/Netlify
       form handler). Until then, submissions are handled client-side and not delivered.
     -->
-    <form class="form-card" id="joinForm" data-web3form data-success="Thank you for joining SPN — we've received your details and will be in touch." action="https://api.web3forms.com/submit" method="POST" novalidate>
+    <form class="form-card" id="joinForm" data-web3form data-devanhaar data-submission-type="join" data-success="Thank you for joining SPN — we've received your details and will be in touch." action="https://api.web3forms.com/submit" method="POST" novalidate>
       <input type="hidden" name="access_key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
+      <input type="hidden" name="source" value="SPN">
       <input type="hidden" name="subject" value="New SPN Join Request">
       <input type="hidden" name="from_name" value="SPN Website — Join Form">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
@@ -496,6 +497,10 @@
         </div>
       </div>
 
+      <div class="consent-row">
+        <input type="checkbox" id="joinNewsletter" name="newsletter" value="yes" checked>
+        <label for="joinNewsletter">Subscribe me to the SPN mailing list for news, events and opportunities.</label>
+      </div>
       <div class="consent-row">
         <input type="checkbox" id="consentPrivacy" name="consentPrivacy">
         <label for="consentPrivacy">I have read and agree to the <a href="/privacy-policy">Privacy Policy</a> and consent to SPN processing my personal data for the purposes of my membership application. <span class="req" aria-hidden="true">*</span></label>
