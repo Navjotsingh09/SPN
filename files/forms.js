@@ -318,6 +318,32 @@
 })();
 
 /*
+ * Glassmorphism sticky navbar — adds .scrolled to .site-header once the user
+ * scrolls past 16px, triggering the frosted-glass CSS transition.
+ */
+(function () {
+  'use strict';
+  function initScrollNav() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    function onScroll() {
+      if (window.scrollY > 16) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollNav);
+  } else {
+    initScrollNav();
+  }
+})();
+
+/*
  * SPN sticky glass navbar — makes the site-header fixed with glassmorphism.
  * Starts semi-transparent; gains a stronger frosted-glass backing on scroll.
  * Applies to every page since this script is loaded site-wide.
