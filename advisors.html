@@ -157,6 +157,83 @@
       width:100%;height:100%;object-fit:cover;display:block
     }
 
+    /* ── DISTINGUISHED PATRONS ── */
+    .patrons{
+      background:var(--dark);padding:100px 0;overflow:hidden
+    }
+    .patrons-head{
+      max-width:calc(var(--max) - 2*var(--px));margin:0 auto 48px;
+      padding:0 var(--px);
+      display:flex;flex-direction:column;gap:20px
+    }
+    .patrons-heading{
+      font-family:'Lora',serif;font-size:64px;font-weight:400;
+      color:#ecece7;line-height:64px;letter-spacing:-3.2px
+    }
+    .patrons-desc{
+      font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
+      color:#dee2e8;line-height:28px;letter-spacing:-0.09px;max-width:760px;
+      font-variation-settings:'wdth' 100
+    }
+    .patrons-viewport{
+      width:100%;overflow:hidden;
+      -webkit-mask-image:linear-gradient(to right,transparent 0,#000 4%,#000 96%,transparent 100%);
+      mask-image:linear-gradient(to right,transparent 0,#000 4%,#000 96%,transparent 100%)
+    }
+    .patrons-track{
+      display:flex;gap:24px;width:max-content;
+      padding:0 var(--px);
+      animation:patrons-scroll 60s linear infinite
+    }
+    .patrons-track:hover{animation-play-state:paused}
+    @keyframes patrons-scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+    .patron-card{
+      background:#fff;border-radius:16px;overflow:hidden;
+      width:340px;flex-shrink:0;display:flex;flex-direction:column;
+      box-shadow:0 14px 40px rgba(0,0,0,.18)
+    }
+    .patron-photo{
+      width:100%;height:300px;object-fit:cover;object-position:center top;background:#172e49
+    }
+    .patron-body{padding:24px;display:flex;flex-direction:column;gap:10px}
+    .patron-name{
+      font-family:'Lora',serif;font-size:24px;font-weight:400;
+      color:var(--dark);line-height:30px;letter-spacing:-0.72px
+    }
+    .patron-tag{
+      display:inline-block;align-self:flex-start;
+      font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+      text-transform:uppercase;letter-spacing:0.06em;
+      color:var(--accent);background:rgba(184,108,64,.1);
+      padding:4px 10px;border-radius:999px
+    }
+    .patron-role{
+      font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:600;
+      color:var(--text-dark);line-height:22px;letter-spacing:-0.08px;
+      font-variation-settings:'wdth' 100
+    }
+    .patron-sector{
+      font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:500;
+      color:var(--text-grey);line-height:18px;letter-spacing:.02em;
+      text-transform:uppercase;
+      font-variation-settings:'wdth' 100
+    }
+    .patron-bio{
+      font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:400;
+      color:var(--text-mid);line-height:21px;
+      font-variation-settings:'wdth' 100
+    }
+    .patron-contrib{
+      font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:400;
+      color:var(--text-mid);line-height:20px;
+      padding-top:12px;margin-top:2px;border-top:1px solid var(--light2);
+      font-variation-settings:'wdth' 100
+    }
+    .patron-contrib strong{color:var(--accent);font-weight:600}
+
     /* ── JOIN / BECOME AN ADVISOR FORM ── */
     .adv-join{
       background:var(--dark);padding:100px var(--px)
@@ -292,6 +369,8 @@
       .adv-features-heading{font-size:40px;line-height:48px}
       .adv-join-header{flex-direction:column}
       .adv-join-heading{font-size:48px;line-height:52px}
+      .patrons-heading{font-size:48px;line-height:52px;letter-spacing:-2.4px}
+      .patrons-desc{font-size:16px;line-height:25px}
       .adv-form-card{padding:40px 32px}
       .adv-dual-cta-inner{flex-direction:column;align-items:center}
       .adv-cta-card{max-width:100%}
@@ -309,9 +388,13 @@
       .adv-cta-heading{font-size:36px;line-height:44px}
       .faq-heading{font-size:36px;line-height:44px}
       .adv-form-card{padding:32px 20px}
+      .patrons-heading{font-size:36px;line-height:40px;letter-spacing:-2px}
+      .patron-card{width:280px}
+      .patron-photo{height:260px}
     }
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
+      .patrons-track{animation:none}
     }
     /* ── GLASSMORPHISM NAV ── */
     .site-header{position:sticky!important;top:0!important;z-index:1000!important;background:rgba(255,255,255,0.7)!important;backdrop-filter:blur(12px) saturate(160%);-webkit-backdrop-filter:blur(12px) saturate(160%);transition:background .35s ease,backdrop-filter .35s ease,box-shadow .35s ease}
@@ -508,6 +591,220 @@
         </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DISTINGUISHED PATRONS ===== -->
+<!--
+  PLACEHOLDER CONTENT: Replace each patron's photo, name, role, sector, bio and
+  SPN contribution with real details. Drop real photos into
+  images/advisors/patrons/ and update the src on each .patron-photo.
+  Keep the two card sets identical (the second set is aria-hidden and exists
+  only to make the auto-scroll loop seamless).
+-->
+<section class="patrons" id="distinguished-patrons">
+  <div class="patrons-head">
+    <h2 class="patrons-heading">Distinguished Patrons</h2>
+    <p class="patrons-desc">SPN is honoured to be supported by 8 Distinguished Patrons who bring senior professional experience, community leadership and a deep commitment to the values of Sikhi.</p>
+  </div>
+  <div class="patrons-viewport">
+    <div class="patrons-track">
+
+      <!-- original set -->
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Senior Partner</p>
+          <p class="patron-sector">Law</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Strategic guidance and governance support.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Director</p>
+          <p class="patron-sector">Finance</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Sector insight and partnerships.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Consultant</p>
+          <p class="patron-sector">Medicine</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Mentoring and pastoral support.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Entrepreneur</p>
+          <p class="patron-sector">Technology</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Mentoring early-career members and innovation insight.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Academic</p>
+          <p class="patron-sector">Education</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Thought leadership and research collaboration.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Director</p>
+          <p class="patron-sector">Business</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Strategic guidance and business partnerships.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Senior Leader</p>
+          <p class="patron-sector">Public Service</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Policy advocacy and public-sector insight.</p>
+        </div>
+      </article>
+
+      <article class="patron-card">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="Patron photo" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Community Leader</p>
+          <p class="patron-sector">Community Leadership</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Community engagement and advocacy.</p>
+        </div>
+      </article>
+
+      <!-- duplicate set for seamless loop -->
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Senior Partner</p>
+          <p class="patron-sector">Law</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Strategic guidance and governance support.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Director</p>
+          <p class="patron-sector">Finance</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Sector insight and partnerships.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Consultant</p>
+          <p class="patron-sector">Medicine</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Mentoring and pastoral support.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Entrepreneur</p>
+          <p class="patron-sector">Technology</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Mentoring early-career members and innovation insight.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Academic</p>
+          <p class="patron-sector">Education</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Thought leadership and research collaboration.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Director</p>
+          <p class="patron-sector">Business</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Strategic guidance and business partnerships.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Senior Leader</p>
+          <p class="patron-sector">Public Service</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Policy advocacy and public-sector insight.</p>
+        </div>
+      </article>
+
+      <article class="patron-card" aria-hidden="true">
+        <img class="patron-photo" src="images/advisors/patrons/patron-placeholder.svg" alt="" loading="lazy">
+        <div class="patron-body">
+          <span class="patron-tag">Distinguished Patron</span>
+          <h3 class="patron-name">Patron Name</h3>
+          <p class="patron-role">Community Leader</p>
+          <p class="patron-sector">Community Leadership</p>
+          <p class="patron-bio">A short paragraph introducing this patron's professional background, key achievements, and why they choose to support SPN. Replace this text with their full biography.</p>
+          <p class="patron-contrib"><strong>SPN contribution:</strong> Community engagement and advocacy.</p>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
