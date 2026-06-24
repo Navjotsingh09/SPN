@@ -208,7 +208,7 @@
     /* ── DUAL CTA ── */
     .adv-dual-cta{
       position:relative;min-height:708px;
-      background:linear-gradient(135deg,#0a0e1a 0%,#0f1628 25%,#162040 50%,#0d1525 75%,#080c18 100%);
+      background:var(--accent);
       display:flex;align-items:center;justify-content:center;
       overflow:hidden
     }
@@ -228,9 +228,11 @@
     }
     .adv-cta-text{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#e8d5c4;line-height:24px;
+      color:rgba(255,255,255,0.9);line-height:24px;
       font-variation-settings:'wdth' 100
     }
+    .adv-dual-cta .btn-primary{background:#fff;color:var(--dark);border-color:#fff}
+    .adv-dual-cta .btn-primary:hover{background:transparent;color:#fff;border-color:#fff}
 
     /* ── FAQ ── */
     .faq{background:#fff;padding:100px var(--px)}

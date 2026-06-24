@@ -288,7 +288,7 @@
     /* ── ATTEND / SPEAK / SUPPORT ── */
     .attend{
       position:relative;overflow:hidden;
-      background:linear-gradient(135deg,#0a0e1a 0%,#0f1628 25%,#162040 50%,#0d1525 75%,#080c18 100%);
+      background:var(--accent);
       padding:80px var(--px);min-height:708px;
       display:flex;align-items:center;justify-content:center
     }
@@ -303,10 +303,14 @@
     }
     .attend-desc{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#e8d5c4;line-height:24px;
+      color:rgba(255,255,255,0.9);line-height:24px;
       font-variation-settings:'wdth' 100
     }
     .attend-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center}
+    .attend .btn-primary{background:#fff;color:var(--dark);border-color:#fff}
+    .attend .btn-primary:hover{background:transparent;color:#fff;border-color:#fff}
+    .attend .btn-outline-white{border-color:#fff}
+    .attend .btn-outline-white:hover{background:#fff;color:var(--dark);border-color:#fff}
 
     /* ── FAQ ── */
     .faq{background:#fff;padding:80px var(--px)}
