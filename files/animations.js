@@ -35,32 +35,4 @@
     setup();
   }
 
-  // --- Navbar scroll-hide ---
-  (function () {
-    var header = document.querySelector('.site-header');
-    if (!header) return;
-
-    var lastScrollY = window.scrollY;
-    var ticking = false;
-
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(function () {
-          var currentScrollY = window.scrollY;
-          if (currentScrollY > lastScrollY && currentScrollY > 80) {
-            // Scrolling down past 80px — hide
-            header.classList.add('nav-hidden');
-          } else if (currentScrollY < lastScrollY) {
-            // Scrolling up — reveal
-            header.classList.remove('nav-hidden');
-          }
-          lastScrollY = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }());
 })();
