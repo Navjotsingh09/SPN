@@ -244,7 +244,6 @@
       box-shadow:0 12px 32px rgba(19,32,48,.15);
       opacity:1
     }
-    .stat-card:hover .stat-arrow{transform:translateX(3px)}
     .stat-content{display:flex;flex-direction:column;gap:12px}
     .stat-title{
       font-family:'Lora',serif;font-size:40px;font-weight:400;
@@ -254,12 +253,11 @@
       font-family:'Lora',serif;font-size:20px;font-weight:400;
       color:var(--text-mid);line-height:28px;letter-spacing:-0.4px
     }
-    .stat-arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease}
 
     /* ── JOIN CTA ── */
     .join-cta{
       position:relative;min-height:708px;
-      background:linear-gradient(135deg,#0a0e1a 0%,#0f1628 25%,#162040 50%,#0d1525 75%,#080c18 100%);
+      background:var(--accent);
       display:flex;align-items:center;justify-content:center;padding:80px var(--px);overflow:hidden
     }
     .join-cta-inner{
@@ -273,9 +271,13 @@
     }
     .join-cta-text{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#e8d5c4;line-height:24px
+      color:rgba(255,255,255,0.9);line-height:24px
     }
     .join-cta-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .join-cta .btn-primary{background:#fff;color:var(--dark);border-color:#fff}
+    .join-cta .btn-primary:hover{background:transparent;color:#fff;border-color:#fff}
+    .join-cta .btn-outline-white{border-color:#fff}
+    .join-cta .btn-outline-white:hover{background:#fff;color:var(--dark);border-color:#fff}
 
     /* ── STAY CONNECTED ── */
     .stay-connected{background:var(--dark);padding:96px var(--px)}
@@ -703,7 +705,6 @@
           <h3 class="stat-title">UK-wide Network</h3>
           <p class="stat-text">Connecting Sikh professionals across the United Kingdom.</p>
         </div>
-        <img class="stat-arrow" src="images/home/stat-arrow.svg" alt="">
       </article>
 
       <article class="stat-card">
@@ -711,7 +712,6 @@
           <h3 class="stat-title">18+ Membership</h3>
           <p class="stat-text">Sikh professionals, students, and graduates aged 18+ looking to grow skills, networks, and opportunities.</p>
         </div>
-        <img class="stat-arrow" src="images/home/stat-arrow.svg" alt="">
       </article>
 
       <article class="stat-card">
@@ -719,7 +719,6 @@
           <h3 class="stat-title">Cross-Sector Community</h3>
           <p class="stat-text">Bringing together members from multiple industries, professions and career pathways.</p>
         </div>
-        <img class="stat-arrow" src="images/home/stat-arrow.svg" alt="">
       </article>
 
       <article class="stat-card">
@@ -727,7 +726,6 @@
           <h3 class="stat-title">5 Core Offers</h3>
           <p class="stat-text">Talks, resources, mentorship, advice and professional experience opportunities.</p>
         </div>
-        <img class="stat-arrow" src="images/home/stat-arrow.svg" alt="">
       </article>
 
     </div>

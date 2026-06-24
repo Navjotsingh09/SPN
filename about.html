@@ -285,7 +285,6 @@
       transform:translateY(-4px);
       box-shadow:0 12px 32px rgba(19,32,48,.15);opacity:1
     }
-    .stat-card:hover .stat-arrow{transform:translateX(3px)}
     .stat-content{display:flex;flex-direction:column;gap:12px}
     .stat-title{
       font-family:'Lora',serif;font-size:40px;font-weight:400;
@@ -295,12 +294,11 @@
       font-family:'Lora',serif;font-size:20px;font-weight:400;
       color:var(--text-mid);line-height:28px;letter-spacing:-0.6px
     }
-    .stat-arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease}
 
     /* ── BE PART OF SPN / JOIN CTA ── */
     .join-cta{
       position:relative;min-height:708px;
-      background:linear-gradient(135deg,#0a0e1a 0%,#0f1628 25%,#162040 50%,#0d1525 75%,#080c18 100%);
+      background:var(--accent);
       display:flex;align-items:center;justify-content:center;padding:80px var(--px);overflow:hidden
     }
     .join-cta-inner{
@@ -314,9 +312,13 @@
     }
     .join-cta-text{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#e8d5c4;line-height:24px
+      color:rgba(255,255,255,0.9);line-height:24px
     }
     .join-cta-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .join-cta .btn-primary{background:#fff;color:var(--dark);border-color:#fff}
+    .join-cta .btn-primary:hover{background:transparent;color:#fff;border-color:#fff}
+    .join-cta .btn-outline-white{border-color:#fff}
+    .join-cta .btn-outline-white:hover{background:#fff;color:var(--dark);border-color:#fff}
 
     /* ── FAQ ── */
     .faq{background:#fff;padding:80px var(--px)}
@@ -503,7 +505,7 @@
 <section class="about-story">
   <div class="about-story-inner">
     <div class="about-photo">
-      <img src="images/about/our-story.jpg" alt="Sikh professionals networking">
+      <img src="images/about/our-story.png" alt="Sikh professionals networking">
     </div>
     <div class="about-text-block">
       <h2 class="about-section-heading">Our Story</h2>

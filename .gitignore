@@ -1,3 +1,37 @@
 .vercel
 .DS_Store
-files.zip
+
+# ── Large source / working files ──────────────────────────────
+*.zip
+*.docx
+*.pdf
+*.bak
+*.pptx
+*.pages
+*.numbers
+*.csv
+
+# ── Source image staging folders (originals; too large for git)
+images/SPN WEBSITE IMAGES/
+Images /
+images/Graduate Awards /
+
+# ── Staging files dumped in images/ root ──────────────────────
+images/About Our Story *.png
+images/Contact Us.png
+images/Network Above Benefits.png
+images/ChatGPT Image*.png
+
+# ── Screenshot / QA / debug images ───────────────────────────
+images/*_nav.png
+images/footer_check*.png
+images/footer_latest.png
+images/watermark_check.png
+images/coming-soon_full.png
+images/join-cta-bg.jpg
+
+# ── Misc workspace clutter ────────────────────────────────────
+Attached Element Context from Integrated
+index.html.bak
+Sikh Graduate Awards main card image.jpg
+Updates required*.pdf

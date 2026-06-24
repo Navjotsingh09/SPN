@@ -323,7 +323,6 @@
       transform:translateY(-4px);
       box-shadow:0 12px 32px rgba(19,32,48,.15);opacity:1
     }
-    .stat-card:hover .stat-arrow{transform:translateX(3px)}
     .stat-content{display:flex;flex-direction:column;gap:12px}
     .stat-title{
       font-family:'Lora',serif;font-size:40px;font-weight:400;
@@ -333,12 +332,11 @@
       font-family:'Lora',serif;font-size:20px;font-weight:400;
       color:var(--text-mid);line-height:28px;letter-spacing:-0.6px
     }
-    .stat-arrow{width:24px;height:24px;object-fit:contain;transition:transform .3s ease}
 
     /* ── BE PART OF SPN / JOIN CTA ── */
     .join-cta{
       position:relative;min-height:708px;
-      background:linear-gradient(135deg,#0a0e1a 0%,#0f1628 25%,#162040 50%,#0d1525 75%,#080c18 100%);
+      background:var(--accent);
       display:flex;align-items:center;justify-content:center;padding:80px var(--px);overflow:hidden
     }
     .join-cta-inner{
@@ -352,9 +350,13 @@
     }
     .join-cta-text{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
-      color:#e8d5c4;line-height:24px
+      color:rgba(255,255,255,0.9);line-height:24px
     }
     .join-cta-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .join-cta .btn-primary{background:#fff;color:var(--dark);border-color:#fff}
+    .join-cta .btn-primary:hover{background:transparent;color:#fff;border-color:#fff}
+    .join-cta .btn-outline-white{border-color:#fff}
+    .join-cta .btn-outline-white:hover{background:#fff;color:var(--dark);border-color:#fff}
 
     /* ── FAQ ── */
     .faq{background:#fff;padding:80px var(--px)}
@@ -604,7 +606,6 @@
           <h3 class="stat-title">UK-wide Reach</h3>
           <p class="stat-text">A network designed to connect and empower Sikh professionals and leaders across the United Kingdom.</p>
         </div>
-        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
       </article>
 
       <article class="stat-card">
@@ -612,7 +613,6 @@
           <h3 class="stat-title">18+ Members</h3>
           <p class="stat-text" style="font-weight:700">Support for adults across the United Kingdom at every milestone, finishing education or launching careers.</p>
         </div>
-        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
       </article>
 
       <article class="stat-card">
@@ -620,7 +620,6 @@
           <h3 class="stat-title">Multiple Sectors</h3>
           <p class="stat-text" style="font-weight:700">Connecting professionals across law, finance, medicine, technology, education, business and public service.</p>
         </div>
-        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
       </article>
 
       <article class="stat-card">
@@ -628,7 +627,6 @@
           <h3 class="stat-title">Future Directory</h3>
           <p class="stat-text" style="font-weight:700">Building a secure portal where members across the United Kingdom can find one another and offer support.</p>
         </div>
-        <img class="stat-arrow" src="images/network/stat-arrow.svg" alt="">
       </article>
 
     </div>
@@ -638,7 +636,7 @@
 <!-- ===== BENEFITS ===== -->
 <section class="benefits-net">
   <div class="benefits-net-inner">
-    <div class="benefits-net-banner"></div>
+    <div class="benefits-net-banner"><img src="images/network/member-benefits.png" alt=""></div>
     <div class="benefits-net-head">
       <h2 class="benefits-net-heading">Member Benefits</h2>
       <p class="benefits-net-sub">Unlock professional opportunities across the United Kingdom designed to accelerate your growth, build connections, and uplift our community.</p>

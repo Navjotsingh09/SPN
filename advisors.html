@@ -188,6 +188,7 @@
       color:#121217;line-height:24px;letter-spacing:-0.18px;
       font-variation-settings:'wdth' 100
     }
+    .adv-form-label-main [aria-hidden]{color:#e05252;margin-left:2px}
     .adv-form-fields{display:flex;flex-direction:column;gap:32px}
     .adv-form-row{display:flex;gap:16px}
     .adv-form-field{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
@@ -519,7 +520,7 @@
         <input type="hidden" name="subject" value="New SPN Advisor Application">
         <input type="hidden" name="from_name" value="SPN Website — Advisor Application">
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-        <p class="adv-form-label-main">Name (required)</p>
+        <p class="adv-form-label-main">Name <span aria-hidden="true">*</span></p>
         <div class="adv-form-row">
           <div class="adv-form-field">
             <label class="adv-form-field-label" for="advFirstName">First Name</label>

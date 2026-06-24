@@ -29,7 +29,7 @@ All source photos have been copied and renamed web-safe into the `images/` subfo
 |---|---|---|---|
 | `images/about/hero.jpg` | *(bespoke — PNG renamed .jpg, 2000×1121)* | Hero | `about.html:440` |
 | `images/about/who-are-we.jpg` | `ABOUT/WHO ARE WE/Sikh Businessman Turban Jan 7 2026.jpg` | "Who We Are?" | `about.html:481` |
-| `images/about/our-story.jpg` | `ABOUT/OUR STORY/business-meeting-with-colleagues-discussing-docume-2026-03-18-13-38-30-utc.jpg` | "Our Story" | `about.html:490` |
+| `images/about/our-story.png` | `About Our Story .png` (final design) | "Our Story" | `about.html:506` |
 | `images/about/stats-bg.jpg` | `ABOUT/stats/Financial Charts Data Visualizations Mar 18 2026.jpg` | Stats band | *(on disk; `about.html:636` uses `home/stats.jpg` — wire here if needed)* |
 | `images/about/footer-cta.jpg` | `ABOUT/FOOTER/BE PART OF SPN .jpg` | Join CTA band | `about.html:682` |
 
@@ -47,7 +47,7 @@ All source photos have been copied and renamed web-safe into the `images/` subfo
 |---|---|---|---|
 | `images/network/community.jpg` | `NETWORK/connect with us/Sikh Businessman Meeting Photo Mar 18 2026.jpg` | "Connect with us" photo | `network.html:755` |
 | `images/network/stats-bg.jpg` | `NETWORK/stats/Financial Charts Data Visualizations Mar 18 2026.jpg` | Stats band bg | `network.html:598` |
-| `images/network/member-benefits.jpg` | `NETWORK/member benefits/diverse professionals networking London.jpg` | Member Benefits banner | `network.html:644` |
+| `images/network/member-benefits.png` | `Network Above Benefits.png` (final design) | Member Benefits banner | `network.html:641` |
 | `images/network/join-cta.jpg` | *(bespoke — no matching source folder)* | Join CTA band | `network.html:678` |
 | `images/network/footer-cta.jpg` | `NETWORK/FOOTER/BE PART OF SPN.jpg` | Footer area | *(on disk; not currently in a `<img>` — may be used via CSS bg)* |
 
@@ -76,7 +76,7 @@ All source photos have been copied and renamed web-safe into the `images/` subfo
 
 | Dest file | Source | Section | HTML slot |
 |---|---|---|---|
-| `images/join/contact.jpg` | `JOIN/CONTACT/CONTACT.jpg` | Contact | `join.html:395` |
+| `images/join/contact.png` | `Contact Us.png` (final design) | Contact | `join.html:382` |
 | `images/join/stay-in-the-loop.jpg` | `JOIN/News letter/STAY IN THE LOOP.jpg` | "Stay in the loop" newsletter | `join.html:570` |
 
 ### Blog — `blog.html`

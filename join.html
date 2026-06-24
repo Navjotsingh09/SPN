@@ -291,12 +291,13 @@
     .consent-row label a{color:var(--accent);text-decoration:underline}
     .consent-error{font-family:'Instrument Sans',sans-serif;font-size:13px;color:#e05252;line-height:18px;display:none;margin-top:4px}
     .consent-error.show{display:block}
-    .field label .req{color:var(--accent);margin-left:2px}
+    .field label .req{color:#e05252;margin-left:2px}
     /* ── RESPONSIVE ── */
     @media(max-width:1280px){:root{--px:80px}}
     @media(max-width:1000px){
       :root{--px:32px}
       .hero{padding:0 32px 32px}
+      .hero-card{padding:48px 48px}
       .hero-h1{font-size:48px;line-height:52px;letter-spacing:-2.4px}
       .hero-desc{font-size:16px;max-width:100%}
       .why-join-inner{flex-direction:column;gap:24px}
@@ -309,24 +310,46 @@
       .newsletter-content{padding:32px 40px}
       .newsletter-form-grid{grid-template-columns:1fr}
       .faq-heading{font-size:40px;line-height:48px}
+      .faq{padding:60px var(--px) 60px}
     }
     @media(max-width:700px){
       :root{--px:20px}
       .nav-links{display:none}
       .hero{padding:0 16px 16px}
+      .hero-card{padding:40px 24px;min-height:auto;border-radius:16px}
       .hero-h1{font-size:36px;line-height:40px;letter-spacing:-2px}
-      .contact{padding:60px var(--px) 60px}
-      .contact-title{font-size:40px}
-      .form-card{padding:24px}
-      .newsletter-content{padding:32px}
-      .faq-heading{font-size:36px;line-height:44px}
+      .contact{padding:56px var(--px) 56px}
+      .contact-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:28px}
+      .contact-title{font-size:34px;letter-spacing:-1.6px}
+      .contact-sub{max-width:100%}
+      .why-join{padding:64px var(--px) 56px}
+      .form-card{padding:24px 20px;border-radius:16px}
+      .newsletter-img{display:none}
+      .newsletter-content{padding:28px 24px}
+      .newsletter-h2{font-size:28px;line-height:36px}
+      .faq{padding:56px var(--px) 56px}
+      .faq-heading{font-size:32px;line-height:40px}
       .faq-list{max-width:100%}
+      .process-steps{flex-direction:column;gap:16px}
+      .process-step{min-width:unset}
     }
     @media(max-width:480px){
+      .hero{padding:0 12px 12px}
+      .hero-card{padding:32px 16px;border-radius:12px}
       .hero-h1{font-size:28px;line-height:34px;letter-spacing:-1.5px}
       .hero-label{font-size:14px;line-height:22px}
       .hero-desc{font-size:14px;line-height:20px}
-      .btn{padding:8px 18px;font-size:14px}
+      .btn{padding:10px 20px;font-size:14px}
+      .contact-title{font-size:26px;letter-spacing:-1.2px}
+      .contact-head{margin-bottom:20px}
+      .why-join{padding:48px var(--px) 48px}
+      .why-join-heading{font-size:32px;line-height:40px}
+      .form-card{padding:20px 16px}
+      .newsletter-content{padding:24px 16px}
+      .newsletter-form-legend{font-size:16px}
+      .faq{padding:48px var(--px) 48px}
+      .faq-heading{font-size:28px;line-height:36px}
+      .form-data-note{font-size:13px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
@@ -379,7 +402,7 @@
 <!-- ===== CONTACT / JOIN FORM ===== -->
 <section class="contact" id="join-form">
   <div class="contact-bg">
-    <img src="images/join/contact.webp" alt="">
+    <img src="images/join/contact.png" alt="">
     <div class="contact-overlay"></div>
   </div>
   <div class="contact-inner">
