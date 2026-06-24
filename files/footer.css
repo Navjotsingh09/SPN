@@ -130,6 +130,15 @@
   max-height:100dvh;overflow-y:auto
 }
 .mobile-menu.open{transform:translateY(0);opacity:1;visibility:visible}
+.mobile-menu-close{
+  position:absolute;top:24px;right:var(--px,24px);z-index:1;
+  width:44px;height:44px;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border:none;padding:0;cursor:pointer;
+  color:var(--dark,#132030);
+  -webkit-tap-highlight-color:transparent
+}
+.mobile-menu-close svg{width:26px;height:26px;display:block}
 .mobile-menu a:not(.btn){
   font-family:'Instrument Sans',sans-serif;font-size:18px;font-weight:400;
   color:var(--dark,#132030);letter-spacing:-0.08px;line-height:1;

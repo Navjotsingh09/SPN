@@ -224,6 +224,18 @@
     panel.className = 'mobile-menu';
     panel.id = 'mobile-menu';
 
+    // Explicit close (X) button — the panel sits above the header, so the
+    // burger that morphs into an X is covered. This gives users a visible close.
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'mobile-menu-close';
+    closeBtn.setAttribute('aria-label', 'Close menu');
+    closeBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+      '</svg>';
+    panel.appendChild(closeBtn);
+
     if (navLinks) {
       navLinks.querySelectorAll('a').forEach(function (a) {
         var link = a.cloneNode(true);
@@ -290,6 +302,8 @@
     });
 
     backdrop.addEventListener('click', close);
+
+    closeBtn.addEventListener('click', close);
 
     panel.addEventListener('click', function (e) {
       if (e.target.closest('a')) {
