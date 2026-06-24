@@ -27,7 +27,8 @@
   function showStatus(form, message, ok) {
     var el = getStatusEl(form);
     el.textContent = message;
-    el.style.color = ok ? '#2a6041' : '#b00020';
+    el.style.display = 'block';
+    el.style.color = ok ? '#b86c40' : '#e05252';
   }
 
   document.addEventListener('submit', function (e) {
