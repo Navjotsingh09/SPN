@@ -144,13 +144,7 @@
       border:1px solid #cdd0d3;border-radius:20px;
       overflow:hidden;height:516px;
       display:flex;flex-direction:column;justify-content:flex-end;
-      padding:0 24px 24px;
-      transition:border-color .3s ease,transform .3s ease,box-shadow .3s ease
-    }
-    .event-card:hover{
-      border-color:transparent;
-      transform:translateY(-4px);
-      box-shadow:0 16px 40px rgba(0,0,0,.25)
+      padding:0 24px 24px
     }
     .event-card-bg{
       position:absolute;top:0;left:0;right:0;bottom:0;
@@ -166,50 +160,38 @@
     /* gradient overlay so content box reads well */
     .event-card-bg::after{
       content:'';position:absolute;inset:0;
-      background:linear-gradient(to bottom,rgba(0,0,0,0) 30%,rgba(0,0,0,.12) 60%,rgba(255,255,255,.85) 80%,#fff 100%);
-      transition:background .3s ease
+      background:linear-gradient(to bottom,rgba(0,0,0,0) 30%,rgba(0,0,0,.12) 60%,rgba(255,255,255,.85) 80%,#fff 100%)
     }
-    .event-card:hover .event-card-bg::after{
-      background:linear-gradient(to bottom,rgba(0,0,0,0) 10%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.75) 100%)
+    /* dimmed variant — adds a subtle dark veil over the upper photo area */
+    .event-card--dimmed .event-card-bg::after{
+      background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,.2) 40%,rgba(255,255,255,.8) 72%,#fff 88%)
     }
     .event-card-content{
       position:relative;z-index:1;
       background:#fff;border-radius:12px;padding:20px;
-      display:flex;flex-direction:column;gap:20px;width:100%;
-      transition:background .3s ease
+      display:flex;flex-direction:column;gap:20px;width:100%
     }
-    .event-card:hover .event-card-content{background:transparent}
     .event-tags{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
     .event-tag{
       background:#c7dbf2;border-radius:4px;padding:4px 8px;
       font-family:'Inter',sans-serif;font-size:12px;font-weight:400;
-      color:var(--text);line-height:1.5;white-space:nowrap;
-      transition:background .3s ease,color .3s ease
+      color:var(--text);line-height:1.5;white-space:nowrap
     }
-    .event-card:hover .event-tag{background:rgba(255,255,255,.2);color:#fff}
     .event-title{
       font-family:'Inter',sans-serif;font-size:24px;font-weight:500;
-      color:var(--text);line-height:28px;letter-spacing:-1.44px;width:100%;
-      transition:color .3s ease
+      color:var(--text);line-height:28px;letter-spacing:-1.44px;width:100%
     }
-    .event-card:hover .event-title{color:#fff}
     .event-desc{
       font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:400;
       color:var(--text-grey);line-height:18px;
-      font-variation-settings:'wdth' 100;
-      transition:color .3s ease
+      font-variation-settings:'wdth' 100
     }
-    .event-card:hover .event-desc{color:rgba(255,255,255,.8)}
 
     /* ── FEATURED CARD MODIFIER ── */
     .event-card--featured{height:640px}
     .event-card--featured .event-card-bg img{object-position:center 35%}
     .event-card--featured .event-card-bg::after{
-      background:linear-gradient(to bottom,rgba(0,0,0,0) 20%,rgba(0,0,0,.08) 50%,rgba(255,255,255,.8) 72%,#fff 88%);
-      transition:background .3s ease
-    }
-    .event-card--featured:hover .event-card-bg::after{
-      background:linear-gradient(to bottom,rgba(0,0,0,0) 10%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.75) 100%)
+      background:linear-gradient(to bottom,rgba(0,0,0,0) 20%,rgba(0,0,0,.08) 50%,rgba(255,255,255,.8) 72%,#fff 88%)
     }
     @media(max-width:1000px){.event-card--featured{height:540px}}
     @media(max-width:700px){.event-card--featured{height:auto;min-height:480px}}
@@ -575,7 +557,7 @@
     <!-- Single featured card -->
     <div class="events-grid">
       <div class="events-row">
-        <article class="event-card event-card--featured">
+        <article class="event-card event-card--featured event-card--dimmed">
           <div class="event-card-bg">
             <img src="images/events/featured-grad-awards.jpg" alt="Sikh Graduate Awards">
           </div>
@@ -762,7 +744,6 @@
 <section class="faq">
   <div class="faq-inner">
     <header class="faq-header">
-      <p class="faq-sub">Common questions</p>
       <h2 class="faq-heading">FAQ</h2>
       <p class="faq-desc">Everything you need to know about SPN events.</p>
     </header>
