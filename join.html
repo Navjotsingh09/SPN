@@ -474,15 +474,18 @@
         <div class="field">
           <label for="profession">Profession / Current Role</label>
           <input id="profession" name="profession" type="text" placeholder="e.g. Software Engineer">
+          <span class="field-error" id="professionError"></span>
         </div>
         <div class="field">
           <label for="industry">Industry / Sector</label>
           <input id="industry" name="industry" type="text" placeholder="e.g. Technology, Finance, Healthcare">
+          <span class="field-error" id="industryError"></span>
         </div>
 
         <div class="field">
           <label for="city">City</label>
           <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. London">
+          <span class="field-error" id="cityError"></span>
         </div>
         <div class="field">
           <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
@@ -658,10 +661,35 @@
 
   form.addEventListener('submit', function (e) {
     var ok = true;
+    var NAME_RE = /^[A-Za-zÀ-ÿ' .,-]+$/;
 
     var fn = document.getElementById('fullName');
     var fnF = fn && fn.closest('.field');
-    if (fnF && !fn.value.trim()) { showErr(fnF, 'Please enter your full name.'); ok = false; }
+    if (fnF) {
+      if (!fn.value.trim()) {
+        showErr(fnF, 'Please enter your full name.'); ok = false;
+      } else if (!NAME_RE.test(fn.value.trim())) {
+        showErr(fnF, 'Please use letters only (commas and full stops are allowed).'); ok = false;
+      }
+    }
+
+    var prof = document.getElementById('profession');
+    var profF = prof && prof.closest('.field');
+    if (profF && prof.value.trim() && !NAME_RE.test(prof.value.trim())) {
+      showErr(profF, 'Please use letters only (commas and full stops are allowed).'); ok = false;
+    }
+
+    var ind = document.getElementById('industry');
+    var indF = ind && ind.closest('.field');
+    if (indF && ind.value.trim() && !NAME_RE.test(ind.value.trim())) {
+      showErr(indF, 'Please use letters only (commas and full stops are allowed).'); ok = false;
+    }
+
+    var city = document.getElementById('city');
+    var cityF = city && city.closest('.field');
+    if (cityF && city.value.trim() && !NAME_RE.test(city.value.trim())) {
+      showErr(cityF, 'Please use letters only (commas and full stops are allowed).'); ok = false;
+    }
 
     var age = document.getElementById('ageRange');
     var ageF = age && age.closest('.field');

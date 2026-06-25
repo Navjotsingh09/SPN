@@ -291,13 +291,14 @@
     }
     .adv-dual-cta-inner{
       position:relative;z-index:1;
-      display:flex;gap:80px;align-items:flex-start;justify-content:center;
+      display:flex;gap:80px;align-items:stretch;justify-content:center;
       padding:80px var(--px);width:100%;max-width:calc(var(--max) - 2*var(--px));margin:0 auto
     }
     .adv-cta-card{
       flex:1;max-width:480px;
       display:flex;flex-direction:column;gap:24px
     }
+    .adv-cta-card .btn{margin-top:auto;align-self:flex-start}
     .adv-cta-content{display:flex;flex-direction:column;gap:16px}
     .adv-cta-heading{
       font-family:'Lora',serif;font-size:48px;font-weight:400;
@@ -872,7 +873,7 @@
           </div>
           <div class="adv-form-field">
             <label class="adv-form-field-label" for="advLinkedIn">LinkedIn</label>
-            <input class="adv-form-input" type="url" id="advLinkedIn" name="linkedin" placeholder="https://linkedin.com/in/...">
+            <input class="adv-form-input" type="text" id="advLinkedIn" name="linkedin" inputmode="url" pattern="(https?://)?(www\.)?linkedin\.com/.+" title="Please enter a valid LinkedIn URL (e.g. https://linkedin.com/in/yourname)." placeholder="e.g. linkedin.com/in/yourname">
           </div>
         </div>
         <div class="adv-form-field">

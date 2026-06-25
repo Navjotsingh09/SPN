@@ -809,15 +809,15 @@
       <div class="form-grid">
         <div class="form-field">
           <label class="form-label" for="firstName">First Name <span style="color:#c0392b;font-weight:normal">*</span></label>
-          <input class="form-input" type="text" id="firstName" name="firstName" required placeholder="e.g. Navjot">
+          <input class="form-input" type="text" id="firstName" name="firstName" required pattern="[A-Za-zÀ-ÿ ',.\-]+" title="Please use letters only (commas and full stops are allowed)." placeholder="e.g. Navjot">
         </div>
         <div class="form-field">
           <label class="form-label" for="lastName">Last Name <span style="color:#c0392b;font-weight:normal">*</span></label>
-          <input class="form-input" type="text" id="lastName" name="lastName" required placeholder="e.g. Singh">
+          <input class="form-input" type="text" id="lastName" name="lastName" required pattern="[A-Za-zÀ-ÿ ',.\-]+" title="Please use letters only (commas and full stops are allowed)." placeholder="e.g. Singh">
         </div>
         <div class="form-field">
           <label class="form-label" for="phone">Phone</label>
-          <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. +44 7700 900000">
+          <input class="form-input" type="tel" id="phone" name="phone" pattern="[0-9 +\(\)\-]*" title="Please enter a valid phone number — digits and + ( ) only." placeholder="e.g. +44 7700 900000">
         </div>
         <div class="form-field">
           <label class="form-label" for="email">Email <span style="color:#c0392b;font-weight:normal">*</span></label>
@@ -825,7 +825,7 @@
         </div>
         <div class="form-field full">
           <label class="form-label" for="profession">Profession / Area of Interest</label>
-          <input class="form-input" type="text" id="profession" name="profession" placeholder="e.g. Software Engineer, Finance, Healthcare">
+          <input class="form-input" type="text" id="profession" name="profession" pattern="[A-Za-zÀ-ÿ ',.\-]+" title="Please use letters only (commas and full stops are allowed)." placeholder="e.g. Software Engineer, Finance, Healthcare">
         </div>
         <div class="form-field full">
           <div class="form-check-row">
