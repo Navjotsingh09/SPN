@@ -196,6 +196,12 @@
     new FormData(form).forEach(function (value, key) {
       if (typeof value === 'string') { textPayload[key] = value; }
     });
+    // Web3Forms personalises confirmation emails using the `name` field.
+    // Forms that use separate firstName/lastName fields won't have it, so
+    // synthesise it here so the email reads "Thank you, Navjot Singh" etc.
+    if (!textPayload.name && (textPayload.firstName || textPayload.lastName)) {
+      textPayload.name = [textPayload.firstName, textPayload.lastName].filter(Boolean).join(' ');
+    }
     var fetchOpts;
     if (hasFile) {
       // Let the browser set Content-Type (with the multipart boundary).
