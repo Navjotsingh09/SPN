@@ -128,6 +128,71 @@
     el.style.color = ok ? '#b86c40' : '#e05252';
   }
 
+  var CONSENT_FIELDS = [
+    {
+      name: 'consent_authority',
+      text: 'I confirm that I am authorised to complete this registration. If registering a participant under the age of 18, I confirm that I am their parent, legal guardian, or a person with parental responsibility, and I agree to the SPN Platform Terms and Conditions.'
+    },
+    {
+      name: 'consent_profile_processing',
+      text: 'Explicit Consent (UK GDPR Article 9): I explicitly consent to the Sikh Professional Network processing my professional profile data—including my community and philosophical affiliations—to display my profile in the member directory and connect me with professional networking and mentoring opportunities.'
+    },
+    {
+      name: 'consent_marketing',
+      text: 'I would like to receive marketing emails and newsletters regarding future events and community initiatives.'
+    }
+  ];
+
+  function ensureConsentFields(form) {
+    if (form.querySelector('[data-spn-consent-fields]')) return;
+
+    var wrapper = document.createElement('fieldset');
+    wrapper.setAttribute('data-spn-consent-fields', '');
+    wrapper.className = 'spn-consent-fields';
+    var legend = document.createElement('legend');
+    legend.textContent = 'Consent';
+    wrapper.appendChild(legend);
+
+    CONSENT_FIELDS.forEach(function (field, index) {
+      var label = document.createElement('label');
+      label.className = 'spn-consent-field';
+      var input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = field.name;
+      input.value = 'Agreed';
+      input.required = true;
+      input.id = 'spn-' + field.name + '-' + index;
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(field.text));
+      wrapper.appendChild(label);
+    });
+
+    var submit = form.querySelector('[type="submit"]');
+    form.insertBefore(wrapper, submit || null);
+  }
+
+  function initialiseConsentFields(root) {
+    var forms = root.querySelectorAll ? root.querySelectorAll('form[data-web3form]') : [];
+    for (var i = 0; i < forms.length; i++) ensureConsentFields(forms[i]);
+  }
+
+  var consentStyle = document.createElement('style');
+  consentStyle.textContent = [
+    '.spn-consent-fields{border:0;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}',
+    '.spn-consent-fields legend{font-weight:600;margin-bottom:2px}',
+    '.spn-consent-field{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5}',
+    '.spn-consent-field input{margin:3px 0 0;flex:0 0 auto}'
+  ].join('');
+  document.head.appendChild(consentStyle);
+  initialiseConsentFields(document);
+  new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      for (var i = 0; i < mutation.addedNodes.length; i++) {
+        if (mutation.addedNodes[i].nodeType === 1) initialiseConsentFields(mutation.addedNodes[i]);
+      }
+    });
+  }).observe(document.body, { childList: true, subtree: true });
+
   // ----- Devanhaar backend config -----
   // Forms marked `data-devanhaar` POST to the Devanhaar backend FIRST. If that
   // fails (network/server), we fall back to Web3Forms so a lead is never lost —
