@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400&display=swap');
 
 /* ── FOOTER ── */
-.footer{background:var(--dark);padding:80px var(--px);overflow:hidden;position:relative}
+.footer{background:var(--dark);padding:80px var(--px,156px);overflow:hidden;position:relative}
 .footer-inner{
   max-width:1169px;margin:0 auto;
   display:flex;flex-direction:column;gap:64px
