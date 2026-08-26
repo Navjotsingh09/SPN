@@ -228,6 +228,24 @@
     }).catch(function () { return false; });
   }
 
+  // Returns the first text input/textarea whose value looks like junk
+  // (contains 2+ characters from the set !@#$%^*~|<>{}[] with no real words).
+  // email, tel, url, hidden, checkbox, radio and file inputs are excluded.
+  var JUNK_CHARS_RE = /[!@#$%^*~|<>{}\[\]]{2,}/;
+  var TEXT_TYPES = { text: 1, search: 1, '': 1 };
+  function findJunkField(form) {
+    var els = form.querySelectorAll('input, textarea');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var type = (el.type || '').toLowerCase();
+      if (!(type in TEXT_TYPES) && el.tagName !== 'TEXTAREA') continue;
+      var val = el.value.trim();
+      if (!val) continue;
+      if (JUNK_CHARS_RE.test(val)) return el;
+    }
+    return null;
+  }
+
   document.addEventListener('submit', function (e) {
     var form = e.target;
     if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-web3form')) {
@@ -238,6 +256,13 @@
 
     if (!form.checkValidity()) {
       form.reportValidity();
+      return;
+    }
+
+    var junkField = findJunkField(form);
+    if (junkField) {
+      junkField.focus();
+      showStatus(form, 'Please check your entries — some fields contain invalid characters.', false);
       return;
     }
 
