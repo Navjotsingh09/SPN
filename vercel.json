@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/((?!coming-soon$|sikhprofessionalsnetwork_logo\\.jpeg$).*)",
+      "source": "/((?!coming-soon$|terms-of-service$|sikhprofessionalsnetwork_logo\\.jpeg$).*)",
       "has": [
         {
           "type": "host",
