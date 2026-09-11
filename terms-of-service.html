@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="files/footer.css">
 <link rel="stylesheet" href="files/animations.css"><link rel="stylesheet" href="files/accessibility.css"><script src="files/accessibility.js" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Lora:wght@400&display=swap" rel="stylesheet">
-<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;color:#191615;font-family:'Instrument Sans',sans-serif}a{color:inherit}.site-header{border-bottom:1px solid #eee}.navbar{max-width:1440px;margin:auto;padding:32px 11%;display:flex;align-items:center;justify-content:space-between;gap:24px}.nav-logo img{height:50px}.nav-links{display:flex;gap:28px;list-style:none;padding:0}.nav-links a{color:#132030;text-decoration:none}.btn{padding:10px 28px;background:#b86c40;color:#fff;border-radius:4px;text-decoration:none}.policy-page{max-width:1300px;margin:auto;padding:64px 6%}.policy-inner{max-width:1128px;margin:auto}.policy-title{font:400 64px/1.1 Lora,serif;margin:0 0 64px}.policy-sections{display:flex;flex-direction:column;gap:64px}.policy-section-heading{font:400 36px/1.15 Lora,serif;margin:0 0 24px}.policy-body{font-size:16px;line-height:1.5}.policy-body p{margin:0 0 16px}.policy-body h3{font:400 24px/1.3 Lora,serif;margin:24px 0 8px}.policy-body ul,.policy-body ol{padding-left:24px;margin:0 0 16px}.policy-spacer-bottom{height:108px}@media(max-width:700px){.navbar{padding:20px;flex-wrap:wrap}.nav-links{order:3;width:100%;justify-content:space-between;gap:8px;overflow:auto}.nav-links a{font-size:14px}.policy-page{padding:40px 20px}.policy-title{font-size:40px}.policy-section-heading{font-size:28px}}</style>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;color:#191615;font-family:'Instrument Sans',sans-serif}a{color:inherit}.site-header{border-bottom:1px solid #eee}.navbar{max-width:1440px;margin:auto;padding:32px 11%;display:flex;align-items:center;justify-content:space-between;gap:24px}.nav-logo img{height:50px}.nav-links{display:flex;gap:28px;list-style:none;padding:0}.nav-links a{color:#132030;text-decoration:none}.btn{padding:10px 28px;background:#b86c40;color:#fff;border-radius:4px;text-decoration:none}.policy-page{max-width:1300px;margin:auto;padding:64px 6%}.policy-inner{max-width:1128px;margin:auto}.policy-title{font:400 64px/1.1 Lora,serif;margin:0 0 64px}.policy-sections{display:flex;flex-direction:column;gap:64px}.policy-section-heading{font:400 36px/1.15 Lora,serif;margin:0 0 24px}.policy-body{font-size:16px;line-height:1.5}.policy-body p{margin:0 0 8px}.introduction-body p{margin:0}.policy-body h3{font:400 24px/1.3 Lora,serif;margin:24px 0 8px}.policy-body ul,.policy-body ol{padding-left:24px;margin:0 0 16px}.cancellation-form{max-width:680px;display:flex;flex-direction:column;gap:18px;margin:12px 0 0}.cancellation-form label{display:flex;flex-direction:column;gap:8px;font-weight:600}.cancellation-form input,.cancellation-form textarea{width:100%;padding:12px;border:1px solid #c9c9c4;border-radius:4px;font:inherit}.cancellation-form textarea{min-height:140px;resize:vertical}.cancellation-form button{align-self:flex-start}.policy-spacer-bottom{height:108px}@media(max-width:700px){.navbar{padding:20px;flex-wrap:wrap}.nav-links{order:3;width:100%;justify-content:space-between;gap:8px;overflow:auto}.nav-links a{font-size:14px}.policy-page{padding:40px 20px}.policy-title{font-size:40px}.policy-section-heading{font-size:28px}.cancellation-form button{width:100%}}</style>
 </head>
 <body>
 <header class="site-header">
@@ -49,7 +49,7 @@
 <div class="policy-sections">
 <section class="policy-section">
 <h2 class="policy-section-heading">1. Introduction</h2>
-<div class="policy-body">
+<div class="policy-body introduction-body">
 <p>Welcome to Sikh Professionals Network ("SPN").</p>
 <p>By accessing or using this website, you agree to be bound by these Terms of Service.</p>
 <p>If you do not agree, please discontinue use of the website.</p>
@@ -172,27 +172,23 @@
 <section class="policy-section">
 <h2 class="policy-section-heading">13. Statutory 14-Day Cooling-Off Right</h2>
 <div class="policy-body">
-<p>If you purchase an SPN premium membership, register for a paid networking event, or enter into a distance service agreement through this website, you may have the statutory right to withdraw from your purchase within <strong>14 days</strong>, subject to the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. Where applicable, cancellation requests may be submitted using our <strong>Statutory Model Cancellation Form</strong>.</p>
+<p>As a consumer entering into an online membership, ticket booking, or distance service agreement with Sikh Professionals Network (an initiative of Devanhaar), you have the statutory right to withdraw from your agreement within the applicable <strong>14-day</strong> cooling-off period.</p>
+<p>If you wish to exercise this right, please complete and submit the form below.</p>
 <h3>SPN Online Cancellation Submission</h3>
-<ul>
-<li>
-<strong>Your Full Name</strong>
-</li>
-<li>
-<strong>Your Email Address</strong>
-</li>
-<li>
-<strong>Your Physical Address</strong>
-</li>
-<li>
-<strong>SPN Service or Event Registered For</strong> (Examples: Premium Membership, Paid Networking Dinner, Panel Event)</li>
-<li>
-<strong>Date the Purchase / Booking Was Made</strong>
-</li>
-<li>
-<strong>Reason for Cancellation</strong>
-</li>
-</ul>
+<form class="cancellation-form" data-web3form data-success="Your cancellation request has been submitted. We will review it and respond as required by applicable consumer protection legislation." action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="fa2b3cfa-feb1-4783-9fe8-8d0505a04a52">
+<input type="hidden" name="subject" value="SPN Cancellation Request">
+<input type="hidden" name="from_name" value="SPN Website - Cancellation Request">
+<input type="hidden" name="submission_type" value="cancellation_request">
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+<label for="cancel-name">Your Full Name<input id="cancel-name" name="name" type="text" required></label>
+<label for="cancel-email">Your Email Address<input id="cancel-email" name="email" type="email" required></label>
+<label for="cancel-address">Your Physical Address<textarea id="cancel-address" name="address" required></textarea></label>
+<label for="cancel-service">SPN Service or Event Registered For<input id="cancel-service" name="service_or_event" type="text" placeholder="Examples: Premium Membership, Paid Networking Dinner, Panel Event" required></label>
+<label for="cancel-date">Date the Purchase / Booking Was Made<input id="cancel-date" name="purchase_date" type="date" required></label>
+<label for="cancel-reason">Reason for Cancellation<textarea id="cancel-reason" name="message" required></textarea></label>
+<button class="btn" type="submit">Submit cancellation request</button>
+</form>
 <p>Once submitted, we will acknowledge receipt of your request and confirm your cancellation and any eligible refund in accordance with applicable consumer protection legislation.</p>
 </div>
 </section>
