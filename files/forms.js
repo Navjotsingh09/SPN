@@ -144,6 +144,7 @@
   ];
 
   function ensureConsentFields(form) {
+    if (form.hasAttribute('data-no-consent')) return;
     if (form.querySelector('[data-spn-consent-fields]')) return;
 
     var wrapper = document.createElement('fieldset');
