@@ -932,8 +932,17 @@
     function next(){ current = (current + 1) % total; update(); }
     function prev(){ current = (current - 1 + total) % total; update(); }
     function stopAuto(){ clearInterval(autoTimer); autoTimer = null; }
-    function startAuto(){ stopAuto(); autoTimer = setInterval(next, AUTO_DELAY); }
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function startAuto(){
+      stopAuto();
+      if (document.documentElement.classList.contains('a11y-motion') || reducedMotion.matches) return;
+      autoTimer = setInterval(next, AUTO_DELAY);
+    }
     function resetAuto(){ stopAuto(); startAuto(); }
+    document.addEventListener('spn-a11y-motion', function(e){
+      if (e.detail.paused) stopAuto(); else startAuto();
+    });
+    reducedMotion.addEventListener('change', startAuto);
 
     document.getElementById('tnNext').addEventListener('click', function(){ next(); resetAuto(); });
     document.getElementById('tnPrev').addEventListener('click', function(){ prev(); resetAuto(); });
